@@ -20,6 +20,7 @@ module GetIntoTeachingApiClient
       @api_client = api_client
     end
     # Adds an attendee to a teaching event.
+    # If the `CandidateId` is specified then the existing candidate will be registered for the event, otherwise a new candidate will be created.
     # @param id The &#x60;id&#x60; of the &#x60;TeachingEvent&#x60;.
     # @param body Attendee to add to the teaching event.
     # @param [Hash] opts the optional parameters
@@ -30,6 +31,7 @@ module GetIntoTeachingApiClient
     end
 
     # Adds an attendee to a teaching event.
+    # If the &#x60;CandidateId&#x60; is specified then the existing candidate will be registered for the event, otherwise a new candidate will be created.
     # @param id The &#x60;id&#x60; of the &#x60;TeachingEvent&#x60;.
     # @param body Attendee to add to the teaching event.
     # @param [Hash] opts the optional parameters

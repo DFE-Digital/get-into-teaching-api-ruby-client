@@ -34,7 +34,7 @@ describe 'MailingListApi' do
 
   # unit tests for add_mailing_list_member
   # Adds a new member to the mailing list.
-  # Adds a new member to the mailing list. A new candidate will also be created if a matching candidate can not be found.
+  # If the &#x60;CandidateId&#x60; is specified then the existing candidate will be added to the mailing list, otherwise a new candidate will be created.
   # @param body Member to add to the mailing list.
   # @param [Hash] opts the optional parameters
   # @return [nil]

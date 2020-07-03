@@ -32,11 +32,61 @@ describe 'TypesApi' do
     end
   end
 
+  # unit tests for get_candidate_adviser_eligibilities
+  # Retrieves the list of candidate adviser eligibilities.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<TypeEntity>]
+  describe 'get_candidate_adviser_eligibilities test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_candidate_adviser_requirements
+  # Retrieves the list of candidate adviser requirements.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<TypeEntity>]
+  describe 'get_candidate_adviser_requirements test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_candidate_channels
   # Retrieves the list of candidate channels.
   # @param [Hash] opts the optional parameters
   # @return [Array<TypeEntity>]
   describe 'get_candidate_channels test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_candidate_describe_yourself
+  # Retrieves the list of candidate consideration journey stages.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<TypeEntity>]
+  describe 'get_candidate_describe_yourself test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_candidate_describe_yourself_options
+  # Retrieves the list of candidate describe yourself options.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<TypeEntity>]
+  describe 'get_candidate_describe_yourself_options test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_candidate_gcse_status
+  # Retrieves the list of candidate CGSE status.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<TypeEntity>]
+  describe 'get_candidate_gcse_status test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -52,21 +102,41 @@ describe 'TypesApi' do
     end
   end
 
-  # unit tests for get_candidate_locations
-  # Retrieves the list of candidate locations.
-  # @param [Hash] opts the optional parameters
-  # @return [Array<TypeEntity>]
-  describe 'get_candidate_locations test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   # unit tests for get_candidate_preferred_education_phases
   # Retrieves the list of candidate preferred education phases.
   # @param [Hash] opts the optional parameters
   # @return [Array<TypeEntity>]
   describe 'get_candidate_preferred_education_phases test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_candidate_retake_gcse_status
+  # Retrieves the list of candidate retake CGSE status.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<TypeEntity>]
+  describe 'get_candidate_retake_gcse_status test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_candidate_status
+  # Retrieves the list of candidate status.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<TypeEntity>]
+  describe 'get_candidate_status test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_candidate_types
+  # Retrieves the list of candidate types.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<TypeEntity>]
+  describe 'get_candidate_types test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -102,11 +172,11 @@ describe 'TypesApi' do
     end
   end
 
-  # unit tests for get_qualification_categories
-  # Retrieves the list of qualification categories.
+  # unit tests for get_phone_call_destinations
+  # Retrieves the list of phone call destinations.
   # @param [Hash] opts the optional parameters
   # @return [Array<TypeEntity>]
-  describe 'get_qualification_categories test' do
+  describe 'get_phone_call_destinations test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -127,6 +197,16 @@ describe 'TypesApi' do
   # @param [Hash] opts the optional parameters
   # @return [Array<TypeEntity>]
   describe 'get_qualification_types test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_qualification_uk_degree_grades
+  # Retrieves the list of qualification UK degree grades.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<TypeEntity>]
+  describe 'get_qualification_uk_degree_grades test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

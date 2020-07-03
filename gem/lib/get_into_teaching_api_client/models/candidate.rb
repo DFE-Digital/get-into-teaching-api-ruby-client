@@ -16,13 +16,37 @@ module GetIntoTeachingApiClient
   class Candidate
     attr_accessor :preferred_teaching_subject_id
 
-    attr_accessor :preferred_education_phase_id
+    attr_accessor :country_id
 
-    attr_accessor :location_id
+    attr_accessor :preferred_education_phase_id
 
     attr_accessor :initial_teacher_training_year_id
 
     attr_accessor :channel_id
+
+    attr_accessor :has_gcse_english_id
+
+    attr_accessor :has_gcse_maths_id
+
+    attr_accessor :has_gcse_science_id
+
+    attr_accessor :planning_to_retake_gcse_english_id
+
+    attr_accessor :planning_to_retake_gcse_maths_id
+
+    attr_accessor :planning_to_retake_cgse_science_id
+
+    attr_accessor :describe_yourself_option_id
+
+    attr_accessor :consideration_journey_stage_id
+
+    attr_accessor :type_id
+
+    attr_accessor :status_id
+
+    attr_accessor :adviser_eligibility_id
+
+    attr_accessor :adviser_requiremnt_id
 
     attr_accessor :email
 
@@ -46,6 +70,24 @@ module GetIntoTeachingApiClient
 
     attr_accessor :address_postcode
 
+    attr_accessor :callback_information
+
+    attr_accessor :teacher_id
+
+    attr_accessor :eligibility_rules_passed
+
+    attr_accessor :do_not_bulk_email
+
+    attr_accessor :do_not_bulk_postal_mail
+
+    attr_accessor :do_not_email
+
+    attr_accessor :do_not_postal_mail
+
+    attr_accessor :do_not_send_mm
+
+    attr_accessor :opt_out_of_sms
+
     attr_accessor :qualifications
 
     attr_accessor :past_teaching_positions
@@ -60,10 +102,22 @@ module GetIntoTeachingApiClient
     def self.attribute_map
       {
         :'preferred_teaching_subject_id' => :'preferredTeachingSubjectId',
+        :'country_id' => :'countryId',
         :'preferred_education_phase_id' => :'preferredEducationPhaseId',
-        :'location_id' => :'locationId',
         :'initial_teacher_training_year_id' => :'initialTeacherTrainingYearId',
         :'channel_id' => :'channelId',
+        :'has_gcse_english_id' => :'hasGcseEnglishId',
+        :'has_gcse_maths_id' => :'hasGcseMathsId',
+        :'has_gcse_science_id' => :'hasGcseScienceId',
+        :'planning_to_retake_gcse_english_id' => :'planningToRetakeGcseEnglishId',
+        :'planning_to_retake_gcse_maths_id' => :'planningToRetakeGcseMathsId',
+        :'planning_to_retake_cgse_science_id' => :'planningToRetakeCgseScienceId',
+        :'describe_yourself_option_id' => :'describeYourselfOptionId',
+        :'consideration_journey_stage_id' => :'considerationJourneyStageId',
+        :'type_id' => :'typeId',
+        :'status_id' => :'statusId',
+        :'adviser_eligibility_id' => :'adviserEligibilityId',
+        :'adviser_requiremnt_id' => :'adviserRequiremntId',
         :'email' => :'email',
         :'first_name' => :'firstName',
         :'last_name' => :'lastName',
@@ -75,6 +129,15 @@ module GetIntoTeachingApiClient
         :'address_city' => :'addressCity',
         :'address_state' => :'addressState',
         :'address_postcode' => :'addressPostcode',
+        :'callback_information' => :'callbackInformation',
+        :'teacher_id' => :'teacherId',
+        :'eligibility_rules_passed' => :'eligibilityRulesPassed',
+        :'do_not_bulk_email' => :'doNotBulkEmail',
+        :'do_not_bulk_postal_mail' => :'doNotBulkPostalMail',
+        :'do_not_email' => :'doNotEmail',
+        :'do_not_postal_mail' => :'doNotPostalMail',
+        :'do_not_send_mm' => :'doNotSendMm',
+        :'opt_out_of_sms' => :'optOutOfSms',
         :'qualifications' => :'qualifications',
         :'past_teaching_positions' => :'pastTeachingPositions',
         :'phone_call' => :'phoneCall',
@@ -87,10 +150,22 @@ module GetIntoTeachingApiClient
     def self.swagger_types
       {
         :'preferred_teaching_subject_id' => :'String',
+        :'country_id' => :'String',
         :'preferred_education_phase_id' => :'Integer',
-        :'location_id' => :'Integer',
         :'initial_teacher_training_year_id' => :'Integer',
         :'channel_id' => :'Integer',
+        :'has_gcse_english_id' => :'Integer',
+        :'has_gcse_maths_id' => :'Integer',
+        :'has_gcse_science_id' => :'Integer',
+        :'planning_to_retake_gcse_english_id' => :'Integer',
+        :'planning_to_retake_gcse_maths_id' => :'Integer',
+        :'planning_to_retake_cgse_science_id' => :'Integer',
+        :'describe_yourself_option_id' => :'Integer',
+        :'consideration_journey_stage_id' => :'Integer',
+        :'type_id' => :'Integer',
+        :'status_id' => :'Integer',
+        :'adviser_eligibility_id' => :'Integer',
+        :'adviser_requiremnt_id' => :'Integer',
         :'email' => :'String',
         :'first_name' => :'String',
         :'last_name' => :'String',
@@ -102,6 +177,15 @@ module GetIntoTeachingApiClient
         :'address_city' => :'String',
         :'address_state' => :'String',
         :'address_postcode' => :'String',
+        :'callback_information' => :'String',
+        :'teacher_id' => :'String',
+        :'eligibility_rules_passed' => :'String',
+        :'do_not_bulk_email' => :'BOOLEAN',
+        :'do_not_bulk_postal_mail' => :'BOOLEAN',
+        :'do_not_email' => :'BOOLEAN',
+        :'do_not_postal_mail' => :'BOOLEAN',
+        :'do_not_send_mm' => :'BOOLEAN',
+        :'opt_out_of_sms' => :'BOOLEAN',
         :'qualifications' => :'Array<CandidateQualification>',
         :'past_teaching_positions' => :'Array<CandidatePastTeachingPosition>',
         :'phone_call' => :'PhoneCall',
@@ -122,12 +206,12 @@ module GetIntoTeachingApiClient
         self.preferred_teaching_subject_id = attributes[:'preferredTeachingSubjectId']
       end
 
-      if attributes.has_key?(:'preferredEducationPhaseId')
-        self.preferred_education_phase_id = attributes[:'preferredEducationPhaseId']
+      if attributes.has_key?(:'countryId')
+        self.country_id = attributes[:'countryId']
       end
 
-      if attributes.has_key?(:'locationId')
-        self.location_id = attributes[:'locationId']
+      if attributes.has_key?(:'preferredEducationPhaseId')
+        self.preferred_education_phase_id = attributes[:'preferredEducationPhaseId']
       end
 
       if attributes.has_key?(:'initialTeacherTrainingYearId')
@@ -136,6 +220,54 @@ module GetIntoTeachingApiClient
 
       if attributes.has_key?(:'channelId')
         self.channel_id = attributes[:'channelId']
+      end
+
+      if attributes.has_key?(:'hasGcseEnglishId')
+        self.has_gcse_english_id = attributes[:'hasGcseEnglishId']
+      end
+
+      if attributes.has_key?(:'hasGcseMathsId')
+        self.has_gcse_maths_id = attributes[:'hasGcseMathsId']
+      end
+
+      if attributes.has_key?(:'hasGcseScienceId')
+        self.has_gcse_science_id = attributes[:'hasGcseScienceId']
+      end
+
+      if attributes.has_key?(:'planningToRetakeGcseEnglishId')
+        self.planning_to_retake_gcse_english_id = attributes[:'planningToRetakeGcseEnglishId']
+      end
+
+      if attributes.has_key?(:'planningToRetakeGcseMathsId')
+        self.planning_to_retake_gcse_maths_id = attributes[:'planningToRetakeGcseMathsId']
+      end
+
+      if attributes.has_key?(:'planningToRetakeCgseScienceId')
+        self.planning_to_retake_cgse_science_id = attributes[:'planningToRetakeCgseScienceId']
+      end
+
+      if attributes.has_key?(:'describeYourselfOptionId')
+        self.describe_yourself_option_id = attributes[:'describeYourselfOptionId']
+      end
+
+      if attributes.has_key?(:'considerationJourneyStageId')
+        self.consideration_journey_stage_id = attributes[:'considerationJourneyStageId']
+      end
+
+      if attributes.has_key?(:'typeId')
+        self.type_id = attributes[:'typeId']
+      end
+
+      if attributes.has_key?(:'statusId')
+        self.status_id = attributes[:'statusId']
+      end
+
+      if attributes.has_key?(:'adviserEligibilityId')
+        self.adviser_eligibility_id = attributes[:'adviserEligibilityId']
+      end
+
+      if attributes.has_key?(:'adviserRequiremntId')
+        self.adviser_requiremnt_id = attributes[:'adviserRequiremntId']
       end
 
       if attributes.has_key?(:'email')
@@ -180,6 +312,42 @@ module GetIntoTeachingApiClient
 
       if attributes.has_key?(:'addressPostcode')
         self.address_postcode = attributes[:'addressPostcode']
+      end
+
+      if attributes.has_key?(:'callbackInformation')
+        self.callback_information = attributes[:'callbackInformation']
+      end
+
+      if attributes.has_key?(:'teacherId')
+        self.teacher_id = attributes[:'teacherId']
+      end
+
+      if attributes.has_key?(:'eligibilityRulesPassed')
+        self.eligibility_rules_passed = attributes[:'eligibilityRulesPassed']
+      end
+
+      if attributes.has_key?(:'doNotBulkEmail')
+        self.do_not_bulk_email = attributes[:'doNotBulkEmail']
+      end
+
+      if attributes.has_key?(:'doNotBulkPostalMail')
+        self.do_not_bulk_postal_mail = attributes[:'doNotBulkPostalMail']
+      end
+
+      if attributes.has_key?(:'doNotEmail')
+        self.do_not_email = attributes[:'doNotEmail']
+      end
+
+      if attributes.has_key?(:'doNotPostalMail')
+        self.do_not_postal_mail = attributes[:'doNotPostalMail']
+      end
+
+      if attributes.has_key?(:'doNotSendMm')
+        self.do_not_send_mm = attributes[:'doNotSendMm']
+      end
+
+      if attributes.has_key?(:'optOutOfSms')
+        self.opt_out_of_sms = attributes[:'optOutOfSms']
       end
 
       if attributes.has_key?(:'qualifications')
@@ -327,6 +495,18 @@ module GetIntoTeachingApiClient
         invalid_properties.push('invalid value for "address_postcode", the character length must be great than or equal to 1.')
       end
 
+      if !@callback_information.nil? && @callback_information.to_s.length > 600
+        invalid_properties.push('invalid value for "callback_information", the character length must be smaller than or equal to 600.')
+      end
+
+      if !@callback_information.nil? && @callback_information.to_s.length < 0
+        invalid_properties.push('invalid value for "callback_information", the character length must be great than or equal to 0.')
+      end
+
+      if @privacy_policy.nil?
+        invalid_properties.push('invalid value for "privacy_policy", privacy_policy cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -362,6 +542,9 @@ module GetIntoTeachingApiClient
       return false if @address_postcode.nil?
       return false if @address_postcode.to_s.length > 40
       return false if @address_postcode.to_s.length < 1
+      return false if !@callback_information.nil? && @callback_information.to_s.length > 600
+      return false if !@callback_information.nil? && @callback_information.to_s.length < 0
+      return false if @privacy_policy.nil?
       true
     end
 
@@ -537,16 +720,42 @@ module GetIntoTeachingApiClient
       @address_postcode = address_postcode
     end
 
+    # Custom attribute writer method with validation
+    # @param [Object] callback_information Value to be assigned
+    def callback_information=(callback_information)
+      if !callback_information.nil? && callback_information.to_s.length > 600
+        fail ArgumentError, 'invalid value for "callback_information", the character length must be smaller than or equal to 600.'
+      end
+
+      if !callback_information.nil? && callback_information.to_s.length < 0
+        fail ArgumentError, 'invalid value for "callback_information", the character length must be great than or equal to 0.'
+      end
+
+      @callback_information = callback_information
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
           preferred_teaching_subject_id == o.preferred_teaching_subject_id &&
+          country_id == o.country_id &&
           preferred_education_phase_id == o.preferred_education_phase_id &&
-          location_id == o.location_id &&
           initial_teacher_training_year_id == o.initial_teacher_training_year_id &&
           channel_id == o.channel_id &&
+          has_gcse_english_id == o.has_gcse_english_id &&
+          has_gcse_maths_id == o.has_gcse_maths_id &&
+          has_gcse_science_id == o.has_gcse_science_id &&
+          planning_to_retake_gcse_english_id == o.planning_to_retake_gcse_english_id &&
+          planning_to_retake_gcse_maths_id == o.planning_to_retake_gcse_maths_id &&
+          planning_to_retake_cgse_science_id == o.planning_to_retake_cgse_science_id &&
+          describe_yourself_option_id == o.describe_yourself_option_id &&
+          consideration_journey_stage_id == o.consideration_journey_stage_id &&
+          type_id == o.type_id &&
+          status_id == o.status_id &&
+          adviser_eligibility_id == o.adviser_eligibility_id &&
+          adviser_requiremnt_id == o.adviser_requiremnt_id &&
           email == o.email &&
           first_name == o.first_name &&
           last_name == o.last_name &&
@@ -558,6 +767,15 @@ module GetIntoTeachingApiClient
           address_city == o.address_city &&
           address_state == o.address_state &&
           address_postcode == o.address_postcode &&
+          callback_information == o.callback_information &&
+          teacher_id == o.teacher_id &&
+          eligibility_rules_passed == o.eligibility_rules_passed &&
+          do_not_bulk_email == o.do_not_bulk_email &&
+          do_not_bulk_postal_mail == o.do_not_bulk_postal_mail &&
+          do_not_email == o.do_not_email &&
+          do_not_postal_mail == o.do_not_postal_mail &&
+          do_not_send_mm == o.do_not_send_mm &&
+          opt_out_of_sms == o.opt_out_of_sms &&
           qualifications == o.qualifications &&
           past_teaching_positions == o.past_teaching_positions &&
           phone_call == o.phone_call &&
@@ -574,7 +792,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [preferred_teaching_subject_id, preferred_education_phase_id, location_id, initial_teacher_training_year_id, channel_id, email, first_name, last_name, date_of_birth, telephone, address_line1, address_line2, address_line3, address_city, address_state, address_postcode, qualifications, past_teaching_positions, phone_call, privacy_policy, id].hash
+      [preferred_teaching_subject_id, country_id, preferred_education_phase_id, initial_teacher_training_year_id, channel_id, has_gcse_english_id, has_gcse_maths_id, has_gcse_science_id, planning_to_retake_gcse_english_id, planning_to_retake_gcse_maths_id, planning_to_retake_cgse_science_id, describe_yourself_option_id, consideration_journey_stage_id, type_id, status_id, adviser_eligibility_id, adviser_requiremnt_id, email, first_name, last_name, date_of_birth, telephone, address_line1, address_line2, address_line3, address_city, address_state, address_postcode, callback_information, teacher_id, eligibility_rules_passed, do_not_bulk_email, do_not_bulk_postal_mail, do_not_email, do_not_postal_mail, do_not_send_mm, opt_out_of_sms, qualifications, past_teaching_positions, phone_call, privacy_policy, id].hash
     end
 
     # Builds the object from hash
