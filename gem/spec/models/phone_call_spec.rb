@@ -44,7 +44,7 @@ describe 'PhoneCall' do
     end
   end
 
-  describe 'test attribute "telephone"' do
+  describe 'test attribute "destination_id"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

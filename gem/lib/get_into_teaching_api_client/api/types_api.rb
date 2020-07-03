@@ -19,6 +19,94 @@ module GetIntoTeachingApiClient
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Retrieves the list of candidate adviser eligibilities.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<TypeEntity>]
+    def get_candidate_adviser_eligibilities(opts = {})
+      data, _status_code, _headers = get_candidate_adviser_eligibilities_with_http_info(opts)
+      data
+    end
+
+    # Retrieves the list of candidate adviser eligibilities.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
+    def get_candidate_adviser_eligibilities_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TypesApi.get_candidate_adviser_eligibilities ...'
+      end
+      # resource path
+      local_var_path = '/api/types/candidate/adviser_eligibilities'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apiKey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<TypeEntity>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TypesApi#get_candidate_adviser_eligibilities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieves the list of candidate adviser requirements.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<TypeEntity>]
+    def get_candidate_adviser_requirements(opts = {})
+      data, _status_code, _headers = get_candidate_adviser_requirements_with_http_info(opts)
+      data
+    end
+
+    # Retrieves the list of candidate adviser requirements.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
+    def get_candidate_adviser_requirements_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TypesApi.get_candidate_adviser_requirements ...'
+      end
+      # resource path
+      local_var_path = '/api/types/candidate/adviser_requirements'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apiKey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<TypeEntity>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TypesApi#get_candidate_adviser_requirements\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Retrieves the list of candidate channels.
     # @param [Hash] opts the optional parameters
     # @return [Array<TypeEntity>]
@@ -60,6 +148,138 @@ module GetIntoTeachingApiClient
         :return_type => 'Array<TypeEntity>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TypesApi#get_candidate_channels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieves the list of candidate consideration journey stages.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<TypeEntity>]
+    def get_candidate_describe_yourself(opts = {})
+      data, _status_code, _headers = get_candidate_describe_yourself_with_http_info(opts)
+      data
+    end
+
+    # Retrieves the list of candidate consideration journey stages.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
+    def get_candidate_describe_yourself_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TypesApi.get_candidate_describe_yourself ...'
+      end
+      # resource path
+      local_var_path = '/api/types/candidate/consideration_journey_stages'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apiKey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<TypeEntity>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TypesApi#get_candidate_describe_yourself\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieves the list of candidate describe yourself options.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<TypeEntity>]
+    def get_candidate_describe_yourself_options(opts = {})
+      data, _status_code, _headers = get_candidate_describe_yourself_options_with_http_info(opts)
+      data
+    end
+
+    # Retrieves the list of candidate describe yourself options.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
+    def get_candidate_describe_yourself_options_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TypesApi.get_candidate_describe_yourself_options ...'
+      end
+      # resource path
+      local_var_path = '/api/types/candidate/describe_yourself'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apiKey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<TypeEntity>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TypesApi#get_candidate_describe_yourself_options\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieves the list of candidate CGSE status.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<TypeEntity>]
+    def get_candidate_gcse_status(opts = {})
+      data, _status_code, _headers = get_candidate_gcse_status_with_http_info(opts)
+      data
+    end
+
+    # Retrieves the list of candidate CGSE status.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
+    def get_candidate_gcse_status_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TypesApi.get_candidate_gcse_status ...'
+      end
+      # resource path
+      local_var_path = '/api/types/candidate/gcse_status'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apiKey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<TypeEntity>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TypesApi#get_candidate_gcse_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -107,50 +327,6 @@ module GetIntoTeachingApiClient
       end
       return data, status_code, headers
     end
-    # Retrieves the list of candidate locations.
-    # @param [Hash] opts the optional parameters
-    # @return [Array<TypeEntity>]
-    def get_candidate_locations(opts = {})
-      data, _status_code, _headers = get_candidate_locations_with_http_info(opts)
-      data
-    end
-
-    # Retrieves the list of candidate locations.
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
-    def get_candidate_locations_with_http_info(opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TypesApi.get_candidate_locations ...'
-      end
-      # resource path
-      local_var_path = '/api/types/candidate/locations'
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = nil
-      auth_names = ['apiKey']
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'Array<TypeEntity>')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TypesApi#get_candidate_locations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
     # Retrieves the list of candidate preferred education phases.
     # @param [Hash] opts the optional parameters
     # @return [Array<TypeEntity>]
@@ -192,6 +368,138 @@ module GetIntoTeachingApiClient
         :return_type => 'Array<TypeEntity>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TypesApi#get_candidate_preferred_education_phases\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieves the list of candidate retake CGSE status.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<TypeEntity>]
+    def get_candidate_retake_gcse_status(opts = {})
+      data, _status_code, _headers = get_candidate_retake_gcse_status_with_http_info(opts)
+      data
+    end
+
+    # Retrieves the list of candidate retake CGSE status.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
+    def get_candidate_retake_gcse_status_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TypesApi.get_candidate_retake_gcse_status ...'
+      end
+      # resource path
+      local_var_path = '/api/types/candidate/retake_gcse_status'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apiKey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<TypeEntity>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TypesApi#get_candidate_retake_gcse_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieves the list of candidate status.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<TypeEntity>]
+    def get_candidate_status(opts = {})
+      data, _status_code, _headers = get_candidate_status_with_http_info(opts)
+      data
+    end
+
+    # Retrieves the list of candidate status.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
+    def get_candidate_status_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TypesApi.get_candidate_status ...'
+      end
+      # resource path
+      local_var_path = '/api/types/candidate/status'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apiKey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<TypeEntity>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TypesApi#get_candidate_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieves the list of candidate types.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<TypeEntity>]
+    def get_candidate_types(opts = {})
+      data, _status_code, _headers = get_candidate_types_with_http_info(opts)
+      data
+    end
+
+    # Retrieves the list of candidate types.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
+    def get_candidate_types_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TypesApi.get_candidate_types ...'
+      end
+      # resource path
+      local_var_path = '/api/types/candidate/types'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apiKey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<TypeEntity>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TypesApi#get_candidate_types\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -327,23 +635,23 @@ module GetIntoTeachingApiClient
       end
       return data, status_code, headers
     end
-    # Retrieves the list of qualification categories.
+    # Retrieves the list of phone call destinations.
     # @param [Hash] opts the optional parameters
     # @return [Array<TypeEntity>]
-    def get_qualification_categories(opts = {})
-      data, _status_code, _headers = get_qualification_categories_with_http_info(opts)
+    def get_phone_call_destinations(opts = {})
+      data, _status_code, _headers = get_phone_call_destinations_with_http_info(opts)
       data
     end
 
-    # Retrieves the list of qualification categories.
+    # Retrieves the list of phone call destinations.
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
-    def get_qualification_categories_with_http_info(opts = {})
+    def get_phone_call_destinations_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TypesApi.get_qualification_categories ...'
+        @api_client.config.logger.debug 'Calling API: TypesApi.get_phone_call_destinations ...'
       end
       # resource path
-      local_var_path = '/api/types/qualification/categories'
+      local_var_path = '/api/types/phone_call/destinations'
 
       # query parameters
       query_params = {}
@@ -367,7 +675,7 @@ module GetIntoTeachingApiClient
         :auth_names => auth_names,
         :return_type => 'Array<TypeEntity>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TypesApi#get_qualification_categories\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: TypesApi#get_phone_call_destinations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -456,6 +764,50 @@ module GetIntoTeachingApiClient
         :return_type => 'Array<TypeEntity>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TypesApi#get_qualification_types\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieves the list of qualification UK degree grades.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<TypeEntity>]
+    def get_qualification_uk_degree_grades(opts = {})
+      data, _status_code, _headers = get_qualification_uk_degree_grades_with_http_info(opts)
+      data
+    end
+
+    # Retrieves the list of qualification UK degree grades.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
+    def get_qualification_uk_degree_grades_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TypesApi.get_qualification_uk_degree_grades ...'
+      end
+      # resource path
+      local_var_path = '/api/types/qualification/uk_degree_grades'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apiKey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<TypeEntity>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TypesApi#get_qualification_uk_degree_grades\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -3,9 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**category_id** | **Integer** |  | [optional] 
 **type_id** | **Integer** |  | [optional] 
+**uk_degree_grade_id** | **Integer** |  | [optional] 
 **degree_status_id** | **Integer** |  | [optional] 
+**subject** | **String** |  | [optional] 
 **id** | **String** |  | [optional] 
 
 

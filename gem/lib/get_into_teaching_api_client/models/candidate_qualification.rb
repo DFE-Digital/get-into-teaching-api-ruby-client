@@ -14,20 +14,23 @@ require 'date'
 
 module GetIntoTeachingApiClient
   class CandidateQualification
-    attr_accessor :category_id
-
     attr_accessor :type_id
 
+    attr_accessor :uk_degree_grade_id
+
     attr_accessor :degree_status_id
+
+    attr_accessor :subject
 
     attr_accessor :id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'category_id' => :'categoryId',
         :'type_id' => :'typeId',
+        :'uk_degree_grade_id' => :'ukDegreeGradeId',
         :'degree_status_id' => :'degreeStatusId',
+        :'subject' => :'subject',
         :'id' => :'id'
       }
     end
@@ -35,9 +38,10 @@ module GetIntoTeachingApiClient
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'category_id' => :'Integer',
         :'type_id' => :'Integer',
+        :'uk_degree_grade_id' => :'Integer',
         :'degree_status_id' => :'Integer',
+        :'subject' => :'String',
         :'id' => :'String'
       }
     end
@@ -50,16 +54,20 @@ module GetIntoTeachingApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'categoryId')
-        self.category_id = attributes[:'categoryId']
-      end
-
       if attributes.has_key?(:'typeId')
         self.type_id = attributes[:'typeId']
       end
 
+      if attributes.has_key?(:'ukDegreeGradeId')
+        self.uk_degree_grade_id = attributes[:'ukDegreeGradeId']
+      end
+
       if attributes.has_key?(:'degreeStatusId')
         self.degree_status_id = attributes[:'degreeStatusId']
+      end
+
+      if attributes.has_key?(:'subject')
+        self.subject = attributes[:'subject']
       end
 
       if attributes.has_key?(:'id')
@@ -71,13 +79,37 @@ module GetIntoTeachingApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@subject.nil? && @subject.to_s.length > 600
+        invalid_properties.push('invalid value for "subject", the character length must be smaller than or equal to 600.')
+      end
+
+      if !@subject.nil? && @subject.to_s.length < 0
+        invalid_properties.push('invalid value for "subject", the character length must be great than or equal to 0.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@subject.nil? && @subject.to_s.length > 600
+      return false if !@subject.nil? && @subject.to_s.length < 0
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] subject Value to be assigned
+    def subject=(subject)
+      if !subject.nil? && subject.to_s.length > 600
+        fail ArgumentError, 'invalid value for "subject", the character length must be smaller than or equal to 600.'
+      end
+
+      if !subject.nil? && subject.to_s.length < 0
+        fail ArgumentError, 'invalid value for "subject", the character length must be great than or equal to 0.'
+      end
+
+      @subject = subject
     end
 
     # Checks equality by comparing each attribute.
@@ -85,9 +117,10 @@ module GetIntoTeachingApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          category_id == o.category_id &&
           type_id == o.type_id &&
+          uk_degree_grade_id == o.uk_degree_grade_id &&
           degree_status_id == o.degree_status_id &&
+          subject == o.subject &&
           id == o.id
     end
 
@@ -100,7 +133,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [category_id, type_id, degree_status_id, id].hash
+      [type_id, uk_degree_grade_id, degree_status_id, subject, id].hash
     end
 
     # Builds the object from hash

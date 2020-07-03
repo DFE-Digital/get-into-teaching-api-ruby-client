@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **channel_id** | **Integer** |  | [optional] 
 **scheduled_at** | **DateTime** |  | [optional] 
-**telephone** | **String** |  | 
+**destination_id** | **Integer** |  | [optional] 
 **id** | **String** |  | [optional] 
 
 

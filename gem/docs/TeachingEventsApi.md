@@ -15,6 +15,8 @@ Method | HTTP request | Description
 
 Adds an attendee to a teaching event.
 
+If the `CandidateId` is specified then the existing candidate will be registered for the event, otherwise a new candidate will be created.
+
 ### Example
 ```ruby
 # load the gem
@@ -31,7 +33,7 @@ api_instance = GetIntoTeachingApiClient::TeachingEventsApi.new
 
 id = 'id_example' # String | The `id` of the `TeachingEvent`.
 
-body = GetIntoTeachingApiClient::ExistingCandidateRequest.new # ExistingCandidateRequest | Attendee to add to the teaching event.
+body = GetIntoTeachingApiClient::TeachingEventRegistrationRequest.new # TeachingEventRegistrationRequest | Attendee to add to the teaching event.
 
 
 begin
@@ -47,7 +49,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**String**](.md)| The &#x60;id&#x60; of the &#x60;TeachingEvent&#x60;. | 
- **body** | [**ExistingCandidateRequest**](ExistingCandidateRequest.md)| Attendee to add to the teaching event. | 
+ **body** | [**TeachingEventRegistrationRequest**](TeachingEventRegistrationRequest.md)| Attendee to add to the teaching event. | 
 
 ### Return type
 

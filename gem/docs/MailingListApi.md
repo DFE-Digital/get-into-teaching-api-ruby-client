@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 Adds a new member to the mailing list.
 
-Adds a new member to the mailing list. A new candidate will also be created if a matching candidate can not be found.
+If the `CandidateId` is specified then the existing candidate will be added to the mailing list, otherwise a new candidate will be created.
 
 ### Example
 ```ruby
@@ -28,7 +28,7 @@ end
 
 api_instance = GetIntoTeachingApiClient::MailingListApi.new
 
-body = GetIntoTeachingApiClient::ExistingCandidateRequest.new # ExistingCandidateRequest | Member to add to the mailing list.
+body = GetIntoTeachingApiClient::MailingListAddMemberRequest.new # MailingListAddMemberRequest | Member to add to the mailing list.
 
 
 begin
@@ -43,7 +43,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ExistingCandidateRequest**](ExistingCandidateRequest.md)| Member to add to the mailing list. | 
+ **body** | [**MailingListAddMemberRequest**](MailingListAddMemberRequest.md)| Member to add to the mailing list. | 
 
 ### Return type
 

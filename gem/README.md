@@ -62,16 +62,14 @@ GetIntoTeachingApiClient.configure do |config|
   #config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = GetIntoTeachingApiClient::CandidatesApi.new
-
-body = GetIntoTeachingApiClient::ExistingCandidateRequest.new # ExistingCandidateRequest | Candidate access token request (must match an existing candidate).
-
+api_instance = GetIntoTeachingApiClient::CallbackBookingQuotasApi.new
 
 begin
-  #Creates a candidate access token.
-  api_instance.create_candidate_access_token(body)
+  #Retrieves all callback booking quotas.
+  result = api_instance.get_callback_booking_quotas
+  p result
 rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Exception when calling CandidatesApi->create_candidate_access_token: #{e}"
+  puts "Exception when calling CallbackBookingQuotasApi->get_callback_booking_quotas: #{e}"
 end
 
 ```
@@ -82,9 +80,11 @@ All URIs are relative to *https://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*GetIntoTeachingApiClient::CallbackBookingQuotasApi* | [**get_callback_booking_quotas**](docs/CallbackBookingQuotasApi.md#get_callback_booking_quotas) | **GET** /api/callback_booking_quotas | Retrieves all callback booking quotas.
 *GetIntoTeachingApiClient::CandidatesApi* | [**create_candidate_access_token**](docs/CandidatesApi.md#create_candidate_access_token) | **POST** /api/candidates/access_tokens | Creates a candidate access token.
 *GetIntoTeachingApiClient::MailingListApi* | [**add_mailing_list_member**](docs/MailingListApi.md#add_mailing_list_member) | **POST** /api/mailing_list/members | Adds a new member to the mailing list.
 *GetIntoTeachingApiClient::OperationsApi* | [**generate_mapping_info**](docs/OperationsApi.md#generate_mapping_info) | **GET** /api/operations/generate_mapping_info | Generates the mapping information.
+*GetIntoTeachingApiClient::OperationsApi* | [**health_check**](docs/OperationsApi.md#health_check) | **GET** /api/operations/health_check | Performs a health check.
 *GetIntoTeachingApiClient::PrivacyPoliciesApi* | [**get_latest_privacy_policy**](docs/PrivacyPoliciesApi.md#get_latest_privacy_policy) | **GET** /api/privacy_policies/latest | Retrieves the latest privacy policy.
 *GetIntoTeachingApiClient::TeacherTrainingAdviserApi* | [**get_existing_teacher_training_adviser_candidate**](docs/TeacherTrainingAdviserApi.md#get_existing_teacher_training_adviser_candidate) | **POST** /api/teacher_training_adviser/candidates/{accessToken} | Retrieves an existing candidate for the Teacher Training Adviser service.
 *GetIntoTeachingApiClient::TeacherTrainingAdviserApi* | [**upsert_teacher_training_adviser_candidate**](docs/TeacherTrainingAdviserApi.md#upsert_teacher_training_adviser_candidate) | **POST** /api/teacher_training_adviser/candidates | Upserts a candidate for the Teacher Training Adviser service.
@@ -92,33 +92,45 @@ Class | Method | HTTP request | Description
 *GetIntoTeachingApiClient::TeachingEventsApi* | [**get_teaching_event**](docs/TeachingEventsApi.md#get_teaching_event) | **GET** /api/teaching_events/{id} | Retrieves an event.
 *GetIntoTeachingApiClient::TeachingEventsApi* | [**get_upcoming_teaching_events**](docs/TeachingEventsApi.md#get_upcoming_teaching_events) | **GET** /api/teaching_events/upcoming | Retrieves the upcoming teaching events.
 *GetIntoTeachingApiClient::TeachingEventsApi* | [**search_teaching_events**](docs/TeachingEventsApi.md#search_teaching_events) | **GET** /api/teaching_events/search | Searches for teaching events.
+*GetIntoTeachingApiClient::TypesApi* | [**get_candidate_adviser_eligibilities**](docs/TypesApi.md#get_candidate_adviser_eligibilities) | **GET** /api/types/candidate/adviser_eligibilities | Retrieves the list of candidate adviser eligibilities.
+*GetIntoTeachingApiClient::TypesApi* | [**get_candidate_adviser_requirements**](docs/TypesApi.md#get_candidate_adviser_requirements) | **GET** /api/types/candidate/adviser_requirements | Retrieves the list of candidate adviser requirements.
 *GetIntoTeachingApiClient::TypesApi* | [**get_candidate_channels**](docs/TypesApi.md#get_candidate_channels) | **GET** /api/types/candidate/channels | Retrieves the list of candidate channels.
+*GetIntoTeachingApiClient::TypesApi* | [**get_candidate_describe_yourself**](docs/TypesApi.md#get_candidate_describe_yourself) | **GET** /api/types/candidate/consideration_journey_stages | Retrieves the list of candidate consideration journey stages.
+*GetIntoTeachingApiClient::TypesApi* | [**get_candidate_describe_yourself_options**](docs/TypesApi.md#get_candidate_describe_yourself_options) | **GET** /api/types/candidate/describe_yourself | Retrieves the list of candidate describe yourself options.
+*GetIntoTeachingApiClient::TypesApi* | [**get_candidate_gcse_status**](docs/TypesApi.md#get_candidate_gcse_status) | **GET** /api/types/candidate/gcse_status | Retrieves the list of candidate CGSE status.
 *GetIntoTeachingApiClient::TypesApi* | [**get_candidate_initial_teacher_training_years**](docs/TypesApi.md#get_candidate_initial_teacher_training_years) | **GET** /api/types/candidate/initial_teacher_training_years | Retrieves the list of candidate initial teacher training years.
-*GetIntoTeachingApiClient::TypesApi* | [**get_candidate_locations**](docs/TypesApi.md#get_candidate_locations) | **GET** /api/types/candidate/locations | Retrieves the list of candidate locations.
 *GetIntoTeachingApiClient::TypesApi* | [**get_candidate_preferred_education_phases**](docs/TypesApi.md#get_candidate_preferred_education_phases) | **GET** /api/types/candidate/preferred_education_phases | Retrieves the list of candidate preferred education phases.
+*GetIntoTeachingApiClient::TypesApi* | [**get_candidate_retake_gcse_status**](docs/TypesApi.md#get_candidate_retake_gcse_status) | **GET** /api/types/candidate/retake_gcse_status | Retrieves the list of candidate retake CGSE status.
+*GetIntoTeachingApiClient::TypesApi* | [**get_candidate_status**](docs/TypesApi.md#get_candidate_status) | **GET** /api/types/candidate/status | Retrieves the list of candidate status.
+*GetIntoTeachingApiClient::TypesApi* | [**get_candidate_types**](docs/TypesApi.md#get_candidate_types) | **GET** /api/types/candidate/types | Retrieves the list of candidate types.
 *GetIntoTeachingApiClient::TypesApi* | [**get_country_types**](docs/TypesApi.md#get_country_types) | **GET** /api/types/countries | Retrieves the list of countries.
 *GetIntoTeachingApiClient::TypesApi* | [**get_past_teaching_position_education_phases**](docs/TypesApi.md#get_past_teaching_position_education_phases) | **GET** /api/types/past_teaching_position/education_phases | Retrieves the list of past teaching position education phases.
 *GetIntoTeachingApiClient::TypesApi* | [**get_phone_call_channels**](docs/TypesApi.md#get_phone_call_channels) | **GET** /api/types/phone_call/channels | Retrieves the list of phone call channels.
-*GetIntoTeachingApiClient::TypesApi* | [**get_qualification_categories**](docs/TypesApi.md#get_qualification_categories) | **GET** /api/types/qualification/categories | Retrieves the list of qualification categories.
+*GetIntoTeachingApiClient::TypesApi* | [**get_phone_call_destinations**](docs/TypesApi.md#get_phone_call_destinations) | **GET** /api/types/phone_call/destinations | Retrieves the list of phone call destinations.
 *GetIntoTeachingApiClient::TypesApi* | [**get_qualification_degree_status**](docs/TypesApi.md#get_qualification_degree_status) | **GET** /api/types/qualification/degree_status | Retrieves the list of qualification degree status.
 *GetIntoTeachingApiClient::TypesApi* | [**get_qualification_types**](docs/TypesApi.md#get_qualification_types) | **GET** /api/types/qualification/types | Retrieves the list of qualification types.
+*GetIntoTeachingApiClient::TypesApi* | [**get_qualification_uk_degree_grades**](docs/TypesApi.md#get_qualification_uk_degree_grades) | **GET** /api/types/qualification/uk_degree_grades | Retrieves the list of qualification UK degree grades.
 *GetIntoTeachingApiClient::TypesApi* | [**get_teaching_event_types**](docs/TypesApi.md#get_teaching_event_types) | **GET** /api/types/teaching_event/types | Retrieves the list of teaching event types.
 *GetIntoTeachingApiClient::TypesApi* | [**get_teaching_subjects**](docs/TypesApi.md#get_teaching_subjects) | **GET** /api/types/teaching_subjects | Retrieves the list of teaching subjects.
 
 
 ## Documentation for Models
 
+ - [GetIntoTeachingApiClient::CallbackBookingQuota](docs/CallbackBookingQuota.md)
  - [GetIntoTeachingApiClient::Candidate](docs/Candidate.md)
  - [GetIntoTeachingApiClient::CandidatePastTeachingPosition](docs/CandidatePastTeachingPosition.md)
  - [GetIntoTeachingApiClient::CandidatePrivacyPolicy](docs/CandidatePrivacyPolicy.md)
  - [GetIntoTeachingApiClient::CandidateQualification](docs/CandidateQualification.md)
  - [GetIntoTeachingApiClient::ExistingCandidateRequest](docs/ExistingCandidateRequest.md)
+ - [GetIntoTeachingApiClient::HealthCheckResponse](docs/HealthCheckResponse.md)
+ - [GetIntoTeachingApiClient::MailingListAddMemberRequest](docs/MailingListAddMemberRequest.md)
  - [GetIntoTeachingApiClient::MappingInfo](docs/MappingInfo.md)
  - [GetIntoTeachingApiClient::PhoneCall](docs/PhoneCall.md)
  - [GetIntoTeachingApiClient::PrivacyPolicy](docs/PrivacyPolicy.md)
  - [GetIntoTeachingApiClient::ProblemDetails](docs/ProblemDetails.md)
  - [GetIntoTeachingApiClient::TeachingEvent](docs/TeachingEvent.md)
  - [GetIntoTeachingApiClient::TeachingEventBuilding](docs/TeachingEventBuilding.md)
+ - [GetIntoTeachingApiClient::TeachingEventRegistrationRequest](docs/TeachingEventRegistrationRequest.md)
  - [GetIntoTeachingApiClient::TeachingEventSearchRequest](docs/TeachingEventSearchRequest.md)
  - [GetIntoTeachingApiClient::TypeEntity](docs/TypeEntity.md)
 

@@ -13,32 +13,44 @@ Swagger Codegen version: 2.4.14
 require 'date'
 
 module GetIntoTeachingApiClient
-  class PhoneCall
-    attr_accessor :channel_id
+  class HealthCheckResponse
+    attr_accessor :git_commit_sha
 
-    attr_accessor :scheduled_at
+    attr_accessor :environment
 
-    attr_accessor :destination_id
+    attr_accessor :database
 
-    attr_accessor :id
+    attr_accessor :hangfire
+
+    attr_accessor :crm
+
+    attr_accessor :notify
+
+    attr_accessor :status
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'channel_id' => :'channelId',
-        :'scheduled_at' => :'scheduledAt',
-        :'destination_id' => :'destinationId',
-        :'id' => :'id'
+        :'git_commit_sha' => :'gitCommitSha',
+        :'environment' => :'environment',
+        :'database' => :'database',
+        :'hangfire' => :'hangfire',
+        :'crm' => :'crm',
+        :'notify' => :'notify',
+        :'status' => :'status'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'channel_id' => :'Integer',
-        :'scheduled_at' => :'DateTime',
-        :'destination_id' => :'Integer',
-        :'id' => :'String'
+        :'git_commit_sha' => :'String',
+        :'environment' => :'String',
+        :'database' => :'String',
+        :'hangfire' => :'String',
+        :'crm' => :'String',
+        :'notify' => :'String',
+        :'status' => :'String'
       }
     end
 
@@ -50,20 +62,32 @@ module GetIntoTeachingApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'channelId')
-        self.channel_id = attributes[:'channelId']
+      if attributes.has_key?(:'gitCommitSha')
+        self.git_commit_sha = attributes[:'gitCommitSha']
       end
 
-      if attributes.has_key?(:'scheduledAt')
-        self.scheduled_at = attributes[:'scheduledAt']
+      if attributes.has_key?(:'environment')
+        self.environment = attributes[:'environment']
       end
 
-      if attributes.has_key?(:'destinationId')
-        self.destination_id = attributes[:'destinationId']
+      if attributes.has_key?(:'database')
+        self.database = attributes[:'database']
       end
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.has_key?(:'hangfire')
+        self.hangfire = attributes[:'hangfire']
+      end
+
+      if attributes.has_key?(:'crm')
+        self.crm = attributes[:'crm']
+      end
+
+      if attributes.has_key?(:'notify')
+        self.notify = attributes[:'notify']
+      end
+
+      if attributes.has_key?(:'status')
+        self.status = attributes[:'status']
       end
     end
 
@@ -85,10 +109,13 @@ module GetIntoTeachingApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          channel_id == o.channel_id &&
-          scheduled_at == o.scheduled_at &&
-          destination_id == o.destination_id &&
-          id == o.id
+          git_commit_sha == o.git_commit_sha &&
+          environment == o.environment &&
+          database == o.database &&
+          hangfire == o.hangfire &&
+          crm == o.crm &&
+          notify == o.notify &&
+          status == o.status
     end
 
     # @see the `==` method
@@ -100,7 +127,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [channel_id, scheduled_at, destination_id, id].hash
+      [git_commit_sha, environment, database, hangfire, crm, notify, status].hash
     end
 
     # Builds the object from hash
