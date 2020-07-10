@@ -21,35 +21,29 @@ module GetIntoTeachingApiClient
     end
     # Adds an attendee to a teaching event.
     # If the `CandidateId` is specified then the existing candidate will be registered for the event, otherwise a new candidate will be created.
-    # @param id The &#x60;id&#x60; of the &#x60;TeachingEvent&#x60;.
     # @param body Attendee to add to the teaching event.
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def add_teaching_event_attendee(id, body, opts = {})
-      add_teaching_event_attendee_with_http_info(id, body, opts)
+    def add_teaching_event_attendee(body, opts = {})
+      add_teaching_event_attendee_with_http_info(body, opts)
       nil
     end
 
     # Adds an attendee to a teaching event.
     # If the &#x60;CandidateId&#x60; is specified then the existing candidate will be registered for the event, otherwise a new candidate will be created.
-    # @param id The &#x60;id&#x60; of the &#x60;TeachingEvent&#x60;.
     # @param body Attendee to add to the teaching event.
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def add_teaching_event_attendee_with_http_info(id, body, opts = {})
+    def add_teaching_event_attendee_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeachingEventsApi.add_teaching_event_attendee ...'
-      end
-      # verify the required parameter 'id' is set
-      if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling TeachingEventsApi.add_teaching_event_attendee"
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling TeachingEventsApi.add_teaching_event_attendee"
       end
       # resource path
-      local_var_path = '/api/teaching_events/{id}/attendees'.sub('{' + 'id' + '}', id.to_s)
+      local_var_path = '/api/teaching_events/attendees'
 
       # query parameters
       query_params = {}
@@ -75,6 +69,66 @@ module GetIntoTeachingApiClient
         :auth_names => auth_names)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TeachingEventsApi#add_teaching_event_attendee\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieves a pre-populated TeachingEventAddAttendee for the candidate.
+    #   Retrieves a pre-populated TeachingEventAddAttendee for the candidate. The `accessToken` is obtained from a   `POST /candidates/access_tokens` request (you must also ensure the `ExistingCandidateRequest` payload you   exchanged for your token matches the request payload here).
+    # @param access_token Access token (PIN code).
+    # @param body Candidate access token request (must match an existing candidate).
+    # @param [Hash] opts the optional parameters
+    # @return [TeachingEventAddAttendee]
+    def get_pre_filled_teaching_event_add_attendee(access_token, body, opts = {})
+      data, _status_code, _headers = get_pre_filled_teaching_event_add_attendee_with_http_info(access_token, body, opts)
+      data
+    end
+
+    # Retrieves a pre-populated TeachingEventAddAttendee for the candidate.
+    #   Retrieves a pre-populated TeachingEventAddAttendee for the candidate. The &#x60;accessToken&#x60; is obtained from a   &#x60;POST /candidates/access_tokens&#x60; request (you must also ensure the &#x60;ExistingCandidateRequest&#x60; payload you   exchanged for your token matches the request payload here).
+    # @param access_token Access token (PIN code).
+    # @param body Candidate access token request (must match an existing candidate).
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TeachingEventAddAttendee, Fixnum, Hash)>] TeachingEventAddAttendee data, response status code and response headers
+    def get_pre_filled_teaching_event_add_attendee_with_http_info(access_token, body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeachingEventsApi.get_pre_filled_teaching_event_add_attendee ...'
+      end
+      # verify the required parameter 'access_token' is set
+      if @api_client.config.client_side_validation && access_token.nil?
+        fail ArgumentError, "Missing the required parameter 'access_token' when calling TeachingEventsApi.get_pre_filled_teaching_event_add_attendee"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling TeachingEventsApi.get_pre_filled_teaching_event_add_attendee"
+      end
+      # resource path
+      local_var_path = '/api/teaching_events/attendees/{accessToken}'.sub('{' + 'accessToken' + '}', access_token.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/*+json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(body)
+      auth_names = ['apiKey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'TeachingEventAddAttendee')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeachingEventsApi#get_pre_filled_teaching_event_add_attendee\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -179,41 +233,33 @@ module GetIntoTeachingApiClient
     end
     # Searches for teaching events.
     # Searches for teaching events by postcode. Optionally limit the results by distance (in miles) and the type of event.
-    # @param postcode 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :postcode 
     # @option opts [Integer] :radius 
     # @option opts [Integer] :type_id 
     # @option opts [DateTime] :start_after 
     # @option opts [DateTime] :start_before 
     # @option opts [Float] :radius_in_km 
     # @return [Array<TeachingEvent>]
-    def search_teaching_events(postcode, opts = {})
-      data, _status_code, _headers = search_teaching_events_with_http_info(postcode, opts)
+    def search_teaching_events(opts = {})
+      data, _status_code, _headers = search_teaching_events_with_http_info(opts)
       data
     end
 
     # Searches for teaching events.
     # Searches for teaching events by postcode. Optionally limit the results by distance (in miles) and the type of event.
-    # @param postcode 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :postcode 
     # @option opts [Integer] :radius 
     # @option opts [Integer] :type_id 
     # @option opts [DateTime] :start_after 
     # @option opts [DateTime] :start_before 
     # @option opts [Float] :radius_in_km 
     # @return [Array<(Array<TeachingEvent>, Fixnum, Hash)>] Array<TeachingEvent> data, response status code and response headers
-    def search_teaching_events_with_http_info(postcode, opts = {})
+    def search_teaching_events_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeachingEventsApi.search_teaching_events ...'
       end
-      # verify the required parameter 'postcode' is set
-      if @api_client.config.client_side_validation && postcode.nil?
-        fail ArgumentError, "Missing the required parameter 'postcode' when calling TeachingEventsApi.search_teaching_events"
-      end
-      if @api_client.config.client_side_validation && postcode.to_s.length < 1
-        fail ArgumentError, 'invalid value for "postcode" when calling TeachingEventsApi.search_teaching_events, the character length must be great than or equal to 1.'
-      end
-
       if @api_client.config.client_side_validation && !opts[:'radius'].nil? && opts[:'radius'] <= 0
         fail ArgumentError, 'invalid value for "opts[:"radius"]" when calling TeachingEventsApi.search_teaching_events, must be greater than 0.'
       end
@@ -223,7 +269,7 @@ module GetIntoTeachingApiClient
 
       # query parameters
       query_params = {}
-      query_params[:'Postcode'] = postcode
+      query_params[:'Postcode'] = opts[:'postcode'] if !opts[:'postcode'].nil?
       query_params[:'Radius'] = opts[:'radius'] if !opts[:'radius'].nil?
       query_params[:'TypeId'] = opts[:'type_id'] if !opts[:'type_id'].nil?
       query_params[:'StartAfter'] = opts[:'start_after'] if !opts[:'start_after'].nil?
