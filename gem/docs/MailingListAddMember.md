@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **describe_yourself_option_id** | **Integer** |  | 
 **consideration_journey_stage_id** | **Integer** |  | 
 **uk_degree_grade_id** | **Integer** |  | 
-**email** | **String** |  | [optional] 
-**first_name** | **String** |  | [optional] 
-**last_name** | **String** |  | [optional] 
+**email** | **String** |  | 
+**first_name** | **String** |  | 
+**last_name** | **String** |  | 
 **address_postcode** | **String** |  | 
 **telephone** | **String** |  | [optional] 
 **callback_information** | **String** |  | [optional] 

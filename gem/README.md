@@ -108,7 +108,6 @@ Class | Method | HTTP request | Description
 *GetIntoTeachingApiClient::TypesApi* | [**get_country_types**](docs/TypesApi.md#get_country_types) | **GET** /api/types/countries | Retrieves the list of countries.
 *GetIntoTeachingApiClient::TypesApi* | [**get_past_teaching_position_education_phases**](docs/TypesApi.md#get_past_teaching_position_education_phases) | **GET** /api/types/past_teaching_position/education_phases | Retrieves the list of past teaching position education phases.
 *GetIntoTeachingApiClient::TypesApi* | [**get_phone_call_channels**](docs/TypesApi.md#get_phone_call_channels) | **GET** /api/types/phone_call/channels | Retrieves the list of phone call channels.
-*GetIntoTeachingApiClient::TypesApi* | [**get_phone_call_destinations**](docs/TypesApi.md#get_phone_call_destinations) | **GET** /api/types/phone_call/destinations | Retrieves the list of phone call destinations.
 *GetIntoTeachingApiClient::TypesApi* | [**get_qualification_degree_status**](docs/TypesApi.md#get_qualification_degree_status) | **GET** /api/types/qualification/degree_status | Retrieves the list of qualification degree status.
 *GetIntoTeachingApiClient::TypesApi* | [**get_qualification_types**](docs/TypesApi.md#get_qualification_types) | **GET** /api/types/qualification/types | Retrieves the list of qualification types.
 *GetIntoTeachingApiClient::TypesApi* | [**get_qualification_uk_degree_grades**](docs/TypesApi.md#get_qualification_uk_degree_grades) | **GET** /api/types/qualification/uk_degree_grades | Retrieves the list of qualification UK degree grades.

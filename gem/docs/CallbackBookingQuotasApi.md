@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **get_callback_booking_quotas**
-> CallbackBookingQuota get_callback_booking_quotas
+> Array&lt;CallbackBookingQuota&gt; get_callback_booking_quotas
 
 Retrieves all callback booking quotas.
 
@@ -40,7 +40,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**CallbackBookingQuota**](CallbackBookingQuota.md)
+[**Array&lt;CallbackBookingQuota&gt;**](CallbackBookingQuota.md)
 
 ### Authorization
 
