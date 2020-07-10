@@ -13,41 +13,64 @@ Swagger Codegen version: 2.4.14
 require 'date'
 
 module GetIntoTeachingApiClient
-  class TeachingEventSearchRequest
-    # Postcode to center search around.
-    attr_accessor :postcode
+  class TeachingEventAddAttendee
+    attr_accessor :candidate_id
 
-    # Set to filter results to a radius (in miles) around the postcode.
-    attr_accessor :radius
+    attr_accessor :event_id
 
-    # Set to filter results to a type of teaching event. Must match an `typeId` of the `TeachingEvent` schema.
-    attr_accessor :type_id
+    attr_accessor :accepted_policy_id
 
-    # Set to filter results to those that start after a given date.
-    attr_accessor :start_after
+    attr_accessor :email
 
-    # Set to filter results to those that start before a given date.
-    attr_accessor :start_before
+    attr_accessor :first_name
+
+    attr_accessor :last_name
+
+    attr_accessor :address_postcode
+
+    attr_accessor :telephone
+
+    attr_accessor :subscribe_to_events
+
+    attr_accessor :subscribe_to_mailing_list
+
+    attr_accessor :already_subscribed_to_events
+
+    attr_accessor :already_subscribed_to_mailing_list
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'postcode' => :'postcode',
-        :'radius' => :'radius',
-        :'type_id' => :'typeId',
-        :'start_after' => :'startAfter',
-        :'start_before' => :'startBefore'
+        :'candidate_id' => :'candidateId',
+        :'event_id' => :'eventId',
+        :'accepted_policy_id' => :'acceptedPolicyId',
+        :'email' => :'email',
+        :'first_name' => :'firstName',
+        :'last_name' => :'lastName',
+        :'address_postcode' => :'addressPostcode',
+        :'telephone' => :'telephone',
+        :'subscribe_to_events' => :'subscribeToEvents',
+        :'subscribe_to_mailing_list' => :'subscribeToMailingList',
+        :'already_subscribed_to_events' => :'alreadySubscribedToEvents',
+        :'already_subscribed_to_mailing_list' => :'alreadySubscribedToMailingList'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'postcode' => :'String',
-        :'radius' => :'Integer',
-        :'type_id' => :'Integer',
-        :'start_after' => :'DateTime',
-        :'start_before' => :'DateTime'
+        :'candidate_id' => :'String',
+        :'event_id' => :'String',
+        :'accepted_policy_id' => :'String',
+        :'email' => :'String',
+        :'first_name' => :'String',
+        :'last_name' => :'String',
+        :'address_postcode' => :'String',
+        :'telephone' => :'String',
+        :'subscribe_to_events' => :'BOOLEAN',
+        :'subscribe_to_mailing_list' => :'BOOLEAN',
+        :'already_subscribed_to_events' => :'BOOLEAN',
+        :'already_subscribed_to_mailing_list' => :'BOOLEAN'
       }
     end
 
@@ -59,24 +82,52 @@ module GetIntoTeachingApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'postcode')
-        self.postcode = attributes[:'postcode']
+      if attributes.has_key?(:'candidateId')
+        self.candidate_id = attributes[:'candidateId']
       end
 
-      if attributes.has_key?(:'radius')
-        self.radius = attributes[:'radius']
+      if attributes.has_key?(:'eventId')
+        self.event_id = attributes[:'eventId']
       end
 
-      if attributes.has_key?(:'typeId')
-        self.type_id = attributes[:'typeId']
+      if attributes.has_key?(:'acceptedPolicyId')
+        self.accepted_policy_id = attributes[:'acceptedPolicyId']
       end
 
-      if attributes.has_key?(:'startAfter')
-        self.start_after = attributes[:'startAfter']
+      if attributes.has_key?(:'email')
+        self.email = attributes[:'email']
       end
 
-      if attributes.has_key?(:'startBefore')
-        self.start_before = attributes[:'startBefore']
+      if attributes.has_key?(:'firstName')
+        self.first_name = attributes[:'firstName']
+      end
+
+      if attributes.has_key?(:'lastName')
+        self.last_name = attributes[:'lastName']
+      end
+
+      if attributes.has_key?(:'addressPostcode')
+        self.address_postcode = attributes[:'addressPostcode']
+      end
+
+      if attributes.has_key?(:'telephone')
+        self.telephone = attributes[:'telephone']
+      end
+
+      if attributes.has_key?(:'subscribeToEvents')
+        self.subscribe_to_events = attributes[:'subscribeToEvents']
+      end
+
+      if attributes.has_key?(:'subscribeToMailingList')
+        self.subscribe_to_mailing_list = attributes[:'subscribeToMailingList']
+      end
+
+      if attributes.has_key?(:'alreadySubscribedToEvents')
+        self.already_subscribed_to_events = attributes[:'alreadySubscribedToEvents']
+      end
+
+      if attributes.has_key?(:'alreadySubscribedToMailingList')
+        self.already_subscribed_to_mailing_list = attributes[:'alreadySubscribedToMailingList']
       end
     end
 
@@ -84,8 +135,12 @@ module GetIntoTeachingApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@radius.nil? && @radius <= 0
-        invalid_properties.push('invalid value for "radius", must be greater than 0.')
+      if @event_id.nil?
+        invalid_properties.push('invalid value for "event_id", event_id cannot be nil.')
+      end
+
+      if @accepted_policy_id.nil?
+        invalid_properties.push('invalid value for "accepted_policy_id", accepted_policy_id cannot be nil.')
       end
 
       invalid_properties
@@ -94,18 +149,9 @@ module GetIntoTeachingApiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if !@radius.nil? && @radius <= 0
+      return false if @event_id.nil?
+      return false if @accepted_policy_id.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] radius Value to be assigned
-    def radius=(radius)
-      if !radius.nil? && radius <= 0
-        fail ArgumentError, 'invalid value for "radius", must be greater than 0.'
-      end
-
-      @radius = radius
     end
 
     # Checks equality by comparing each attribute.
@@ -113,11 +159,18 @@ module GetIntoTeachingApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          postcode == o.postcode &&
-          radius == o.radius &&
-          type_id == o.type_id &&
-          start_after == o.start_after &&
-          start_before == o.start_before
+          candidate_id == o.candidate_id &&
+          event_id == o.event_id &&
+          accepted_policy_id == o.accepted_policy_id &&
+          email == o.email &&
+          first_name == o.first_name &&
+          last_name == o.last_name &&
+          address_postcode == o.address_postcode &&
+          telephone == o.telephone &&
+          subscribe_to_events == o.subscribe_to_events &&
+          subscribe_to_mailing_list == o.subscribe_to_mailing_list &&
+          already_subscribed_to_events == o.already_subscribed_to_events &&
+          already_subscribed_to_mailing_list == o.already_subscribed_to_mailing_list
     end
 
     # @see the `==` method
@@ -129,7 +182,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [postcode, radius, type_id, start_after, start_before].hash
+      [candidate_id, event_id, accepted_policy_id, email, first_name, last_name, address_postcode, telephone, subscribe_to_events, subscribe_to_mailing_list, already_subscribed_to_events, already_subscribed_to_mailing_list].hash
     end
 
     # Builds the object from hash

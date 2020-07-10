@@ -5,6 +5,7 @@ All URIs are relative to *https://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_mailing_list_member**](MailingListApi.md#add_mailing_list_member) | **POST** /api/mailing_list/members | Adds a new member to the mailing list.
+[**get_pre_filled_mailing_list_add_member**](MailingListApi.md#get_pre_filled_mailing_list_add_member) | **POST** /api/mailing_list/members/{accessToken} | Retrieves a pre-populated MailingListAddMember for the candidate.
 
 
 # **add_mailing_list_member**
@@ -28,7 +29,7 @@ end
 
 api_instance = GetIntoTeachingApiClient::MailingListApi.new
 
-body = GetIntoTeachingApiClient::MailingListAddMemberRequest.new # MailingListAddMemberRequest | Member to add to the mailing list.
+body = GetIntoTeachingApiClient::MailingListAddMember.new # MailingListAddMember | Member to add to the mailing list.
 
 
 begin
@@ -43,11 +44,68 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**MailingListAddMemberRequest**](MailingListAddMemberRequest.md)| Member to add to the mailing list. | 
+ **body** | [**MailingListAddMember**](MailingListAddMember.md)| Member to add to the mailing list. | 
 
 ### Return type
 
 nil (empty response body)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+
+# **get_pre_filled_mailing_list_add_member**
+> MailingListAddMember get_pre_filled_mailing_list_add_member(access_token, body)
+
+Retrieves a pre-populated MailingListAddMember for the candidate.
+
+  Retrieves a pre-populated MailingListAddMember for the candidate. The `accessToken` is obtained from a   `POST /candidates/access_tokens` request (you must also ensure the `ExistingCandidateRequest` payload you   exchanged for your token matches the request payload here).
+
+### Example
+```ruby
+# load the gem
+require 'get_into_teaching_api_client'
+# setup authorization
+GetIntoTeachingApiClient.configure do |config|
+  # Configure API key authorization: apiKey
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = GetIntoTeachingApiClient::MailingListApi.new
+
+access_token = 'access_token_example' # String | Access token (PIN code).
+
+body = GetIntoTeachingApiClient::ExistingCandidateRequest.new # ExistingCandidateRequest | Candidate access token request (must match an existing candidate).
+
+
+begin
+  #Retrieves a pre-populated MailingListAddMember for the candidate.
+  result = api_instance.get_pre_filled_mailing_list_add_member(access_token, body)
+  p result
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Exception when calling MailingListApi->get_pre_filled_mailing_list_add_member: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **access_token** | **String**| Access token (PIN code). | 
+ **body** | [**ExistingCandidateRequest**](ExistingCandidateRequest.md)| Candidate access token request (must match an existing candidate). | 
+
+### Return type
+
+[**MailingListAddMember**](MailingListAddMember.md)
 
 ### Authorization
 

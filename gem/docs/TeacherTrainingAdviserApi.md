@@ -4,16 +4,16 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_existing_teacher_training_adviser_candidate**](TeacherTrainingAdviserApi.md#get_existing_teacher_training_adviser_candidate) | **POST** /api/teacher_training_adviser/candidates/{accessToken} | Retrieves an existing candidate for the Teacher Training Adviser service.
-[**upsert_teacher_training_adviser_candidate**](TeacherTrainingAdviserApi.md#upsert_teacher_training_adviser_candidate) | **POST** /api/teacher_training_adviser/candidates | Upserts a candidate for the Teacher Training Adviser service.
+[**get_pre_filled_teacher_training_adviser_sign_up**](TeacherTrainingAdviserApi.md#get_pre_filled_teacher_training_adviser_sign_up) | **POST** /api/teacher_training_adviser/candidates/{accessToken} | Retrieves a pre-populated TeacherTrainingAdviserSignUp for the candidate.
+[**sign_up_teacher_training_adviser_candidate**](TeacherTrainingAdviserApi.md#sign_up_teacher_training_adviser_candidate) | **POST** /api/teacher_training_adviser/candidates | Sign up a candidate for the Teacher Training Adviser service.
 
 
-# **get_existing_teacher_training_adviser_candidate**
-> Candidate get_existing_teacher_training_adviser_candidate(access_token, body)
+# **get_pre_filled_teacher_training_adviser_sign_up**
+> TeacherTrainingAdviserSignUp get_pre_filled_teacher_training_adviser_sign_up(access_token, body)
 
-Retrieves an existing candidate for the Teacher Training Adviser service.
+Retrieves a pre-populated TeacherTrainingAdviserSignUp for the candidate.
 
-  Retrieves an existing candidate for the Teacher Training Adviser service. The `accessToken` is obtained from a   `POST /candidates/access_tokens` request (you must also ensure the `ExistingCandidateRequest` payload you   exchanged for your token matches the request payload here).
+  Retrieves a pre-populated TeacherTrainingAdviserSignUp for the candidate. The `accessToken` is obtained from a   `POST /candidates/access_tokens` request (you must also ensure the `ExistingCandidateRequest` payload you   exchanged for your token matches the request payload here).
 
 ### Example
 ```ruby
@@ -35,11 +35,11 @@ body = GetIntoTeachingApiClient::ExistingCandidateRequest.new # ExistingCandidat
 
 
 begin
-  #Retrieves an existing candidate for the Teacher Training Adviser service.
-  result = api_instance.get_existing_teacher_training_adviser_candidate(access_token, body)
+  #Retrieves a pre-populated TeacherTrainingAdviserSignUp for the candidate.
+  result = api_instance.get_pre_filled_teacher_training_adviser_sign_up(access_token, body)
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Exception when calling TeacherTrainingAdviserApi->get_existing_teacher_training_adviser_candidate: #{e}"
+  puts "Exception when calling TeacherTrainingAdviserApi->get_pre_filled_teacher_training_adviser_sign_up: #{e}"
 end
 ```
 
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Candidate**](Candidate.md)
+[**TeacherTrainingAdviserSignUp**](TeacherTrainingAdviserSignUp.md)
 
 ### Authorization
 
@@ -65,10 +65,10 @@ Name | Type | Description  | Notes
 
 
 
-# **upsert_teacher_training_adviser_candidate**
-> upsert_teacher_training_adviser_candidate(body)
+# **sign_up_teacher_training_adviser_candidate**
+> sign_up_teacher_training_adviser_candidate(body)
 
-Upserts a candidate for the Teacher Training Adviser service.
+Sign up a candidate for the Teacher Training Adviser service.
 
 ### Example
 ```ruby
@@ -84,14 +84,14 @@ end
 
 api_instance = GetIntoTeachingApiClient::TeacherTrainingAdviserApi.new
 
-body = GetIntoTeachingApiClient::Candidate.new # Candidate | Candidate to upsert for the Teacher Training Adviser service.
+body = GetIntoTeachingApiClient::TeacherTrainingAdviserSignUp.new # TeacherTrainingAdviserSignUp | Candidate to sign up for the Teacher Training Adviser service.
 
 
 begin
-  #Upserts a candidate for the Teacher Training Adviser service.
-  api_instance.upsert_teacher_training_adviser_candidate(body)
+  #Sign up a candidate for the Teacher Training Adviser service.
+  api_instance.sign_up_teacher_training_adviser_candidate(body)
 rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Exception when calling TeacherTrainingAdviserApi->upsert_teacher_training_adviser_candidate: #{e}"
+  puts "Exception when calling TeacherTrainingAdviserApi->sign_up_teacher_training_adviser_candidate: #{e}"
 end
 ```
 
@@ -99,7 +99,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Candidate**](Candidate.md)| Candidate to upsert for the Teacher Training Adviser service. | 
+ **body** | [**TeacherTrainingAdviserSignUp**](TeacherTrainingAdviserSignUp.md)| Candidate to sign up for the Teacher Training Adviser service. | 
 
 ### Return type
 
