@@ -21,7 +21,7 @@ module GetIntoTeachingApiClient
     end
     # Retrieves all callback booking quotas.
     # @param [Hash] opts the optional parameters
-    # @return [CallbackBookingQuota]
+    # @return [Array<CallbackBookingQuota>]
     def get_callback_booking_quotas(opts = {})
       data, _status_code, _headers = get_callback_booking_quotas_with_http_info(opts)
       data
@@ -29,7 +29,7 @@ module GetIntoTeachingApiClient
 
     # Retrieves all callback booking quotas.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(CallbackBookingQuota, Fixnum, Hash)>] CallbackBookingQuota data, response status code and response headers
+    # @return [Array<(Array<CallbackBookingQuota>, Fixnum, Hash)>] Array<CallbackBookingQuota> data, response status code and response headers
     def get_callback_booking_quotas_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CallbackBookingQuotasApi.get_callback_booking_quotas ...'
@@ -57,7 +57,7 @@ module GetIntoTeachingApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'CallbackBookingQuota')
+        :return_type => 'Array<CallbackBookingQuota>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CallbackBookingQuotasApi#get_callback_booking_quotas\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

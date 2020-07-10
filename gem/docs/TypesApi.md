@@ -18,7 +18,6 @@ Method | HTTP request | Description
 [**get_country_types**](TypesApi.md#get_country_types) | **GET** /api/types/countries | Retrieves the list of countries.
 [**get_past_teaching_position_education_phases**](TypesApi.md#get_past_teaching_position_education_phases) | **GET** /api/types/past_teaching_position/education_phases | Retrieves the list of past teaching position education phases.
 [**get_phone_call_channels**](TypesApi.md#get_phone_call_channels) | **GET** /api/types/phone_call/channels | Retrieves the list of phone call channels.
-[**get_phone_call_destinations**](TypesApi.md#get_phone_call_destinations) | **GET** /api/types/phone_call/destinations | Retrieves the list of phone call destinations.
 [**get_qualification_degree_status**](TypesApi.md#get_qualification_degree_status) | **GET** /api/types/qualification/degree_status | Retrieves the list of qualification degree status.
 [**get_qualification_types**](TypesApi.md#get_qualification_types) | **GET** /api/types/qualification/types | Retrieves the list of qualification types.
 [**get_qualification_uk_degree_grades**](TypesApi.md#get_qualification_uk_degree_grades) | **GET** /api/types/qualification/uk_degree_grades | Retrieves the list of qualification UK degree grades.
@@ -651,52 +650,6 @@ begin
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TypesApi->get_phone_call_channels: #{e}"
-end
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**Array&lt;TypeEntity&gt;**](TypeEntity.md)
-
-### Authorization
-
-[apiKey](../README.md#apiKey)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
-
-
-
-# **get_phone_call_destinations**
-> Array&lt;TypeEntity&gt; get_phone_call_destinations
-
-Retrieves the list of phone call destinations.
-
-### Example
-```ruby
-# load the gem
-require 'get_into_teaching_api_client'
-# setup authorization
-GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
-
-api_instance = GetIntoTeachingApiClient::TypesApi.new
-
-begin
-  #Retrieves the list of phone call destinations.
-  result = api_instance.get_phone_call_destinations
-  p result
-rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Exception when calling TypesApi->get_phone_call_destinations: #{e}"
 end
 ```
 
