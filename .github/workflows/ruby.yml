@@ -19,6 +19,10 @@ jobs:
       with:
         ruby-version: 2.6
     - name: Install dependencies
-      run: bundle install
+      run: |-
+          cd gem
+          bundle install
     - name: Run tests
-      run: bundle exec rake
+      run: |-
+           cd gem
+           bundle exec rake
