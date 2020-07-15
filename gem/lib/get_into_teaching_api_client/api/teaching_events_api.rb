@@ -20,7 +20,7 @@ module GetIntoTeachingApiClient
       @api_client = api_client
     end
     # Adds an attendee to a teaching event.
-    # If the `CandidateId` is specified then the existing candidate will be registered for the event, otherwise a new candidate will be created.
+    # If the `CandidateId` is specified then the existing candidate will be registered for the event, otherwise a new candidate will be created.  Validation errors may be present on the `TeachingEventAddAttendee` object as well as the hidden `Candidate` model that is mapped to; property names are consistent, so you should check for inclusion of the field in the key when linking an error message back to a property on the request model. For example, an error on `AcceptedPolicyId` can return under the keys `Candidate.PrivacyPolicy.AcceptedPolicyId` and `AcceptedPolicyId`.
     # @param body Attendee to add to the teaching event.
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -30,7 +30,7 @@ module GetIntoTeachingApiClient
     end
 
     # Adds an attendee to a teaching event.
-    # If the &#x60;CandidateId&#x60; is specified then the existing candidate will be registered for the event, otherwise a new candidate will be created.
+    # If the &#x60;CandidateId&#x60; is specified then the existing candidate will be registered for the event, otherwise a new candidate will be created.  Validation errors may be present on the &#x60;TeachingEventAddAttendee&#x60; object as well as the hidden &#x60;Candidate&#x60; model that is mapped to; property names are consistent, so you should check for inclusion of the field in the key when linking an error message back to a property on the request model. For example, an error on &#x60;AcceptedPolicyId&#x60; can return under the keys &#x60;Candidate.PrivacyPolicy.AcceptedPolicyId&#x60; and &#x60;AcceptedPolicyId&#x60;.
     # @param body Attendee to add to the teaching event.
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
@@ -239,7 +239,6 @@ module GetIntoTeachingApiClient
     # @option opts [Integer] :type_id 
     # @option opts [DateTime] :start_after 
     # @option opts [DateTime] :start_before 
-    # @option opts [Float] :radius_in_km 
     # @return [Array<TeachingEvent>]
     def search_teaching_events(opts = {})
       data, _status_code, _headers = search_teaching_events_with_http_info(opts)
@@ -254,7 +253,6 @@ module GetIntoTeachingApiClient
     # @option opts [Integer] :type_id 
     # @option opts [DateTime] :start_after 
     # @option opts [DateTime] :start_before 
-    # @option opts [Float] :radius_in_km 
     # @return [Array<(Array<TeachingEvent>, Fixnum, Hash)>] Array<TeachingEvent> data, response status code and response headers
     def search_teaching_events_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -274,7 +272,6 @@ module GetIntoTeachingApiClient
       query_params[:'TypeId'] = opts[:'type_id'] if !opts[:'type_id'].nil?
       query_params[:'StartAfter'] = opts[:'start_after'] if !opts[:'start_after'].nil?
       query_params[:'StartBefore'] = opts[:'start_before'] if !opts[:'start_before'].nil?
-      query_params[:'RadiusInKm'] = opts[:'radius_in_km'] if !opts[:'radius_in_km'].nil?
 
       # header parameters
       header_params = {}

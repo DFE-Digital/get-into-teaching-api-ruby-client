@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 Adds an attendee to a teaching event.
 
-If the `CandidateId` is specified then the existing candidate will be registered for the event, otherwise a new candidate will be created.
+If the `CandidateId` is specified then the existing candidate will be registered for the event, otherwise a new candidate will be created.  Validation errors may be present on the `TeachingEventAddAttendee` object as well as the hidden `Candidate` model that is mapped to; property names are consistent, so you should check for inclusion of the field in the key when linking an error message back to a property on the request model. For example, an error on `AcceptedPolicyId` can return under the keys `Candidate.PrivacyPolicy.AcceptedPolicyId` and `AcceptedPolicyId`.
 
 ### Example
 ```ruby
@@ -254,8 +254,7 @@ opts = {
   radius: 56, # Integer | 
   type_id: 56, # Integer | 
   start_after: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | 
-  start_before: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | 
-  radius_in_km: 1.2 # Float | 
+  start_before: DateTime.parse('2013-10-20T19:20:30+01:00') # DateTime | 
 }
 
 begin
@@ -276,7 +275,6 @@ Name | Type | Description  | Notes
  **type_id** | **Integer**|  | [optional] 
  **start_after** | **DateTime**|  | [optional] 
  **start_before** | **DateTime**|  | [optional] 
- **radius_in_km** | **Float**|  | [optional] 
 
 ### Return type
 

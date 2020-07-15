@@ -20,7 +20,7 @@ module GetIntoTeachingApiClient
       @api_client = api_client
     end
     # Adds a new member to the mailing list.
-    # If the `CandidateId` is specified then the existing candidate will be added to the mailing list, otherwise a new candidate will be created.
+    # If the `CandidateId` is specified then the existing candidate will be added to the mailing list, otherwise a new candidate will be created.  Validation errors may be present on the `MailingListAddMember` object as well as the hidden `Candidate` model that is mapped to; property names are consistent, so you should check for inclusion of the field in the key when linking an error message back to a property on the request model. For example, an error on `UkDegreeGradeId` can return under the keys `Candidate.Qualifications[0].UkDegreeGradeId` and `UkDegreeGradeId`.
     # @param body Member to add to the mailing list.
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -30,7 +30,7 @@ module GetIntoTeachingApiClient
     end
 
     # Adds a new member to the mailing list.
-    # If the &#x60;CandidateId&#x60; is specified then the existing candidate will be added to the mailing list, otherwise a new candidate will be created.
+    # If the &#x60;CandidateId&#x60; is specified then the existing candidate will be added to the mailing list, otherwise a new candidate will be created.  Validation errors may be present on the &#x60;MailingListAddMember&#x60; object as well as the hidden &#x60;Candidate&#x60; model that is mapped to; property names are consistent, so you should check for inclusion of the field in the key when linking an error message back to a property on the request model. For example, an error on &#x60;UkDegreeGradeId&#x60; can return under the keys &#x60;Candidate.Qualifications[0].UkDegreeGradeId&#x60; and &#x60;UkDegreeGradeId&#x60;.
     # @param body Member to add to the mailing list.
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
