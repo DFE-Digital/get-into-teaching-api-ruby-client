@@ -52,6 +52,16 @@ describe 'TypesApi' do
     end
   end
 
+  # unit tests for get_candidate_assignment_status
+  # Retrieves the list of candidate assignment status.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<TypeEntity>]
+  describe 'get_candidate_assignment_status test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_candidate_channels
   # Retrieves the list of candidate channels.
   # @param [Hash] opts the optional parameters
@@ -122,16 +132,6 @@ describe 'TypesApi' do
     end
   end
 
-  # unit tests for get_candidate_status
-  # Retrieves the list of candidate status.
-  # @param [Hash] opts the optional parameters
-  # @return [Array<TypeEntity>]
-  describe 'get_candidate_status test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   # unit tests for get_candidate_types
   # Retrieves the list of candidate types.
   # @param [Hash] opts the optional parameters
@@ -172,16 +172,6 @@ describe 'TypesApi' do
     end
   end
 
-  # unit tests for get_phone_call_destinations
-  # Retrieves the list of phone call destinations.
-  # @param [Hash] opts the optional parameters
-  # @return [Array<TypeEntity>]
-  describe 'get_phone_call_destinations test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   # unit tests for get_qualification_degree_status
   # Retrieves the list of qualification degree status.
   # @param [Hash] opts the optional parameters
@@ -207,6 +197,26 @@ describe 'TypesApi' do
   # @param [Hash] opts the optional parameters
   # @return [Array<TypeEntity>]
   describe 'get_qualification_uk_degree_grades test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_subscription_types
+  # Retrieves the list of subscription types.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<TypeEntity>]
+  describe 'get_subscription_types test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_teaching_event_registration_channels
+  # Retrieves the list of teaching event registration channels.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<TypeEntity>]
+  describe 'get_teaching_event_registration_channels test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -68,11 +68,7 @@ module GetIntoTeachingApiClient
 
     attr_accessor :address_line2
 
-    attr_accessor :address_line3
-
     attr_accessor :address_city
-
-    attr_accessor :address_state
 
     attr_accessor :address_postcode
 
@@ -110,9 +106,7 @@ module GetIntoTeachingApiClient
         :'telephone' => :'telephone',
         :'address_line1' => :'addressLine1',
         :'address_line2' => :'addressLine2',
-        :'address_line3' => :'addressLine3',
         :'address_city' => :'addressCity',
-        :'address_state' => :'addressState',
         :'address_postcode' => :'addressPostcode',
         :'phone_call_scheduled_at' => :'phoneCallScheduledAt',
         :'already_subscribed_to_teacher_training_adviser' => :'alreadySubscribedToTeacherTrainingAdviser'
@@ -149,9 +143,7 @@ module GetIntoTeachingApiClient
         :'telephone' => :'String',
         :'address_line1' => :'String',
         :'address_line2' => :'String',
-        :'address_line3' => :'String',
         :'address_city' => :'String',
-        :'address_state' => :'String',
         :'address_postcode' => :'String',
         :'phone_call_scheduled_at' => :'DateTime',
         :'already_subscribed_to_teacher_training_adviser' => :'BOOLEAN'
@@ -274,16 +266,8 @@ module GetIntoTeachingApiClient
         self.address_line2 = attributes[:'addressLine2']
       end
 
-      if attributes.has_key?(:'addressLine3')
-        self.address_line3 = attributes[:'addressLine3']
-      end
-
       if attributes.has_key?(:'addressCity')
         self.address_city = attributes[:'addressCity']
-      end
-
-      if attributes.has_key?(:'addressState')
-        self.address_state = attributes[:'addressState']
       end
 
       if attributes.has_key?(:'addressPostcode')
@@ -379,9 +363,7 @@ module GetIntoTeachingApiClient
           telephone == o.telephone &&
           address_line1 == o.address_line1 &&
           address_line2 == o.address_line2 &&
-          address_line3 == o.address_line3 &&
           address_city == o.address_city &&
-          address_state == o.address_state &&
           address_postcode == o.address_postcode &&
           phone_call_scheduled_at == o.phone_call_scheduled_at &&
           already_subscribed_to_teacher_training_adviser == o.already_subscribed_to_teacher_training_adviser
@@ -396,7 +378,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [candidate_id, qualification_id, subject_taught_id, past_teaching_position_id, preferred_teaching_subject_id, country_id, accepted_policy_id, uk_degree_grade_id, degree_status_id, degree_type_id, initial_teacher_training_year_id, preferred_education_phase_id, has_gcse_english_id, has_gcse_maths_id, has_gcse_science_id, planning_to_retake_gcse_english_id, planning_to_retake_gcse_maths_id, planning_to_retake_cgse_science_id, email, first_name, last_name, date_of_birth, teacher_id, degree_subject, telephone, address_line1, address_line2, address_line3, address_city, address_state, address_postcode, phone_call_scheduled_at, already_subscribed_to_teacher_training_adviser].hash
+      [candidate_id, qualification_id, subject_taught_id, past_teaching_position_id, preferred_teaching_subject_id, country_id, accepted_policy_id, uk_degree_grade_id, degree_status_id, degree_type_id, initial_teacher_training_year_id, preferred_education_phase_id, has_gcse_english_id, has_gcse_maths_id, has_gcse_science_id, planning_to_retake_gcse_english_id, planning_to_retake_gcse_maths_id, planning_to_retake_cgse_science_id, email, first_name, last_name, date_of_birth, teacher_id, degree_subject, telephone, address_line1, address_line2, address_city, address_postcode, phone_call_scheduled_at, already_subscribed_to_teacher_training_adviser].hash
     end
 
     # Builds the object from hash

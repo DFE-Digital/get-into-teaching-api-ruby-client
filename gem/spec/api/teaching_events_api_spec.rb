@@ -34,12 +34,24 @@ describe 'TeachingEventsApi' do
 
   # unit tests for add_teaching_event_attendee
   # Adds an attendee to a teaching event.
-  # If the &#x60;CandidateId&#x60; is specified then the existing candidate will be registered for the event, otherwise a new candidate will be created.
-  # @param id The &#x60;id&#x60; of the &#x60;TeachingEvent&#x60;.
+  # If the &#x60;CandidateId&#x60; is specified then the existing candidate will be registered for the event, otherwise a new candidate will be created.  Validation errors may be present on the &#x60;TeachingEventAddAttendee&#x60; object as well as the hidden &#x60;Candidate&#x60; model that is mapped to; property names are consistent, so you should check for inclusion of the field in the key when linking an error message back to a property on the request model. For example, an error on &#x60;AcceptedPolicyId&#x60; can return under the keys &#x60;Candidate.PrivacyPolicy.AcceptedPolicyId&#x60; and &#x60;AcceptedPolicyId&#x60;.
   # @param body Attendee to add to the teaching event.
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'add_teaching_event_attendee test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_pre_filled_teaching_event_add_attendee
+  # Retrieves a pre-populated TeachingEventAddAttendee for the candidate.
+  #   Retrieves a pre-populated TeachingEventAddAttendee for the candidate. The &#x60;accessToken&#x60; is obtained from a   &#x60;POST /candidates/access_tokens&#x60; request (you must also ensure the &#x60;ExistingCandidateRequest&#x60; payload you   exchanged for your token matches the request payload here).
+  # @param access_token Access token (PIN code).
+  # @param body Candidate access token request (must match an existing candidate).
+  # @param [Hash] opts the optional parameters
+  # @return [TeachingEventAddAttendee]
+  describe 'get_pre_filled_teaching_event_add_attendee test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -71,13 +83,12 @@ describe 'TeachingEventsApi' do
   # unit tests for search_teaching_events
   # Searches for teaching events.
   # Searches for teaching events by postcode. Optionally limit the results by distance (in miles) and the type of event.
-  # @param postcode 
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :postcode 
   # @option opts [Integer] :radius 
   # @option opts [Integer] :type_id 
   # @option opts [DateTime] :start_after 
   # @option opts [DateTime] :start_before 
-  # @option opts [Float] :radius_in_km 
   # @return [Array<TeachingEvent>]
   describe 'search_teaching_events test' do
     it 'should work' do

@@ -35,7 +35,7 @@ describe 'CallbackBookingQuotasApi' do
   # unit tests for get_callback_booking_quotas
   # Retrieves all callback booking quotas.
   # @param [Hash] opts the optional parameters
-  # @return [CallbackBookingQuota]
+  # @return [Array<CallbackBookingQuota>]
   describe 'get_callback_booking_quotas test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

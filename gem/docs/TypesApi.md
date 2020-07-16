@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_candidate_adviser_eligibilities**](TypesApi.md#get_candidate_adviser_eligibilities) | **GET** /api/types/candidate/adviser_eligibilities | Retrieves the list of candidate adviser eligibilities.
 [**get_candidate_adviser_requirements**](TypesApi.md#get_candidate_adviser_requirements) | **GET** /api/types/candidate/adviser_requirements | Retrieves the list of candidate adviser requirements.
+[**get_candidate_assignment_status**](TypesApi.md#get_candidate_assignment_status) | **GET** /api/types/candidate/assignment_status | Retrieves the list of candidate assignment status.
 [**get_candidate_channels**](TypesApi.md#get_candidate_channels) | **GET** /api/types/candidate/channels | Retrieves the list of candidate channels.
 [**get_candidate_describe_yourself**](TypesApi.md#get_candidate_describe_yourself) | **GET** /api/types/candidate/consideration_journey_stages | Retrieves the list of candidate consideration journey stages.
 [**get_candidate_describe_yourself_options**](TypesApi.md#get_candidate_describe_yourself_options) | **GET** /api/types/candidate/describe_yourself | Retrieves the list of candidate describe yourself options.
@@ -13,7 +14,6 @@ Method | HTTP request | Description
 [**get_candidate_initial_teacher_training_years**](TypesApi.md#get_candidate_initial_teacher_training_years) | **GET** /api/types/candidate/initial_teacher_training_years | Retrieves the list of candidate initial teacher training years.
 [**get_candidate_preferred_education_phases**](TypesApi.md#get_candidate_preferred_education_phases) | **GET** /api/types/candidate/preferred_education_phases | Retrieves the list of candidate preferred education phases.
 [**get_candidate_retake_gcse_status**](TypesApi.md#get_candidate_retake_gcse_status) | **GET** /api/types/candidate/retake_gcse_status | Retrieves the list of candidate retake CGSE status.
-[**get_candidate_status**](TypesApi.md#get_candidate_status) | **GET** /api/types/candidate/status | Retrieves the list of candidate status.
 [**get_candidate_types**](TypesApi.md#get_candidate_types) | **GET** /api/types/candidate/types | Retrieves the list of candidate types.
 [**get_country_types**](TypesApi.md#get_country_types) | **GET** /api/types/countries | Retrieves the list of countries.
 [**get_past_teaching_position_education_phases**](TypesApi.md#get_past_teaching_position_education_phases) | **GET** /api/types/past_teaching_position/education_phases | Retrieves the list of past teaching position education phases.
@@ -98,6 +98,52 @@ begin
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TypesApi->get_candidate_adviser_requirements: #{e}"
+end
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Array&lt;TypeEntity&gt;**](TypeEntity.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+
+# **get_candidate_assignment_status**
+> Array&lt;TypeEntity&gt; get_candidate_assignment_status
+
+Retrieves the list of candidate assignment status.
+
+### Example
+```ruby
+# load the gem
+require 'get_into_teaching_api_client'
+# setup authorization
+GetIntoTeachingApiClient.configure do |config|
+  # Configure API key authorization: apiKey
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = GetIntoTeachingApiClient::TypesApi.new
+
+begin
+  #Retrieves the list of candidate assignment status.
+  result = api_instance.get_candidate_assignment_status
+  p result
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Exception when calling TypesApi->get_candidate_assignment_status: #{e}"
 end
 ```
 
@@ -420,52 +466,6 @@ begin
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TypesApi->get_candidate_retake_gcse_status: #{e}"
-end
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**Array&lt;TypeEntity&gt;**](TypeEntity.md)
-
-### Authorization
-
-[apiKey](../README.md#apiKey)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
-
-
-
-# **get_candidate_status**
-> Array&lt;TypeEntity&gt; get_candidate_status
-
-Retrieves the list of candidate status.
-
-### Example
-```ruby
-# load the gem
-require 'get_into_teaching_api_client'
-# setup authorization
-GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
-
-api_instance = GetIntoTeachingApiClient::TypesApi.new
-
-begin
-  #Retrieves the list of candidate status.
-  result = api_instance.get_candidate_status
-  p result
-rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Exception when calling TypesApi->get_candidate_status: #{e}"
 end
 ```
 

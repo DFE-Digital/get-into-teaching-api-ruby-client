@@ -80,6 +80,7 @@ module GetIntoTeachingApiClient
       return data, status_code, headers
     end
     # Sign up a candidate for the Teacher Training Adviser service.
+    # Validation errors may be present on the `TeacherTrainingAdviserSignUp` object as well as the hidden `Candidate` model that is mapped to; property names are consistent, so you should check for inclusion of the field in the key when linking an error message back to a property on the request model. For example, an error on `DegreeSubject` can return under the keys `Candidate.Qualifications[0].DegreeSubject` and `DegreeSubject`.
     # @param body Candidate to sign up for the Teacher Training Adviser service.
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -89,6 +90,7 @@ module GetIntoTeachingApiClient
     end
 
     # Sign up a candidate for the Teacher Training Adviser service.
+    # Validation errors may be present on the &#x60;TeacherTrainingAdviserSignUp&#x60; object as well as the hidden &#x60;Candidate&#x60; model that is mapped to; property names are consistent, so you should check for inclusion of the field in the key when linking an error message back to a property on the request model. For example, an error on &#x60;DegreeSubject&#x60; can return under the keys &#x60;Candidate.Qualifications[0].DegreeSubject&#x60; and &#x60;DegreeSubject&#x60;.
     # @param body Candidate to sign up for the Teacher Training Adviser service.
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
