@@ -5,7 +5,7 @@
 ## Usage
 
 ```
-gem "get_into_teaching_api_client", git: "git@github.com:DFE-Digital/get-into-teaching-api-ruby-client.git"
+gem "get_into_teaching_api_client", "1.0.2", git: "git@github.com:DFE-Digital/get-into-teaching-api-ruby-client.git"
 ```
 
 ## Development
@@ -14,6 +14,12 @@ You can update the Ruby client by regenerating it from the Get into Teaching API
 
 ```
 brew install swagger-codegen@2
+```
+
+You can then bump the version in `config.json` and re-generate the library.
+
+```
+rm -rf ./gem
 swagger-codegen generate -i <swagger_docs_url> -l ruby -o ./gem -c config.json
 ```
 

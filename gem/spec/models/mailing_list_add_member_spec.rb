@@ -68,7 +68,7 @@ describe 'MailingListAddMember' do
     end
   end
 
-  describe 'test attribute "uk_degree_grade_id"' do
+  describe 'test attribute "degree_status_id"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
