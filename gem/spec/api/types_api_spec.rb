@@ -72,16 +72,6 @@ describe 'TypesApi' do
     end
   end
 
-  # unit tests for get_candidate_describe_yourself
-  # Retrieves the list of candidate consideration journey stages.
-  # @param [Hash] opts the optional parameters
-  # @return [Array<TypeEntity>]
-  describe 'get_candidate_describe_yourself test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   # unit tests for get_candidate_describe_yourself_options
   # Retrieves the list of candidate describe yourself options.
   # @param [Hash] opts the optional parameters
@@ -107,6 +97,16 @@ describe 'TypesApi' do
   # @param [Hash] opts the optional parameters
   # @return [Array<TypeEntity>]
   describe 'get_candidate_initial_teacher_training_years test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_candidate_journey_stages
+  # Retrieves the list of candidate consideration journey stages.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<TypeEntity>]
+  describe 'get_candidate_journey_stages test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

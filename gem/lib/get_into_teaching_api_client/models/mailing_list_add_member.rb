@@ -26,7 +26,7 @@ module GetIntoTeachingApiClient
 
     attr_accessor :consideration_journey_stage_id
 
-    attr_accessor :uk_degree_grade_id
+    attr_accessor :degree_status_id
 
     attr_accessor :email
 
@@ -55,7 +55,7 @@ module GetIntoTeachingApiClient
         :'accepted_policy_id' => :'acceptedPolicyId',
         :'describe_yourself_option_id' => :'describeYourselfOptionId',
         :'consideration_journey_stage_id' => :'considerationJourneyStageId',
-        :'uk_degree_grade_id' => :'ukDegreeGradeId',
+        :'degree_status_id' => :'degreeStatusId',
         :'email' => :'email',
         :'first_name' => :'firstName',
         :'last_name' => :'lastName',
@@ -77,7 +77,7 @@ module GetIntoTeachingApiClient
         :'accepted_policy_id' => :'String',
         :'describe_yourself_option_id' => :'Integer',
         :'consideration_journey_stage_id' => :'Integer',
-        :'uk_degree_grade_id' => :'Integer',
+        :'degree_status_id' => :'Integer',
         :'email' => :'String',
         :'first_name' => :'String',
         :'last_name' => :'String',
@@ -122,8 +122,8 @@ module GetIntoTeachingApiClient
         self.consideration_journey_stage_id = attributes[:'considerationJourneyStageId']
       end
 
-      if attributes.has_key?(:'ukDegreeGradeId')
-        self.uk_degree_grade_id = attributes[:'ukDegreeGradeId']
+      if attributes.has_key?(:'degreeStatusId')
+        self.degree_status_id = attributes[:'degreeStatusId']
       end
 
       if attributes.has_key?(:'email')
@@ -167,24 +167,8 @@ module GetIntoTeachingApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @preferred_teaching_subject_id.nil?
-        invalid_properties.push('invalid value for "preferred_teaching_subject_id", preferred_teaching_subject_id cannot be nil.')
-      end
-
       if @accepted_policy_id.nil?
         invalid_properties.push('invalid value for "accepted_policy_id", accepted_policy_id cannot be nil.')
-      end
-
-      if @describe_yourself_option_id.nil?
-        invalid_properties.push('invalid value for "describe_yourself_option_id", describe_yourself_option_id cannot be nil.')
-      end
-
-      if @consideration_journey_stage_id.nil?
-        invalid_properties.push('invalid value for "consideration_journey_stage_id", consideration_journey_stage_id cannot be nil.')
-      end
-
-      if @uk_degree_grade_id.nil?
-        invalid_properties.push('invalid value for "uk_degree_grade_id", uk_degree_grade_id cannot be nil.')
       end
 
       if @email.nil?
@@ -225,11 +209,7 @@ module GetIntoTeachingApiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @preferred_teaching_subject_id.nil?
       return false if @accepted_policy_id.nil?
-      return false if @describe_yourself_option_id.nil?
-      return false if @consideration_journey_stage_id.nil?
-      return false if @uk_degree_grade_id.nil?
       return false if @email.nil?
       return false if @email.to_s.length < 1
       return false if @first_name.nil?
@@ -308,7 +288,7 @@ module GetIntoTeachingApiClient
           accepted_policy_id == o.accepted_policy_id &&
           describe_yourself_option_id == o.describe_yourself_option_id &&
           consideration_journey_stage_id == o.consideration_journey_stage_id &&
-          uk_degree_grade_id == o.uk_degree_grade_id &&
+          degree_status_id == o.degree_status_id &&
           email == o.email &&
           first_name == o.first_name &&
           last_name == o.last_name &&
@@ -329,7 +309,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [candidate_id, qualification_id, preferred_teaching_subject_id, accepted_policy_id, describe_yourself_option_id, consideration_journey_stage_id, uk_degree_grade_id, email, first_name, last_name, address_postcode, telephone, callback_information, subscribe_to_events, already_subscribed_to_events, already_subscribed_to_mailing_list].hash
+      [candidate_id, qualification_id, preferred_teaching_subject_id, accepted_policy_id, describe_yourself_option_id, consideration_journey_stage_id, degree_status_id, email, first_name, last_name, address_postcode, telephone, callback_information, subscribe_to_events, already_subscribed_to_events, already_subscribed_to_mailing_list].hash
     end
 
     # Builds the object from hash
