@@ -15,11 +15,9 @@ Name | Type | Description | Notes
 **degree_type_id** | **Integer** |  | [optional] 
 **initial_teacher_training_year_id** | **Integer** |  | [optional] 
 **preferred_education_phase_id** | **Integer** |  | 
-**has_gcse_english_id** | **Integer** |  | [optional] 
-**has_gcse_maths_id** | **Integer** |  | [optional] 
+**has_gcse_maths_and_english_id** | **Integer** |  | [optional] 
 **has_gcse_science_id** | **Integer** |  | [optional] 
-**planning_to_retake_gcse_english_id** | **Integer** |  | [optional] 
-**planning_to_retake_gcse_maths_id** | **Integer** |  | [optional] 
+**planning_to_retake_gcse_maths_and_english_id** | **Integer** |  | [optional] 
 **planning_to_retake_cgse_science_id** | **Integer** |  | [optional] 
 **email** | **String** |  | 
 **first_name** | **String** |  | 

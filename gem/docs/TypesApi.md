@@ -8,7 +8,6 @@ Method | HTTP request | Description
 [**get_candidate_adviser_requirements**](TypesApi.md#get_candidate_adviser_requirements) | **GET** /api/types/candidate/adviser_requirements | Retrieves the list of candidate adviser requirements.
 [**get_candidate_assignment_status**](TypesApi.md#get_candidate_assignment_status) | **GET** /api/types/candidate/assignment_status | Retrieves the list of candidate assignment status.
 [**get_candidate_channels**](TypesApi.md#get_candidate_channels) | **GET** /api/types/candidate/channels | Retrieves the list of candidate channels.
-[**get_candidate_describe_yourself_options**](TypesApi.md#get_candidate_describe_yourself_options) | **GET** /api/types/candidate/describe_yourself | Retrieves the list of candidate describe yourself options.
 [**get_candidate_gcse_status**](TypesApi.md#get_candidate_gcse_status) | **GET** /api/types/candidate/gcse_status | Retrieves the list of candidate CGSE status.
 [**get_candidate_initial_teacher_training_years**](TypesApi.md#get_candidate_initial_teacher_training_years) | **GET** /api/types/candidate/initial_teacher_training_years | Retrieves the list of candidate initial teacher training years.
 [**get_candidate_journey_stages**](TypesApi.md#get_candidate_journey_stages) | **GET** /api/types/candidate/consideration_journey_stages | Retrieves the list of candidate consideration journey stages.
@@ -190,52 +189,6 @@ begin
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TypesApi->get_candidate_channels: #{e}"
-end
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**Array&lt;TypeEntity&gt;**](TypeEntity.md)
-
-### Authorization
-
-[apiKey](../README.md#apiKey)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
-
-
-
-# **get_candidate_describe_yourself_options**
-> Array&lt;TypeEntity&gt; get_candidate_describe_yourself_options
-
-Retrieves the list of candidate describe yourself options.
-
-### Example
-```ruby
-# load the gem
-require 'get_into_teaching_api_client'
-# setup authorization
-GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
-
-api_instance = GetIntoTeachingApiClient::TypesApi.new
-
-begin
-  #Retrieves the list of candidate describe yourself options.
-  result = api_instance.get_candidate_describe_yourself_options
-  p result
-rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Exception when calling TypesApi->get_candidate_describe_yourself_options: #{e}"
 end
 ```
 

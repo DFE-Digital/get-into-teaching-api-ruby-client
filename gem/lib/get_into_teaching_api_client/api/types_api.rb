@@ -195,50 +195,6 @@ module GetIntoTeachingApiClient
       end
       return data, status_code, headers
     end
-    # Retrieves the list of candidate describe yourself options.
-    # @param [Hash] opts the optional parameters
-    # @return [Array<TypeEntity>]
-    def get_candidate_describe_yourself_options(opts = {})
-      data, _status_code, _headers = get_candidate_describe_yourself_options_with_http_info(opts)
-      data
-    end
-
-    # Retrieves the list of candidate describe yourself options.
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
-    def get_candidate_describe_yourself_options_with_http_info(opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TypesApi.get_candidate_describe_yourself_options ...'
-      end
-      # resource path
-      local_var_path = '/api/types/candidate/describe_yourself'
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = nil
-      auth_names = ['apiKey']
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'Array<TypeEntity>')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TypesApi#get_candidate_describe_yourself_options\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
     # Retrieves the list of candidate CGSE status.
     # @param [Hash] opts the optional parameters
     # @return [Array<TypeEntity>]

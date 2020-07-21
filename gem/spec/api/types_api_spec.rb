@@ -72,16 +72,6 @@ describe 'TypesApi' do
     end
   end
 
-  # unit tests for get_candidate_describe_yourself_options
-  # Retrieves the list of candidate describe yourself options.
-  # @param [Hash] opts the optional parameters
-  # @return [Array<TypeEntity>]
-  describe 'get_candidate_describe_yourself_options test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   # unit tests for get_candidate_gcse_status
   # Retrieves the list of candidate CGSE status.
   # @param [Hash] opts the optional parameters
