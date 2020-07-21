@@ -104,13 +104,7 @@ describe 'TeacherTrainingAdviserSignUp' do
     end
   end
 
-  describe 'test attribute "has_gcse_english_id"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "has_gcse_maths_id"' do
+  describe 'test attribute "has_gcse_maths_and_english_id"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -122,13 +116,7 @@ describe 'TeacherTrainingAdviserSignUp' do
     end
   end
 
-  describe 'test attribute "planning_to_retake_gcse_english_id"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "planning_to_retake_gcse_maths_id"' do
+  describe 'test attribute "planning_to_retake_gcse_maths_and_english_id"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

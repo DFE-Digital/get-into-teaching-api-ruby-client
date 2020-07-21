@@ -22,8 +22,6 @@ module GetIntoTeachingApiClient
 
     attr_accessor :accepted_policy_id
 
-    attr_accessor :describe_yourself_option_id
-
     attr_accessor :consideration_journey_stage_id
 
     attr_accessor :degree_status_id
@@ -38,8 +36,6 @@ module GetIntoTeachingApiClient
 
     attr_accessor :telephone
 
-    attr_accessor :callback_information
-
     attr_accessor :subscribe_to_events
 
     attr_accessor :already_subscribed_to_events
@@ -53,7 +49,6 @@ module GetIntoTeachingApiClient
         :'qualification_id' => :'qualificationId',
         :'preferred_teaching_subject_id' => :'preferredTeachingSubjectId',
         :'accepted_policy_id' => :'acceptedPolicyId',
-        :'describe_yourself_option_id' => :'describeYourselfOptionId',
         :'consideration_journey_stage_id' => :'considerationJourneyStageId',
         :'degree_status_id' => :'degreeStatusId',
         :'email' => :'email',
@@ -61,7 +56,6 @@ module GetIntoTeachingApiClient
         :'last_name' => :'lastName',
         :'address_postcode' => :'addressPostcode',
         :'telephone' => :'telephone',
-        :'callback_information' => :'callbackInformation',
         :'subscribe_to_events' => :'subscribeToEvents',
         :'already_subscribed_to_events' => :'alreadySubscribedToEvents',
         :'already_subscribed_to_mailing_list' => :'alreadySubscribedToMailingList'
@@ -75,7 +69,6 @@ module GetIntoTeachingApiClient
         :'qualification_id' => :'String',
         :'preferred_teaching_subject_id' => :'String',
         :'accepted_policy_id' => :'String',
-        :'describe_yourself_option_id' => :'Integer',
         :'consideration_journey_stage_id' => :'Integer',
         :'degree_status_id' => :'Integer',
         :'email' => :'String',
@@ -83,7 +76,6 @@ module GetIntoTeachingApiClient
         :'last_name' => :'String',
         :'address_postcode' => :'String',
         :'telephone' => :'String',
-        :'callback_information' => :'String',
         :'subscribe_to_events' => :'BOOLEAN',
         :'already_subscribed_to_events' => :'BOOLEAN',
         :'already_subscribed_to_mailing_list' => :'BOOLEAN'
@@ -114,10 +106,6 @@ module GetIntoTeachingApiClient
         self.accepted_policy_id = attributes[:'acceptedPolicyId']
       end
 
-      if attributes.has_key?(:'describeYourselfOptionId')
-        self.describe_yourself_option_id = attributes[:'describeYourselfOptionId']
-      end
-
       if attributes.has_key?(:'considerationJourneyStageId')
         self.consideration_journey_stage_id = attributes[:'considerationJourneyStageId']
       end
@@ -146,10 +134,6 @@ module GetIntoTeachingApiClient
         self.telephone = attributes[:'telephone']
       end
 
-      if attributes.has_key?(:'callbackInformation')
-        self.callback_information = attributes[:'callbackInformation']
-      end
-
       if attributes.has_key?(:'subscribeToEvents')
         self.subscribe_to_events = attributes[:'subscribeToEvents']
       end
@@ -169,6 +153,10 @@ module GetIntoTeachingApiClient
       invalid_properties = Array.new
       if @accepted_policy_id.nil?
         invalid_properties.push('invalid value for "accepted_policy_id", accepted_policy_id cannot be nil.')
+      end
+
+      if @consideration_journey_stage_id.nil?
+        invalid_properties.push('invalid value for "consideration_journey_stage_id", consideration_journey_stage_id cannot be nil.')
       end
 
       if @email.nil?
@@ -210,6 +198,7 @@ module GetIntoTeachingApiClient
     # @return true if the model is valid
     def valid?
       return false if @accepted_policy_id.nil?
+      return false if @consideration_journey_stage_id.nil?
       return false if @email.nil?
       return false if @email.to_s.length < 1
       return false if @first_name.nil?
@@ -286,7 +275,6 @@ module GetIntoTeachingApiClient
           qualification_id == o.qualification_id &&
           preferred_teaching_subject_id == o.preferred_teaching_subject_id &&
           accepted_policy_id == o.accepted_policy_id &&
-          describe_yourself_option_id == o.describe_yourself_option_id &&
           consideration_journey_stage_id == o.consideration_journey_stage_id &&
           degree_status_id == o.degree_status_id &&
           email == o.email &&
@@ -294,7 +282,6 @@ module GetIntoTeachingApiClient
           last_name == o.last_name &&
           address_postcode == o.address_postcode &&
           telephone == o.telephone &&
-          callback_information == o.callback_information &&
           subscribe_to_events == o.subscribe_to_events &&
           already_subscribed_to_events == o.already_subscribed_to_events &&
           already_subscribed_to_mailing_list == o.already_subscribed_to_mailing_list
@@ -309,7 +296,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [candidate_id, qualification_id, preferred_teaching_subject_id, accepted_policy_id, describe_yourself_option_id, consideration_journey_stage_id, degree_status_id, email, first_name, last_name, address_postcode, telephone, callback_information, subscribe_to_events, already_subscribed_to_events, already_subscribed_to_mailing_list].hash
+      [candidate_id, qualification_id, preferred_teaching_subject_id, accepted_policy_id, consideration_journey_stage_id, degree_status_id, email, first_name, last_name, address_postcode, telephone, subscribe_to_events, already_subscribed_to_events, already_subscribed_to_mailing_list].hash
     end
 
     # Builds the object from hash
