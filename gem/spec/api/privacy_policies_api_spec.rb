@@ -42,4 +42,15 @@ describe 'PrivacyPoliciesApi' do
     end
   end
 
+  # unit tests for get_privacy_policy
+  # Retrieves a privacy policy.
+  # @param id The &#x60;id&#x60; of the &#x60;PrivacyPolicy&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @return [PrivacyPolicy]
+  describe 'get_privacy_policy test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
 end
