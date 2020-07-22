@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **has_gcse_maths_and_english_id** | **Integer** |  | [optional] 
 **has_gcse_science_id** | **Integer** |  | [optional] 
 **planning_to_retake_gcse_maths_and_english_id** | **Integer** |  | [optional] 
-**planning_to_retake_cgse_science_id** | **Integer** |  | [optional] 
+**planning_to_retake_gcse_science_id** | **Integer** |  | [optional] 
 **email** | **String** |  | 
 **first_name** | **String** |  | 
 **last_name** | **String** |  | 

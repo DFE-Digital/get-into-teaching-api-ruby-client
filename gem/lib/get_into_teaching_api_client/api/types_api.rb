@@ -195,7 +195,7 @@ module GetIntoTeachingApiClient
       end
       return data, status_code, headers
     end
-    # Retrieves the list of candidate CGSE status.
+    # Retrieves the list of candidate GCSE status.
     # @param [Hash] opts the optional parameters
     # @return [Array<TypeEntity>]
     def get_candidate_gcse_status(opts = {})
@@ -203,7 +203,7 @@ module GetIntoTeachingApiClient
       data
     end
 
-    # Retrieves the list of candidate CGSE status.
+    # Retrieves the list of candidate GCSE status.
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
     def get_candidate_gcse_status_with_http_info(opts = {})
@@ -371,7 +371,7 @@ module GetIntoTeachingApiClient
       end
       return data, status_code, headers
     end
-    # Retrieves the list of candidate retake CGSE status.
+    # Retrieves the list of candidate retake GCSE status.
     # @param [Hash] opts the optional parameters
     # @return [Array<TypeEntity>]
     def get_candidate_retake_gcse_status(opts = {})
@@ -379,7 +379,7 @@ module GetIntoTeachingApiClient
       data
     end
 
-    # Retrieves the list of candidate retake CGSE status.
+    # Retrieves the list of candidate retake GCSE status.
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
     def get_candidate_retake_gcse_status_with_http_info(opts = {})

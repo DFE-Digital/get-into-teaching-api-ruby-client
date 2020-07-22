@@ -122,7 +122,7 @@ describe 'TeacherTrainingAdviserSignUp' do
     end
   end
 
-  describe 'test attribute "planning_to_retake_cgse_science_id"' do
+  describe 'test attribute "planning_to_retake_gcse_science_id"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
