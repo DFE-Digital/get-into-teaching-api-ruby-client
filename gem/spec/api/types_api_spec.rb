@@ -73,7 +73,7 @@ describe 'TypesApi' do
   end
 
   # unit tests for get_candidate_gcse_status
-  # Retrieves the list of candidate CGSE status.
+  # Retrieves the list of candidate GCSE status.
   # @param [Hash] opts the optional parameters
   # @return [Array<TypeEntity>]
   describe 'get_candidate_gcse_status test' do
@@ -113,7 +113,7 @@ describe 'TypesApi' do
   end
 
   # unit tests for get_candidate_retake_gcse_status
-  # Retrieves the list of candidate retake CGSE status.
+  # Retrieves the list of candidate retake GCSE status.
   # @param [Hash] opts the optional parameters
   # @return [Array<TypeEntity>]
   describe 'get_candidate_retake_gcse_status test' do

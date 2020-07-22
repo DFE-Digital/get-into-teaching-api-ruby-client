@@ -44,7 +44,7 @@ module GetIntoTeachingApiClient
 
     attr_accessor :planning_to_retake_gcse_maths_and_english_id
 
-    attr_accessor :planning_to_retake_cgse_science_id
+    attr_accessor :planning_to_retake_gcse_science_id
 
     attr_accessor :email
 
@@ -90,7 +90,7 @@ module GetIntoTeachingApiClient
         :'has_gcse_maths_and_english_id' => :'hasGcseMathsAndEnglishId',
         :'has_gcse_science_id' => :'hasGcseScienceId',
         :'planning_to_retake_gcse_maths_and_english_id' => :'planningToRetakeGcseMathsAndEnglishId',
-        :'planning_to_retake_cgse_science_id' => :'planningToRetakeCgseScienceId',
+        :'planning_to_retake_gcse_science_id' => :'planningToRetakeGcseScienceId',
         :'email' => :'email',
         :'first_name' => :'firstName',
         :'last_name' => :'lastName',
@@ -125,7 +125,7 @@ module GetIntoTeachingApiClient
         :'has_gcse_maths_and_english_id' => :'Integer',
         :'has_gcse_science_id' => :'Integer',
         :'planning_to_retake_gcse_maths_and_english_id' => :'Integer',
-        :'planning_to_retake_cgse_science_id' => :'Integer',
+        :'planning_to_retake_gcse_science_id' => :'Integer',
         :'email' => :'String',
         :'first_name' => :'String',
         :'last_name' => :'String',
@@ -210,8 +210,8 @@ module GetIntoTeachingApiClient
         self.planning_to_retake_gcse_maths_and_english_id = attributes[:'planningToRetakeGcseMathsAndEnglishId']
       end
 
-      if attributes.has_key?(:'planningToRetakeCgseScienceId')
-        self.planning_to_retake_cgse_science_id = attributes[:'planningToRetakeCgseScienceId']
+      if attributes.has_key?(:'planningToRetakeGcseScienceId')
+        self.planning_to_retake_gcse_science_id = attributes[:'planningToRetakeGcseScienceId']
       end
 
       if attributes.has_key?(:'email')
@@ -335,7 +335,7 @@ module GetIntoTeachingApiClient
           has_gcse_maths_and_english_id == o.has_gcse_maths_and_english_id &&
           has_gcse_science_id == o.has_gcse_science_id &&
           planning_to_retake_gcse_maths_and_english_id == o.planning_to_retake_gcse_maths_and_english_id &&
-          planning_to_retake_cgse_science_id == o.planning_to_retake_cgse_science_id &&
+          planning_to_retake_gcse_science_id == o.planning_to_retake_gcse_science_id &&
           email == o.email &&
           first_name == o.first_name &&
           last_name == o.last_name &&
@@ -360,7 +360,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [candidate_id, qualification_id, subject_taught_id, past_teaching_position_id, preferred_teaching_subject_id, country_id, accepted_policy_id, uk_degree_grade_id, degree_status_id, degree_type_id, initial_teacher_training_year_id, preferred_education_phase_id, has_gcse_maths_and_english_id, has_gcse_science_id, planning_to_retake_gcse_maths_and_english_id, planning_to_retake_cgse_science_id, email, first_name, last_name, date_of_birth, teacher_id, degree_subject, telephone, address_line1, address_line2, address_city, address_postcode, phone_call_scheduled_at, already_subscribed_to_teacher_training_adviser].hash
+      [candidate_id, qualification_id, subject_taught_id, past_teaching_position_id, preferred_teaching_subject_id, country_id, accepted_policy_id, uk_degree_grade_id, degree_status_id, degree_type_id, initial_teacher_training_year_id, preferred_education_phase_id, has_gcse_maths_and_english_id, has_gcse_science_id, planning_to_retake_gcse_maths_and_english_id, planning_to_retake_gcse_science_id, email, first_name, last_name, date_of_birth, teacher_id, degree_subject, telephone, address_line1, address_line2, address_city, address_postcode, phone_call_scheduled_at, already_subscribed_to_teacher_training_adviser].hash
     end
 
     # Builds the object from hash
