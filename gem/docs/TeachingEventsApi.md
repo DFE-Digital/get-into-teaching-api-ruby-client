@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_teaching_event_attendee**](TeachingEventsApi.md#add_teaching_event_attendee) | **POST** /api/teaching_events/attendees | Adds an attendee to a teaching event.
 [**get_pre_filled_teaching_event_add_attendee**](TeachingEventsApi.md#get_pre_filled_teaching_event_add_attendee) | **POST** /api/teaching_events/attendees/{accessToken} | Retrieves a pre-populated TeachingEventAddAttendee for the candidate.
-[**get_teaching_event**](TeachingEventsApi.md#get_teaching_event) | **GET** /api/teaching_events/{id} | Retrieves an event.
+[**get_teaching_event**](TeachingEventsApi.md#get_teaching_event) | **GET** /api/teaching_events/{readableId} | Retrieves an event.
 [**get_upcoming_teaching_events**](TeachingEventsApi.md#get_upcoming_teaching_events) | **GET** /api/teaching_events/upcoming | Retrieves the upcoming teaching events.
 [**search_teaching_events**](TeachingEventsApi.md#search_teaching_events) | **GET** /api/teaching_events/search | Searches for teaching events.
 
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 
 # **get_teaching_event**
-> TeachingEvent get_teaching_event(id)
+> TeachingEvent get_teaching_event(readable_id)
 
 Retrieves an event.
 
@@ -140,12 +140,12 @@ end
 
 api_instance = GetIntoTeachingApiClient::TeachingEventsApi.new
 
-id = 'id_example' # String | The `id` of the `TeachingEvent`.
+readable_id = 'readable_id_example' # String | The `readableId` of the `TeachingEvent`.
 
 
 begin
   #Retrieves an event.
-  result = api_instance.get_teaching_event(id)
+  result = api_instance.get_teaching_event(readable_id)
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TeachingEventsApi->get_teaching_event: #{e}"
@@ -156,7 +156,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**String**](.md)| The &#x60;id&#x60; of the &#x60;TeachingEvent&#x60;. | 
+ **readable_id** | **String**| The &#x60;readableId&#x60; of the &#x60;TeachingEvent&#x60;. | 
 
 ### Return type
 
