@@ -133,28 +133,28 @@ module GetIntoTeachingApiClient
       return data, status_code, headers
     end
     # Retrieves an event.
-    # @param id The &#x60;id&#x60; of the &#x60;TeachingEvent&#x60;.
+    # @param readable_id The &#x60;readableId&#x60; of the &#x60;TeachingEvent&#x60;.
     # @param [Hash] opts the optional parameters
     # @return [TeachingEvent]
-    def get_teaching_event(id, opts = {})
-      data, _status_code, _headers = get_teaching_event_with_http_info(id, opts)
+    def get_teaching_event(readable_id, opts = {})
+      data, _status_code, _headers = get_teaching_event_with_http_info(readable_id, opts)
       data
     end
 
     # Retrieves an event.
-    # @param id The &#x60;id&#x60; of the &#x60;TeachingEvent&#x60;.
+    # @param readable_id The &#x60;readableId&#x60; of the &#x60;TeachingEvent&#x60;.
     # @param [Hash] opts the optional parameters
     # @return [Array<(TeachingEvent, Fixnum, Hash)>] TeachingEvent data, response status code and response headers
-    def get_teaching_event_with_http_info(id, opts = {})
+    def get_teaching_event_with_http_info(readable_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeachingEventsApi.get_teaching_event ...'
       end
-      # verify the required parameter 'id' is set
-      if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling TeachingEventsApi.get_teaching_event"
+      # verify the required parameter 'readable_id' is set
+      if @api_client.config.client_side_validation && readable_id.nil?
+        fail ArgumentError, "Missing the required parameter 'readable_id' when calling TeachingEventsApi.get_teaching_event"
       end
       # resource path
-      local_var_path = '/api/teaching_events/{id}'.sub('{' + 'id' + '}', id.to_s)
+      local_var_path = '/api/teaching_events/{readableId}'.sub('{' + 'readableId' + '}', readable_id.to_s)
 
       # query parameters
       query_params = {}

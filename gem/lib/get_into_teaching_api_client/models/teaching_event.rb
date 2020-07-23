@@ -16,6 +16,8 @@ module GetIntoTeachingApiClient
   class TeachingEvent
     attr_accessor :type_id
 
+    attr_accessor :readable_id
+
     attr_accessor :name
 
     attr_accessor :description
@@ -32,6 +34,7 @@ module GetIntoTeachingApiClient
     def self.attribute_map
       {
         :'type_id' => :'typeId',
+        :'readable_id' => :'readableId',
         :'name' => :'name',
         :'description' => :'description',
         :'start_at' => :'startAt',
@@ -45,6 +48,7 @@ module GetIntoTeachingApiClient
     def self.swagger_types
       {
         :'type_id' => :'Integer',
+        :'readable_id' => :'String',
         :'name' => :'String',
         :'description' => :'String',
         :'start_at' => :'DateTime',
@@ -64,6 +68,10 @@ module GetIntoTeachingApiClient
 
       if attributes.has_key?(:'typeId')
         self.type_id = attributes[:'typeId']
+      end
+
+      if attributes.has_key?(:'readableId')
+        self.readable_id = attributes[:'readableId']
       end
 
       if attributes.has_key?(:'name')
@@ -110,6 +118,7 @@ module GetIntoTeachingApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           type_id == o.type_id &&
+          readable_id == o.readable_id &&
           name == o.name &&
           description == o.description &&
           start_at == o.start_at &&
@@ -127,7 +136,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [type_id, name, description, start_at, end_at, building, id].hash
+      [type_id, readable_id, name, description, start_at, end_at, building, id].hash
     end
 
     # Builds the object from hash

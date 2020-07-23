@@ -59,7 +59,7 @@ describe 'TeachingEventsApi' do
 
   # unit tests for get_teaching_event
   # Retrieves an event.
-  # @param id The &#x60;id&#x60; of the &#x60;TeachingEvent&#x60;.
+  # @param readable_id The &#x60;readableId&#x60; of the &#x60;TeachingEvent&#x60;.
   # @param [Hash] opts the optional parameters
   # @return [TeachingEvent]
   describe 'get_teaching_event test' do
