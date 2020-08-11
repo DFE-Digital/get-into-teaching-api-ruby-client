@@ -22,6 +22,7 @@ Method | HTTP request | Description
 [**get_qualification_uk_degree_grades**](TypesApi.md#get_qualification_uk_degree_grades) | **GET** /api/types/qualification/uk_degree_grades | Retrieves the list of qualification UK degree grades.
 [**get_subscription_types**](TypesApi.md#get_subscription_types) | **GET** /api/types/service_subscription/types | Retrieves the list of subscription types.
 [**get_teaching_event_registration_channels**](TypesApi.md#get_teaching_event_registration_channels) | **GET** /api/types/teaching_event_registration/channels | Retrieves the list of teaching event registration channels.
+[**get_teaching_event_status**](TypesApi.md#get_teaching_event_status) | **GET** /api/types/teaching_event/status | Retrieves the list of teaching event status.
 [**get_teaching_event_types**](TypesApi.md#get_teaching_event_types) | **GET** /api/types/teaching_event/types | Retrieves the list of teaching event types.
 [**get_teaching_subjects**](TypesApi.md#get_teaching_subjects) | **GET** /api/types/teaching_subjects | Retrieves the list of teaching subjects.
 
@@ -833,6 +834,52 @@ begin
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TypesApi->get_teaching_event_registration_channels: #{e}"
+end
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Array&lt;TypeEntity&gt;**](TypeEntity.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+
+# **get_teaching_event_status**
+> Array&lt;TypeEntity&gt; get_teaching_event_status
+
+Retrieves the list of teaching event status.
+
+### Example
+```ruby
+# load the gem
+require 'get_into_teaching_api_client'
+# setup authorization
+GetIntoTeachingApiClient.configure do |config|
+  # Configure API key authorization: apiKey
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = GetIntoTeachingApiClient::TypesApi.new
+
+begin
+  #Retrieves the list of teaching event status.
+  result = api_instance.get_teaching_event_status
+  p result
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Exception when calling TypesApi->get_teaching_event_status: #{e}"
 end
 ```
 

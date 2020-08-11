@@ -159,6 +159,10 @@ module GetIntoTeachingApiClient
         invalid_properties.push('invalid value for "consideration_journey_stage_id", consideration_journey_stage_id cannot be nil.')
       end
 
+      if @degree_status_id.nil?
+        invalid_properties.push('invalid value for "degree_status_id", degree_status_id cannot be nil.')
+      end
+
       if @email.nil?
         invalid_properties.push('invalid value for "email", email cannot be nil.')
       end
@@ -183,14 +187,6 @@ module GetIntoTeachingApiClient
         invalid_properties.push('invalid value for "last_name", the character length must be great than or equal to 1.')
       end
 
-      if @address_postcode.nil?
-        invalid_properties.push('invalid value for "address_postcode", address_postcode cannot be nil.')
-      end
-
-      if @address_postcode.to_s.length < 1
-        invalid_properties.push('invalid value for "address_postcode", the character length must be great than or equal to 1.')
-      end
-
       invalid_properties
     end
 
@@ -199,14 +195,13 @@ module GetIntoTeachingApiClient
     def valid?
       return false if @accepted_policy_id.nil?
       return false if @consideration_journey_stage_id.nil?
+      return false if @degree_status_id.nil?
       return false if @email.nil?
       return false if @email.to_s.length < 1
       return false if @first_name.nil?
       return false if @first_name.to_s.length < 1
       return false if @last_name.nil?
       return false if @last_name.to_s.length < 1
-      return false if @address_postcode.nil?
-      return false if @address_postcode.to_s.length < 1
       true
     end
 
@@ -250,20 +245,6 @@ module GetIntoTeachingApiClient
       end
 
       @last_name = last_name
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] address_postcode Value to be assigned
-    def address_postcode=(address_postcode)
-      if address_postcode.nil?
-        fail ArgumentError, 'address_postcode cannot be nil'
-      end
-
-      if address_postcode.to_s.length < 1
-        fail ArgumentError, 'invalid value for "address_postcode", the character length must be great than or equal to 1.'
-      end
-
-      @address_postcode = address_postcode
     end
 
     # Checks equality by comparing each attribute.

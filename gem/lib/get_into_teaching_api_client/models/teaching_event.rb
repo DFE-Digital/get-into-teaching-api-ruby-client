@@ -16,11 +16,32 @@ module GetIntoTeachingApiClient
   class TeachingEvent
     attr_accessor :type_id
 
+    attr_accessor :status_id
+
     attr_accessor :readable_id
+
+    attr_accessor :is_online
 
     attr_accessor :name
 
+    attr_accessor :external_name
+
+    attr_accessor :summary
+
+    # Used to push miscellaneous messages to users (if an event is close to being booked out, for example).
+    attr_accessor :message
+
     attr_accessor :description
+
+    attr_accessor :video_url
+
+    attr_accessor :provider_website_url
+
+    attr_accessor :provider_target_audience
+
+    attr_accessor :provider_organiser
+
+    attr_accessor :provider_contact_email
 
     attr_accessor :start_at
 
@@ -34,9 +55,19 @@ module GetIntoTeachingApiClient
     def self.attribute_map
       {
         :'type_id' => :'typeId',
+        :'status_id' => :'statusId',
         :'readable_id' => :'readableId',
+        :'is_online' => :'isOnline',
         :'name' => :'name',
+        :'external_name' => :'externalName',
+        :'summary' => :'summary',
+        :'message' => :'message',
         :'description' => :'description',
+        :'video_url' => :'videoUrl',
+        :'provider_website_url' => :'providerWebsiteUrl',
+        :'provider_target_audience' => :'providerTargetAudience',
+        :'provider_organiser' => :'providerOrganiser',
+        :'provider_contact_email' => :'providerContactEmail',
         :'start_at' => :'startAt',
         :'end_at' => :'endAt',
         :'building' => :'building',
@@ -48,9 +79,19 @@ module GetIntoTeachingApiClient
     def self.swagger_types
       {
         :'type_id' => :'Integer',
+        :'status_id' => :'Integer',
         :'readable_id' => :'String',
+        :'is_online' => :'BOOLEAN',
         :'name' => :'String',
+        :'external_name' => :'String',
+        :'summary' => :'String',
+        :'message' => :'String',
         :'description' => :'String',
+        :'video_url' => :'String',
+        :'provider_website_url' => :'String',
+        :'provider_target_audience' => :'String',
+        :'provider_organiser' => :'String',
+        :'provider_contact_email' => :'String',
         :'start_at' => :'DateTime',
         :'end_at' => :'DateTime',
         :'building' => :'TeachingEventBuilding',
@@ -70,16 +111,56 @@ module GetIntoTeachingApiClient
         self.type_id = attributes[:'typeId']
       end
 
+      if attributes.has_key?(:'statusId')
+        self.status_id = attributes[:'statusId']
+      end
+
       if attributes.has_key?(:'readableId')
         self.readable_id = attributes[:'readableId']
+      end
+
+      if attributes.has_key?(:'isOnline')
+        self.is_online = attributes[:'isOnline']
       end
 
       if attributes.has_key?(:'name')
         self.name = attributes[:'name']
       end
 
+      if attributes.has_key?(:'externalName')
+        self.external_name = attributes[:'externalName']
+      end
+
+      if attributes.has_key?(:'summary')
+        self.summary = attributes[:'summary']
+      end
+
+      if attributes.has_key?(:'message')
+        self.message = attributes[:'message']
+      end
+
       if attributes.has_key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.has_key?(:'videoUrl')
+        self.video_url = attributes[:'videoUrl']
+      end
+
+      if attributes.has_key?(:'providerWebsiteUrl')
+        self.provider_website_url = attributes[:'providerWebsiteUrl']
+      end
+
+      if attributes.has_key?(:'providerTargetAudience')
+        self.provider_target_audience = attributes[:'providerTargetAudience']
+      end
+
+      if attributes.has_key?(:'providerOrganiser')
+        self.provider_organiser = attributes[:'providerOrganiser']
+      end
+
+      if attributes.has_key?(:'providerContactEmail')
+        self.provider_contact_email = attributes[:'providerContactEmail']
       end
 
       if attributes.has_key?(:'startAt')
@@ -118,9 +199,19 @@ module GetIntoTeachingApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           type_id == o.type_id &&
+          status_id == o.status_id &&
           readable_id == o.readable_id &&
+          is_online == o.is_online &&
           name == o.name &&
+          external_name == o.external_name &&
+          summary == o.summary &&
+          message == o.message &&
           description == o.description &&
+          video_url == o.video_url &&
+          provider_website_url == o.provider_website_url &&
+          provider_target_audience == o.provider_target_audience &&
+          provider_organiser == o.provider_organiser &&
+          provider_contact_email == o.provider_contact_email &&
           start_at == o.start_at &&
           end_at == o.end_at &&
           building == o.building &&
@@ -136,7 +227,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [type_id, readable_id, name, description, start_at, end_at, building, id].hash
+      [type_id, status_id, readable_id, is_online, name, external_name, summary, message, description, video_url, provider_website_url, provider_target_audience, provider_organiser, provider_contact_email, start_at, end_at, building, id].hash
     end
 
     # Builds the object from hash

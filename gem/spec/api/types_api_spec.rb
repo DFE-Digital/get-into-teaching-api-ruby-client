@@ -212,6 +212,16 @@ describe 'TypesApi' do
     end
   end
 
+  # unit tests for get_teaching_event_status
+  # Retrieves the list of teaching event status.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<TypeEntity>]
+  describe 'get_teaching_event_status test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_teaching_event_types
   # Retrieves the list of teaching event types.
   # @param [Hash] opts the optional parameters

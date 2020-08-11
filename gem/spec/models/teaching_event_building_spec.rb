@@ -32,6 +32,12 @@ describe 'TeachingEventBuilding' do
       expect(@instance).to be_instance_of(GetIntoTeachingApiClient::TeachingEventBuilding)
     end
   end
+  describe 'test attribute "venue"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "address_line1"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -51,12 +57,6 @@ describe 'TeachingEventBuilding' do
   end
 
   describe 'test attribute "address_city"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "address_state"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
