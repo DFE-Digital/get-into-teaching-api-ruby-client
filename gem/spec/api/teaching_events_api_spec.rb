@@ -68,18 +68,6 @@ describe 'TeachingEventsApi' do
     end
   end
 
-  # unit tests for get_upcoming_teaching_events
-  # Retrieves the upcoming teaching events.
-  #   Retrieves the upcoming teaching events; limited to 10 by default, but this can be increased to a   maximum of 50 using the &#x60;limit&#x60; query parameter.
-  # @param [Hash] opts the optional parameters
-  # @option opts [Integer] :limit Number of results to return (maximum of 50).
-  # @return [Array<TeachingEvent>]
-  describe 'get_upcoming_teaching_events test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   # unit tests for search_teaching_events
   # Searches for teaching events.
   # Searches for teaching events by postcode. Optionally limit the results by distance (in miles) and the type of event.

@@ -7,7 +7,6 @@ Method | HTTP request | Description
 [**add_teaching_event_attendee**](TeachingEventsApi.md#add_teaching_event_attendee) | **POST** /api/teaching_events/attendees | Adds an attendee to a teaching event.
 [**get_pre_filled_teaching_event_add_attendee**](TeachingEventsApi.md#get_pre_filled_teaching_event_add_attendee) | **POST** /api/teaching_events/attendees/{accessToken} | Retrieves a pre-populated TeachingEventAddAttendee for the candidate.
 [**get_teaching_event**](TeachingEventsApi.md#get_teaching_event) | **GET** /api/teaching_events/{readableId} | Retrieves an event.
-[**get_upcoming_teaching_events**](TeachingEventsApi.md#get_upcoming_teaching_events) | **GET** /api/teaching_events/upcoming | Retrieves the upcoming teaching events.
 [**search_teaching_events**](TeachingEventsApi.md#search_teaching_events) | **GET** /api/teaching_events/search | Searches for teaching events.
 
 
@@ -161,61 +160,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TeachingEvent**](TeachingEvent.md)
-
-### Authorization
-
-[apiKey](../README.md#apiKey)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
-
-
-
-# **get_upcoming_teaching_events**
-> Array&lt;TeachingEvent&gt; get_upcoming_teaching_events(opts)
-
-Retrieves the upcoming teaching events.
-
-  Retrieves the upcoming teaching events; limited to 10 by default, but this can be increased to a   maximum of 50 using the `limit` query parameter.
-
-### Example
-```ruby
-# load the gem
-require 'get_into_teaching_api_client'
-# setup authorization
-GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
-
-api_instance = GetIntoTeachingApiClient::TeachingEventsApi.new
-
-opts = { 
-  limit: 10 # Integer | Number of results to return (maximum of 50).
-}
-
-begin
-  #Retrieves the upcoming teaching events.
-  result = api_instance.get_upcoming_teaching_events(opts)
-  p result
-rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Exception when calling TeachingEventsApi->get_upcoming_teaching_events: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **Integer**| Number of results to return (maximum of 50). | [optional] [default to 10]
-
-### Return type
-
-[**Array&lt;TeachingEvent&gt;**](TeachingEvent.md)
 
 ### Authorization
 

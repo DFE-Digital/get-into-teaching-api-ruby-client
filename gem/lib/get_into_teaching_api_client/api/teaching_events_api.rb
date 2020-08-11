@@ -182,55 +182,6 @@ module GetIntoTeachingApiClient
       end
       return data, status_code, headers
     end
-    # Retrieves the upcoming teaching events.
-    #   Retrieves the upcoming teaching events; limited to 10 by default, but this can be increased to a   maximum of 50 using the `limit` query parameter.
-    # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit Number of results to return (maximum of 50). (default to 10)
-    # @return [Array<TeachingEvent>]
-    def get_upcoming_teaching_events(opts = {})
-      data, _status_code, _headers = get_upcoming_teaching_events_with_http_info(opts)
-      data
-    end
-
-    # Retrieves the upcoming teaching events.
-    #   Retrieves the upcoming teaching events; limited to 10 by default, but this can be increased to a   maximum of 50 using the &#x60;limit&#x60; query parameter.
-    # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit Number of results to return (maximum of 50).
-    # @return [Array<(Array<TeachingEvent>, Fixnum, Hash)>] Array<TeachingEvent> data, response status code and response headers
-    def get_upcoming_teaching_events_with_http_info(opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TeachingEventsApi.get_upcoming_teaching_events ...'
-      end
-      # resource path
-      local_var_path = '/api/teaching_events/upcoming'
-
-      # query parameters
-      query_params = {}
-      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = nil
-      auth_names = ['apiKey']
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'Array<TeachingEvent>')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TeachingEventsApi#get_upcoming_teaching_events\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
     # Searches for teaching events.
     # Searches for teaching events by postcode. Optionally limit the results by distance (in miles) and the type of event.
     # @param [Hash] opts the optional parameters

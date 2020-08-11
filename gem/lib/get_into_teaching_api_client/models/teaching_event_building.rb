@@ -14,6 +14,8 @@ require 'date'
 
 module GetIntoTeachingApiClient
   class TeachingEventBuilding
+    attr_accessor :venue
+
     attr_accessor :address_line1
 
     attr_accessor :address_line2
@@ -22,8 +24,6 @@ module GetIntoTeachingApiClient
 
     attr_accessor :address_city
 
-    attr_accessor :address_state
-
     attr_accessor :address_postcode
 
     attr_accessor :id
@@ -31,11 +31,11 @@ module GetIntoTeachingApiClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'venue' => :'venue',
         :'address_line1' => :'addressLine1',
         :'address_line2' => :'addressLine2',
         :'address_line3' => :'addressLine3',
         :'address_city' => :'addressCity',
-        :'address_state' => :'addressState',
         :'address_postcode' => :'addressPostcode',
         :'id' => :'id'
       }
@@ -44,11 +44,11 @@ module GetIntoTeachingApiClient
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'venue' => :'String',
         :'address_line1' => :'String',
         :'address_line2' => :'String',
         :'address_line3' => :'String',
         :'address_city' => :'String',
-        :'address_state' => :'String',
         :'address_postcode' => :'String',
         :'id' => :'String'
       }
@@ -61,6 +61,10 @@ module GetIntoTeachingApiClient
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+      if attributes.has_key?(:'venue')
+        self.venue = attributes[:'venue']
+      end
 
       if attributes.has_key?(:'addressLine1')
         self.address_line1 = attributes[:'addressLine1']
@@ -76,10 +80,6 @@ module GetIntoTeachingApiClient
 
       if attributes.has_key?(:'addressCity')
         self.address_city = attributes[:'addressCity']
-      end
-
-      if attributes.has_key?(:'addressState')
-        self.address_state = attributes[:'addressState']
       end
 
       if attributes.has_key?(:'addressPostcode')
@@ -109,11 +109,11 @@ module GetIntoTeachingApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          venue == o.venue &&
           address_line1 == o.address_line1 &&
           address_line2 == o.address_line2 &&
           address_line3 == o.address_line3 &&
           address_city == o.address_city &&
-          address_state == o.address_state &&
           address_postcode == o.address_postcode &&
           id == o.id
     end
@@ -127,7 +127,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [address_line1, address_line2, address_line3, address_city, address_state, address_postcode, id].hash
+      [venue, address_line1, address_line2, address_line3, address_city, address_postcode, id].hash
     end
 
     # Builds the object from hash

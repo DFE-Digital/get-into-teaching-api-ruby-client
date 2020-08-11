@@ -8,11 +8,11 @@ Name | Type | Description | Notes
 **preferred_teaching_subject_id** | **String** |  | [optional] 
 **accepted_policy_id** | **String** |  | 
 **consideration_journey_stage_id** | **Integer** |  | 
-**degree_status_id** | **Integer** |  | [optional] 
+**degree_status_id** | **Integer** |  | 
 **email** | **String** |  | 
 **first_name** | **String** |  | 
 **last_name** | **String** |  | 
-**address_postcode** | **String** |  | 
+**address_postcode** | **String** |  | [optional] 
 **telephone** | **String** |  | [optional] 
 **subscribe_to_events** | **BOOLEAN** |  | [optional] 
 **already_subscribed_to_events** | **BOOLEAN** |  | [optional] 
