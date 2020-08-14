@@ -20,6 +20,9 @@ module GetIntoTeachingApiClient
 
     attr_accessor :readable_id
 
+    # If set, the API will accept new attendees for this event (an external sign up should be used if this value is nil).
+    attr_accessor :web_feed_id
+
     attr_accessor :is_online
 
     attr_accessor :name
@@ -57,6 +60,7 @@ module GetIntoTeachingApiClient
         :'type_id' => :'typeId',
         :'status_id' => :'statusId',
         :'readable_id' => :'readableId',
+        :'web_feed_id' => :'webFeedId',
         :'is_online' => :'isOnline',
         :'name' => :'name',
         :'external_name' => :'externalName',
@@ -81,6 +85,7 @@ module GetIntoTeachingApiClient
         :'type_id' => :'Integer',
         :'status_id' => :'Integer',
         :'readable_id' => :'String',
+        :'web_feed_id' => :'String',
         :'is_online' => :'BOOLEAN',
         :'name' => :'String',
         :'external_name' => :'String',
@@ -117,6 +122,10 @@ module GetIntoTeachingApiClient
 
       if attributes.has_key?(:'readableId')
         self.readable_id = attributes[:'readableId']
+      end
+
+      if attributes.has_key?(:'webFeedId')
+        self.web_feed_id = attributes[:'webFeedId']
       end
 
       if attributes.has_key?(:'isOnline')
@@ -201,6 +210,7 @@ module GetIntoTeachingApiClient
           type_id == o.type_id &&
           status_id == o.status_id &&
           readable_id == o.readable_id &&
+          web_feed_id == o.web_feed_id &&
           is_online == o.is_online &&
           name == o.name &&
           external_name == o.external_name &&
@@ -227,7 +237,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [type_id, status_id, readable_id, is_online, name, external_name, summary, message, description, video_url, provider_website_url, provider_target_audience, provider_organiser, provider_contact_email, start_at, end_at, building, id].hash
+      [type_id, status_id, readable_id, web_feed_id, is_online, name, external_name, summary, message, description, video_url, provider_website_url, provider_target_audience, provider_organiser, provider_contact_email, start_at, end_at, building, id].hash
     end
 
     # Builds the object from hash
