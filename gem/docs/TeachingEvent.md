@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **web_feed_id** | **String** | If set, the API will accept new attendees for this event (an external sign up should be used if this value is nil). | [optional] 
 **is_online** | **BOOLEAN** |  | [optional] 
 **name** | **String** |  | [optional] 
-**external_name** | **String** |  | [optional] 
 **summary** | **String** |  | [optional] 
 **message** | **String** | Used to push miscellaneous messages to users (if an event is close to being booked out, for example). | [optional] 
 **description** | **String** |  | [optional] 

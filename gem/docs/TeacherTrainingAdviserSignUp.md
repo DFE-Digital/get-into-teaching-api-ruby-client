@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **email** | **String** |  | 
 **first_name** | **String** |  | 
 **last_name** | **String** |  | 
-**date_of_birth** | **DateTime** |  | 
+**date_of_birth** | **Date** |  | 
 **teacher_id** | **String** |  | [optional] 
 **degree_subject** | **String** |  | [optional] 
 **telephone** | **String** |  | [optional] 
