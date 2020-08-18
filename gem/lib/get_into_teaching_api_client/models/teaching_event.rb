@@ -27,8 +27,6 @@ module GetIntoTeachingApiClient
 
     attr_accessor :name
 
-    attr_accessor :external_name
-
     attr_accessor :summary
 
     # Used to push miscellaneous messages to users (if an event is close to being booked out, for example).
@@ -63,7 +61,6 @@ module GetIntoTeachingApiClient
         :'web_feed_id' => :'webFeedId',
         :'is_online' => :'isOnline',
         :'name' => :'name',
-        :'external_name' => :'externalName',
         :'summary' => :'summary',
         :'message' => :'message',
         :'description' => :'description',
@@ -88,7 +85,6 @@ module GetIntoTeachingApiClient
         :'web_feed_id' => :'String',
         :'is_online' => :'BOOLEAN',
         :'name' => :'String',
-        :'external_name' => :'String',
         :'summary' => :'String',
         :'message' => :'String',
         :'description' => :'String',
@@ -134,10 +130,6 @@ module GetIntoTeachingApiClient
 
       if attributes.has_key?(:'name')
         self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'externalName')
-        self.external_name = attributes[:'externalName']
       end
 
       if attributes.has_key?(:'summary')
@@ -213,7 +205,6 @@ module GetIntoTeachingApiClient
           web_feed_id == o.web_feed_id &&
           is_online == o.is_online &&
           name == o.name &&
-          external_name == o.external_name &&
           summary == o.summary &&
           message == o.message &&
           description == o.description &&
@@ -237,7 +228,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [type_id, status_id, readable_id, web_feed_id, is_online, name, external_name, summary, message, description, video_url, provider_website_url, provider_target_audience, provider_organiser, provider_contact_email, start_at, end_at, building, id].hash
+      [type_id, status_id, readable_id, web_feed_id, is_online, name, summary, message, description, video_url, provider_website_url, provider_target_audience, provider_organiser, provider_contact_email, start_at, end_at, building, id].hash
     end
 
     # Builds the object from hash

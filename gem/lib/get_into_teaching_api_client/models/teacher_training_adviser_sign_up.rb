@@ -129,7 +129,7 @@ module GetIntoTeachingApiClient
         :'email' => :'String',
         :'first_name' => :'String',
         :'last_name' => :'String',
-        :'date_of_birth' => :'DateTime',
+        :'date_of_birth' => :'Date',
         :'teacher_id' => :'String',
         :'degree_subject' => :'String',
         :'telephone' => :'String',
