@@ -20,7 +20,7 @@ You can then bump the version in `config.json` and re-generate the library.
 
 ```
 rm -rf ./gem
-swagger-codegen generate -i <swagger_docs_url> -l ruby -o ./gem -c config.json
+swagger-codegen generate -i <swagger_docs_url> -l ruby -o ./auto-generated-gem -c config.json
 ```
 
 You should then also run the test suite:
