@@ -20,7 +20,7 @@ jobs:
         ruby-version: 2.6
     - name: Install dependencies
       run: |-
-        cd auto-genereated-gem && bundle install && cd ..
+        cd auto-generated-gem && bundle install && cd ..
         cd api-client && bundle install && cd ..
     - name: Run tests
       run: |-
