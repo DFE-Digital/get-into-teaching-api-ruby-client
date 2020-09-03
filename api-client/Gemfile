@@ -1,0 +1,11 @@
+source "https://rubygems.org"
+
+gem "get_into_teaching_api_client", path: "../auto-generated-gem"
+
+# Specify your gem's dependencies in api-client.gemspec
+gemspec
+
+gem "rake", "~> 12.0"
+gem "rspec", "~> 3.0"
+gem "webmock"
+gem "byebug"
