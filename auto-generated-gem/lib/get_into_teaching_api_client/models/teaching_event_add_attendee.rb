@@ -16,9 +16,17 @@ module GetIntoTeachingApiClient
   class TeachingEventAddAttendee
     attr_accessor :candidate_id
 
+    attr_accessor :qualification_id
+
     attr_accessor :event_id
 
     attr_accessor :accepted_policy_id
+
+    attr_accessor :preferred_teaching_subject_id
+
+    attr_accessor :consideration_journey_stage_id
+
+    attr_accessor :degree_status_id
 
     attr_accessor :email
 
@@ -42,8 +50,12 @@ module GetIntoTeachingApiClient
     def self.attribute_map
       {
         :'candidate_id' => :'candidateId',
+        :'qualification_id' => :'qualificationId',
         :'event_id' => :'eventId',
         :'accepted_policy_id' => :'acceptedPolicyId',
+        :'preferred_teaching_subject_id' => :'preferredTeachingSubjectId',
+        :'consideration_journey_stage_id' => :'considerationJourneyStageId',
+        :'degree_status_id' => :'degreeStatusId',
         :'email' => :'email',
         :'first_name' => :'firstName',
         :'last_name' => :'lastName',
@@ -60,8 +72,12 @@ module GetIntoTeachingApiClient
     def self.swagger_types
       {
         :'candidate_id' => :'String',
+        :'qualification_id' => :'String',
         :'event_id' => :'String',
         :'accepted_policy_id' => :'String',
+        :'preferred_teaching_subject_id' => :'String',
+        :'consideration_journey_stage_id' => :'Integer',
+        :'degree_status_id' => :'Integer',
         :'email' => :'String',
         :'first_name' => :'String',
         :'last_name' => :'String',
@@ -86,12 +102,28 @@ module GetIntoTeachingApiClient
         self.candidate_id = attributes[:'candidateId']
       end
 
+      if attributes.has_key?(:'qualificationId')
+        self.qualification_id = attributes[:'qualificationId']
+      end
+
       if attributes.has_key?(:'eventId')
         self.event_id = attributes[:'eventId']
       end
 
       if attributes.has_key?(:'acceptedPolicyId')
         self.accepted_policy_id = attributes[:'acceptedPolicyId']
+      end
+
+      if attributes.has_key?(:'preferredTeachingSubjectId')
+        self.preferred_teaching_subject_id = attributes[:'preferredTeachingSubjectId']
+      end
+
+      if attributes.has_key?(:'considerationJourneyStageId')
+        self.consideration_journey_stage_id = attributes[:'considerationJourneyStageId']
+      end
+
+      if attributes.has_key?(:'degreeStatusId')
+        self.degree_status_id = attributes[:'degreeStatusId']
       end
 
       if attributes.has_key?(:'email')
@@ -232,8 +264,12 @@ module GetIntoTeachingApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           candidate_id == o.candidate_id &&
+          qualification_id == o.qualification_id &&
           event_id == o.event_id &&
           accepted_policy_id == o.accepted_policy_id &&
+          preferred_teaching_subject_id == o.preferred_teaching_subject_id &&
+          consideration_journey_stage_id == o.consideration_journey_stage_id &&
+          degree_status_id == o.degree_status_id &&
           email == o.email &&
           first_name == o.first_name &&
           last_name == o.last_name &&
@@ -254,7 +290,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [candidate_id, event_id, accepted_policy_id, email, first_name, last_name, address_postcode, telephone, subscribe_to_events, subscribe_to_mailing_list, already_subscribed_to_events, already_subscribed_to_mailing_list].hash
+      [candidate_id, qualification_id, event_id, accepted_policy_id, preferred_teaching_subject_id, consideration_journey_stage_id, degree_status_id, email, first_name, last_name, address_postcode, telephone, subscribe_to_events, subscribe_to_mailing_list, already_subscribed_to_events, already_subscribed_to_mailing_list].hash
     end
 
     # Builds the object from hash

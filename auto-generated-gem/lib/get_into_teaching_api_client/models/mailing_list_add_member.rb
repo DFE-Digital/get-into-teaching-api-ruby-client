@@ -36,8 +36,6 @@ module GetIntoTeachingApiClient
 
     attr_accessor :telephone
 
-    attr_accessor :subscribe_to_events
-
     attr_accessor :already_subscribed_to_events
 
     attr_accessor :already_subscribed_to_mailing_list
@@ -56,7 +54,6 @@ module GetIntoTeachingApiClient
         :'last_name' => :'lastName',
         :'address_postcode' => :'addressPostcode',
         :'telephone' => :'telephone',
-        :'subscribe_to_events' => :'subscribeToEvents',
         :'already_subscribed_to_events' => :'alreadySubscribedToEvents',
         :'already_subscribed_to_mailing_list' => :'alreadySubscribedToMailingList'
       }
@@ -76,7 +73,6 @@ module GetIntoTeachingApiClient
         :'last_name' => :'String',
         :'address_postcode' => :'String',
         :'telephone' => :'String',
-        :'subscribe_to_events' => :'BOOLEAN',
         :'already_subscribed_to_events' => :'BOOLEAN',
         :'already_subscribed_to_mailing_list' => :'BOOLEAN'
       }
@@ -134,10 +130,6 @@ module GetIntoTeachingApiClient
         self.telephone = attributes[:'telephone']
       end
 
-      if attributes.has_key?(:'subscribeToEvents')
-        self.subscribe_to_events = attributes[:'subscribeToEvents']
-      end
-
       if attributes.has_key?(:'alreadySubscribedToEvents')
         self.already_subscribed_to_events = attributes[:'alreadySubscribedToEvents']
       end
@@ -151,6 +143,10 @@ module GetIntoTeachingApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @preferred_teaching_subject_id.nil?
+        invalid_properties.push('invalid value for "preferred_teaching_subject_id", preferred_teaching_subject_id cannot be nil.')
+      end
+
       if @accepted_policy_id.nil?
         invalid_properties.push('invalid value for "accepted_policy_id", accepted_policy_id cannot be nil.')
       end
@@ -193,6 +189,7 @@ module GetIntoTeachingApiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @preferred_teaching_subject_id.nil?
       return false if @accepted_policy_id.nil?
       return false if @consideration_journey_stage_id.nil?
       return false if @degree_status_id.nil?
@@ -263,7 +260,6 @@ module GetIntoTeachingApiClient
           last_name == o.last_name &&
           address_postcode == o.address_postcode &&
           telephone == o.telephone &&
-          subscribe_to_events == o.subscribe_to_events &&
           already_subscribed_to_events == o.already_subscribed_to_events &&
           already_subscribed_to_mailing_list == o.already_subscribed_to_mailing_list
     end
@@ -277,7 +273,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [candidate_id, qualification_id, preferred_teaching_subject_id, accepted_policy_id, consideration_journey_stage_id, degree_status_id, email, first_name, last_name, address_postcode, telephone, subscribe_to_events, already_subscribed_to_events, already_subscribed_to_mailing_list].hash
+      [candidate_id, qualification_id, preferred_teaching_subject_id, accepted_policy_id, consideration_journey_stage_id, degree_status_id, email, first_name, last_name, address_postcode, telephone, already_subscribed_to_events, already_subscribed_to_mailing_list].hash
     end
 
     # Builds the object from hash
