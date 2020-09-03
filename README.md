@@ -5,7 +5,7 @@
 ## Usage
 
 ```
-gem "api-client", "0.1.0", git: "git@github.com:DFE-Digital/get-into-teaching-api-ruby-client.git"
+gem "get_into_teaching_api_client_faraday", "0.1.0", git: "git@github.com:DFE-Digital/get-into-teaching-api-ruby-client.git"
 ```
 
 ```
@@ -36,4 +36,4 @@ You should then also run the test suite:
 cd auto-generated-gem; bundle && rspec
 ```
 
-Finally, bump the version of the `api-client` gem.
+Finally, bump the version of the `get_into_teaching_api_client_faraday` gem.

@@ -1,7 +1,7 @@
 require_relative 'lib/api/client/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "api-client"
+  spec.name          = "get_into_teaching_api_client_faraday"
   spec.version       = Api::Client::VERSION
   spec.authors       = ["Ross Oliver"]
   spec.email         = ["ross.oliver@digital.education.gov.uk"]
