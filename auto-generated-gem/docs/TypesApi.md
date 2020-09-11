@@ -8,9 +8,11 @@ Method | HTTP request | Description
 [**get_candidate_adviser_requirements**](TypesApi.md#get_candidate_adviser_requirements) | **GET** /api/types/candidate/adviser_requirements | Retrieves the list of candidate adviser requirements.
 [**get_candidate_assignment_status**](TypesApi.md#get_candidate_assignment_status) | **GET** /api/types/candidate/assignment_status | Retrieves the list of candidate assignment status.
 [**get_candidate_channels**](TypesApi.md#get_candidate_channels) | **GET** /api/types/candidate/channels | Retrieves the list of candidate channels.
+[**get_candidate_event_subscription_channels**](TypesApi.md#get_candidate_event_subscription_channels) | **GET** /api/types/candidate/event_subscription_channels | Retrieves the list of candidate event subscription channels.
 [**get_candidate_gcse_status**](TypesApi.md#get_candidate_gcse_status) | **GET** /api/types/candidate/gcse_status | Retrieves the list of candidate GCSE status.
 [**get_candidate_initial_teacher_training_years**](TypesApi.md#get_candidate_initial_teacher_training_years) | **GET** /api/types/candidate/initial_teacher_training_years | Retrieves the list of candidate initial teacher training years.
 [**get_candidate_journey_stages**](TypesApi.md#get_candidate_journey_stages) | **GET** /api/types/candidate/consideration_journey_stages | Retrieves the list of candidate consideration journey stages.
+[**get_candidate_mailing_list_subscription_channels**](TypesApi.md#get_candidate_mailing_list_subscription_channels) | **GET** /api/types/candidate/mailing_list_subscription_channels | Retrieves the list of candidate mailing list subscription channels.
 [**get_candidate_preferred_education_phases**](TypesApi.md#get_candidate_preferred_education_phases) | **GET** /api/types/candidate/preferred_education_phases | Retrieves the list of candidate preferred education phases.
 [**get_candidate_retake_gcse_status**](TypesApi.md#get_candidate_retake_gcse_status) | **GET** /api/types/candidate/retake_gcse_status | Retrieves the list of candidate retake GCSE status.
 [**get_candidate_types**](TypesApi.md#get_candidate_types) | **GET** /api/types/candidate/types | Retrieves the list of candidate types.
@@ -211,6 +213,52 @@ This endpoint does not need any parameter.
 
 
 
+# **get_candidate_event_subscription_channels**
+> Array&lt;TypeEntity&gt; get_candidate_event_subscription_channels
+
+Retrieves the list of candidate event subscription channels.
+
+### Example
+```ruby
+# load the gem
+require 'get_into_teaching_api_client'
+# setup authorization
+GetIntoTeachingApiClient.configure do |config|
+  # Configure API key authorization: apiKey
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = GetIntoTeachingApiClient::TypesApi.new
+
+begin
+  #Retrieves the list of candidate event subscription channels.
+  result = api_instance.get_candidate_event_subscription_channels
+  p result
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Exception when calling TypesApi->get_candidate_event_subscription_channels: #{e}"
+end
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Array&lt;TypeEntity&gt;**](TypeEntity.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+
 # **get_candidate_gcse_status**
 > Array&lt;TypeEntity&gt; get_candidate_gcse_status
 
@@ -328,6 +376,52 @@ begin
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TypesApi->get_candidate_journey_stages: #{e}"
+end
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Array&lt;TypeEntity&gt;**](TypeEntity.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+
+# **get_candidate_mailing_list_subscription_channels**
+> Array&lt;TypeEntity&gt; get_candidate_mailing_list_subscription_channels
+
+Retrieves the list of candidate mailing list subscription channels.
+
+### Example
+```ruby
+# load the gem
+require 'get_into_teaching_api_client'
+# setup authorization
+GetIntoTeachingApiClient.configure do |config|
+  # Configure API key authorization: apiKey
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = GetIntoTeachingApiClient::TypesApi.new
+
+begin
+  #Retrieves the list of candidate mailing list subscription channels.
+  result = api_instance.get_candidate_mailing_list_subscription_channels
+  p result
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Exception when calling TypesApi->get_candidate_mailing_list_subscription_channels: #{e}"
 end
 ```
 

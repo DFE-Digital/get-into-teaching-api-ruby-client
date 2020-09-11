@@ -46,6 +46,8 @@ module GetIntoTeachingApiClient
 
     attr_accessor :already_subscribed_to_mailing_list
 
+    attr_accessor :already_subscribed_to_teacher_training_adviser
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -64,7 +66,8 @@ module GetIntoTeachingApiClient
         :'subscribe_to_events' => :'subscribeToEvents',
         :'subscribe_to_mailing_list' => :'subscribeToMailingList',
         :'already_subscribed_to_events' => :'alreadySubscribedToEvents',
-        :'already_subscribed_to_mailing_list' => :'alreadySubscribedToMailingList'
+        :'already_subscribed_to_mailing_list' => :'alreadySubscribedToMailingList',
+        :'already_subscribed_to_teacher_training_adviser' => :'alreadySubscribedToTeacherTrainingAdviser'
       }
     end
 
@@ -86,7 +89,8 @@ module GetIntoTeachingApiClient
         :'subscribe_to_events' => :'BOOLEAN',
         :'subscribe_to_mailing_list' => :'BOOLEAN',
         :'already_subscribed_to_events' => :'BOOLEAN',
-        :'already_subscribed_to_mailing_list' => :'BOOLEAN'
+        :'already_subscribed_to_mailing_list' => :'BOOLEAN',
+        :'already_subscribed_to_teacher_training_adviser' => :'BOOLEAN'
       }
     end
 
@@ -160,6 +164,10 @@ module GetIntoTeachingApiClient
 
       if attributes.has_key?(:'alreadySubscribedToMailingList')
         self.already_subscribed_to_mailing_list = attributes[:'alreadySubscribedToMailingList']
+      end
+
+      if attributes.has_key?(:'alreadySubscribedToTeacherTrainingAdviser')
+        self.already_subscribed_to_teacher_training_adviser = attributes[:'alreadySubscribedToTeacherTrainingAdviser']
       end
     end
 
@@ -278,7 +286,8 @@ module GetIntoTeachingApiClient
           subscribe_to_events == o.subscribe_to_events &&
           subscribe_to_mailing_list == o.subscribe_to_mailing_list &&
           already_subscribed_to_events == o.already_subscribed_to_events &&
-          already_subscribed_to_mailing_list == o.already_subscribed_to_mailing_list
+          already_subscribed_to_mailing_list == o.already_subscribed_to_mailing_list &&
+          already_subscribed_to_teacher_training_adviser == o.already_subscribed_to_teacher_training_adviser
     end
 
     # @see the `==` method
@@ -290,7 +299,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [candidate_id, qualification_id, event_id, accepted_policy_id, preferred_teaching_subject_id, consideration_journey_stage_id, degree_status_id, email, first_name, last_name, address_postcode, telephone, subscribe_to_events, subscribe_to_mailing_list, already_subscribed_to_events, already_subscribed_to_mailing_list].hash
+      [candidate_id, qualification_id, event_id, accepted_policy_id, preferred_teaching_subject_id, consideration_journey_stage_id, degree_status_id, email, first_name, last_name, address_postcode, telephone, subscribe_to_events, subscribe_to_mailing_list, already_subscribed_to_events, already_subscribed_to_mailing_list, already_subscribed_to_teacher_training_adviser].hash
     end
 
     # Builds the object from hash
