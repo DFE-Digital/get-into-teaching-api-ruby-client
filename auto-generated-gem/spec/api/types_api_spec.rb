@@ -72,6 +72,16 @@ describe 'TypesApi' do
     end
   end
 
+  # unit tests for get_candidate_event_subscription_channels
+  # Retrieves the list of candidate event subscription channels.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<TypeEntity>]
+  describe 'get_candidate_event_subscription_channels test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_candidate_gcse_status
   # Retrieves the list of candidate GCSE status.
   # @param [Hash] opts the optional parameters
@@ -97,6 +107,16 @@ describe 'TypesApi' do
   # @param [Hash] opts the optional parameters
   # @return [Array<TypeEntity>]
   describe 'get_candidate_journey_stages test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_candidate_mailing_list_subscription_channels
+  # Retrieves the list of candidate mailing list subscription channels.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<TypeEntity>]
+  describe 'get_candidate_mailing_list_subscription_channels test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

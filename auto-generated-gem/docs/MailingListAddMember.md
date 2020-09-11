@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **accepted_policy_id** | **String** |  | 
 **consideration_journey_stage_id** | **Integer** |  | 
 **degree_status_id** | **Integer** |  | 
+**channel_id** | **Integer** |  | [optional] 
 **email** | **String** |  | 
 **first_name** | **String** |  | 
 **last_name** | **String** |  | 
@@ -16,5 +17,6 @@ Name | Type | Description | Notes
 **telephone** | **String** |  | [optional] 
 **already_subscribed_to_events** | **BOOLEAN** |  | [optional] 
 **already_subscribed_to_mailing_list** | **BOOLEAN** |  | [optional] 
+**already_subscribed_to_teacher_training_adviser** | **BOOLEAN** |  | [optional] 
 
 

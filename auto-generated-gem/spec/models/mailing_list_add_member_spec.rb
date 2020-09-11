@@ -68,6 +68,12 @@ describe 'MailingListAddMember' do
     end
   end
 
+  describe 'test attribute "channel_id"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "email"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -105,6 +111,12 @@ describe 'MailingListAddMember' do
   end
 
   describe 'test attribute "already_subscribed_to_mailing_list"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "already_subscribed_to_teacher_training_adviser"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
