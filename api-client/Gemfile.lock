@@ -1,14 +1,14 @@
 PATH
   remote: ../auto-generated-gem
   specs:
-    get_into_teaching_api_client (1.0.9)
+    get_into_teaching_api_client (1.1.2)
       json (~> 2.1, >= 2.1.0)
       typhoeus (~> 1.0, >= 1.0.1)
 
 PATH
   remote: .
   specs:
-    api-client (0.1.0)
+    get_into_teaching_api_client_faraday (0.1.2)
       activesupport
       faraday
       faraday-encoding
@@ -19,7 +19,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (6.0.3.2)
+    activesupport (6.0.3.3)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
@@ -49,7 +49,7 @@ GEM
     json (2.3.1)
     minitest (5.14.2)
     multipart-post (2.1.1)
-    public_suffix (4.0.5)
+    public_suffix (4.0.6)
     rake (12.3.3)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
@@ -70,7 +70,7 @@ GEM
       ethon (>= 0.9.0)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
-    webmock (3.8.3)
+    webmock (3.9.1)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
@@ -80,9 +80,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  api-client!
   byebug
   get_into_teaching_api_client!
+  get_into_teaching_api_client_faraday!
   rake (~> 12.0)
   rspec (~> 3.0)
   webmock
