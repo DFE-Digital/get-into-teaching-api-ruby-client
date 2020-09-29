@@ -1,7 +1,7 @@
 module Extensions
   module GetIntoTeachingApiClient
     module Caching
-      MAX_AGE = 10 * 60 # 10 minutes
+      MAX_AGE = 5 * 60 # 5 minutes
       MAX_RETRIES = 1
       RETRY_EXCEPTIONS = [::Faraday::ConnectionFailed].freeze
       RETRY_OPTIONS = {
