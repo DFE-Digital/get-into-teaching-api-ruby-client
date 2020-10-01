@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **message** | **String** | Used to push miscellaneous messages to users (if an event is close to being booked out, for example). | [optional] 
 **description** | **String** |  | [optional] 
 **video_url** | **String** |  | [optional] 
+**scribble_id** | **String** |  | [optional] 
 **provider_website_url** | **String** |  | [optional] 
 **provider_target_audience** | **String** |  | [optional] 
 **provider_organiser** | **String** |  | [optional] 
