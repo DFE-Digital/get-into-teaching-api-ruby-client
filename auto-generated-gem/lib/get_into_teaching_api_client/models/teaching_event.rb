@@ -36,6 +36,8 @@ module GetIntoTeachingApiClient
 
     attr_accessor :video_url
 
+    attr_accessor :scribble_id
+
     attr_accessor :provider_website_url
 
     attr_accessor :provider_target_audience
@@ -65,6 +67,7 @@ module GetIntoTeachingApiClient
         :'message' => :'message',
         :'description' => :'description',
         :'video_url' => :'videoUrl',
+        :'scribble_id' => :'scribbleId',
         :'provider_website_url' => :'providerWebsiteUrl',
         :'provider_target_audience' => :'providerTargetAudience',
         :'provider_organiser' => :'providerOrganiser',
@@ -89,6 +92,7 @@ module GetIntoTeachingApiClient
         :'message' => :'String',
         :'description' => :'String',
         :'video_url' => :'String',
+        :'scribble_id' => :'String',
         :'provider_website_url' => :'String',
         :'provider_target_audience' => :'String',
         :'provider_organiser' => :'String',
@@ -146,6 +150,10 @@ module GetIntoTeachingApiClient
 
       if attributes.has_key?(:'videoUrl')
         self.video_url = attributes[:'videoUrl']
+      end
+
+      if attributes.has_key?(:'scribbleId')
+        self.scribble_id = attributes[:'scribbleId']
       end
 
       if attributes.has_key?(:'providerWebsiteUrl')
@@ -209,6 +217,7 @@ module GetIntoTeachingApiClient
           message == o.message &&
           description == o.description &&
           video_url == o.video_url &&
+          scribble_id == o.scribble_id &&
           provider_website_url == o.provider_website_url &&
           provider_target_audience == o.provider_target_audience &&
           provider_organiser == o.provider_organiser &&
@@ -228,7 +237,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [type_id, status_id, readable_id, web_feed_id, is_online, name, summary, message, description, video_url, provider_website_url, provider_target_audience, provider_organiser, provider_contact_email, start_at, end_at, building, id].hash
+      [type_id, status_id, readable_id, web_feed_id, is_online, name, summary, message, description, video_url, scribble_id, provider_website_url, provider_target_audience, provider_organiser, provider_contact_email, start_at, end_at, building, id].hash
     end
 
     # Builds the object from hash
