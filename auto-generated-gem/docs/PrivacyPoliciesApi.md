@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **get_latest_privacy_policy**
-> PrivacyPolicy get_latest_privacy_policy
+> PrivacyPolicy get_latest_privacy_policy(opts)
 
 Retrieves the latest privacy policy.
 
@@ -27,9 +27,13 @@ end
 
 api_instance = GetIntoTeachingApiClient::PrivacyPoliciesApi.new
 
+opts = { 
+  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
+}
+
 begin
   #Retrieves the latest privacy policy.
-  result = api_instance.get_latest_privacy_policy
+  result = api_instance.get_latest_privacy_policy(opts)
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling PrivacyPoliciesApi->get_latest_privacy_policy: #{e}"
@@ -37,7 +41,10 @@ end
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
 
 ### Return type
 
@@ -55,7 +62,7 @@ This endpoint does not need any parameter.
 
 
 # **get_privacy_policy**
-> PrivacyPolicy get_privacy_policy(id)
+> PrivacyPolicy get_privacy_policy(id, opts)
 
 Retrieves a privacy policy.
 
@@ -75,10 +82,13 @@ api_instance = GetIntoTeachingApiClient::PrivacyPoliciesApi.new
 
 id = 'id_example' # String | The `id` of the `PrivacyPolicy`.
 
+opts = { 
+  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
+}
 
 begin
   #Retrieves a privacy policy.
-  result = api_instance.get_privacy_policy(id)
+  result = api_instance.get_privacy_policy(id, opts)
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling PrivacyPoliciesApi->get_privacy_policy: #{e}"
@@ -90,6 +100,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**String**](.md)| The &#x60;id&#x60; of the &#x60;PrivacyPolicy&#x60;. | 
+ **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
 
 ### Return type
 

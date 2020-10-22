@@ -35,6 +35,7 @@ describe 'PrivacyPoliciesApi' do
   # unit tests for get_latest_privacy_policy
   # Retrieves the latest privacy policy.
   # @param [Hash] opts the optional parameters
+  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [PrivacyPolicy]
   describe 'get_latest_privacy_policy test' do
     it 'should work' do
@@ -46,6 +47,7 @@ describe 'PrivacyPoliciesApi' do
   # Retrieves a privacy policy.
   # @param id The &#x60;id&#x60; of the &#x60;PrivacyPolicy&#x60;.
   # @param [Hash] opts the optional parameters
+  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [PrivacyPolicy]
   describe 'get_privacy_policy test' do
     it 'should work' do

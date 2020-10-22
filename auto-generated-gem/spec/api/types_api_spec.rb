@@ -35,6 +35,7 @@ describe 'TypesApi' do
   # unit tests for get_candidate_adviser_eligibilities
   # Retrieves the list of candidate adviser eligibilities.
   # @param [Hash] opts the optional parameters
+  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [Array<TypeEntity>]
   describe 'get_candidate_adviser_eligibilities test' do
     it 'should work' do
@@ -45,6 +46,7 @@ describe 'TypesApi' do
   # unit tests for get_candidate_adviser_requirements
   # Retrieves the list of candidate adviser requirements.
   # @param [Hash] opts the optional parameters
+  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [Array<TypeEntity>]
   describe 'get_candidate_adviser_requirements test' do
     it 'should work' do
@@ -55,6 +57,7 @@ describe 'TypesApi' do
   # unit tests for get_candidate_assignment_status
   # Retrieves the list of candidate assignment status.
   # @param [Hash] opts the optional parameters
+  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [Array<TypeEntity>]
   describe 'get_candidate_assignment_status test' do
     it 'should work' do
@@ -65,6 +68,7 @@ describe 'TypesApi' do
   # unit tests for get_candidate_channels
   # Retrieves the list of candidate channels.
   # @param [Hash] opts the optional parameters
+  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [Array<TypeEntity>]
   describe 'get_candidate_channels test' do
     it 'should work' do
@@ -75,6 +79,7 @@ describe 'TypesApi' do
   # unit tests for get_candidate_event_subscription_channels
   # Retrieves the list of candidate event subscription channels.
   # @param [Hash] opts the optional parameters
+  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [Array<TypeEntity>]
   describe 'get_candidate_event_subscription_channels test' do
     it 'should work' do
@@ -85,6 +90,7 @@ describe 'TypesApi' do
   # unit tests for get_candidate_gcse_status
   # Retrieves the list of candidate GCSE status.
   # @param [Hash] opts the optional parameters
+  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [Array<TypeEntity>]
   describe 'get_candidate_gcse_status test' do
     it 'should work' do
@@ -95,6 +101,7 @@ describe 'TypesApi' do
   # unit tests for get_candidate_initial_teacher_training_years
   # Retrieves the list of candidate initial teacher training years.
   # @param [Hash] opts the optional parameters
+  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [Array<TypeEntity>]
   describe 'get_candidate_initial_teacher_training_years test' do
     it 'should work' do
@@ -105,6 +112,7 @@ describe 'TypesApi' do
   # unit tests for get_candidate_journey_stages
   # Retrieves the list of candidate consideration journey stages.
   # @param [Hash] opts the optional parameters
+  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [Array<TypeEntity>]
   describe 'get_candidate_journey_stages test' do
     it 'should work' do
@@ -115,6 +123,7 @@ describe 'TypesApi' do
   # unit tests for get_candidate_mailing_list_subscription_channels
   # Retrieves the list of candidate mailing list subscription channels.
   # @param [Hash] opts the optional parameters
+  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [Array<TypeEntity>]
   describe 'get_candidate_mailing_list_subscription_channels test' do
     it 'should work' do
@@ -125,6 +134,7 @@ describe 'TypesApi' do
   # unit tests for get_candidate_preferred_education_phases
   # Retrieves the list of candidate preferred education phases.
   # @param [Hash] opts the optional parameters
+  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [Array<TypeEntity>]
   describe 'get_candidate_preferred_education_phases test' do
     it 'should work' do
@@ -135,6 +145,7 @@ describe 'TypesApi' do
   # unit tests for get_candidate_retake_gcse_status
   # Retrieves the list of candidate retake GCSE status.
   # @param [Hash] opts the optional parameters
+  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [Array<TypeEntity>]
   describe 'get_candidate_retake_gcse_status test' do
     it 'should work' do
@@ -145,6 +156,7 @@ describe 'TypesApi' do
   # unit tests for get_candidate_types
   # Retrieves the list of candidate types.
   # @param [Hash] opts the optional parameters
+  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [Array<TypeEntity>]
   describe 'get_candidate_types test' do
     it 'should work' do
@@ -155,6 +167,7 @@ describe 'TypesApi' do
   # unit tests for get_country_types
   # Retrieves the list of countries.
   # @param [Hash] opts the optional parameters
+  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [Array<TypeEntity>]
   describe 'get_country_types test' do
     it 'should work' do
@@ -165,6 +178,7 @@ describe 'TypesApi' do
   # unit tests for get_past_teaching_position_education_phases
   # Retrieves the list of past teaching position education phases.
   # @param [Hash] opts the optional parameters
+  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [Array<TypeEntity>]
   describe 'get_past_teaching_position_education_phases test' do
     it 'should work' do
@@ -175,6 +189,7 @@ describe 'TypesApi' do
   # unit tests for get_phone_call_channels
   # Retrieves the list of phone call channels.
   # @param [Hash] opts the optional parameters
+  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [Array<TypeEntity>]
   describe 'get_phone_call_channels test' do
     it 'should work' do
@@ -185,6 +200,7 @@ describe 'TypesApi' do
   # unit tests for get_qualification_degree_status
   # Retrieves the list of qualification degree status.
   # @param [Hash] opts the optional parameters
+  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [Array<TypeEntity>]
   describe 'get_qualification_degree_status test' do
     it 'should work' do
@@ -195,6 +211,7 @@ describe 'TypesApi' do
   # unit tests for get_qualification_types
   # Retrieves the list of qualification types.
   # @param [Hash] opts the optional parameters
+  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [Array<TypeEntity>]
   describe 'get_qualification_types test' do
     it 'should work' do
@@ -205,6 +222,7 @@ describe 'TypesApi' do
   # unit tests for get_qualification_uk_degree_grades
   # Retrieves the list of qualification UK degree grades.
   # @param [Hash] opts the optional parameters
+  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [Array<TypeEntity>]
   describe 'get_qualification_uk_degree_grades test' do
     it 'should work' do
@@ -215,6 +233,7 @@ describe 'TypesApi' do
   # unit tests for get_subscription_types
   # Retrieves the list of subscription types.
   # @param [Hash] opts the optional parameters
+  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [Array<TypeEntity>]
   describe 'get_subscription_types test' do
     it 'should work' do
@@ -225,6 +244,7 @@ describe 'TypesApi' do
   # unit tests for get_teaching_event_registration_channels
   # Retrieves the list of teaching event registration channels.
   # @param [Hash] opts the optional parameters
+  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [Array<TypeEntity>]
   describe 'get_teaching_event_registration_channels test' do
     it 'should work' do
@@ -235,6 +255,7 @@ describe 'TypesApi' do
   # unit tests for get_teaching_event_status
   # Retrieves the list of teaching event status.
   # @param [Hash] opts the optional parameters
+  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [Array<TypeEntity>]
   describe 'get_teaching_event_status test' do
     it 'should work' do
@@ -245,6 +266,7 @@ describe 'TypesApi' do
   # unit tests for get_teaching_event_types
   # Retrieves the list of teaching event types.
   # @param [Hash] opts the optional parameters
+  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [Array<TypeEntity>]
   describe 'get_teaching_event_types test' do
     it 'should work' do
@@ -255,6 +277,7 @@ describe 'TypesApi' do
   # unit tests for get_teaching_subjects
   # Retrieves the list of teaching subjects.
   # @param [Hash] opts the optional parameters
+  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [Array<TypeEntity>]
   describe 'get_teaching_subjects test' do
     it 'should work' do

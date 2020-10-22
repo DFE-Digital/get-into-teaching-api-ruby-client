@@ -22,6 +22,7 @@ module GetIntoTeachingApiClient
     # Generates the mapping information.
     # Generates the mapping information describing how the models in the API map to the corresponding entities in Dynamics 365.
     # @param [Hash] opts the optional parameters
+    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [Array<MappingInfo>]
     def generate_mapping_info(opts = {})
       data, _status_code, _headers = generate_mapping_info_with_http_info(opts)
@@ -31,6 +32,7 @@ module GetIntoTeachingApiClient
     # Generates the mapping information.
     # Generates the mapping information describing how the models in the API map to the corresponding entities in Dynamics 365.
     # @param [Hash] opts the optional parameters
+    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [Array<(Array<MappingInfo>, Fixnum, Hash)>] Array<MappingInfo> data, response status code and response headers
     def generate_mapping_info_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -46,6 +48,7 @@ module GetIntoTeachingApiClient
       header_params = {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+      header_params[:'X-Client-IP'] = opts[:'x_client_ip'] if !opts[:'x_client_ip'].nil?
 
       # form parameters
       form_params = {}
@@ -67,6 +70,7 @@ module GetIntoTeachingApiClient
     end
     # Performs a health check.
     # @param [Hash] opts the optional parameters
+    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [HealthCheckResponse]
     def health_check(opts = {})
       data, _status_code, _headers = health_check_with_http_info(opts)
@@ -75,6 +79,7 @@ module GetIntoTeachingApiClient
 
     # Performs a health check.
     # @param [Hash] opts the optional parameters
+    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [Array<(HealthCheckResponse, Fixnum, Hash)>] HealthCheckResponse data, response status code and response headers
     def health_check_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -90,6 +95,7 @@ module GetIntoTeachingApiClient
       header_params = {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+      header_params[:'X-Client-IP'] = opts[:'x_client_ip'] if !opts[:'x_client_ip'].nil?
 
       # form parameters
       form_params = {}
@@ -106,6 +112,53 @@ module GetIntoTeachingApiClient
         :return_type => 'HealthCheckResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OperationsApi#health_check\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Simulates a 500 error to test the Sentry integration.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
+    # @return [HealthCheckResponse]
+    def simulate_error(opts = {})
+      data, _status_code, _headers = simulate_error_with_http_info(opts)
+      data
+    end
+
+    # Simulates a 500 error to test the Sentry integration.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
+    # @return [Array<(HealthCheckResponse, Fixnum, Hash)>] HealthCheckResponse data, response status code and response headers
+    def simulate_error_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OperationsApi.simulate_error ...'
+      end
+      # resource path
+      local_var_path = '/api/operations/simulate_error'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+      header_params[:'X-Client-IP'] = opts[:'x_client_ip'] if !opts[:'x_client_ip'].nil?
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'HealthCheckResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OperationsApi#simulate_error\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

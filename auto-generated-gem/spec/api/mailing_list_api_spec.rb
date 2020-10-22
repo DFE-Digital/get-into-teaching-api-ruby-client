@@ -37,6 +37,7 @@ describe 'MailingListApi' do
   # If the &#x60;CandidateId&#x60; is specified then the existing candidate will be added to the mailing list, otherwise a new candidate will be created.  Validation errors may be present on the &#x60;MailingListAddMember&#x60; object as well as the hidden &#x60;Candidate&#x60; model that is mapped to; property names are consistent, so you should check for inclusion of the field in the key when linking an error message back to a property on the request model. For example, an error on &#x60;UkDegreeGradeId&#x60; can return under the keys &#x60;Candidate.Qualifications[0].UkDegreeGradeId&#x60; and &#x60;UkDegreeGradeId&#x60;.
   # @param body Member to add to the mailing list.
   # @param [Hash] opts the optional parameters
+  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [nil]
   describe 'add_mailing_list_member test' do
     it 'should work' do
@@ -50,6 +51,7 @@ describe 'MailingListApi' do
   # @param access_token Access token (PIN code).
   # @param body Candidate access token request (must match an existing candidate).
   # @param [Hash] opts the optional parameters
+  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [MailingListAddMember]
   describe 'get_pre_filled_mailing_list_add_member test' do
     it 'should work' do

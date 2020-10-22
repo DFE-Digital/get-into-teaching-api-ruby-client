@@ -23,6 +23,7 @@ module GetIntoTeachingApiClient
     #   Finds a candidate matching at least 3 of the provided CandidateAccessTokenRequest attributes (including email).   If a candidate is found, an access token (PIN code) will be sent to the candidate email address   that can then be used for verification.
     # @param body Candidate access token request (must match an existing candidate).
     # @param [Hash] opts the optional parameters
+    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [nil]
     def create_candidate_access_token(body, opts = {})
       create_candidate_access_token_with_http_info(body, opts)
@@ -33,6 +34,7 @@ module GetIntoTeachingApiClient
     #   Finds a candidate matching at least 3 of the provided CandidateAccessTokenRequest attributes (including email).   If a candidate is found, an access token (PIN code) will be sent to the candidate email address   that can then be used for verification.
     # @param body Candidate access token request (must match an existing candidate).
     # @param [Hash] opts the optional parameters
+    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def create_candidate_access_token_with_http_info(body, opts = {})
       if @api_client.config.debugging
@@ -54,6 +56,7 @@ module GetIntoTeachingApiClient
       header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/*+json'])
+      header_params[:'X-Client-IP'] = opts[:'x_client_ip'] if !opts[:'x_client_ip'].nil?
 
       # form parameters
       form_params = {}

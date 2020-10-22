@@ -2,7 +2,7 @@
     "gemName": "get_into_teaching_api_client",
     "moduleName": "GetIntoTeachingApiClient",
     "gemLicense": "MIT",
-    "gemVersion": "1.1.3",
+    "gemVersion": "1.1.4",
     "gemHomepage": "https://github.com/DFE-Digital/get-into-teaching-api-ruby-client",
     "gemSummary": "Ruby client for the Get into Teaching API",
     "gemDescription": "A Ruby client auto-generated from the Get into Teaching API swagger documentation.",

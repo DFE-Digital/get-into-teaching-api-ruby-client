@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **get_pre_filled_teacher_training_adviser_sign_up**
-> TeacherTrainingAdviserSignUp get_pre_filled_teacher_training_adviser_sign_up(access_token, body)
+> TeacherTrainingAdviserSignUp get_pre_filled_teacher_training_adviser_sign_up(access_token, body, opts)
 
 Retrieves a pre-populated TeacherTrainingAdviserSignUp for the candidate.
 
@@ -33,10 +33,13 @@ access_token = 'access_token_example' # String | Access token (PIN code).
 
 body = GetIntoTeachingApiClient::ExistingCandidateRequest.new # ExistingCandidateRequest | Candidate access token request (must match an existing candidate).
 
+opts = { 
+  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
+}
 
 begin
   #Retrieves a pre-populated TeacherTrainingAdviserSignUp for the candidate.
-  result = api_instance.get_pre_filled_teacher_training_adviser_sign_up(access_token, body)
+  result = api_instance.get_pre_filled_teacher_training_adviser_sign_up(access_token, body, opts)
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TeacherTrainingAdviserApi->get_pre_filled_teacher_training_adviser_sign_up: #{e}"
@@ -49,6 +52,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **access_token** | **String**| Access token (PIN code). | 
  **body** | [**ExistingCandidateRequest**](ExistingCandidateRequest.md)| Candidate access token request (must match an existing candidate). | 
+ **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
 
 ### Return type
 
@@ -66,7 +70,7 @@ Name | Type | Description  | Notes
 
 
 # **sign_up_teacher_training_adviser_candidate**
-> sign_up_teacher_training_adviser_candidate(body)
+> sign_up_teacher_training_adviser_candidate(body, opts)
 
 Sign up a candidate for the Teacher Training Adviser service.
 
@@ -88,10 +92,13 @@ api_instance = GetIntoTeachingApiClient::TeacherTrainingAdviserApi.new
 
 body = GetIntoTeachingApiClient::TeacherTrainingAdviserSignUp.new # TeacherTrainingAdviserSignUp | Candidate to sign up for the Teacher Training Adviser service.
 
+opts = { 
+  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
+}
 
 begin
   #Sign up a candidate for the Teacher Training Adviser service.
-  api_instance.sign_up_teacher_training_adviser_candidate(body)
+  api_instance.sign_up_teacher_training_adviser_candidate(body, opts)
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TeacherTrainingAdviserApi->sign_up_teacher_training_adviser_candidate: #{e}"
 end
@@ -102,6 +109,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**TeacherTrainingAdviserSignUp**](TeacherTrainingAdviserSignUp.md)| Candidate to sign up for the Teacher Training Adviser service. | 
+ **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
 
 ### Return type
 

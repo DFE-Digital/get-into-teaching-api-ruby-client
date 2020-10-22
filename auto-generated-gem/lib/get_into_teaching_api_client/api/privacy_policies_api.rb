@@ -21,6 +21,7 @@ module GetIntoTeachingApiClient
     end
     # Retrieves the latest privacy policy.
     # @param [Hash] opts the optional parameters
+    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [PrivacyPolicy]
     def get_latest_privacy_policy(opts = {})
       data, _status_code, _headers = get_latest_privacy_policy_with_http_info(opts)
@@ -29,6 +30,7 @@ module GetIntoTeachingApiClient
 
     # Retrieves the latest privacy policy.
     # @param [Hash] opts the optional parameters
+    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [Array<(PrivacyPolicy, Fixnum, Hash)>] PrivacyPolicy data, response status code and response headers
     def get_latest_privacy_policy_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -44,6 +46,7 @@ module GetIntoTeachingApiClient
       header_params = {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+      header_params[:'X-Client-IP'] = opts[:'x_client_ip'] if !opts[:'x_client_ip'].nil?
 
       # form parameters
       form_params = {}
@@ -66,6 +69,7 @@ module GetIntoTeachingApiClient
     # Retrieves a privacy policy.
     # @param id The &#x60;id&#x60; of the &#x60;PrivacyPolicy&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [PrivacyPolicy]
     def get_privacy_policy(id, opts = {})
       data, _status_code, _headers = get_privacy_policy_with_http_info(id, opts)
@@ -75,6 +79,7 @@ module GetIntoTeachingApiClient
     # Retrieves a privacy policy.
     # @param id The &#x60;id&#x60; of the &#x60;PrivacyPolicy&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [Array<(PrivacyPolicy, Fixnum, Hash)>] PrivacyPolicy data, response status code and response headers
     def get_privacy_policy_with_http_info(id, opts = {})
       if @api_client.config.debugging
@@ -94,6 +99,7 @@ module GetIntoTeachingApiClient
       header_params = {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+      header_params[:'X-Client-IP'] = opts[:'x_client_ip'] if !opts[:'x_client_ip'].nil?
 
       # form parameters
       form_params = {}
