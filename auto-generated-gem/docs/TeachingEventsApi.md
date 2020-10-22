@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **add_teaching_event_attendee**
-> add_teaching_event_attendee(body)
+> add_teaching_event_attendee(body, opts)
 
 Adds an attendee to a teaching event.
 
@@ -33,10 +33,13 @@ api_instance = GetIntoTeachingApiClient::TeachingEventsApi.new
 
 body = GetIntoTeachingApiClient::TeachingEventAddAttendee.new # TeachingEventAddAttendee | Attendee to add to the teaching event.
 
+opts = { 
+  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
+}
 
 begin
   #Adds an attendee to a teaching event.
-  api_instance.add_teaching_event_attendee(body)
+  api_instance.add_teaching_event_attendee(body, opts)
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TeachingEventsApi->add_teaching_event_attendee: #{e}"
 end
@@ -47,6 +50,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**TeachingEventAddAttendee**](TeachingEventAddAttendee.md)| Attendee to add to the teaching event. | 
+ **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
 
 ### Return type
 
@@ -64,7 +68,7 @@ nil (empty response body)
 
 
 # **get_pre_filled_teaching_event_add_attendee**
-> TeachingEventAddAttendee get_pre_filled_teaching_event_add_attendee(access_token, body)
+> TeachingEventAddAttendee get_pre_filled_teaching_event_add_attendee(access_token, body, opts)
 
 Retrieves a pre-populated TeachingEventAddAttendee for the candidate.
 
@@ -88,10 +92,13 @@ access_token = 'access_token_example' # String | Access token (PIN code).
 
 body = GetIntoTeachingApiClient::ExistingCandidateRequest.new # ExistingCandidateRequest | Candidate access token request (must match an existing candidate).
 
+opts = { 
+  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
+}
 
 begin
   #Retrieves a pre-populated TeachingEventAddAttendee for the candidate.
-  result = api_instance.get_pre_filled_teaching_event_add_attendee(access_token, body)
+  result = api_instance.get_pre_filled_teaching_event_add_attendee(access_token, body, opts)
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TeachingEventsApi->get_pre_filled_teaching_event_add_attendee: #{e}"
@@ -104,6 +111,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **access_token** | **String**| Access token (PIN code). | 
  **body** | [**ExistingCandidateRequest**](ExistingCandidateRequest.md)| Candidate access token request (must match an existing candidate). | 
+ **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
 
 ### Return type
 
@@ -121,7 +129,7 @@ Name | Type | Description  | Notes
 
 
 # **get_teaching_event**
-> TeachingEvent get_teaching_event(readable_id)
+> TeachingEvent get_teaching_event(readable_id, opts)
 
 Retrieves an event.
 
@@ -141,10 +149,13 @@ api_instance = GetIntoTeachingApiClient::TeachingEventsApi.new
 
 readable_id = 'readable_id_example' # String | The `readableId` of the `TeachingEvent`.
 
+opts = { 
+  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
+}
 
 begin
   #Retrieves an event.
-  result = api_instance.get_teaching_event(readable_id)
+  result = api_instance.get_teaching_event(readable_id, opts)
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TeachingEventsApi->get_teaching_event: #{e}"
@@ -156,6 +167,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **readable_id** | **String**| The &#x60;readableId&#x60; of the &#x60;TeachingEvent&#x60;. | 
+ **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
 
 ### Return type
 
@@ -198,7 +210,8 @@ opts = {
   radius: 56, # Integer | 
   type_id: 56, # Integer | 
   start_after: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | 
-  start_before: DateTime.parse('2013-10-20T19:20:30+01:00') # DateTime | 
+  start_before: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | 
+  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
 }
 
 begin
@@ -219,6 +232,7 @@ Name | Type | Description  | Notes
  **type_id** | **Integer**|  | [optional] 
  **start_after** | **DateTime**|  | [optional] 
  **start_before** | **DateTime**|  | [optional] 
+ **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
 
 ### Return type
 

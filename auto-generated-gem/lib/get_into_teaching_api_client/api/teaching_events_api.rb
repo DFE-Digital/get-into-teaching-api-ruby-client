@@ -23,6 +23,7 @@ module GetIntoTeachingApiClient
     # If the `CandidateId` is specified then the existing candidate will be registered for the event, otherwise a new candidate will be created.  Validation errors may be present on the `TeachingEventAddAttendee` object as well as the hidden `Candidate` model that is mapped to; property names are consistent, so you should check for inclusion of the field in the key when linking an error message back to a property on the request model. For example, an error on `AcceptedPolicyId` can return under the keys `Candidate.PrivacyPolicy.AcceptedPolicyId` and `AcceptedPolicyId`.
     # @param body Attendee to add to the teaching event.
     # @param [Hash] opts the optional parameters
+    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [nil]
     def add_teaching_event_attendee(body, opts = {})
       add_teaching_event_attendee_with_http_info(body, opts)
@@ -33,6 +34,7 @@ module GetIntoTeachingApiClient
     # If the &#x60;CandidateId&#x60; is specified then the existing candidate will be registered for the event, otherwise a new candidate will be created.  Validation errors may be present on the &#x60;TeachingEventAddAttendee&#x60; object as well as the hidden &#x60;Candidate&#x60; model that is mapped to; property names are consistent, so you should check for inclusion of the field in the key when linking an error message back to a property on the request model. For example, an error on &#x60;AcceptedPolicyId&#x60; can return under the keys &#x60;Candidate.PrivacyPolicy.AcceptedPolicyId&#x60; and &#x60;AcceptedPolicyId&#x60;.
     # @param body Attendee to add to the teaching event.
     # @param [Hash] opts the optional parameters
+    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def add_teaching_event_attendee_with_http_info(body, opts = {})
       if @api_client.config.debugging
@@ -54,6 +56,7 @@ module GetIntoTeachingApiClient
       header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/*+json'])
+      header_params[:'X-Client-IP'] = opts[:'x_client_ip'] if !opts[:'x_client_ip'].nil?
 
       # form parameters
       form_params = {}
@@ -77,6 +80,7 @@ module GetIntoTeachingApiClient
     # @param access_token Access token (PIN code).
     # @param body Candidate access token request (must match an existing candidate).
     # @param [Hash] opts the optional parameters
+    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [TeachingEventAddAttendee]
     def get_pre_filled_teaching_event_add_attendee(access_token, body, opts = {})
       data, _status_code, _headers = get_pre_filled_teaching_event_add_attendee_with_http_info(access_token, body, opts)
@@ -88,6 +92,7 @@ module GetIntoTeachingApiClient
     # @param access_token Access token (PIN code).
     # @param body Candidate access token request (must match an existing candidate).
     # @param [Hash] opts the optional parameters
+    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [Array<(TeachingEventAddAttendee, Fixnum, Hash)>] TeachingEventAddAttendee data, response status code and response headers
     def get_pre_filled_teaching_event_add_attendee_with_http_info(access_token, body, opts = {})
       if @api_client.config.debugging
@@ -113,6 +118,7 @@ module GetIntoTeachingApiClient
       header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/*+json'])
+      header_params[:'X-Client-IP'] = opts[:'x_client_ip'] if !opts[:'x_client_ip'].nil?
 
       # form parameters
       form_params = {}
@@ -135,6 +141,7 @@ module GetIntoTeachingApiClient
     # Retrieves an event.
     # @param readable_id The &#x60;readableId&#x60; of the &#x60;TeachingEvent&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [TeachingEvent]
     def get_teaching_event(readable_id, opts = {})
       data, _status_code, _headers = get_teaching_event_with_http_info(readable_id, opts)
@@ -144,6 +151,7 @@ module GetIntoTeachingApiClient
     # Retrieves an event.
     # @param readable_id The &#x60;readableId&#x60; of the &#x60;TeachingEvent&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [Array<(TeachingEvent, Fixnum, Hash)>] TeachingEvent data, response status code and response headers
     def get_teaching_event_with_http_info(readable_id, opts = {})
       if @api_client.config.debugging
@@ -163,6 +171,7 @@ module GetIntoTeachingApiClient
       header_params = {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+      header_params[:'X-Client-IP'] = opts[:'x_client_ip'] if !opts[:'x_client_ip'].nil?
 
       # form parameters
       form_params = {}
@@ -190,6 +199,7 @@ module GetIntoTeachingApiClient
     # @option opts [Integer] :type_id 
     # @option opts [DateTime] :start_after 
     # @option opts [DateTime] :start_before 
+    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [Array<TeachingEvent>]
     def search_teaching_events(opts = {})
       data, _status_code, _headers = search_teaching_events_with_http_info(opts)
@@ -204,6 +214,7 @@ module GetIntoTeachingApiClient
     # @option opts [Integer] :type_id 
     # @option opts [DateTime] :start_after 
     # @option opts [DateTime] :start_before 
+    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [Array<(Array<TeachingEvent>, Fixnum, Hash)>] Array<TeachingEvent> data, response status code and response headers
     def search_teaching_events_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -228,6 +239,7 @@ module GetIntoTeachingApiClient
       header_params = {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+      header_params[:'X-Client-IP'] = opts[:'x_client_ip'] if !opts[:'x_client_ip'].nil?
 
       # form parameters
       form_params = {}

@@ -37,6 +37,7 @@ describe 'CandidatesApi' do
   #   Finds a candidate matching at least 3 of the provided CandidateAccessTokenRequest attributes (including email).   If a candidate is found, an access token (PIN code) will be sent to the candidate email address   that can then be used for verification.
   # @param body Candidate access token request (must match an existing candidate).
   # @param [Hash] opts the optional parameters
+  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [nil]
   describe 'create_candidate_access_token test' do
     it 'should work' do
