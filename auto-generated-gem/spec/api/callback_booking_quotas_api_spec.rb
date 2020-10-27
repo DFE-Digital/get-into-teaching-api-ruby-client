@@ -35,7 +35,6 @@ describe 'CallbackBookingQuotasApi' do
   # unit tests for get_callback_booking_quotas
   # Retrieves all callback booking quotas.
   # @param [Hash] opts the optional parameters
-  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [Array<CallbackBookingQuota>]
   describe 'get_callback_booking_quotas test' do
     it 'should work' do

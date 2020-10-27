@@ -23,7 +23,6 @@ module GetIntoTeachingApiClient
     # If the `CandidateId` is specified then the existing candidate will be registered for the event, otherwise a new candidate will be created.  Validation errors may be present on the `TeachingEventAddAttendee` object as well as the hidden `Candidate` model that is mapped to; property names are consistent, so you should check for inclusion of the field in the key when linking an error message back to a property on the request model. For example, an error on `AcceptedPolicyId` can return under the keys `Candidate.PrivacyPolicy.AcceptedPolicyId` and `AcceptedPolicyId`.
     # @param body Attendee to add to the teaching event.
     # @param [Hash] opts the optional parameters
-    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [nil]
     def add_teaching_event_attendee(body, opts = {})
       add_teaching_event_attendee_with_http_info(body, opts)
@@ -34,7 +33,6 @@ module GetIntoTeachingApiClient
     # If the &#x60;CandidateId&#x60; is specified then the existing candidate will be registered for the event, otherwise a new candidate will be created.  Validation errors may be present on the &#x60;TeachingEventAddAttendee&#x60; object as well as the hidden &#x60;Candidate&#x60; model that is mapped to; property names are consistent, so you should check for inclusion of the field in the key when linking an error message back to a property on the request model. For example, an error on &#x60;AcceptedPolicyId&#x60; can return under the keys &#x60;Candidate.PrivacyPolicy.AcceptedPolicyId&#x60; and &#x60;AcceptedPolicyId&#x60;.
     # @param body Attendee to add to the teaching event.
     # @param [Hash] opts the optional parameters
-    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def add_teaching_event_attendee_with_http_info(body, opts = {})
       if @api_client.config.debugging
@@ -56,7 +54,6 @@ module GetIntoTeachingApiClient
       header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/*+json'])
-      header_params[:'X-Client-IP'] = opts[:'x_client_ip'] if !opts[:'x_client_ip'].nil?
 
       # form parameters
       form_params = {}
@@ -80,7 +77,6 @@ module GetIntoTeachingApiClient
     # @param access_token Access token (PIN code).
     # @param body Candidate access token request (must match an existing candidate).
     # @param [Hash] opts the optional parameters
-    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [TeachingEventAddAttendee]
     def get_pre_filled_teaching_event_add_attendee(access_token, body, opts = {})
       data, _status_code, _headers = get_pre_filled_teaching_event_add_attendee_with_http_info(access_token, body, opts)
@@ -92,7 +88,6 @@ module GetIntoTeachingApiClient
     # @param access_token Access token (PIN code).
     # @param body Candidate access token request (must match an existing candidate).
     # @param [Hash] opts the optional parameters
-    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [Array<(TeachingEventAddAttendee, Fixnum, Hash)>] TeachingEventAddAttendee data, response status code and response headers
     def get_pre_filled_teaching_event_add_attendee_with_http_info(access_token, body, opts = {})
       if @api_client.config.debugging
@@ -118,7 +113,6 @@ module GetIntoTeachingApiClient
       header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/*+json'])
-      header_params[:'X-Client-IP'] = opts[:'x_client_ip'] if !opts[:'x_client_ip'].nil?
 
       # form parameters
       form_params = {}
@@ -141,7 +135,6 @@ module GetIntoTeachingApiClient
     # Retrieves an event.
     # @param readable_id The &#x60;readableId&#x60; of the &#x60;TeachingEvent&#x60;.
     # @param [Hash] opts the optional parameters
-    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [TeachingEvent]
     def get_teaching_event(readable_id, opts = {})
       data, _status_code, _headers = get_teaching_event_with_http_info(readable_id, opts)
@@ -151,7 +144,6 @@ module GetIntoTeachingApiClient
     # Retrieves an event.
     # @param readable_id The &#x60;readableId&#x60; of the &#x60;TeachingEvent&#x60;.
     # @param [Hash] opts the optional parameters
-    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [Array<(TeachingEvent, Fixnum, Hash)>] TeachingEvent data, response status code and response headers
     def get_teaching_event_with_http_info(readable_id, opts = {})
       if @api_client.config.debugging
@@ -171,7 +163,6 @@ module GetIntoTeachingApiClient
       header_params = {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
-      header_params[:'X-Client-IP'] = opts[:'x_client_ip'] if !opts[:'x_client_ip'].nil?
 
       # form parameters
       form_params = {}
@@ -199,7 +190,6 @@ module GetIntoTeachingApiClient
     # @option opts [Integer] :type_id 
     # @option opts [DateTime] :start_after 
     # @option opts [DateTime] :start_before 
-    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [Array<TeachingEvent>]
     def search_teaching_events(opts = {})
       data, _status_code, _headers = search_teaching_events_with_http_info(opts)
@@ -214,7 +204,6 @@ module GetIntoTeachingApiClient
     # @option opts [Integer] :type_id 
     # @option opts [DateTime] :start_after 
     # @option opts [DateTime] :start_before 
-    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [Array<(Array<TeachingEvent>, Fixnum, Hash)>] Array<TeachingEvent> data, response status code and response headers
     def search_teaching_events_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -239,7 +228,6 @@ module GetIntoTeachingApiClient
       header_params = {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
-      header_params[:'X-Client-IP'] = opts[:'x_client_ip'] if !opts[:'x_client_ip'].nil?
 
       # form parameters
       form_params = {}
@@ -256,6 +244,123 @@ module GetIntoTeachingApiClient
         :return_type => 'Array<TeachingEvent>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TeachingEventsApi#search_teaching_events\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Searches for teaching events, returning grouped by type.
+    # Searches for teaching events. Optionally limit the results by distance (in miles) from a postcode, event type and start date.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :postcode 
+    # @option opts [Integer] :radius 
+    # @option opts [Integer] :type_id 
+    # @option opts [DateTime] :start_after 
+    # @option opts [DateTime] :start_before 
+    # @option opts [Integer] :quantity_per_category Quantity to return (per type). (default to 3)
+    # @return [Hash<String, Array<TeachingEvent>>]
+    def search_teaching_events_indexed_by_type(opts = {})
+      data, _status_code, _headers = search_teaching_events_indexed_by_type_with_http_info(opts)
+      data
+    end
+
+    # Searches for teaching events, returning grouped by type.
+    # Searches for teaching events. Optionally limit the results by distance (in miles) from a postcode, event type and start date.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :postcode 
+    # @option opts [Integer] :radius 
+    # @option opts [Integer] :type_id 
+    # @option opts [DateTime] :start_after 
+    # @option opts [DateTime] :start_before 
+    # @option opts [Integer] :quantity_per_category Quantity to return (per type).
+    # @return [Array<(Hash<String, Array<TeachingEvent>>, Fixnum, Hash)>] Hash<String, Array<TeachingEvent>> data, response status code and response headers
+    def search_teaching_events_indexed_by_type_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeachingEventsApi.search_teaching_events_indexed_by_type ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'radius'].nil? && opts[:'radius'] <= 0
+        fail ArgumentError, 'invalid value for "opts[:"radius"]" when calling TeachingEventsApi.search_teaching_events_indexed_by_type, must be greater than 0.'
+      end
+
+      # resource path
+      local_var_path = '/api/teaching_events/search_indexed_by_type'
+
+      # query parameters
+      query_params = {}
+      query_params[:'Postcode'] = opts[:'postcode'] if !opts[:'postcode'].nil?
+      query_params[:'Radius'] = opts[:'radius'] if !opts[:'radius'].nil?
+      query_params[:'TypeId'] = opts[:'type_id'] if !opts[:'type_id'].nil?
+      query_params[:'StartAfter'] = opts[:'start_after'] if !opts[:'start_after'].nil?
+      query_params[:'StartBefore'] = opts[:'start_before'] if !opts[:'start_before'].nil?
+      query_params[:'quantityPerCategory'] = opts[:'quantity_per_category'] if !opts[:'quantity_per_category'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apiKey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Hash<String, Array<TeachingEvent>>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeachingEventsApi#search_teaching_events_indexed_by_type\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieves upcoming teaching events grouped by type.
+    # Retrieves upcoming teaching events grouped by type and limited to a given quantity per type.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :quantity_per_category Quantity to return (per type). (default to 3)
+    # @return [Hash<String, Array<TeachingEvent>>]
+    def upcoming_teaching_events_indexed_by_type(opts = {})
+      data, _status_code, _headers = upcoming_teaching_events_indexed_by_type_with_http_info(opts)
+      data
+    end
+
+    # Retrieves upcoming teaching events grouped by type.
+    # Retrieves upcoming teaching events grouped by type and limited to a given quantity per type.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :quantity_per_category Quantity to return (per type).
+    # @return [Array<(Hash<String, Array<TeachingEvent>>, Fixnum, Hash)>] Hash<String, Array<TeachingEvent>> data, response status code and response headers
+    def upcoming_teaching_events_indexed_by_type_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeachingEventsApi.upcoming_teaching_events_indexed_by_type ...'
+      end
+      # resource path
+      local_var_path = '/api/teaching_events/upcoming_indexed_by_type'
+
+      # query parameters
+      query_params = {}
+      query_params[:'quantityPerCategory'] = opts[:'quantity_per_category'] if !opts[:'quantity_per_category'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apiKey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Hash<String, Array<TeachingEvent>>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeachingEventsApi#upcoming_teaching_events_indexed_by_type\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

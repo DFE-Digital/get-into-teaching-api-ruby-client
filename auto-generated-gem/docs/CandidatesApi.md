@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **create_candidate_access_token**
-> create_candidate_access_token(body, opts)
+> create_candidate_access_token(body)
 
 Creates a candidate access token.
 
@@ -30,13 +30,10 @@ api_instance = GetIntoTeachingApiClient::CandidatesApi.new
 
 body = GetIntoTeachingApiClient::ExistingCandidateRequest.new # ExistingCandidateRequest | Candidate access token request (must match an existing candidate).
 
-opts = { 
-  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
-}
 
 begin
   #Creates a candidate access token.
-  api_instance.create_candidate_access_token(body, opts)
+  api_instance.create_candidate_access_token(body)
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling CandidatesApi->create_candidate_access_token: #{e}"
 end
@@ -47,7 +44,6 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**ExistingCandidateRequest**](ExistingCandidateRequest.md)| Candidate access token request (must match an existing candidate). | 
- **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
 
 ### Return type
 

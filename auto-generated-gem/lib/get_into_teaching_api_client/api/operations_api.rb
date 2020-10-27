@@ -22,7 +22,6 @@ module GetIntoTeachingApiClient
     # Generates the mapping information.
     # Generates the mapping information describing how the models in the API map to the corresponding entities in Dynamics 365.
     # @param [Hash] opts the optional parameters
-    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [Array<MappingInfo>]
     def generate_mapping_info(opts = {})
       data, _status_code, _headers = generate_mapping_info_with_http_info(opts)
@@ -32,7 +31,6 @@ module GetIntoTeachingApiClient
     # Generates the mapping information.
     # Generates the mapping information describing how the models in the API map to the corresponding entities in Dynamics 365.
     # @param [Hash] opts the optional parameters
-    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [Array<(Array<MappingInfo>, Fixnum, Hash)>] Array<MappingInfo> data, response status code and response headers
     def generate_mapping_info_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -48,7 +46,6 @@ module GetIntoTeachingApiClient
       header_params = {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
-      header_params[:'X-Client-IP'] = opts[:'x_client_ip'] if !opts[:'x_client_ip'].nil?
 
       # form parameters
       form_params = {}
@@ -70,7 +67,6 @@ module GetIntoTeachingApiClient
     end
     # Performs a health check.
     # @param [Hash] opts the optional parameters
-    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [HealthCheckResponse]
     def health_check(opts = {})
       data, _status_code, _headers = health_check_with_http_info(opts)
@@ -79,7 +75,6 @@ module GetIntoTeachingApiClient
 
     # Performs a health check.
     # @param [Hash] opts the optional parameters
-    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [Array<(HealthCheckResponse, Fixnum, Hash)>] HealthCheckResponse data, response status code and response headers
     def health_check_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -95,7 +90,6 @@ module GetIntoTeachingApiClient
       header_params = {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
-      header_params[:'X-Client-IP'] = opts[:'x_client_ip'] if !opts[:'x_client_ip'].nil?
 
       # form parameters
       form_params = {}
@@ -117,7 +111,6 @@ module GetIntoTeachingApiClient
     end
     # Simulates a 500 error to test the Sentry integration.
     # @param [Hash] opts the optional parameters
-    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [HealthCheckResponse]
     def simulate_error(opts = {})
       data, _status_code, _headers = simulate_error_with_http_info(opts)
@@ -126,7 +119,6 @@ module GetIntoTeachingApiClient
 
     # Simulates a 500 error to test the Sentry integration.
     # @param [Hash] opts the optional parameters
-    # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
     # @return [Array<(HealthCheckResponse, Fixnum, Hash)>] HealthCheckResponse data, response status code and response headers
     def simulate_error_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -142,7 +134,6 @@ module GetIntoTeachingApiClient
       header_params = {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
-      header_params[:'X-Client-IP'] = opts[:'x_client_ip'] if !opts[:'x_client_ip'].nil?
 
       # form parameters
       form_params = {}

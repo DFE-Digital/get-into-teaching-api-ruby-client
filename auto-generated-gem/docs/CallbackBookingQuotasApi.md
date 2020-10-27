@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **get_callback_booking_quotas**
-> Array&lt;CallbackBookingQuota&gt; get_callback_booking_quotas(opts)
+> Array&lt;CallbackBookingQuota&gt; get_callback_booking_quotas
 
 Retrieves all callback booking quotas.
 
@@ -26,13 +26,9 @@ end
 
 api_instance = GetIntoTeachingApiClient::CallbackBookingQuotasApi.new
 
-opts = { 
-  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
-}
-
 begin
   #Retrieves all callback booking quotas.
-  result = api_instance.get_callback_booking_quotas(opts)
+  result = api_instance.get_callback_booking_quotas
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling CallbackBookingQuotasApi->get_callback_booking_quotas: #{e}"
@@ -40,10 +36,7 @@ end
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 

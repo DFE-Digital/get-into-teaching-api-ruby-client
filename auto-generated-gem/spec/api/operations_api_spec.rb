@@ -36,7 +36,6 @@ describe 'OperationsApi' do
   # Generates the mapping information.
   # Generates the mapping information describing how the models in the API map to the corresponding entities in Dynamics 365.
   # @param [Hash] opts the optional parameters
-  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [Array<MappingInfo>]
   describe 'generate_mapping_info test' do
     it 'should work' do
@@ -47,7 +46,6 @@ describe 'OperationsApi' do
   # unit tests for health_check
   # Performs a health check.
   # @param [Hash] opts the optional parameters
-  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [HealthCheckResponse]
   describe 'health_check test' do
     it 'should work' do
@@ -58,7 +56,6 @@ describe 'OperationsApi' do
   # unit tests for simulate_error
   # Simulates a 500 error to test the Sentry integration.
   # @param [Hash] opts the optional parameters
-  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [HealthCheckResponse]
   describe 'simulate_error test' do
     it 'should work' do

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **add_mailing_list_member**
-> add_mailing_list_member(body, opts)
+> add_mailing_list_member(body)
 
 Adds a new member to the mailing list.
 
@@ -31,13 +31,10 @@ api_instance = GetIntoTeachingApiClient::MailingListApi.new
 
 body = GetIntoTeachingApiClient::MailingListAddMember.new # MailingListAddMember | Member to add to the mailing list.
 
-opts = { 
-  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
-}
 
 begin
   #Adds a new member to the mailing list.
-  api_instance.add_mailing_list_member(body, opts)
+  api_instance.add_mailing_list_member(body)
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling MailingListApi->add_mailing_list_member: #{e}"
 end
@@ -48,7 +45,6 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**MailingListAddMember**](MailingListAddMember.md)| Member to add to the mailing list. | 
- **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
 
 ### Return type
 
@@ -66,7 +62,7 @@ nil (empty response body)
 
 
 # **get_pre_filled_mailing_list_add_member**
-> MailingListAddMember get_pre_filled_mailing_list_add_member(access_token, body, opts)
+> MailingListAddMember get_pre_filled_mailing_list_add_member(access_token, body)
 
 Retrieves a pre-populated MailingListAddMember for the candidate.
 
@@ -90,13 +86,10 @@ access_token = 'access_token_example' # String | Access token (PIN code).
 
 body = GetIntoTeachingApiClient::ExistingCandidateRequest.new # ExistingCandidateRequest | Candidate access token request (must match an existing candidate).
 
-opts = { 
-  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
-}
 
 begin
   #Retrieves a pre-populated MailingListAddMember for the candidate.
-  result = api_instance.get_pre_filled_mailing_list_add_member(access_token, body, opts)
+  result = api_instance.get_pre_filled_mailing_list_add_member(access_token, body)
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling MailingListApi->get_pre_filled_mailing_list_add_member: #{e}"
@@ -109,7 +102,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **access_token** | **String**| Access token (PIN code). | 
  **body** | [**ExistingCandidateRequest**](ExistingCandidateRequest.md)| Candidate access token request (must match an existing candidate). | 
- **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
 
 ### Return type
 
