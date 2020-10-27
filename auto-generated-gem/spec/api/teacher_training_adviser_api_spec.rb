@@ -38,7 +38,6 @@ describe 'TeacherTrainingAdviserApi' do
   # @param access_token Access token (PIN code).
   # @param body Candidate access token request (must match an existing candidate).
   # @param [Hash] opts the optional parameters
-  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [TeacherTrainingAdviserSignUp]
   describe 'get_pre_filled_teacher_training_adviser_sign_up test' do
     it 'should work' do
@@ -51,7 +50,6 @@ describe 'TeacherTrainingAdviserApi' do
   # Validation errors may be present on the &#x60;TeacherTrainingAdviserSignUp&#x60; object as well as the hidden &#x60;Candidate&#x60; model that is mapped to; property names are consistent, so you should check for inclusion of the field in the key when linking an error message back to a property on the request model. For example, an error on &#x60;DegreeSubject&#x60; can return under the keys &#x60;Candidate.Qualifications[0].DegreeSubject&#x60; and &#x60;DegreeSubject&#x60;.
   # @param body Candidate to sign up for the Teacher Training Adviser service.
   # @param [Hash] opts the optional parameters
-  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [nil]
   describe 'sign_up_teacher_training_adviser_candidate test' do
     it 'should work' do

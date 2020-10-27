@@ -37,7 +37,6 @@ describe 'TeachingEventsApi' do
   # If the &#x60;CandidateId&#x60; is specified then the existing candidate will be registered for the event, otherwise a new candidate will be created.  Validation errors may be present on the &#x60;TeachingEventAddAttendee&#x60; object as well as the hidden &#x60;Candidate&#x60; model that is mapped to; property names are consistent, so you should check for inclusion of the field in the key when linking an error message back to a property on the request model. For example, an error on &#x60;AcceptedPolicyId&#x60; can return under the keys &#x60;Candidate.PrivacyPolicy.AcceptedPolicyId&#x60; and &#x60;AcceptedPolicyId&#x60;.
   # @param body Attendee to add to the teaching event.
   # @param [Hash] opts the optional parameters
-  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [nil]
   describe 'add_teaching_event_attendee test' do
     it 'should work' do
@@ -51,7 +50,6 @@ describe 'TeachingEventsApi' do
   # @param access_token Access token (PIN code).
   # @param body Candidate access token request (must match an existing candidate).
   # @param [Hash] opts the optional parameters
-  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [TeachingEventAddAttendee]
   describe 'get_pre_filled_teaching_event_add_attendee test' do
     it 'should work' do
@@ -63,7 +61,6 @@ describe 'TeachingEventsApi' do
   # Retrieves an event.
   # @param readable_id The &#x60;readableId&#x60; of the &#x60;TeachingEvent&#x60;.
   # @param [Hash] opts the optional parameters
-  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [TeachingEvent]
   describe 'get_teaching_event test' do
     it 'should work' do
@@ -80,9 +77,37 @@ describe 'TeachingEventsApi' do
   # @option opts [Integer] :type_id 
   # @option opts [DateTime] :start_after 
   # @option opts [DateTime] :start_before 
-  # @option opts [Object] :x_client_ip IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
   # @return [Array<TeachingEvent>]
   describe 'search_teaching_events test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for search_teaching_events_indexed_by_type
+  # Searches for teaching events, returning grouped by type.
+  # Searches for teaching events. Optionally limit the results by distance (in miles) from a postcode, event type and start date.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :postcode 
+  # @option opts [Integer] :radius 
+  # @option opts [Integer] :type_id 
+  # @option opts [DateTime] :start_after 
+  # @option opts [DateTime] :start_before 
+  # @option opts [Integer] :quantity_per_category Quantity to return (per type).
+  # @return [Hash<String, Array<TeachingEvent>>]
+  describe 'search_teaching_events_indexed_by_type test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for upcoming_teaching_events_indexed_by_type
+  # Retrieves upcoming teaching events grouped by type.
+  # Retrieves upcoming teaching events grouped by type and limited to a given quantity per type.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :quantity_per_category Quantity to return (per type).
+  # @return [Hash<String, Array<TeachingEvent>>]
+  describe 'upcoming_teaching_events_indexed_by_type test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

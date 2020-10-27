@@ -30,7 +30,7 @@ Method | HTTP request | Description
 
 
 # **get_candidate_adviser_eligibilities**
-> Array&lt;TypeEntity&gt; get_candidate_adviser_eligibilities(opts)
+> Array&lt;TypeEntity&gt; get_candidate_adviser_eligibilities
 
 Retrieves the list of candidate adviser eligibilities.
 
@@ -48,13 +48,9 @@ end
 
 api_instance = GetIntoTeachingApiClient::TypesApi.new
 
-opts = { 
-  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
-}
-
 begin
   #Retrieves the list of candidate adviser eligibilities.
-  result = api_instance.get_candidate_adviser_eligibilities(opts)
+  result = api_instance.get_candidate_adviser_eligibilities
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TypesApi->get_candidate_adviser_eligibilities: #{e}"
@@ -62,10 +58,7 @@ end
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -83,7 +76,7 @@ Name | Type | Description  | Notes
 
 
 # **get_candidate_adviser_requirements**
-> Array&lt;TypeEntity&gt; get_candidate_adviser_requirements(opts)
+> Array&lt;TypeEntity&gt; get_candidate_adviser_requirements
 
 Retrieves the list of candidate adviser requirements.
 
@@ -101,13 +94,9 @@ end
 
 api_instance = GetIntoTeachingApiClient::TypesApi.new
 
-opts = { 
-  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
-}
-
 begin
   #Retrieves the list of candidate adviser requirements.
-  result = api_instance.get_candidate_adviser_requirements(opts)
+  result = api_instance.get_candidate_adviser_requirements
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TypesApi->get_candidate_adviser_requirements: #{e}"
@@ -115,10 +104,7 @@ end
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -136,7 +122,7 @@ Name | Type | Description  | Notes
 
 
 # **get_candidate_assignment_status**
-> Array&lt;TypeEntity&gt; get_candidate_assignment_status(opts)
+> Array&lt;TypeEntity&gt; get_candidate_assignment_status
 
 Retrieves the list of candidate assignment status.
 
@@ -154,13 +140,9 @@ end
 
 api_instance = GetIntoTeachingApiClient::TypesApi.new
 
-opts = { 
-  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
-}
-
 begin
   #Retrieves the list of candidate assignment status.
-  result = api_instance.get_candidate_assignment_status(opts)
+  result = api_instance.get_candidate_assignment_status
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TypesApi->get_candidate_assignment_status: #{e}"
@@ -168,10 +150,7 @@ end
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -189,7 +168,7 @@ Name | Type | Description  | Notes
 
 
 # **get_candidate_channels**
-> Array&lt;TypeEntity&gt; get_candidate_channels(opts)
+> Array&lt;TypeEntity&gt; get_candidate_channels
 
 Retrieves the list of candidate channels.
 
@@ -207,13 +186,9 @@ end
 
 api_instance = GetIntoTeachingApiClient::TypesApi.new
 
-opts = { 
-  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
-}
-
 begin
   #Retrieves the list of candidate channels.
-  result = api_instance.get_candidate_channels(opts)
+  result = api_instance.get_candidate_channels
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TypesApi->get_candidate_channels: #{e}"
@@ -221,10 +196,7 @@ end
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -242,7 +214,7 @@ Name | Type | Description  | Notes
 
 
 # **get_candidate_event_subscription_channels**
-> Array&lt;TypeEntity&gt; get_candidate_event_subscription_channels(opts)
+> Array&lt;TypeEntity&gt; get_candidate_event_subscription_channels
 
 Retrieves the list of candidate event subscription channels.
 
@@ -260,13 +232,9 @@ end
 
 api_instance = GetIntoTeachingApiClient::TypesApi.new
 
-opts = { 
-  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
-}
-
 begin
   #Retrieves the list of candidate event subscription channels.
-  result = api_instance.get_candidate_event_subscription_channels(opts)
+  result = api_instance.get_candidate_event_subscription_channels
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TypesApi->get_candidate_event_subscription_channels: #{e}"
@@ -274,10 +242,7 @@ end
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -295,7 +260,7 @@ Name | Type | Description  | Notes
 
 
 # **get_candidate_gcse_status**
-> Array&lt;TypeEntity&gt; get_candidate_gcse_status(opts)
+> Array&lt;TypeEntity&gt; get_candidate_gcse_status
 
 Retrieves the list of candidate GCSE status.
 
@@ -313,13 +278,9 @@ end
 
 api_instance = GetIntoTeachingApiClient::TypesApi.new
 
-opts = { 
-  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
-}
-
 begin
   #Retrieves the list of candidate GCSE status.
-  result = api_instance.get_candidate_gcse_status(opts)
+  result = api_instance.get_candidate_gcse_status
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TypesApi->get_candidate_gcse_status: #{e}"
@@ -327,10 +288,7 @@ end
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -348,7 +306,7 @@ Name | Type | Description  | Notes
 
 
 # **get_candidate_initial_teacher_training_years**
-> Array&lt;TypeEntity&gt; get_candidate_initial_teacher_training_years(opts)
+> Array&lt;TypeEntity&gt; get_candidate_initial_teacher_training_years
 
 Retrieves the list of candidate initial teacher training years.
 
@@ -366,13 +324,9 @@ end
 
 api_instance = GetIntoTeachingApiClient::TypesApi.new
 
-opts = { 
-  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
-}
-
 begin
   #Retrieves the list of candidate initial teacher training years.
-  result = api_instance.get_candidate_initial_teacher_training_years(opts)
+  result = api_instance.get_candidate_initial_teacher_training_years
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TypesApi->get_candidate_initial_teacher_training_years: #{e}"
@@ -380,10 +334,7 @@ end
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -401,7 +352,7 @@ Name | Type | Description  | Notes
 
 
 # **get_candidate_journey_stages**
-> Array&lt;TypeEntity&gt; get_candidate_journey_stages(opts)
+> Array&lt;TypeEntity&gt; get_candidate_journey_stages
 
 Retrieves the list of candidate consideration journey stages.
 
@@ -419,13 +370,9 @@ end
 
 api_instance = GetIntoTeachingApiClient::TypesApi.new
 
-opts = { 
-  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
-}
-
 begin
   #Retrieves the list of candidate consideration journey stages.
-  result = api_instance.get_candidate_journey_stages(opts)
+  result = api_instance.get_candidate_journey_stages
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TypesApi->get_candidate_journey_stages: #{e}"
@@ -433,10 +380,7 @@ end
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -454,7 +398,7 @@ Name | Type | Description  | Notes
 
 
 # **get_candidate_mailing_list_subscription_channels**
-> Array&lt;TypeEntity&gt; get_candidate_mailing_list_subscription_channels(opts)
+> Array&lt;TypeEntity&gt; get_candidate_mailing_list_subscription_channels
 
 Retrieves the list of candidate mailing list subscription channels.
 
@@ -472,13 +416,9 @@ end
 
 api_instance = GetIntoTeachingApiClient::TypesApi.new
 
-opts = { 
-  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
-}
-
 begin
   #Retrieves the list of candidate mailing list subscription channels.
-  result = api_instance.get_candidate_mailing_list_subscription_channels(opts)
+  result = api_instance.get_candidate_mailing_list_subscription_channels
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TypesApi->get_candidate_mailing_list_subscription_channels: #{e}"
@@ -486,10 +426,7 @@ end
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -507,7 +444,7 @@ Name | Type | Description  | Notes
 
 
 # **get_candidate_preferred_education_phases**
-> Array&lt;TypeEntity&gt; get_candidate_preferred_education_phases(opts)
+> Array&lt;TypeEntity&gt; get_candidate_preferred_education_phases
 
 Retrieves the list of candidate preferred education phases.
 
@@ -525,13 +462,9 @@ end
 
 api_instance = GetIntoTeachingApiClient::TypesApi.new
 
-opts = { 
-  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
-}
-
 begin
   #Retrieves the list of candidate preferred education phases.
-  result = api_instance.get_candidate_preferred_education_phases(opts)
+  result = api_instance.get_candidate_preferred_education_phases
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TypesApi->get_candidate_preferred_education_phases: #{e}"
@@ -539,10 +472,7 @@ end
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -560,7 +490,7 @@ Name | Type | Description  | Notes
 
 
 # **get_candidate_retake_gcse_status**
-> Array&lt;TypeEntity&gt; get_candidate_retake_gcse_status(opts)
+> Array&lt;TypeEntity&gt; get_candidate_retake_gcse_status
 
 Retrieves the list of candidate retake GCSE status.
 
@@ -578,13 +508,9 @@ end
 
 api_instance = GetIntoTeachingApiClient::TypesApi.new
 
-opts = { 
-  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
-}
-
 begin
   #Retrieves the list of candidate retake GCSE status.
-  result = api_instance.get_candidate_retake_gcse_status(opts)
+  result = api_instance.get_candidate_retake_gcse_status
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TypesApi->get_candidate_retake_gcse_status: #{e}"
@@ -592,10 +518,7 @@ end
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -613,7 +536,7 @@ Name | Type | Description  | Notes
 
 
 # **get_candidate_types**
-> Array&lt;TypeEntity&gt; get_candidate_types(opts)
+> Array&lt;TypeEntity&gt; get_candidate_types
 
 Retrieves the list of candidate types.
 
@@ -631,13 +554,9 @@ end
 
 api_instance = GetIntoTeachingApiClient::TypesApi.new
 
-opts = { 
-  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
-}
-
 begin
   #Retrieves the list of candidate types.
-  result = api_instance.get_candidate_types(opts)
+  result = api_instance.get_candidate_types
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TypesApi->get_candidate_types: #{e}"
@@ -645,10 +564,7 @@ end
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -666,7 +582,7 @@ Name | Type | Description  | Notes
 
 
 # **get_country_types**
-> Array&lt;TypeEntity&gt; get_country_types(opts)
+> Array&lt;TypeEntity&gt; get_country_types
 
 Retrieves the list of countries.
 
@@ -684,13 +600,9 @@ end
 
 api_instance = GetIntoTeachingApiClient::TypesApi.new
 
-opts = { 
-  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
-}
-
 begin
   #Retrieves the list of countries.
-  result = api_instance.get_country_types(opts)
+  result = api_instance.get_country_types
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TypesApi->get_country_types: #{e}"
@@ -698,10 +610,7 @@ end
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -719,7 +628,7 @@ Name | Type | Description  | Notes
 
 
 # **get_past_teaching_position_education_phases**
-> Array&lt;TypeEntity&gt; get_past_teaching_position_education_phases(opts)
+> Array&lt;TypeEntity&gt; get_past_teaching_position_education_phases
 
 Retrieves the list of past teaching position education phases.
 
@@ -737,13 +646,9 @@ end
 
 api_instance = GetIntoTeachingApiClient::TypesApi.new
 
-opts = { 
-  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
-}
-
 begin
   #Retrieves the list of past teaching position education phases.
-  result = api_instance.get_past_teaching_position_education_phases(opts)
+  result = api_instance.get_past_teaching_position_education_phases
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TypesApi->get_past_teaching_position_education_phases: #{e}"
@@ -751,10 +656,7 @@ end
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -772,7 +674,7 @@ Name | Type | Description  | Notes
 
 
 # **get_phone_call_channels**
-> Array&lt;TypeEntity&gt; get_phone_call_channels(opts)
+> Array&lt;TypeEntity&gt; get_phone_call_channels
 
 Retrieves the list of phone call channels.
 
@@ -790,13 +692,9 @@ end
 
 api_instance = GetIntoTeachingApiClient::TypesApi.new
 
-opts = { 
-  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
-}
-
 begin
   #Retrieves the list of phone call channels.
-  result = api_instance.get_phone_call_channels(opts)
+  result = api_instance.get_phone_call_channels
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TypesApi->get_phone_call_channels: #{e}"
@@ -804,10 +702,7 @@ end
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -825,7 +720,7 @@ Name | Type | Description  | Notes
 
 
 # **get_qualification_degree_status**
-> Array&lt;TypeEntity&gt; get_qualification_degree_status(opts)
+> Array&lt;TypeEntity&gt; get_qualification_degree_status
 
 Retrieves the list of qualification degree status.
 
@@ -843,13 +738,9 @@ end
 
 api_instance = GetIntoTeachingApiClient::TypesApi.new
 
-opts = { 
-  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
-}
-
 begin
   #Retrieves the list of qualification degree status.
-  result = api_instance.get_qualification_degree_status(opts)
+  result = api_instance.get_qualification_degree_status
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TypesApi->get_qualification_degree_status: #{e}"
@@ -857,10 +748,7 @@ end
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -878,7 +766,7 @@ Name | Type | Description  | Notes
 
 
 # **get_qualification_types**
-> Array&lt;TypeEntity&gt; get_qualification_types(opts)
+> Array&lt;TypeEntity&gt; get_qualification_types
 
 Retrieves the list of qualification types.
 
@@ -896,13 +784,9 @@ end
 
 api_instance = GetIntoTeachingApiClient::TypesApi.new
 
-opts = { 
-  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
-}
-
 begin
   #Retrieves the list of qualification types.
-  result = api_instance.get_qualification_types(opts)
+  result = api_instance.get_qualification_types
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TypesApi->get_qualification_types: #{e}"
@@ -910,10 +794,7 @@ end
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -931,7 +812,7 @@ Name | Type | Description  | Notes
 
 
 # **get_qualification_uk_degree_grades**
-> Array&lt;TypeEntity&gt; get_qualification_uk_degree_grades(opts)
+> Array&lt;TypeEntity&gt; get_qualification_uk_degree_grades
 
 Retrieves the list of qualification UK degree grades.
 
@@ -949,13 +830,9 @@ end
 
 api_instance = GetIntoTeachingApiClient::TypesApi.new
 
-opts = { 
-  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
-}
-
 begin
   #Retrieves the list of qualification UK degree grades.
-  result = api_instance.get_qualification_uk_degree_grades(opts)
+  result = api_instance.get_qualification_uk_degree_grades
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TypesApi->get_qualification_uk_degree_grades: #{e}"
@@ -963,10 +840,7 @@ end
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -984,7 +858,7 @@ Name | Type | Description  | Notes
 
 
 # **get_subscription_types**
-> Array&lt;TypeEntity&gt; get_subscription_types(opts)
+> Array&lt;TypeEntity&gt; get_subscription_types
 
 Retrieves the list of subscription types.
 
@@ -1002,13 +876,9 @@ end
 
 api_instance = GetIntoTeachingApiClient::TypesApi.new
 
-opts = { 
-  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
-}
-
 begin
   #Retrieves the list of subscription types.
-  result = api_instance.get_subscription_types(opts)
+  result = api_instance.get_subscription_types
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TypesApi->get_subscription_types: #{e}"
@@ -1016,10 +886,7 @@ end
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -1037,7 +904,7 @@ Name | Type | Description  | Notes
 
 
 # **get_teaching_event_registration_channels**
-> Array&lt;TypeEntity&gt; get_teaching_event_registration_channels(opts)
+> Array&lt;TypeEntity&gt; get_teaching_event_registration_channels
 
 Retrieves the list of teaching event registration channels.
 
@@ -1055,13 +922,9 @@ end
 
 api_instance = GetIntoTeachingApiClient::TypesApi.new
 
-opts = { 
-  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
-}
-
 begin
   #Retrieves the list of teaching event registration channels.
-  result = api_instance.get_teaching_event_registration_channels(opts)
+  result = api_instance.get_teaching_event_registration_channels
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TypesApi->get_teaching_event_registration_channels: #{e}"
@@ -1069,10 +932,7 @@ end
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -1090,7 +950,7 @@ Name | Type | Description  | Notes
 
 
 # **get_teaching_event_status**
-> Array&lt;TypeEntity&gt; get_teaching_event_status(opts)
+> Array&lt;TypeEntity&gt; get_teaching_event_status
 
 Retrieves the list of teaching event status.
 
@@ -1108,13 +968,9 @@ end
 
 api_instance = GetIntoTeachingApiClient::TypesApi.new
 
-opts = { 
-  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
-}
-
 begin
   #Retrieves the list of teaching event status.
-  result = api_instance.get_teaching_event_status(opts)
+  result = api_instance.get_teaching_event_status
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TypesApi->get_teaching_event_status: #{e}"
@@ -1122,10 +978,7 @@ end
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -1143,7 +996,7 @@ Name | Type | Description  | Notes
 
 
 # **get_teaching_event_types**
-> Array&lt;TypeEntity&gt; get_teaching_event_types(opts)
+> Array&lt;TypeEntity&gt; get_teaching_event_types
 
 Retrieves the list of teaching event types.
 
@@ -1161,13 +1014,9 @@ end
 
 api_instance = GetIntoTeachingApiClient::TypesApi.new
 
-opts = { 
-  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
-}
-
 begin
   #Retrieves the list of teaching event types.
-  result = api_instance.get_teaching_event_types(opts)
+  result = api_instance.get_teaching_event_types
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TypesApi->get_teaching_event_types: #{e}"
@@ -1175,10 +1024,7 @@ end
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -1196,7 +1042,7 @@ Name | Type | Description  | Notes
 
 
 # **get_teaching_subjects**
-> Array&lt;TypeEntity&gt; get_teaching_subjects(opts)
+> Array&lt;TypeEntity&gt; get_teaching_subjects
 
 Retrieves the list of teaching subjects.
 
@@ -1214,13 +1060,9 @@ end
 
 api_instance = GetIntoTeachingApiClient::TypesApi.new
 
-opts = { 
-  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
-}
-
 begin
   #Retrieves the list of teaching subjects.
-  result = api_instance.get_teaching_subjects(opts)
+  result = api_instance.get_teaching_subjects
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TypesApi->get_teaching_subjects: #{e}"
@@ -1228,10 +1070,7 @@ end
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **generate_mapping_info**
-> Array&lt;MappingInfo&gt; generate_mapping_info(opts)
+> Array&lt;MappingInfo&gt; generate_mapping_info
 
 Generates the mapping information.
 
@@ -23,13 +23,9 @@ require 'get_into_teaching_api_client'
 
 api_instance = GetIntoTeachingApiClient::OperationsApi.new
 
-opts = { 
-  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
-}
-
 begin
   #Generates the mapping information.
-  result = api_instance.generate_mapping_info(opts)
+  result = api_instance.generate_mapping_info
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling OperationsApi->generate_mapping_info: #{e}"
@@ -37,10 +33,7 @@ end
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -58,7 +51,7 @@ No authorization required
 
 
 # **health_check**
-> HealthCheckResponse health_check(opts)
+> HealthCheckResponse health_check
 
 Performs a health check.
 
@@ -69,13 +62,9 @@ require 'get_into_teaching_api_client'
 
 api_instance = GetIntoTeachingApiClient::OperationsApi.new
 
-opts = { 
-  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
-}
-
 begin
   #Performs a health check.
-  result = api_instance.health_check(opts)
+  result = api_instance.health_check
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling OperationsApi->health_check: #{e}"
@@ -83,10 +72,7 @@ end
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -104,7 +90,7 @@ No authorization required
 
 
 # **simulate_error**
-> HealthCheckResponse simulate_error(opts)
+> HealthCheckResponse simulate_error
 
 Simulates a 500 error to test the Sentry integration.
 
@@ -115,13 +101,9 @@ require 'get_into_teaching_api_client'
 
 api_instance = GetIntoTeachingApiClient::OperationsApi.new
 
-opts = { 
-  x_client_ip: nil # Object | IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified.
-}
-
 begin
   #Simulates a 500 error to test the Sentry integration.
-  result = api_instance.simulate_error(opts)
+  result = api_instance.simulate_error
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling OperationsApi->simulate_error: #{e}"
@@ -129,10 +111,7 @@ end
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **x_client_ip** | [**Object**](.md)| IP address of the end user or client application used for rate limiting. Will fall into a globally rate limited bucket if not specified. | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
