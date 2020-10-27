@@ -264,7 +264,7 @@ opts = {
   type_id: 56, # Integer | 
   start_after: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | 
   start_before: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | 
-  quantity_per_category: 3 # Integer | Quantity to return (per type).
+  quantity_per_type: 3 # Integer | Quantity to return (per type).
 }
 
 begin
@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
  **type_id** | **Integer**|  | [optional] 
  **start_after** | **DateTime**|  | [optional] 
  **start_before** | **DateTime**|  | [optional] 
- **quantity_per_category** | **Integer**| Quantity to return (per type). | [optional] [default to 3]
+ **quantity_per_type** | **Integer**| Quantity to return (per type). | [optional] [default to 3]
 
 ### Return type
 
@@ -324,7 +324,7 @@ end
 api_instance = GetIntoTeachingApiClient::TeachingEventsApi.new
 
 opts = { 
-  quantity_per_category: 3 # Integer | Quantity to return (per type).
+  quantity_per_type: 3 # Integer | Quantity to return (per type).
 }
 
 begin
@@ -340,7 +340,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **quantity_per_category** | **Integer**| Quantity to return (per type). | [optional] [default to 3]
+ **quantity_per_type** | **Integer**| Quantity to return (per type). | [optional] [default to 3]
 
 ### Return type
 

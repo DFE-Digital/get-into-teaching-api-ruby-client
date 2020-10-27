@@ -93,7 +93,7 @@ describe 'TeachingEventsApi' do
   # @option opts [Integer] :type_id 
   # @option opts [DateTime] :start_after 
   # @option opts [DateTime] :start_before 
-  # @option opts [Integer] :quantity_per_category Quantity to return (per type).
+  # @option opts [Integer] :quantity_per_type Quantity to return (per type).
   # @return [Hash<String, Array<TeachingEvent>>]
   describe 'search_teaching_events_indexed_by_type test' do
     it 'should work' do
@@ -105,7 +105,7 @@ describe 'TeachingEventsApi' do
   # Retrieves upcoming teaching events grouped by type.
   # Retrieves upcoming teaching events grouped by type and limited to a given quantity per type.
   # @param [Hash] opts the optional parameters
-  # @option opts [Integer] :quantity_per_category Quantity to return (per type).
+  # @option opts [Integer] :quantity_per_type Quantity to return (per type).
   # @return [Hash<String, Array<TeachingEvent>>]
   describe 'upcoming_teaching_events_indexed_by_type test' do
     it 'should work' do
