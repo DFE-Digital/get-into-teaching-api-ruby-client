@@ -255,7 +255,7 @@ module GetIntoTeachingApiClient
     # @option opts [Integer] :type_id 
     # @option opts [DateTime] :start_after 
     # @option opts [DateTime] :start_before 
-    # @option opts [Integer] :quantity_per_category Quantity to return (per type). (default to 3)
+    # @option opts [Integer] :quantity_per_type Quantity to return (per type). (default to 3)
     # @return [Hash<String, Array<TeachingEvent>>]
     def search_teaching_events_indexed_by_type(opts = {})
       data, _status_code, _headers = search_teaching_events_indexed_by_type_with_http_info(opts)
@@ -270,7 +270,7 @@ module GetIntoTeachingApiClient
     # @option opts [Integer] :type_id 
     # @option opts [DateTime] :start_after 
     # @option opts [DateTime] :start_before 
-    # @option opts [Integer] :quantity_per_category Quantity to return (per type).
+    # @option opts [Integer] :quantity_per_type Quantity to return (per type).
     # @return [Array<(Hash<String, Array<TeachingEvent>>, Fixnum, Hash)>] Hash<String, Array<TeachingEvent>> data, response status code and response headers
     def search_teaching_events_indexed_by_type_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -290,7 +290,7 @@ module GetIntoTeachingApiClient
       query_params[:'TypeId'] = opts[:'type_id'] if !opts[:'type_id'].nil?
       query_params[:'StartAfter'] = opts[:'start_after'] if !opts[:'start_after'].nil?
       query_params[:'StartBefore'] = opts[:'start_before'] if !opts[:'start_before'].nil?
-      query_params[:'quantityPerCategory'] = opts[:'quantity_per_category'] if !opts[:'quantity_per_category'].nil?
+      query_params[:'quantityPerType'] = opts[:'quantity_per_type'] if !opts[:'quantity_per_type'].nil?
 
       # header parameters
       header_params = {}
@@ -318,7 +318,7 @@ module GetIntoTeachingApiClient
     # Retrieves upcoming teaching events grouped by type.
     # Retrieves upcoming teaching events grouped by type and limited to a given quantity per type.
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :quantity_per_category Quantity to return (per type). (default to 3)
+    # @option opts [Integer] :quantity_per_type Quantity to return (per type). (default to 3)
     # @return [Hash<String, Array<TeachingEvent>>]
     def upcoming_teaching_events_indexed_by_type(opts = {})
       data, _status_code, _headers = upcoming_teaching_events_indexed_by_type_with_http_info(opts)
@@ -328,7 +328,7 @@ module GetIntoTeachingApiClient
     # Retrieves upcoming teaching events grouped by type.
     # Retrieves upcoming teaching events grouped by type and limited to a given quantity per type.
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :quantity_per_category Quantity to return (per type).
+    # @option opts [Integer] :quantity_per_type Quantity to return (per type).
     # @return [Array<(Hash<String, Array<TeachingEvent>>, Fixnum, Hash)>] Hash<String, Array<TeachingEvent>> data, response status code and response headers
     def upcoming_teaching_events_indexed_by_type_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -339,7 +339,7 @@ module GetIntoTeachingApiClient
 
       # query parameters
       query_params = {}
-      query_params[:'quantityPerCategory'] = opts[:'quantity_per_category'] if !opts[:'quantity_per_category'].nil?
+      query_params[:'quantityPerType'] = opts[:'quantity_per_type'] if !opts[:'quantity_per_type'].nil?
 
       # header parameters
       header_params = {}
