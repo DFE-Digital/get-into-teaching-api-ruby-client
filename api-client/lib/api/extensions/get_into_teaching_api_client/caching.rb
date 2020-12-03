@@ -14,7 +14,6 @@ module Extensions
       def faraday
         Faraday.new do |f|
           f.use :http_cache, store: config.cache_store, shared_cache: false
-          f.use Faraday::OverrideCacheControl, cache_control: "private, max-age=#{MAX_AGE}"
           f.response :encoding
           f.adapter Faraday.default_adapter
           f.request :oauth2, config.api_key["Authorization"], token_type: :bearer
@@ -45,20 +44,6 @@ module Extensions
         end
 
         [data, response.status, response.headers]
-      end
-    end
-
-    class Faraday::OverrideCacheControl < Faraday::Middleware
-      def initialize(app, options = {})
-        super(app)
-        @cache_control = options[:cache_control]
-      end
-
-      def call(env)
-        response = @app.call(env)
-        cachable = response.headers["ETag"].present?
-        response.headers["Cache-Control"] = @cache_control if cachable
-        response
       end
     end
   end
