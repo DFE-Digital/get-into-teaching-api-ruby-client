@@ -26,30 +26,6 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::Caching do
     cache_store&.clear
   end
 
-  context "when caching is enabled" do
-    let(:cache_store) { ActiveSupport::Cache.lookup_store(:memory_store) }
-
-    it "does not override responses with a blanket Cache-Control header if no ETag was present" do
-      stub = stub_request(:get, get_endpoint)
-      .to_return(status: 200, body: data.to_json)
-
-      perform_get_request
-      perform_get_request
-
-      expect(stub).to have_been_requested.times(2)
-    end
-
-    it "overrides responses that have ETags with a blanket Cache-Control header" do
-      stub = stub_request(:get, get_endpoint)
-        .to_return(status: 200, body: data.to_json, headers: { ETag: "123" })
-
-      perform_get_request
-      perform_get_request
-
-      expect(stub).to have_been_requested.times(1)
-    end
-  end
-
   it "performs a POST request successfully" do
     stub_request(:post, post_endpoint)
       .with(body: { email: "test@test.com" })
