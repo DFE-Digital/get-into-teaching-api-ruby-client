@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **degree_status_id** | **Integer** |  | [optional] 
 **degree_type_id** | **Integer** |  | [optional] 
 **initial_teacher_training_year_id** | **Integer** |  | [optional] 
-**preferred_education_phase_id** | **Integer** |  | 
+**preferred_education_phase_id** | **Integer** |  | [optional] 
 **has_gcse_maths_and_english_id** | **Integer** |  | [optional] 
 **has_gcse_science_id** | **Integer** |  | [optional] 
 **planning_to_retake_gcse_maths_and_english_id** | **Integer** |  | [optional] 

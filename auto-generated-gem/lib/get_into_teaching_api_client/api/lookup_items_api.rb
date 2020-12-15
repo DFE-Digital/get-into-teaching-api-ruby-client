@@ -13,29 +13,29 @@ Swagger Codegen version: 2.4.17
 require 'uri'
 
 module GetIntoTeachingApiClient
-  class PrivacyPoliciesApi
+  class LookupItemsApi
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Retrieves the latest privacy policy.
+    # Retrieves the list of countries.
     # @param [Hash] opts the optional parameters
-    # @return [PrivacyPolicy]
-    def get_latest_privacy_policy(opts = {})
-      data, _status_code, _headers = get_latest_privacy_policy_with_http_info(opts)
+    # @return [Array<LookupItem>]
+    def get_countries(opts = {})
+      data, _status_code, _headers = get_countries_with_http_info(opts)
       data
     end
 
-    # Retrieves the latest privacy policy.
+    # Retrieves the list of countries.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(PrivacyPolicy, Fixnum, Hash)>] PrivacyPolicy data, response status code and response headers
-    def get_latest_privacy_policy_with_http_info(opts = {})
+    # @return [Array<(Array<LookupItem>, Fixnum, Hash)>] Array<LookupItem> data, response status code and response headers
+    def get_countries_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: PrivacyPoliciesApi.get_latest_privacy_policy ...'
+        @api_client.config.logger.debug 'Calling API: LookupItemsApi.get_countries ...'
       end
       # resource path
-      local_var_path = '/api/privacy_policies/latest'
+      local_var_path = '/api/lookup_items/countries'
 
       # query parameters
       query_params = {}
@@ -57,35 +57,29 @@ module GetIntoTeachingApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'PrivacyPolicy')
+        :return_type => 'Array<LookupItem>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: PrivacyPoliciesApi#get_latest_privacy_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: LookupItemsApi#get_countries\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
-    # Retrieves a privacy policy.
-    # @param id The &#x60;id&#x60; of the &#x60;PrivacyPolicy&#x60;.
+    # Retrieves the list of teaching subjects.
     # @param [Hash] opts the optional parameters
-    # @return [PrivacyPolicy]
-    def get_privacy_policy(id, opts = {})
-      data, _status_code, _headers = get_privacy_policy_with_http_info(id, opts)
+    # @return [Array<LookupItem>]
+    def get_teaching_subjects(opts = {})
+      data, _status_code, _headers = get_teaching_subjects_with_http_info(opts)
       data
     end
 
-    # Retrieves a privacy policy.
-    # @param id The &#x60;id&#x60; of the &#x60;PrivacyPolicy&#x60;.
+    # Retrieves the list of teaching subjects.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(PrivacyPolicy, Fixnum, Hash)>] PrivacyPolicy data, response status code and response headers
-    def get_privacy_policy_with_http_info(id, opts = {})
+    # @return [Array<(Array<LookupItem>, Fixnum, Hash)>] Array<LookupItem> data, response status code and response headers
+    def get_teaching_subjects_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: PrivacyPoliciesApi.get_privacy_policy ...'
-      end
-      # verify the required parameter 'id' is set
-      if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling PrivacyPoliciesApi.get_privacy_policy"
+        @api_client.config.logger.debug 'Calling API: LookupItemsApi.get_teaching_subjects ...'
       end
       # resource path
-      local_var_path = '/api/privacy_policies/{id}'.sub('{' + 'id' + '}', id.to_s)
+      local_var_path = '/api/lookup_items/teaching_subjects'
 
       # query parameters
       query_params = {}
@@ -107,9 +101,9 @@ module GetIntoTeachingApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'PrivacyPolicy')
+        :return_type => 'Array<LookupItem>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: PrivacyPoliciesApi#get_privacy_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: LookupItemsApi#get_teaching_subjects\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

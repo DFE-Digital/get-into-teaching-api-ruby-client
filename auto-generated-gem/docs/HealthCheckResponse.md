@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **database** | **String** |  | [optional] 
 **hangfire** | **String** |  | [optional] 
 **crm** | **String** |  | [optional] 
+**redis** | **String** |  | [optional] 
 **notify** | **String** |  | [optional] 
 **status** | **String** |  | [optional] 
 

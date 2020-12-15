@@ -13,48 +13,24 @@ Swagger Codegen version: 2.4.17
 require 'date'
 
 module GetIntoTeachingApiClient
-  class CallbackBookingQuota
-    attr_accessor :time_slot
-
-    attr_accessor :day
-
-    attr_accessor :start_at
-
-    attr_accessor :end_at
-
-    attr_accessor :number_of_bookings
-
-    attr_accessor :quota
-
-    attr_accessor :is_available
-
+  class PickListItem
     attr_accessor :id
+
+    attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'time_slot' => :'timeSlot',
-        :'day' => :'day',
-        :'start_at' => :'startAt',
-        :'end_at' => :'endAt',
-        :'number_of_bookings' => :'numberOfBookings',
-        :'quota' => :'quota',
-        :'is_available' => :'isAvailable',
-        :'id' => :'id'
+        :'id' => :'id',
+        :'value' => :'value'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'time_slot' => :'String',
-        :'day' => :'String',
-        :'start_at' => :'DateTime',
-        :'end_at' => :'DateTime',
-        :'number_of_bookings' => :'Integer',
-        :'quota' => :'Integer',
-        :'is_available' => :'BOOLEAN',
-        :'id' => :'String'
+        :'id' => :'Integer',
+        :'value' => :'String'
       }
     end
 
@@ -66,36 +42,12 @@ module GetIntoTeachingApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'timeSlot')
-        self.time_slot = attributes[:'timeSlot']
-      end
-
-      if attributes.has_key?(:'day')
-        self.day = attributes[:'day']
-      end
-
-      if attributes.has_key?(:'startAt')
-        self.start_at = attributes[:'startAt']
-      end
-
-      if attributes.has_key?(:'endAt')
-        self.end_at = attributes[:'endAt']
-      end
-
-      if attributes.has_key?(:'numberOfBookings')
-        self.number_of_bookings = attributes[:'numberOfBookings']
-      end
-
-      if attributes.has_key?(:'quota')
-        self.quota = attributes[:'quota']
-      end
-
-      if attributes.has_key?(:'isAvailable')
-        self.is_available = attributes[:'isAvailable']
-      end
-
       if attributes.has_key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.has_key?(:'value')
+        self.value = attributes[:'value']
       end
     end
 
@@ -117,14 +69,8 @@ module GetIntoTeachingApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          time_slot == o.time_slot &&
-          day == o.day &&
-          start_at == o.start_at &&
-          end_at == o.end_at &&
-          number_of_bookings == o.number_of_bookings &&
-          quota == o.quota &&
-          is_available == o.is_available &&
-          id == o.id
+          id == o.id &&
+          value == o.value
     end
 
     # @see the `==` method
@@ -136,7 +82,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [time_slot, day, start_at, end_at, number_of_bookings, quota, is_available, id].hash
+      [id, value].hash
     end
 
     # Builds the object from hash
