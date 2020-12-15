@@ -13,7 +13,7 @@ Swagger Codegen version: 2.4.17
 require 'uri'
 
 module GetIntoTeachingApiClient
-  class TypesApi
+  class PickListItemsApi
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -21,7 +21,7 @@ module GetIntoTeachingApiClient
     end
     # Retrieves the list of candidate adviser eligibilities.
     # @param [Hash] opts the optional parameters
-    # @return [Array<TypeEntity>]
+    # @return [Array<PickListItem>]
     def get_candidate_adviser_eligibilities(opts = {})
       data, _status_code, _headers = get_candidate_adviser_eligibilities_with_http_info(opts)
       data
@@ -29,13 +29,13 @@ module GetIntoTeachingApiClient
 
     # Retrieves the list of candidate adviser eligibilities.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
+    # @return [Array<(Array<PickListItem>, Fixnum, Hash)>] Array<PickListItem> data, response status code and response headers
     def get_candidate_adviser_eligibilities_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TypesApi.get_candidate_adviser_eligibilities ...'
+        @api_client.config.logger.debug 'Calling API: PickListItemsApi.get_candidate_adviser_eligibilities ...'
       end
       # resource path
-      local_var_path = '/api/types/candidate/adviser_eligibilities'
+      local_var_path = '/api/pick_list_items/candidate/adviser_eligibilities'
 
       # query parameters
       query_params = {}
@@ -57,15 +57,15 @@ module GetIntoTeachingApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<TypeEntity>')
+        :return_type => 'Array<PickListItem>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TypesApi#get_candidate_adviser_eligibilities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PickListItemsApi#get_candidate_adviser_eligibilities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
     # Retrieves the list of candidate adviser requirements.
     # @param [Hash] opts the optional parameters
-    # @return [Array<TypeEntity>]
+    # @return [Array<PickListItem>]
     def get_candidate_adviser_requirements(opts = {})
       data, _status_code, _headers = get_candidate_adviser_requirements_with_http_info(opts)
       data
@@ -73,13 +73,13 @@ module GetIntoTeachingApiClient
 
     # Retrieves the list of candidate adviser requirements.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
+    # @return [Array<(Array<PickListItem>, Fixnum, Hash)>] Array<PickListItem> data, response status code and response headers
     def get_candidate_adviser_requirements_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TypesApi.get_candidate_adviser_requirements ...'
+        @api_client.config.logger.debug 'Calling API: PickListItemsApi.get_candidate_adviser_requirements ...'
       end
       # resource path
-      local_var_path = '/api/types/candidate/adviser_requirements'
+      local_var_path = '/api/pick_list_items/candidate/adviser_requirements'
 
       # query parameters
       query_params = {}
@@ -101,15 +101,15 @@ module GetIntoTeachingApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<TypeEntity>')
+        :return_type => 'Array<PickListItem>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TypesApi#get_candidate_adviser_requirements\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PickListItemsApi#get_candidate_adviser_requirements\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
     # Retrieves the list of candidate assignment status.
     # @param [Hash] opts the optional parameters
-    # @return [Array<TypeEntity>]
+    # @return [Array<PickListItem>]
     def get_candidate_assignment_status(opts = {})
       data, _status_code, _headers = get_candidate_assignment_status_with_http_info(opts)
       data
@@ -117,13 +117,13 @@ module GetIntoTeachingApiClient
 
     # Retrieves the list of candidate assignment status.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
+    # @return [Array<(Array<PickListItem>, Fixnum, Hash)>] Array<PickListItem> data, response status code and response headers
     def get_candidate_assignment_status_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TypesApi.get_candidate_assignment_status ...'
+        @api_client.config.logger.debug 'Calling API: PickListItemsApi.get_candidate_assignment_status ...'
       end
       # resource path
-      local_var_path = '/api/types/candidate/assignment_status'
+      local_var_path = '/api/pick_list_items/candidate/assignment_status'
 
       # query parameters
       query_params = {}
@@ -145,15 +145,15 @@ module GetIntoTeachingApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<TypeEntity>')
+        :return_type => 'Array<PickListItem>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TypesApi#get_candidate_assignment_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PickListItemsApi#get_candidate_assignment_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
     # Retrieves the list of candidate channels.
     # @param [Hash] opts the optional parameters
-    # @return [Array<TypeEntity>]
+    # @return [Array<PickListItem>]
     def get_candidate_channels(opts = {})
       data, _status_code, _headers = get_candidate_channels_with_http_info(opts)
       data
@@ -161,13 +161,13 @@ module GetIntoTeachingApiClient
 
     # Retrieves the list of candidate channels.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
+    # @return [Array<(Array<PickListItem>, Fixnum, Hash)>] Array<PickListItem> data, response status code and response headers
     def get_candidate_channels_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TypesApi.get_candidate_channels ...'
+        @api_client.config.logger.debug 'Calling API: PickListItemsApi.get_candidate_channels ...'
       end
       # resource path
-      local_var_path = '/api/types/candidate/channels'
+      local_var_path = '/api/pick_list_items/candidate/channels'
 
       # query parameters
       query_params = {}
@@ -189,15 +189,15 @@ module GetIntoTeachingApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<TypeEntity>')
+        :return_type => 'Array<PickListItem>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TypesApi#get_candidate_channels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PickListItemsApi#get_candidate_channels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
     # Retrieves the list of candidate event subscription channels.
     # @param [Hash] opts the optional parameters
-    # @return [Array<TypeEntity>]
+    # @return [Array<PickListItem>]
     def get_candidate_event_subscription_channels(opts = {})
       data, _status_code, _headers = get_candidate_event_subscription_channels_with_http_info(opts)
       data
@@ -205,13 +205,13 @@ module GetIntoTeachingApiClient
 
     # Retrieves the list of candidate event subscription channels.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
+    # @return [Array<(Array<PickListItem>, Fixnum, Hash)>] Array<PickListItem> data, response status code and response headers
     def get_candidate_event_subscription_channels_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TypesApi.get_candidate_event_subscription_channels ...'
+        @api_client.config.logger.debug 'Calling API: PickListItemsApi.get_candidate_event_subscription_channels ...'
       end
       # resource path
-      local_var_path = '/api/types/candidate/event_subscription_channels'
+      local_var_path = '/api/pick_list_items/candidate/event_subscription_channels'
 
       # query parameters
       query_params = {}
@@ -233,15 +233,15 @@ module GetIntoTeachingApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<TypeEntity>')
+        :return_type => 'Array<PickListItem>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TypesApi#get_candidate_event_subscription_channels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PickListItemsApi#get_candidate_event_subscription_channels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
     # Retrieves the list of candidate GCSE status.
     # @param [Hash] opts the optional parameters
-    # @return [Array<TypeEntity>]
+    # @return [Array<PickListItem>]
     def get_candidate_gcse_status(opts = {})
       data, _status_code, _headers = get_candidate_gcse_status_with_http_info(opts)
       data
@@ -249,13 +249,13 @@ module GetIntoTeachingApiClient
 
     # Retrieves the list of candidate GCSE status.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
+    # @return [Array<(Array<PickListItem>, Fixnum, Hash)>] Array<PickListItem> data, response status code and response headers
     def get_candidate_gcse_status_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TypesApi.get_candidate_gcse_status ...'
+        @api_client.config.logger.debug 'Calling API: PickListItemsApi.get_candidate_gcse_status ...'
       end
       # resource path
-      local_var_path = '/api/types/candidate/gcse_status'
+      local_var_path = '/api/pick_list_items/candidate/gcse_status'
 
       # query parameters
       query_params = {}
@@ -277,15 +277,15 @@ module GetIntoTeachingApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<TypeEntity>')
+        :return_type => 'Array<PickListItem>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TypesApi#get_candidate_gcse_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PickListItemsApi#get_candidate_gcse_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
     # Retrieves the list of candidate initial teacher training years.
     # @param [Hash] opts the optional parameters
-    # @return [Array<TypeEntity>]
+    # @return [Array<PickListItem>]
     def get_candidate_initial_teacher_training_years(opts = {})
       data, _status_code, _headers = get_candidate_initial_teacher_training_years_with_http_info(opts)
       data
@@ -293,13 +293,13 @@ module GetIntoTeachingApiClient
 
     # Retrieves the list of candidate initial teacher training years.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
+    # @return [Array<(Array<PickListItem>, Fixnum, Hash)>] Array<PickListItem> data, response status code and response headers
     def get_candidate_initial_teacher_training_years_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TypesApi.get_candidate_initial_teacher_training_years ...'
+        @api_client.config.logger.debug 'Calling API: PickListItemsApi.get_candidate_initial_teacher_training_years ...'
       end
       # resource path
-      local_var_path = '/api/types/candidate/initial_teacher_training_years'
+      local_var_path = '/api/pick_list_items/candidate/initial_teacher_training_years'
 
       # query parameters
       query_params = {}
@@ -321,15 +321,15 @@ module GetIntoTeachingApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<TypeEntity>')
+        :return_type => 'Array<PickListItem>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TypesApi#get_candidate_initial_teacher_training_years\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PickListItemsApi#get_candidate_initial_teacher_training_years\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
     # Retrieves the list of candidate consideration journey stages.
     # @param [Hash] opts the optional parameters
-    # @return [Array<TypeEntity>]
+    # @return [Array<PickListItem>]
     def get_candidate_journey_stages(opts = {})
       data, _status_code, _headers = get_candidate_journey_stages_with_http_info(opts)
       data
@@ -337,13 +337,13 @@ module GetIntoTeachingApiClient
 
     # Retrieves the list of candidate consideration journey stages.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
+    # @return [Array<(Array<PickListItem>, Fixnum, Hash)>] Array<PickListItem> data, response status code and response headers
     def get_candidate_journey_stages_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TypesApi.get_candidate_journey_stages ...'
+        @api_client.config.logger.debug 'Calling API: PickListItemsApi.get_candidate_journey_stages ...'
       end
       # resource path
-      local_var_path = '/api/types/candidate/consideration_journey_stages'
+      local_var_path = '/api/pick_list_items/candidate/consideration_journey_stages'
 
       # query parameters
       query_params = {}
@@ -365,15 +365,15 @@ module GetIntoTeachingApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<TypeEntity>')
+        :return_type => 'Array<PickListItem>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TypesApi#get_candidate_journey_stages\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PickListItemsApi#get_candidate_journey_stages\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
     # Retrieves the list of candidate mailing list subscription channels.
     # @param [Hash] opts the optional parameters
-    # @return [Array<TypeEntity>]
+    # @return [Array<PickListItem>]
     def get_candidate_mailing_list_subscription_channels(opts = {})
       data, _status_code, _headers = get_candidate_mailing_list_subscription_channels_with_http_info(opts)
       data
@@ -381,13 +381,13 @@ module GetIntoTeachingApiClient
 
     # Retrieves the list of candidate mailing list subscription channels.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
+    # @return [Array<(Array<PickListItem>, Fixnum, Hash)>] Array<PickListItem> data, response status code and response headers
     def get_candidate_mailing_list_subscription_channels_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TypesApi.get_candidate_mailing_list_subscription_channels ...'
+        @api_client.config.logger.debug 'Calling API: PickListItemsApi.get_candidate_mailing_list_subscription_channels ...'
       end
       # resource path
-      local_var_path = '/api/types/candidate/mailing_list_subscription_channels'
+      local_var_path = '/api/pick_list_items/candidate/mailing_list_subscription_channels'
 
       # query parameters
       query_params = {}
@@ -409,15 +409,15 @@ module GetIntoTeachingApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<TypeEntity>')
+        :return_type => 'Array<PickListItem>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TypesApi#get_candidate_mailing_list_subscription_channels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PickListItemsApi#get_candidate_mailing_list_subscription_channels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
     # Retrieves the list of candidate preferred education phases.
     # @param [Hash] opts the optional parameters
-    # @return [Array<TypeEntity>]
+    # @return [Array<PickListItem>]
     def get_candidate_preferred_education_phases(opts = {})
       data, _status_code, _headers = get_candidate_preferred_education_phases_with_http_info(opts)
       data
@@ -425,13 +425,13 @@ module GetIntoTeachingApiClient
 
     # Retrieves the list of candidate preferred education phases.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
+    # @return [Array<(Array<PickListItem>, Fixnum, Hash)>] Array<PickListItem> data, response status code and response headers
     def get_candidate_preferred_education_phases_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TypesApi.get_candidate_preferred_education_phases ...'
+        @api_client.config.logger.debug 'Calling API: PickListItemsApi.get_candidate_preferred_education_phases ...'
       end
       # resource path
-      local_var_path = '/api/types/candidate/preferred_education_phases'
+      local_var_path = '/api/pick_list_items/candidate/preferred_education_phases'
 
       # query parameters
       query_params = {}
@@ -453,15 +453,15 @@ module GetIntoTeachingApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<TypeEntity>')
+        :return_type => 'Array<PickListItem>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TypesApi#get_candidate_preferred_education_phases\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PickListItemsApi#get_candidate_preferred_education_phases\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
     # Retrieves the list of candidate retake GCSE status.
     # @param [Hash] opts the optional parameters
-    # @return [Array<TypeEntity>]
+    # @return [Array<PickListItem>]
     def get_candidate_retake_gcse_status(opts = {})
       data, _status_code, _headers = get_candidate_retake_gcse_status_with_http_info(opts)
       data
@@ -469,13 +469,13 @@ module GetIntoTeachingApiClient
 
     # Retrieves the list of candidate retake GCSE status.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
+    # @return [Array<(Array<PickListItem>, Fixnum, Hash)>] Array<PickListItem> data, response status code and response headers
     def get_candidate_retake_gcse_status_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TypesApi.get_candidate_retake_gcse_status ...'
+        @api_client.config.logger.debug 'Calling API: PickListItemsApi.get_candidate_retake_gcse_status ...'
       end
       # resource path
-      local_var_path = '/api/types/candidate/retake_gcse_status'
+      local_var_path = '/api/pick_list_items/candidate/retake_gcse_status'
 
       # query parameters
       query_params = {}
@@ -497,15 +497,15 @@ module GetIntoTeachingApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<TypeEntity>')
+        :return_type => 'Array<PickListItem>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TypesApi#get_candidate_retake_gcse_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PickListItemsApi#get_candidate_retake_gcse_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
     # Retrieves the list of candidate types.
     # @param [Hash] opts the optional parameters
-    # @return [Array<TypeEntity>]
+    # @return [Array<PickListItem>]
     def get_candidate_types(opts = {})
       data, _status_code, _headers = get_candidate_types_with_http_info(opts)
       data
@@ -513,13 +513,13 @@ module GetIntoTeachingApiClient
 
     # Retrieves the list of candidate types.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
+    # @return [Array<(Array<PickListItem>, Fixnum, Hash)>] Array<PickListItem> data, response status code and response headers
     def get_candidate_types_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TypesApi.get_candidate_types ...'
+        @api_client.config.logger.debug 'Calling API: PickListItemsApi.get_candidate_types ...'
       end
       # resource path
-      local_var_path = '/api/types/candidate/types'
+      local_var_path = '/api/pick_list_items/candidate/types'
 
       # query parameters
       query_params = {}
@@ -541,59 +541,15 @@ module GetIntoTeachingApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<TypeEntity>')
+        :return_type => 'Array<PickListItem>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TypesApi#get_candidate_types\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-    # Retrieves the list of countries.
-    # @param [Hash] opts the optional parameters
-    # @return [Array<TypeEntity>]
-    def get_country_types(opts = {})
-      data, _status_code, _headers = get_country_types_with_http_info(opts)
-      data
-    end
-
-    # Retrieves the list of countries.
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
-    def get_country_types_with_http_info(opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TypesApi.get_country_types ...'
-      end
-      # resource path
-      local_var_path = '/api/types/countries'
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = nil
-      auth_names = ['apiKey']
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'Array<TypeEntity>')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TypesApi#get_country_types\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PickListItemsApi#get_candidate_types\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
     # Retrieves the list of past teaching position education phases.
     # @param [Hash] opts the optional parameters
-    # @return [Array<TypeEntity>]
+    # @return [Array<PickListItem>]
     def get_past_teaching_position_education_phases(opts = {})
       data, _status_code, _headers = get_past_teaching_position_education_phases_with_http_info(opts)
       data
@@ -601,13 +557,13 @@ module GetIntoTeachingApiClient
 
     # Retrieves the list of past teaching position education phases.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
+    # @return [Array<(Array<PickListItem>, Fixnum, Hash)>] Array<PickListItem> data, response status code and response headers
     def get_past_teaching_position_education_phases_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TypesApi.get_past_teaching_position_education_phases ...'
+        @api_client.config.logger.debug 'Calling API: PickListItemsApi.get_past_teaching_position_education_phases ...'
       end
       # resource path
-      local_var_path = '/api/types/past_teaching_position/education_phases'
+      local_var_path = '/api/pick_list_items/past_teaching_position/education_phases'
 
       # query parameters
       query_params = {}
@@ -629,15 +585,15 @@ module GetIntoTeachingApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<TypeEntity>')
+        :return_type => 'Array<PickListItem>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TypesApi#get_past_teaching_position_education_phases\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PickListItemsApi#get_past_teaching_position_education_phases\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
     # Retrieves the list of phone call channels.
     # @param [Hash] opts the optional parameters
-    # @return [Array<TypeEntity>]
+    # @return [Array<PickListItem>]
     def get_phone_call_channels(opts = {})
       data, _status_code, _headers = get_phone_call_channels_with_http_info(opts)
       data
@@ -645,13 +601,13 @@ module GetIntoTeachingApiClient
 
     # Retrieves the list of phone call channels.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
+    # @return [Array<(Array<PickListItem>, Fixnum, Hash)>] Array<PickListItem> data, response status code and response headers
     def get_phone_call_channels_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TypesApi.get_phone_call_channels ...'
+        @api_client.config.logger.debug 'Calling API: PickListItemsApi.get_phone_call_channels ...'
       end
       # resource path
-      local_var_path = '/api/types/phone_call/channels'
+      local_var_path = '/api/pick_list_items/phone_call/channels'
 
       # query parameters
       query_params = {}
@@ -673,15 +629,15 @@ module GetIntoTeachingApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<TypeEntity>')
+        :return_type => 'Array<PickListItem>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TypesApi#get_phone_call_channels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PickListItemsApi#get_phone_call_channels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
     # Retrieves the list of qualification degree status.
     # @param [Hash] opts the optional parameters
-    # @return [Array<TypeEntity>]
+    # @return [Array<PickListItem>]
     def get_qualification_degree_status(opts = {})
       data, _status_code, _headers = get_qualification_degree_status_with_http_info(opts)
       data
@@ -689,13 +645,13 @@ module GetIntoTeachingApiClient
 
     # Retrieves the list of qualification degree status.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
+    # @return [Array<(Array<PickListItem>, Fixnum, Hash)>] Array<PickListItem> data, response status code and response headers
     def get_qualification_degree_status_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TypesApi.get_qualification_degree_status ...'
+        @api_client.config.logger.debug 'Calling API: PickListItemsApi.get_qualification_degree_status ...'
       end
       # resource path
-      local_var_path = '/api/types/qualification/degree_status'
+      local_var_path = '/api/pick_list_items/qualification/degree_status'
 
       # query parameters
       query_params = {}
@@ -717,15 +673,15 @@ module GetIntoTeachingApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<TypeEntity>')
+        :return_type => 'Array<PickListItem>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TypesApi#get_qualification_degree_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PickListItemsApi#get_qualification_degree_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
     # Retrieves the list of qualification types.
     # @param [Hash] opts the optional parameters
-    # @return [Array<TypeEntity>]
+    # @return [Array<PickListItem>]
     def get_qualification_types(opts = {})
       data, _status_code, _headers = get_qualification_types_with_http_info(opts)
       data
@@ -733,13 +689,13 @@ module GetIntoTeachingApiClient
 
     # Retrieves the list of qualification types.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
+    # @return [Array<(Array<PickListItem>, Fixnum, Hash)>] Array<PickListItem> data, response status code and response headers
     def get_qualification_types_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TypesApi.get_qualification_types ...'
+        @api_client.config.logger.debug 'Calling API: PickListItemsApi.get_qualification_types ...'
       end
       # resource path
-      local_var_path = '/api/types/qualification/types'
+      local_var_path = '/api/pick_list_items/qualification/types'
 
       # query parameters
       query_params = {}
@@ -761,15 +717,15 @@ module GetIntoTeachingApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<TypeEntity>')
+        :return_type => 'Array<PickListItem>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TypesApi#get_qualification_types\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PickListItemsApi#get_qualification_types\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
     # Retrieves the list of qualification UK degree grades.
     # @param [Hash] opts the optional parameters
-    # @return [Array<TypeEntity>]
+    # @return [Array<PickListItem>]
     def get_qualification_uk_degree_grades(opts = {})
       data, _status_code, _headers = get_qualification_uk_degree_grades_with_http_info(opts)
       data
@@ -777,13 +733,13 @@ module GetIntoTeachingApiClient
 
     # Retrieves the list of qualification UK degree grades.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
+    # @return [Array<(Array<PickListItem>, Fixnum, Hash)>] Array<PickListItem> data, response status code and response headers
     def get_qualification_uk_degree_grades_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TypesApi.get_qualification_uk_degree_grades ...'
+        @api_client.config.logger.debug 'Calling API: PickListItemsApi.get_qualification_uk_degree_grades ...'
       end
       # resource path
-      local_var_path = '/api/types/qualification/uk_degree_grades'
+      local_var_path = '/api/pick_list_items/qualification/uk_degree_grades'
 
       # query parameters
       query_params = {}
@@ -805,15 +761,15 @@ module GetIntoTeachingApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<TypeEntity>')
+        :return_type => 'Array<PickListItem>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TypesApi#get_qualification_uk_degree_grades\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PickListItemsApi#get_qualification_uk_degree_grades\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
     # Retrieves the list of subscription types.
     # @param [Hash] opts the optional parameters
-    # @return [Array<TypeEntity>]
+    # @return [Array<PickListItem>]
     def get_subscription_types(opts = {})
       data, _status_code, _headers = get_subscription_types_with_http_info(opts)
       data
@@ -821,13 +777,13 @@ module GetIntoTeachingApiClient
 
     # Retrieves the list of subscription types.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
+    # @return [Array<(Array<PickListItem>, Fixnum, Hash)>] Array<PickListItem> data, response status code and response headers
     def get_subscription_types_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TypesApi.get_subscription_types ...'
+        @api_client.config.logger.debug 'Calling API: PickListItemsApi.get_subscription_types ...'
       end
       # resource path
-      local_var_path = '/api/types/service_subscription/types'
+      local_var_path = '/api/pick_list_items/service_subscription/types'
 
       # query parameters
       query_params = {}
@@ -849,15 +805,15 @@ module GetIntoTeachingApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<TypeEntity>')
+        :return_type => 'Array<PickListItem>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TypesApi#get_subscription_types\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PickListItemsApi#get_subscription_types\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
     # Retrieves the list of teaching event registration channels.
     # @param [Hash] opts the optional parameters
-    # @return [Array<TypeEntity>]
+    # @return [Array<PickListItem>]
     def get_teaching_event_registration_channels(opts = {})
       data, _status_code, _headers = get_teaching_event_registration_channels_with_http_info(opts)
       data
@@ -865,13 +821,13 @@ module GetIntoTeachingApiClient
 
     # Retrieves the list of teaching event registration channels.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
+    # @return [Array<(Array<PickListItem>, Fixnum, Hash)>] Array<PickListItem> data, response status code and response headers
     def get_teaching_event_registration_channels_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TypesApi.get_teaching_event_registration_channels ...'
+        @api_client.config.logger.debug 'Calling API: PickListItemsApi.get_teaching_event_registration_channels ...'
       end
       # resource path
-      local_var_path = '/api/types/teaching_event_registration/channels'
+      local_var_path = '/api/pick_list_items/teaching_event_registration/channels'
 
       # query parameters
       query_params = {}
@@ -893,15 +849,15 @@ module GetIntoTeachingApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<TypeEntity>')
+        :return_type => 'Array<PickListItem>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TypesApi#get_teaching_event_registration_channels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PickListItemsApi#get_teaching_event_registration_channels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
     # Retrieves the list of teaching event status.
     # @param [Hash] opts the optional parameters
-    # @return [Array<TypeEntity>]
+    # @return [Array<PickListItem>]
     def get_teaching_event_status(opts = {})
       data, _status_code, _headers = get_teaching_event_status_with_http_info(opts)
       data
@@ -909,13 +865,13 @@ module GetIntoTeachingApiClient
 
     # Retrieves the list of teaching event status.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
+    # @return [Array<(Array<PickListItem>, Fixnum, Hash)>] Array<PickListItem> data, response status code and response headers
     def get_teaching_event_status_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TypesApi.get_teaching_event_status ...'
+        @api_client.config.logger.debug 'Calling API: PickListItemsApi.get_teaching_event_status ...'
       end
       # resource path
-      local_var_path = '/api/types/teaching_event/status'
+      local_var_path = '/api/pick_list_items/teaching_event/status'
 
       # query parameters
       query_params = {}
@@ -937,15 +893,15 @@ module GetIntoTeachingApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<TypeEntity>')
+        :return_type => 'Array<PickListItem>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TypesApi#get_teaching_event_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PickListItemsApi#get_teaching_event_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
     # Retrieves the list of teaching event types.
     # @param [Hash] opts the optional parameters
-    # @return [Array<TypeEntity>]
+    # @return [Array<PickListItem>]
     def get_teaching_event_types(opts = {})
       data, _status_code, _headers = get_teaching_event_types_with_http_info(opts)
       data
@@ -953,13 +909,13 @@ module GetIntoTeachingApiClient
 
     # Retrieves the list of teaching event types.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
+    # @return [Array<(Array<PickListItem>, Fixnum, Hash)>] Array<PickListItem> data, response status code and response headers
     def get_teaching_event_types_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TypesApi.get_teaching_event_types ...'
+        @api_client.config.logger.debug 'Calling API: PickListItemsApi.get_teaching_event_types ...'
       end
       # resource path
-      local_var_path = '/api/types/teaching_event/types'
+      local_var_path = '/api/pick_list_items/teaching_event/types'
 
       # query parameters
       query_params = {}
@@ -981,53 +937,9 @@ module GetIntoTeachingApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<TypeEntity>')
+        :return_type => 'Array<PickListItem>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TypesApi#get_teaching_event_types\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-    # Retrieves the list of teaching subjects.
-    # @param [Hash] opts the optional parameters
-    # @return [Array<TypeEntity>]
-    def get_teaching_subjects(opts = {})
-      data, _status_code, _headers = get_teaching_subjects_with_http_info(opts)
-      data
-    end
-
-    # Retrieves the list of teaching subjects.
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<TypeEntity>, Fixnum, Hash)>] Array<TypeEntity> data, response status code and response headers
-    def get_teaching_subjects_with_http_info(opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TypesApi.get_teaching_subjects ...'
-      end
-      # resource path
-      local_var_path = '/api/types/teaching_subjects'
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = nil
-      auth_names = ['apiKey']
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'Array<TypeEntity>')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TypesApi#get_teaching_subjects\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PickListItemsApi#get_teaching_event_types\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
