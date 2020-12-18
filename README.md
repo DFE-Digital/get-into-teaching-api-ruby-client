@@ -9,7 +9,7 @@ gem "get_into_teaching_api_client_faraday", "0.1.8", git: "git@github.com:DFE-Di
 ```
 
 ```
-GetIntoTeachingApiClient.configure do |config|
+GetIntoTeachingApiClient.configure do |config| 
   config.host = host
   config.base_path = endpoint
   config.api_key["Authorization"] = token
