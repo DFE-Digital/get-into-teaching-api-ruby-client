@@ -1,14 +1,14 @@
 RSpec.describe Extensions::GetIntoTeachingApiClient::Caching do
   let(:host) { "host.api" }
   let(:endpoint) { "endpoint" }
-  let(:get_endpoint) { "https://#{host}/#{endpoint}/api/types/candidate/channels" }
+  let(:get_endpoint) { "https://#{host}/#{endpoint}/api/pick_list_items/candidate/channels" }
   let(:post_endpoint) { "https://#{host}/#{endpoint}/api/candidates/access_tokens" }
   let(:token) { "test" }
   let(:data) { [{ id: 123, value: "test" }] }
   let(:cache_store) { ActiveSupport::Cache.lookup_store(:null_store) }
 
   def perform_get_request
-    GetIntoTeachingApiClient::TypesApi.new.get_candidate_channels
+    GetIntoTeachingApiClient::PickListItemsApi.new.get_candidate_channels
   end
 
   def perform_post_request
@@ -39,9 +39,9 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::Caching do
       .to_return(status: 200, body: data.to_json)
 
     result = perform_get_request
-    type = result.first
-    expect(type).to be_instance_of(GetIntoTeachingApiClient::TypeEntity)
-    expect(type).to have_attributes({ id: "123", value: "test" })
+    item = result.first
+    expect(item).to be_instance_of(GetIntoTeachingApiClient::PickListItem)
+    expect(item).to have_attributes({ id: "123", value: "test" })
   end
 
   it "raises an ApiError if the request fails" do
