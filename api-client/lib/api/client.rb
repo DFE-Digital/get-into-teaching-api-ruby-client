@@ -3,6 +3,7 @@ require "faraday_middleware"
 require "faraday/http_cache"
 require "faraday/encoding"
 require "active_support/cache"
+require "active_support/notifications"
 require "get_into_teaching_api_client"
 
 require "api/client/version"
