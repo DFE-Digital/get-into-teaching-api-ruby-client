@@ -1,4 +1,4 @@
-RSpec.describe Extensions::GetIntoTeachingApiClient::Caching do
+RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
   let(:host) { "host.api" }
   let(:endpoint) { "endpoint" }
   let(:get_endpoint) { "https://#{host}/#{endpoint}/api/pick_list_items/candidate/channels" }

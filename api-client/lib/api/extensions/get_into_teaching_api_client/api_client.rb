@@ -1,6 +1,6 @@
 module Extensions
   module GetIntoTeachingApiClient
-    module Caching
+    module ApiClient
       API_DATE_TIME_FORMAT = "%Y-%m-%d %H:%M:%S %:z".freeze
       MAX_AGE = 5 * 60 # 5 minutes
       MAX_RETRIES = 1
