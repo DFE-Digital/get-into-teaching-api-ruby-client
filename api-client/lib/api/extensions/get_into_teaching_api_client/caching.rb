@@ -1,6 +1,7 @@
 module Extensions
   module GetIntoTeachingApiClient
     module Caching
+      API_DATE_TIME_FORMAT = "%Y-%m-%d %H:%M:%S %:z".freeze
       MAX_AGE = 5 * 60 # 5 minutes
       MAX_RETRIES = 1
       RETRY_EXCEPTIONS = [::Faraday::ConnectionFailed].freeze
@@ -44,6 +45,32 @@ module Extensions
         end
 
         [data, response.status, response.headers]
+      end
+
+      def build_request(http_method, path, opts = {})
+        opts[:query_params] = format_date_times(opts[:query_params])
+        
+        super(http_method, path, opts)
+      end
+  
+      def object_to_hash(obj)
+        if obj.respond_to?(:to_hash)
+          format_date_times(obj.to_hash)
+        else
+          obj
+        end
+      end
+
+    private
+
+      def format_date_times(params = {})
+        params.transform_values do |value|
+          if value.respond_to?(:strftime)
+            value.strftime(API_DATE_TIME_FORMAT) 
+          else
+            value
+          end
+        end
       end
     end
   end

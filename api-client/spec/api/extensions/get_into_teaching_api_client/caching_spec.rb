@@ -26,6 +26,68 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::Caching do
     cache_store&.clear
   end
 
+  describe "formatting DateTime/Time attributes in query string parameters" do
+    context "when UTC" do
+      it "formats with the offset +00:00" do
+        date = DateTime.new(2022, 1, 1, 10, 30, 59).utc
+
+        stub_request(:get, "https://#{host}/#{endpoint}/api/teaching_events/search_indexed_by_type")
+          .with(query: { StartAfter: "2022-01-01 10:30:59 +00:00" })
+          .to_return(status: 200)
+          
+        expect do 
+          GetIntoTeachingApiClient::TeachingEventsApi.new.search_teaching_events_indexed_by_type(start_after: date)
+        end.to_not raise_error
+      end
+    end
+
+    context "when not UTC" do
+      it "formats with the correct offset" do
+        date = Time.new(2022, 1, 1, 10, 30, 59, "-10:00")
+
+        stub_request(:get, "https://#{host}/#{endpoint}/api/teaching_events/search_indexed_by_type")
+          .with(query: { StartAfter: "2022-01-01 10:30:59 -10:00" })
+          .to_return(status: 200)
+          
+        expect do 
+          GetIntoTeachingApiClient::TeachingEventsApi.new.search_teaching_events_indexed_by_type(start_after: date)
+        end.to_not raise_error
+      end
+    end
+  end
+
+  describe "formatting DateTime/Time attributes in request body" do
+    context "when UTC" do
+      it "formats with the offset +00:00" do
+        date = DateTime.new(2022, 1, 1, 10, 30, 59).utc
+
+        stub_request(:post, "https://#{host}/#{endpoint}/api/teacher_training_adviser/candidates")
+          .with(body: { phoneCallScheduledAt: "2022-01-01 10:30:59 +00:00" })
+          .to_return(status: 200)
+          
+        expect do 
+          request = GetIntoTeachingApiClient::TeacherTrainingAdviserSignUp.new(phoneCallScheduledAt: date)
+          GetIntoTeachingApiClient::TeacherTrainingAdviserApi.new.sign_up_teacher_training_adviser_candidate(request)
+        end.to_not raise_error
+      end
+    end
+
+    context "when not UTC" do
+      it "formats with the correct offset" do
+        date = Time.new(2022, 1, 1, 10, 30, 59, "-10:00")
+
+        stub_request(:post, "https://#{host}/#{endpoint}/api/teacher_training_adviser/candidates")
+          .with(body: { phoneCallScheduledAt: "2022-01-01 10:30:59 -10:00" })
+          .to_return(status: 200)
+          
+        expect do 
+          request = GetIntoTeachingApiClient::TeacherTrainingAdviserSignUp.new(phoneCallScheduledAt: date)
+          GetIntoTeachingApiClient::TeacherTrainingAdviserApi.new.sign_up_teacher_training_adviser_candidate(request)
+        end.to_not raise_error
+      end
+    end
+  end
+
   it "performs a POST request successfully" do
     stub_request(:post, post_endpoint)
       .with(body: { email: "test@test.com" })
