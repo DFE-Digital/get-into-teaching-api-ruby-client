@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **start_at** | **DateTime** |  | [optional] 
 **end_at** | **DateTime** |  | [optional] 
 **building** | [**TeachingEventBuilding**](TeachingEventBuilding.md) |  | [optional] 
+**is_virtual** | **BOOLEAN** |  | [optional] 
 **id** | **String** |  | [optional] 
 
 

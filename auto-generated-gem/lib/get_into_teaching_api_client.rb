@@ -31,6 +31,7 @@ require 'get_into_teaching_api_client/models/teaching_event'
 require 'get_into_teaching_api_client/models/teaching_event_add_attendee'
 require 'get_into_teaching_api_client/models/teaching_event_building'
 require 'get_into_teaching_api_client/models/teaching_event_search_request'
+require 'get_into_teaching_api_client/models/teaching_events_by_type'
 
 # APIs
 require 'get_into_teaching_api_client/api/callback_booking_quotas_api'
