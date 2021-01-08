@@ -191,6 +191,74 @@ module GetIntoTeachingApiClient
     # @option opts [DateTime] :start_after 
     # @option opts [DateTime] :start_before 
     # @option opts [Integer] :quantity_per_type Quantity to return (per type). (default to 3)
+    # @return [Array<TeachingEventsByType>]
+    def search_teaching_events_grouped_by_type(opts = {})
+      data, _status_code, _headers = search_teaching_events_grouped_by_type_with_http_info(opts)
+      data
+    end
+
+    # Searches for teaching events, returning grouped by type.
+    # Searches for teaching events. Optionally limit the results by distance (in miles) from a postcode, event type and start date.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :postcode 
+    # @option opts [Integer] :radius 
+    # @option opts [Integer] :type_id 
+    # @option opts [DateTime] :start_after 
+    # @option opts [DateTime] :start_before 
+    # @option opts [Integer] :quantity_per_type Quantity to return (per type).
+    # @return [Array<(Array<TeachingEventsByType>, Fixnum, Hash)>] Array<TeachingEventsByType> data, response status code and response headers
+    def search_teaching_events_grouped_by_type_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeachingEventsApi.search_teaching_events_grouped_by_type ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'radius'].nil? && opts[:'radius'] <= 0
+        fail ArgumentError, 'invalid value for "opts[:"radius"]" when calling TeachingEventsApi.search_teaching_events_grouped_by_type, must be greater than 0.'
+      end
+
+      # resource path
+      local_var_path = '/api/teaching_events/search_grouped_by_type'
+
+      # query parameters
+      query_params = {}
+      query_params[:'Postcode'] = opts[:'postcode'] if !opts[:'postcode'].nil?
+      query_params[:'Radius'] = opts[:'radius'] if !opts[:'radius'].nil?
+      query_params[:'TypeId'] = opts[:'type_id'] if !opts[:'type_id'].nil?
+      query_params[:'StartAfter'] = opts[:'start_after'] if !opts[:'start_after'].nil?
+      query_params[:'StartBefore'] = opts[:'start_before'] if !opts[:'start_before'].nil?
+      query_params[:'quantityPerType'] = opts[:'quantity_per_type'] if !opts[:'quantity_per_type'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apiKey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<TeachingEventsByType>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeachingEventsApi#search_teaching_events_grouped_by_type\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Searches for teaching events, returning grouped by type.
+    # Searches for teaching events. Optionally limit the results by distance (in miles) from a postcode, event type and start date.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :postcode 
+    # @option opts [Integer] :radius 
+    # @option opts [Integer] :type_id 
+    # @option opts [DateTime] :start_after 
+    # @option opts [DateTime] :start_before 
+    # @option opts [Integer] :quantity_per_type Quantity to return (per type). (default to 3)
     # @return [Hash<String, Array<TeachingEvent>>]
     def search_teaching_events_indexed_by_type(opts = {})
       data, _status_code, _headers = search_teaching_events_indexed_by_type_with_http_info(opts)

@@ -13,72 +13,16 @@ Swagger Codegen version: 2.4.17
 require 'date'
 
 module GetIntoTeachingApiClient
-  class TeachingEvent
+  class TeachingEventsByType
     attr_accessor :type_id
 
-    attr_accessor :status_id
-
-    attr_accessor :readable_id
-
-    # If set, the API will accept new attendees for this event (an external sign up should be used if this value is nil).
-    attr_accessor :web_feed_id
-
-    attr_accessor :is_online
-
-    attr_accessor :name
-
-    attr_accessor :summary
-
-    # Used to push miscellaneous messages to users (if an event is close to being booked out, for example).
-    attr_accessor :message
-
-    attr_accessor :description
-
-    attr_accessor :video_url
-
-    attr_accessor :scribble_id
-
-    attr_accessor :provider_website_url
-
-    attr_accessor :provider_target_audience
-
-    attr_accessor :provider_organiser
-
-    attr_accessor :provider_contact_email
-
-    attr_accessor :start_at
-
-    attr_accessor :end_at
-
-    attr_accessor :building
-
-    attr_accessor :is_virtual
-
-    attr_accessor :id
+    attr_accessor :teaching_events
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'type_id' => :'typeId',
-        :'status_id' => :'statusId',
-        :'readable_id' => :'readableId',
-        :'web_feed_id' => :'webFeedId',
-        :'is_online' => :'isOnline',
-        :'name' => :'name',
-        :'summary' => :'summary',
-        :'message' => :'message',
-        :'description' => :'description',
-        :'video_url' => :'videoUrl',
-        :'scribble_id' => :'scribbleId',
-        :'provider_website_url' => :'providerWebsiteUrl',
-        :'provider_target_audience' => :'providerTargetAudience',
-        :'provider_organiser' => :'providerOrganiser',
-        :'provider_contact_email' => :'providerContactEmail',
-        :'start_at' => :'startAt',
-        :'end_at' => :'endAt',
-        :'building' => :'building',
-        :'is_virtual' => :'isVirtual',
-        :'id' => :'id'
+        :'teaching_events' => :'teachingEvents'
       }
     end
 
@@ -86,25 +30,7 @@ module GetIntoTeachingApiClient
     def self.swagger_types
       {
         :'type_id' => :'Integer',
-        :'status_id' => :'Integer',
-        :'readable_id' => :'String',
-        :'web_feed_id' => :'String',
-        :'is_online' => :'BOOLEAN',
-        :'name' => :'String',
-        :'summary' => :'String',
-        :'message' => :'String',
-        :'description' => :'String',
-        :'video_url' => :'String',
-        :'scribble_id' => :'String',
-        :'provider_website_url' => :'String',
-        :'provider_target_audience' => :'String',
-        :'provider_organiser' => :'String',
-        :'provider_contact_email' => :'String',
-        :'start_at' => :'DateTime',
-        :'end_at' => :'DateTime',
-        :'building' => :'TeachingEventBuilding',
-        :'is_virtual' => :'BOOLEAN',
-        :'id' => :'String'
+        :'teaching_events' => :'Array<TeachingEvent>'
       }
     end
 
@@ -120,80 +46,10 @@ module GetIntoTeachingApiClient
         self.type_id = attributes[:'typeId']
       end
 
-      if attributes.has_key?(:'statusId')
-        self.status_id = attributes[:'statusId']
-      end
-
-      if attributes.has_key?(:'readableId')
-        self.readable_id = attributes[:'readableId']
-      end
-
-      if attributes.has_key?(:'webFeedId')
-        self.web_feed_id = attributes[:'webFeedId']
-      end
-
-      if attributes.has_key?(:'isOnline')
-        self.is_online = attributes[:'isOnline']
-      end
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'summary')
-        self.summary = attributes[:'summary']
-      end
-
-      if attributes.has_key?(:'message')
-        self.message = attributes[:'message']
-      end
-
-      if attributes.has_key?(:'description')
-        self.description = attributes[:'description']
-      end
-
-      if attributes.has_key?(:'videoUrl')
-        self.video_url = attributes[:'videoUrl']
-      end
-
-      if attributes.has_key?(:'scribbleId')
-        self.scribble_id = attributes[:'scribbleId']
-      end
-
-      if attributes.has_key?(:'providerWebsiteUrl')
-        self.provider_website_url = attributes[:'providerWebsiteUrl']
-      end
-
-      if attributes.has_key?(:'providerTargetAudience')
-        self.provider_target_audience = attributes[:'providerTargetAudience']
-      end
-
-      if attributes.has_key?(:'providerOrganiser')
-        self.provider_organiser = attributes[:'providerOrganiser']
-      end
-
-      if attributes.has_key?(:'providerContactEmail')
-        self.provider_contact_email = attributes[:'providerContactEmail']
-      end
-
-      if attributes.has_key?(:'startAt')
-        self.start_at = attributes[:'startAt']
-      end
-
-      if attributes.has_key?(:'endAt')
-        self.end_at = attributes[:'endAt']
-      end
-
-      if attributes.has_key?(:'building')
-        self.building = attributes[:'building']
-      end
-
-      if attributes.has_key?(:'isVirtual')
-        self.is_virtual = attributes[:'isVirtual']
-      end
-
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.has_key?(:'teachingEvents')
+        if (value = attributes[:'teachingEvents']).is_a?(Array)
+          self.teaching_events = value
+        end
       end
     end
 
@@ -216,25 +72,7 @@ module GetIntoTeachingApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           type_id == o.type_id &&
-          status_id == o.status_id &&
-          readable_id == o.readable_id &&
-          web_feed_id == o.web_feed_id &&
-          is_online == o.is_online &&
-          name == o.name &&
-          summary == o.summary &&
-          message == o.message &&
-          description == o.description &&
-          video_url == o.video_url &&
-          scribble_id == o.scribble_id &&
-          provider_website_url == o.provider_website_url &&
-          provider_target_audience == o.provider_target_audience &&
-          provider_organiser == o.provider_organiser &&
-          provider_contact_email == o.provider_contact_email &&
-          start_at == o.start_at &&
-          end_at == o.end_at &&
-          building == o.building &&
-          is_virtual == o.is_virtual &&
-          id == o.id
+          teaching_events == o.teaching_events
     end
 
     # @see the `==` method
@@ -246,7 +84,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [type_id, status_id, readable_id, web_feed_id, is_online, name, summary, message, description, video_url, scribble_id, provider_website_url, provider_target_audience, provider_organiser, provider_contact_email, start_at, end_at, building, is_virtual, id].hash
+      [type_id, teaching_events].hash
     end
 
     # Builds the object from hash
