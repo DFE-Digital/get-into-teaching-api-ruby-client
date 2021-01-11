@@ -1,14 +1,14 @@
 PATH
   remote: ../auto-generated-gem
   specs:
-    get_into_teaching_api_client (1.1.7)
+    get_into_teaching_api_client (1.1.9)
       json (~> 2.1, >= 2.1.0)
       typhoeus (~> 1.0, >= 1.0.1)
 
 PATH
   remote: .
   specs:
-    get_into_teaching_api_client_faraday (0.1.9)
+    get_into_teaching_api_client_faraday (0.1.12)
       activesupport
       faraday
       faraday-encoding
@@ -43,7 +43,7 @@ GEM
       faraday (>= 0.8)
     faraday_middleware (1.0.0)
       faraday (~> 1.0)
-    ffi (1.13.1)
+    ffi (1.14.2)
     hashdiff (1.0.1)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
@@ -69,7 +69,7 @@ GEM
     safe_yaml (1.0.5)
     typhoeus (1.4.0)
       ethon (>= 0.9.0)
-    tzinfo (2.0.3)
+    tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     webmock (3.9.1)
       addressable (>= 2.3.6)
