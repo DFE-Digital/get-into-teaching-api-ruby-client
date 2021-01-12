@@ -8,8 +8,6 @@ Method | HTTP request | Description
 [**get_pre_filled_teaching_event_add_attendee**](TeachingEventsApi.md#get_pre_filled_teaching_event_add_attendee) | **POST** /api/teaching_events/attendees/{accessToken} | Retrieves a pre-populated TeachingEventAddAttendee for the candidate.
 [**get_teaching_event**](TeachingEventsApi.md#get_teaching_event) | **GET** /api/teaching_events/{readableId} | Retrieves an event.
 [**search_teaching_events_grouped_by_type**](TeachingEventsApi.md#search_teaching_events_grouped_by_type) | **GET** /api/teaching_events/search_grouped_by_type | Searches for teaching events, returning grouped by type.
-[**search_teaching_events_indexed_by_type**](TeachingEventsApi.md#search_teaching_events_indexed_by_type) | **GET** /api/teaching_events/search_indexed_by_type | Searches for teaching events, returning grouped by type.
-[**upcoming_teaching_events_indexed_by_type**](TeachingEventsApi.md#upcoming_teaching_events_indexed_by_type) | **GET** /api/teaching_events/upcoming_indexed_by_type | Retrieves upcoming teaching events grouped by type.
 
 
 # **add_teaching_event_attendee**
@@ -227,126 +225,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Array&lt;TeachingEventsByType&gt;**](TeachingEventsByType.md)
-
-### Authorization
-
-[apiKey](../README.md#apiKey)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
-
-
-
-# **search_teaching_events_indexed_by_type**
-> Hash&lt;String, Array&lt;TeachingEvent&gt;&gt; search_teaching_events_indexed_by_type(opts)
-
-Searches for teaching events, returning grouped by type.
-
-Searches for teaching events. Optionally limit the results by distance (in miles) from a postcode, event type and start date.
-
-### Example
-```ruby
-# load the gem
-require 'get_into_teaching_api_client'
-# setup authorization
-GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
-
-api_instance = GetIntoTeachingApiClient::TeachingEventsApi.new
-
-opts = { 
-  postcode: 'postcode_example', # String | 
-  radius: 56, # Integer | 
-  type_id: 56, # Integer | 
-  start_after: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | 
-  start_before: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | 
-  quantity_per_type: 3 # Integer | Quantity to return (per type).
-}
-
-begin
-  #Searches for teaching events, returning grouped by type.
-  result = api_instance.search_teaching_events_indexed_by_type(opts)
-  p result
-rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Exception when calling TeachingEventsApi->search_teaching_events_indexed_by_type: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **postcode** | **String**|  | [optional] 
- **radius** | **Integer**|  | [optional] 
- **type_id** | **Integer**|  | [optional] 
- **start_after** | **DateTime**|  | [optional] 
- **start_before** | **DateTime**|  | [optional] 
- **quantity_per_type** | **Integer**| Quantity to return (per type). | [optional] [default to 3]
-
-### Return type
-
-**Hash&lt;String, Array&lt;TeachingEvent&gt;&gt;**
-
-### Authorization
-
-[apiKey](../README.md#apiKey)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
-
-
-
-# **upcoming_teaching_events_indexed_by_type**
-> Hash&lt;String, Array&lt;TeachingEvent&gt;&gt; upcoming_teaching_events_indexed_by_type(opts)
-
-Retrieves upcoming teaching events grouped by type.
-
-Retrieves upcoming teaching events grouped by type and limited to a given quantity per type.
-
-### Example
-```ruby
-# load the gem
-require 'get_into_teaching_api_client'
-# setup authorization
-GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
-
-api_instance = GetIntoTeachingApiClient::TeachingEventsApi.new
-
-opts = { 
-  quantity_per_type: 3 # Integer | Quantity to return (per type).
-}
-
-begin
-  #Retrieves upcoming teaching events grouped by type.
-  result = api_instance.upcoming_teaching_events_indexed_by_type(opts)
-  p result
-rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Exception when calling TeachingEventsApi->upcoming_teaching_events_indexed_by_type: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **quantity_per_type** | **Integer**| Quantity to return (per type). | [optional] [default to 3]
-
-### Return type
-
-**Hash&lt;String, Array&lt;TeachingEvent&gt;&gt;**
 
 ### Authorization
 
