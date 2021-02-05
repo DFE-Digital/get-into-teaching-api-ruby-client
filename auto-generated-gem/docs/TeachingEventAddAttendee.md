@@ -15,7 +15,6 @@ Name | Type | Description | Notes
 **last_name** | **String** |  | 
 **address_postcode** | **String** |  | [optional] 
 **telephone** | **String** |  | [optional] 
-**subscribe_to_events** | **BOOLEAN** |  | [optional] 
 **subscribe_to_mailing_list** | **BOOLEAN** |  | [optional] 
 **already_subscribed_to_events** | **BOOLEAN** |  | [optional] 
 **already_subscribed_to_mailing_list** | **BOOLEAN** |  | [optional] 
