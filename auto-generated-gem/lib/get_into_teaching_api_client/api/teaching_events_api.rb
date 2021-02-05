@@ -73,6 +73,66 @@ module GetIntoTeachingApiClient
       return data, status_code, headers
     end
     # Retrieves a pre-populated TeachingEventAddAttendee for the candidate.
+    #                   Retrieves a pre-populated TeachingEventAddAttendee for the candidate. The `accessToken` is obtained from a                   `POST /candidates/access_tokens` request (you must also ensure the `ExistingCandidateRequest` payload you                   exchanged for your token matches the request payload here).
+    # @param access_token Access token (PIN code).
+    # @param body Candidate access token request (must match an existing candidate).
+    # @param [Hash] opts the optional parameters
+    # @return [TeachingEventAddAttendee]
+    def exchange_access_token_for_teaching_event_add_attendee(access_token, body, opts = {})
+      data, _status_code, _headers = exchange_access_token_for_teaching_event_add_attendee_with_http_info(access_token, body, opts)
+      data
+    end
+
+    # Retrieves a pre-populated TeachingEventAddAttendee for the candidate.
+    #                   Retrieves a pre-populated TeachingEventAddAttendee for the candidate. The &#x60;accessToken&#x60; is obtained from a                   &#x60;POST /candidates/access_tokens&#x60; request (you must also ensure the &#x60;ExistingCandidateRequest&#x60; payload you                   exchanged for your token matches the request payload here).
+    # @param access_token Access token (PIN code).
+    # @param body Candidate access token request (must match an existing candidate).
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TeachingEventAddAttendee, Fixnum, Hash)>] TeachingEventAddAttendee data, response status code and response headers
+    def exchange_access_token_for_teaching_event_add_attendee_with_http_info(access_token, body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeachingEventsApi.exchange_access_token_for_teaching_event_add_attendee ...'
+      end
+      # verify the required parameter 'access_token' is set
+      if @api_client.config.client_side_validation && access_token.nil?
+        fail ArgumentError, "Missing the required parameter 'access_token' when calling TeachingEventsApi.exchange_access_token_for_teaching_event_add_attendee"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling TeachingEventsApi.exchange_access_token_for_teaching_event_add_attendee"
+      end
+      # resource path
+      local_var_path = '/api/teaching_events/attendees/exchange_access_token/{accessToken}'.sub('{' + 'accessToken' + '}', access_token.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/*+json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(body)
+      auth_names = ['apiKey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'TeachingEventAddAttendee')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeachingEventsApi#exchange_access_token_for_teaching_event_add_attendee\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieves a pre-populated TeachingEventAddAttendee for the candidate.
     #   Retrieves a pre-populated TeachingEventAddAttendee for the candidate. The `accessToken` is obtained from a   `POST /candidates/access_tokens` request (you must also ensure the `ExistingCandidateRequest` payload you   exchanged for your token matches the request payload here).
     # @param access_token Access token (PIN code).
     # @param body Candidate access token request (must match an existing candidate).

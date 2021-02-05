@@ -44,6 +44,19 @@ describe 'MailingListApi' do
     end
   end
 
+  # unit tests for exchange_access_token_for_mailing_list_add_member
+  # Retrieves a pre-populated MailingListAddMember for the candidate.
+  #                   Retrieves a pre-populated MailingListAddMember for the candidate. The &#x60;accessToken&#x60; is obtained from a                   &#x60;POST /candidates/access_tokens&#x60; request (you must also ensure the &#x60;ExistingCandidateRequest&#x60; payload you                   exchanged for your token matches the request payload here).
+  # @param access_token Access token (PIN code).
+  # @param body Candidate access token request (must match an existing candidate).
+  # @param [Hash] opts the optional parameters
+  # @return [MailingListAddMember]
+  describe 'exchange_access_token_for_mailing_list_add_member test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_pre_filled_mailing_list_add_member
   # Retrieves a pre-populated MailingListAddMember for the candidate.
   #   Retrieves a pre-populated MailingListAddMember for the candidate. The &#x60;accessToken&#x60; is obtained from a   &#x60;POST /candidates/access_tokens&#x60; request (you must also ensure the &#x60;ExistingCandidateRequest&#x60; payload you   exchanged for your token matches the request payload here).
