@@ -32,7 +32,7 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
         date = DateTime.new(2022, 1, 1, 10, 30, 59).utc
 
         stub_request(:get, "https://#{host}/#{endpoint}/api/teaching_events/search_grouped_by_type")
-          .with(query: { StartAfter: "2022-01-01 10:30:59 +00:00" })
+          .with(query: { StartAfter: "2022-01-01T10:30:59+00:00" })
           .to_return(status: 200)
           
         expect do 
@@ -46,7 +46,7 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
         date = Time.new(2022, 1, 1, 10, 30, 59, "-10:00")
 
         stub_request(:get, "https://#{host}/#{endpoint}/api/teaching_events/search_grouped_by_type")
-          .with(query: { StartAfter: "2022-01-01 10:30:59 -10:00" })
+          .with(query: { StartAfter: "2022-01-01T10:30:59-10:00" })
           .to_return(status: 200)
           
         expect do 
@@ -76,7 +76,7 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
         date = DateTime.new(2022, 1, 1, 10, 30, 59).utc
 
         stub_request(:post, "https://#{host}/#{endpoint}/api/teacher_training_adviser/candidates")
-          .with(body: { phoneCallScheduledAt: "2022-01-01 10:30:59 +00:00" })
+          .with(body: { phoneCallScheduledAt: "2022-01-01T10:30:59+00:00" })
           .to_return(status: 200)
           
         expect do 
@@ -91,7 +91,7 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
         date = Time.new(2022, 1, 1, 10, 30, 59, "-10:00")
 
         stub_request(:post, "https://#{host}/#{endpoint}/api/teacher_training_adviser/candidates")
-          .with(body: { phoneCallScheduledAt: "2022-01-01 10:30:59 -10:00" })
+          .with(body: { phoneCallScheduledAt: "2022-01-01T10:30:59-10:00" })
           .to_return(status: 200)
           
         expect do 

@@ -2,7 +2,7 @@ module Extensions
   module GetIntoTeachingApiClient
     module ApiClient
       API_DATE_FORMAT = "%Y-%m-%d".freeze
-      API_DATE_TIME_FORMAT = "#{API_DATE_FORMAT} %H:%M:%S %:z".freeze
+      API_DATE_TIME_FORMAT = "#{API_DATE_FORMAT}T%H:%M:%S%:z".freeze
       MAX_AGE = 5 * 60 # 5 minutes
       MAX_RETRIES = 1
       RETRY_EXCEPTIONS = [::Faraday::ConnectionFailed].freeze
