@@ -1,14 +1,14 @@
 PATH
   remote: ../auto-generated-gem
   specs:
-    get_into_teaching_api_client (1.1.9)
+    get_into_teaching_api_client (1.1.10)
       json (~> 2.1, >= 2.1.0)
       typhoeus (~> 1.0, >= 1.0.1)
 
 PATH
   remote: .
   specs:
-    get_into_teaching_api_client_faraday (0.1.12)
+    get_into_teaching_api_client_faraday (0.1.13)
       activesupport
       faraday
       faraday-encoding

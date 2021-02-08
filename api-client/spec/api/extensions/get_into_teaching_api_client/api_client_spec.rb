@@ -26,7 +26,7 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
     cache_store&.clear
   end
 
-  describe "formatting DateTime/Time attributes in query string parameters" do
+  describe "formatting DateTime/Time/Date attributes in query string parameters" do
     context "when UTC" do
       it "formats with the offset +00:00" do
         date = DateTime.new(2022, 1, 1, 10, 30, 59).utc
@@ -54,9 +54,23 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
         end.to_not raise_error
       end
     end
+
+    context "when Date" do
+      it "formats correctly" do
+        date = Date.new(2022, 1, 1)
+
+        stub_request(:get, "https://#{host}/#{endpoint}/api/teaching_events/search_grouped_by_type")
+          .with(query: { StartAfter: "2022-01-01" })
+          .to_return(status: 200)
+          
+        expect do 
+          GetIntoTeachingApiClient::TeachingEventsApi.new.search_teaching_events_grouped_by_type(start_after: date)
+        end.to_not raise_error
+      end
+    end
   end
 
-  describe "formatting DateTime/Time attributes in request body" do
+  describe "formatting DateTime/Time/Date attributes in request body" do
     context "when UTC" do
       it "formats with the offset +00:00" do
         date = DateTime.new(2022, 1, 1, 10, 30, 59).utc
@@ -83,6 +97,21 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
         expect do 
           request = GetIntoTeachingApiClient::TeacherTrainingAdviserSignUp.new(phoneCallScheduledAt: date)
           GetIntoTeachingApiClient::TeacherTrainingAdviserApi.new.sign_up_teacher_training_adviser_candidate(request)
+        end.to_not raise_error
+      end
+    end
+
+    context "when Date" do
+      it "formats correctly" do
+        date = Date.new(2022, 1, 1)
+
+        stub_request(:post, "https://#{host}/#{endpoint}/api/candidates/access_tokens")
+          .with(body: { dateOfBirth: "2022-01-01" })
+          .to_return(status: 200)
+          
+        expect do 
+          request = GetIntoTeachingApiClient::ExistingCandidateRequest.new(dateOfBirth: date)
+          GetIntoTeachingApiClient::CandidatesApi.new.create_candidate_access_token(request)
         end.to_not raise_error
       end
     end
