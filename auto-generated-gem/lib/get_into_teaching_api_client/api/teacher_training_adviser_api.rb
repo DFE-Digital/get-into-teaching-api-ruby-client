@@ -79,66 +79,6 @@ module GetIntoTeachingApiClient
       end
       return data, status_code, headers
     end
-    # Retrieves a pre-populated TeacherTrainingAdviserSignUp for the candidate.
-    #   Retrieves a pre-populated TeacherTrainingAdviserSignUp for the candidate. The `accessToken` is obtained from a   `POST /candidates/access_tokens` request (you must also ensure the `ExistingCandidateRequest` payload you   exchanged for your token matches the request payload here).
-    # @param access_token Access token (PIN code).
-    # @param body Candidate access token request (must match an existing candidate).
-    # @param [Hash] opts the optional parameters
-    # @return [TeacherTrainingAdviserSignUp]
-    def get_pre_filled_teacher_training_adviser_sign_up(access_token, body, opts = {})
-      data, _status_code, _headers = get_pre_filled_teacher_training_adviser_sign_up_with_http_info(access_token, body, opts)
-      data
-    end
-
-    # Retrieves a pre-populated TeacherTrainingAdviserSignUp for the candidate.
-    #   Retrieves a pre-populated TeacherTrainingAdviserSignUp for the candidate. The &#x60;accessToken&#x60; is obtained from a   &#x60;POST /candidates/access_tokens&#x60; request (you must also ensure the &#x60;ExistingCandidateRequest&#x60; payload you   exchanged for your token matches the request payload here).
-    # @param access_token Access token (PIN code).
-    # @param body Candidate access token request (must match an existing candidate).
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(TeacherTrainingAdviserSignUp, Fixnum, Hash)>] TeacherTrainingAdviserSignUp data, response status code and response headers
-    def get_pre_filled_teacher_training_adviser_sign_up_with_http_info(access_token, body, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TeacherTrainingAdviserApi.get_pre_filled_teacher_training_adviser_sign_up ...'
-      end
-      # verify the required parameter 'access_token' is set
-      if @api_client.config.client_side_validation && access_token.nil?
-        fail ArgumentError, "Missing the required parameter 'access_token' when calling TeacherTrainingAdviserApi.get_pre_filled_teacher_training_adviser_sign_up"
-      end
-      # verify the required parameter 'body' is set
-      if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling TeacherTrainingAdviserApi.get_pre_filled_teacher_training_adviser_sign_up"
-      end
-      # resource path
-      local_var_path = '/api/teacher_training_adviser/candidates/{accessToken}'.sub('{' + 'accessToken' + '}', access_token.to_s)
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/*+json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = @api_client.object_to_http_body(body)
-      auth_names = ['apiKey']
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'TeacherTrainingAdviserSignUp')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TeacherTrainingAdviserApi#get_pre_filled_teacher_training_adviser_sign_up\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
     # Sign up a candidate for the Teacher Training Adviser service.
     # Validation errors may be present on the `TeacherTrainingAdviserSignUp` object as well as the hidden `Candidate` model that is mapped to; property names are consistent, so you should check for inclusion of the field in the key when linking an error message back to a property on the request model. For example, an error on `DegreeSubject` can return under the keys `Candidate.Qualifications[0].DegreeSubject` and `DegreeSubject`.
     # @param body Candidate to sign up for the Teacher Training Adviser service.

@@ -45,19 +45,6 @@ describe 'TeacherTrainingAdviserApi' do
     end
   end
 
-  # unit tests for get_pre_filled_teacher_training_adviser_sign_up
-  # Retrieves a pre-populated TeacherTrainingAdviserSignUp for the candidate.
-  #   Retrieves a pre-populated TeacherTrainingAdviserSignUp for the candidate. The &#x60;accessToken&#x60; is obtained from a   &#x60;POST /candidates/access_tokens&#x60; request (you must also ensure the &#x60;ExistingCandidateRequest&#x60; payload you   exchanged for your token matches the request payload here).
-  # @param access_token Access token (PIN code).
-  # @param body Candidate access token request (must match an existing candidate).
-  # @param [Hash] opts the optional parameters
-  # @return [TeacherTrainingAdviserSignUp]
-  describe 'get_pre_filled_teacher_training_adviser_sign_up test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   # unit tests for sign_up_teacher_training_adviser_candidate
   # Sign up a candidate for the Teacher Training Adviser service.
   # Validation errors may be present on the &#x60;TeacherTrainingAdviserSignUp&#x60; object as well as the hidden &#x60;Candidate&#x60; model that is mapped to; property names are consistent, so you should check for inclusion of the field in the key when linking an error message back to a property on the request model. For example, an error on &#x60;DegreeSubject&#x60; can return under the keys &#x60;Candidate.Qualifications[0].DegreeSubject&#x60; and &#x60;DegreeSubject&#x60;.
