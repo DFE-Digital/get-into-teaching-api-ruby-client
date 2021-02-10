@@ -18,6 +18,8 @@ require 'get_into_teaching_api_client/configuration'
 
 # Models
 require 'get_into_teaching_api_client/models/callback_booking_quota'
+require 'get_into_teaching_api_client/models/candidate_magic_link_exchange_result'
+require 'get_into_teaching_api_client/models/exchange_status'
 require 'get_into_teaching_api_client/models/existing_candidate_request'
 require 'get_into_teaching_api_client/models/health_check_response'
 require 'get_into_teaching_api_client/models/lookup_item'

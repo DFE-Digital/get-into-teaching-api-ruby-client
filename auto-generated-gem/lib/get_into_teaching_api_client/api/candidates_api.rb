@@ -20,7 +20,7 @@ module GetIntoTeachingApiClient
       @api_client = api_client
     end
     # Creates a candidate access token.
-    #   Finds a candidate matching at least 3 of the provided CandidateAccessTokenRequest attributes (including email).   If a candidate is found, an access token (PIN code) will be sent to the candidate email address   that can then be used for verification.
+    #                   Finds a candidate matching at least 3 of the provided CandidateAccessTokenRequest attributes (including email).                   If a candidate is found, an access token (PIN code) will be sent to the candidate email address                   that can then be used for verification.
     # @param body Candidate access token request (must match an existing candidate).
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -30,7 +30,7 @@ module GetIntoTeachingApiClient
     end
 
     # Creates a candidate access token.
-    #   Finds a candidate matching at least 3 of the provided CandidateAccessTokenRequest attributes (including email).   If a candidate is found, an access token (PIN code) will be sent to the candidate email address   that can then be used for verification.
+    #                   Finds a candidate matching at least 3 of the provided CandidateAccessTokenRequest attributes (including email).                   If a candidate is found, an access token (PIN code) will be sent to the candidate email address                   that can then be used for verification.
     # @param body Candidate access token request (must match an existing candidate).
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers

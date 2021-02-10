@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_mailing_list_member**](MailingListApi.md#add_mailing_list_member) | **POST** /api/mailing_list/members | Adds a new member to the mailing list.
 [**exchange_access_token_for_mailing_list_add_member**](MailingListApi.md#exchange_access_token_for_mailing_list_add_member) | **POST** /api/mailing_list/members/exchange_access_token/{accessToken} | Retrieves a pre-populated MailingListAddMember for the candidate.
-[**get_pre_filled_mailing_list_add_member**](MailingListApi.md#get_pre_filled_mailing_list_add_member) | **POST** /api/mailing_list/members/{accessToken} | Retrieves a pre-populated MailingListAddMember for the candidate.
+[**exchange_magic_link_token_for_mailing_list_add_member**](MailingListApi.md#exchange_magic_link_token_for_mailing_list_add_member) | **GET** /api/mailing_list/members/exchange_magic_link_token/{magicLinkToken} | Retrieves a pre-populated MailingListAddMember for the candidate.
 
 
 # **add_mailing_list_member**
@@ -119,38 +119,29 @@ Name | Type | Description  | Notes
 
 
 
-# **get_pre_filled_mailing_list_add_member**
-> MailingListAddMember get_pre_filled_mailing_list_add_member(access_token, body)
+# **exchange_magic_link_token_for_mailing_list_add_member**
+> MailingListAddMember exchange_magic_link_token_for_mailing_list_add_member(magic_link_token)
 
 Retrieves a pre-populated MailingListAddMember for the candidate.
 
-  Retrieves a pre-populated MailingListAddMember for the candidate. The `accessToken` is obtained from a   `POST /candidates/access_tokens` request (you must also ensure the `ExistingCandidateRequest` payload you   exchanged for your token matches the request payload here).
+                  Retrieves a pre-populated MailingListAddMember for the candidate. The `magicLinkToken` is obtained from a                   `POST /candidates/magic_link_tokens` request.
 
 ### Example
 ```ruby
 # load the gem
 require 'get_into_teaching_api_client'
-# setup authorization
-GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
 
 api_instance = GetIntoTeachingApiClient::MailingListApi.new
 
-access_token = 'access_token_example' # String | Access token (PIN code).
-
-body = GetIntoTeachingApiClient::ExistingCandidateRequest.new # ExistingCandidateRequest | Candidate access token request (must match an existing candidate).
+magic_link_token = 'magic_link_token_example' # String | Magic link token.
 
 
 begin
   #Retrieves a pre-populated MailingListAddMember for the candidate.
-  result = api_instance.get_pre_filled_mailing_list_add_member(access_token, body)
+  result = api_instance.exchange_magic_link_token_for_mailing_list_add_member(magic_link_token)
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Exception when calling MailingListApi->get_pre_filled_mailing_list_add_member: #{e}"
+  puts "Exception when calling MailingListApi->exchange_magic_link_token_for_mailing_list_add_member: #{e}"
 end
 ```
 
@@ -158,8 +149,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **access_token** | **String**| Access token (PIN code). | 
- **body** | [**ExistingCandidateRequest**](ExistingCandidateRequest.md)| Candidate access token request (must match an existing candidate). | 
+ **magic_link_token** | **String**| Magic link token. | 
 
 ### Return type
 
@@ -167,11 +157,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/*+json
+ - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
 

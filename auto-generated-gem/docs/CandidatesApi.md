@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 Creates a candidate access token.
 
-  Finds a candidate matching at least 3 of the provided CandidateAccessTokenRequest attributes (including email).   If a candidate is found, an access token (PIN code) will be sent to the candidate email address   that can then be used for verification.
+                  Finds a candidate matching at least 3 of the provided CandidateAccessTokenRequest attributes (including email).                   If a candidate is found, an access token (PIN code) will be sent to the candidate email address                   that can then be used for verification.
 
 ### Example
 ```ruby

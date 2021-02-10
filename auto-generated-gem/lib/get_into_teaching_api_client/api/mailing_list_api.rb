@@ -133,36 +133,30 @@ module GetIntoTeachingApiClient
       return data, status_code, headers
     end
     # Retrieves a pre-populated MailingListAddMember for the candidate.
-    #   Retrieves a pre-populated MailingListAddMember for the candidate. The `accessToken` is obtained from a   `POST /candidates/access_tokens` request (you must also ensure the `ExistingCandidateRequest` payload you   exchanged for your token matches the request payload here).
-    # @param access_token Access token (PIN code).
-    # @param body Candidate access token request (must match an existing candidate).
+    #                   Retrieves a pre-populated MailingListAddMember for the candidate. The `magicLinkToken` is obtained from a                   `POST /candidates/magic_link_tokens` request.
+    # @param magic_link_token Magic link token.
     # @param [Hash] opts the optional parameters
     # @return [MailingListAddMember]
-    def get_pre_filled_mailing_list_add_member(access_token, body, opts = {})
-      data, _status_code, _headers = get_pre_filled_mailing_list_add_member_with_http_info(access_token, body, opts)
+    def exchange_magic_link_token_for_mailing_list_add_member(magic_link_token, opts = {})
+      data, _status_code, _headers = exchange_magic_link_token_for_mailing_list_add_member_with_http_info(magic_link_token, opts)
       data
     end
 
     # Retrieves a pre-populated MailingListAddMember for the candidate.
-    #   Retrieves a pre-populated MailingListAddMember for the candidate. The &#x60;accessToken&#x60; is obtained from a   &#x60;POST /candidates/access_tokens&#x60; request (you must also ensure the &#x60;ExistingCandidateRequest&#x60; payload you   exchanged for your token matches the request payload here).
-    # @param access_token Access token (PIN code).
-    # @param body Candidate access token request (must match an existing candidate).
+    #                   Retrieves a pre-populated MailingListAddMember for the candidate. The &#x60;magicLinkToken&#x60; is obtained from a                   &#x60;POST /candidates/magic_link_tokens&#x60; request.
+    # @param magic_link_token Magic link token.
     # @param [Hash] opts the optional parameters
     # @return [Array<(MailingListAddMember, Fixnum, Hash)>] MailingListAddMember data, response status code and response headers
-    def get_pre_filled_mailing_list_add_member_with_http_info(access_token, body, opts = {})
+    def exchange_magic_link_token_for_mailing_list_add_member_with_http_info(magic_link_token, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MailingListApi.get_pre_filled_mailing_list_add_member ...'
+        @api_client.config.logger.debug 'Calling API: MailingListApi.exchange_magic_link_token_for_mailing_list_add_member ...'
       end
-      # verify the required parameter 'access_token' is set
-      if @api_client.config.client_side_validation && access_token.nil?
-        fail ArgumentError, "Missing the required parameter 'access_token' when calling MailingListApi.get_pre_filled_mailing_list_add_member"
-      end
-      # verify the required parameter 'body' is set
-      if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling MailingListApi.get_pre_filled_mailing_list_add_member"
+      # verify the required parameter 'magic_link_token' is set
+      if @api_client.config.client_side_validation && magic_link_token.nil?
+        fail ArgumentError, "Missing the required parameter 'magic_link_token' when calling MailingListApi.exchange_magic_link_token_for_mailing_list_add_member"
       end
       # resource path
-      local_var_path = '/api/mailing_list/members/{accessToken}'.sub('{' + 'accessToken' + '}', access_token.to_s)
+      local_var_path = '/api/mailing_list/members/exchange_magic_link_token/{magicLinkToken}'.sub('{' + 'magicLinkToken' + '}', magic_link_token.to_s)
 
       # query parameters
       query_params = {}
@@ -171,16 +165,14 @@ module GetIntoTeachingApiClient
       header_params = {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/*+json'])
 
       # form parameters
       form_params = {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(body)
-      auth_names = ['apiKey']
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+      post_body = nil
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -188,7 +180,7 @@ module GetIntoTeachingApiClient
         :auth_names => auth_names,
         :return_type => 'MailingListAddMember')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MailingListApi#get_pre_filled_mailing_list_add_member\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MailingListApi#exchange_magic_link_token_for_mailing_list_add_member\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
