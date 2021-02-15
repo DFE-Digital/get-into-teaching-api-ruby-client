@@ -271,42 +271,12 @@ module GetIntoTeachingApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @country_id.nil?
-        invalid_properties.push('invalid value for "country_id", country_id cannot be nil.')
-      end
-
-      if @accepted_policy_id.nil?
-        invalid_properties.push('invalid value for "accepted_policy_id", accepted_policy_id cannot be nil.')
-      end
-
-      if @email.nil?
-        invalid_properties.push('invalid value for "email", email cannot be nil.')
-      end
-
-      if @first_name.nil?
-        invalid_properties.push('invalid value for "first_name", first_name cannot be nil.')
-      end
-
-      if @last_name.nil?
-        invalid_properties.push('invalid value for "last_name", last_name cannot be nil.')
-      end
-
-      if @date_of_birth.nil?
-        invalid_properties.push('invalid value for "date_of_birth", date_of_birth cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @country_id.nil?
-      return false if @accepted_policy_id.nil?
-      return false if @email.nil?
-      return false if @first_name.nil?
-      return false if @last_name.nil?
-      return false if @date_of_birth.nil?
       true
     end
 

@@ -13,41 +13,28 @@ Swagger Codegen version: 2.4.17
 require 'date'
 
 module GetIntoTeachingApiClient
-  class TeachingEventSearchRequest
-    # Postcode to center search around.
-    attr_accessor :postcode
+  class Operation
+    attr_accessor :op
 
-    # Set to filter results to a radius (in miles) around the postcode.
-    attr_accessor :radius
+    attr_accessor :value
 
-    # Set to filter results to a type of teaching event. Must match an `typeId` of the `TeachingEvent` schema.
-    attr_accessor :type_id
-
-    # Set to filter results to those that start after a given date.
-    attr_accessor :start_after
-
-    # Set to filter results to those that start before a given date.
-    attr_accessor :start_before
+    attr_accessor :path
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'postcode' => :'postcode',
-        :'radius' => :'radius',
-        :'type_id' => :'typeId',
-        :'start_after' => :'startAfter',
-        :'start_before' => :'startBefore'
+        :'op' => :'op',
+        :'value' => :'value',
+        :'path' => :'path'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'postcode' => :'String',
-        :'radius' => :'Integer',
-        :'type_id' => :'Integer',
-        :'start_after' => :'DateTime',
-        :'start_before' => :'DateTime'
+        :'op' => :'String',
+        :'value' => :'String',
+        :'path' => :'String'
       }
     end
 
@@ -59,24 +46,16 @@ module GetIntoTeachingApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'postcode')
-        self.postcode = attributes[:'postcode']
+      if attributes.has_key?(:'op')
+        self.op = attributes[:'op']
       end
 
-      if attributes.has_key?(:'radius')
-        self.radius = attributes[:'radius']
+      if attributes.has_key?(:'value')
+        self.value = attributes[:'value']
       end
 
-      if attributes.has_key?(:'typeId')
-        self.type_id = attributes[:'typeId']
-      end
-
-      if attributes.has_key?(:'startAfter')
-        self.start_after = attributes[:'startAfter']
-      end
-
-      if attributes.has_key?(:'startBefore')
-        self.start_before = attributes[:'startBefore']
+      if attributes.has_key?(:'path')
+        self.path = attributes[:'path']
       end
     end
 
@@ -84,28 +63,13 @@ module GetIntoTeachingApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@radius.nil? && @radius <= 0
-        invalid_properties.push('invalid value for "radius", must be greater than 0.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if !@radius.nil? && @radius <= 0
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] radius Value to be assigned
-    def radius=(radius)
-      if !radius.nil? && radius <= 0
-        fail ArgumentError, 'invalid value for "radius", must be greater than 0.'
-      end
-
-      @radius = radius
     end
 
     # Checks equality by comparing each attribute.
@@ -113,11 +77,9 @@ module GetIntoTeachingApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          postcode == o.postcode &&
-          radius == o.radius &&
-          type_id == o.type_id &&
-          start_after == o.start_after &&
-          start_before == o.start_before
+          op == o.op &&
+          value == o.value &&
+          path == o.path
     end
 
     # @see the `==` method
@@ -129,7 +91,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [postcode, radius, type_id, start_after, start_before].hash
+      [op, value, path].hash
     end
 
     # Builds the object from hash

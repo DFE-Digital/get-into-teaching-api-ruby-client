@@ -109,6 +109,55 @@ module GetIntoTeachingApiClient
       end
       return data, status_code, headers
     end
+    # A test endpoint to see how patch requests get generated in the Ruby API client.
+    # @param body Member to add to the mailing list.
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def patch_test(body, opts = {})
+      patch_test_with_http_info(body, opts)
+      nil
+    end
+
+    # A test endpoint to see how patch requests get generated in the Ruby API client.
+    # @param body Member to add to the mailing list.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def patch_test_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OperationsApi.patch_test ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling OperationsApi.patch_test"
+      end
+      # resource path
+      local_var_path = '/api/operations/patch_test'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/*+json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(body)
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OperationsApi#patch_test\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Simulates a 500 error to test the Sentry integration.
     # @param [Hash] opts the optional parameters
     # @return [HealthCheckResponse]

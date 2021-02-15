@@ -211,10 +211,6 @@ module GetIntoTeachingApiClient
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeachingEventsApi.search_teaching_events_grouped_by_type ...'
       end
-      if @api_client.config.client_side_validation && !opts[:'radius'].nil? && opts[:'radius'] <= 0
-        fail ArgumentError, 'invalid value for "opts[:"radius"]" when calling TeachingEventsApi.search_teaching_events_grouped_by_type, must be greater than 0.'
-      end
-
       # resource path
       local_var_path = '/api/teaching_events/search_grouped_by_type'
 

@@ -13,76 +13,17 @@ Swagger Codegen version: 2.4.17
 require 'date'
 
 module GetIntoTeachingApiClient
-  class MailingListAddMember
-    attr_accessor :candidate_id
-
-    attr_accessor :qualification_id
-
-    attr_accessor :preferred_teaching_subject_id
-
-    attr_accessor :accepted_policy_id
-
-    attr_accessor :consideration_journey_stage_id
-
-    attr_accessor :degree_status_id
-
-    attr_accessor :channel_id
-
-    attr_accessor :email
-
-    attr_accessor :first_name
-
-    attr_accessor :last_name
-
-    attr_accessor :address_postcode
-
-    attr_accessor :telephone
-
-    attr_accessor :already_subscribed_to_events
-
-    attr_accessor :already_subscribed_to_mailing_list
-
-    attr_accessor :already_subscribed_to_teacher_training_adviser
-
+  # Array of operations to perform
+  class JsonPatchDocument
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'candidate_id' => :'candidateId',
-        :'qualification_id' => :'qualificationId',
-        :'preferred_teaching_subject_id' => :'preferredTeachingSubjectId',
-        :'accepted_policy_id' => :'acceptedPolicyId',
-        :'consideration_journey_stage_id' => :'considerationJourneyStageId',
-        :'degree_status_id' => :'degreeStatusId',
-        :'channel_id' => :'channelId',
-        :'email' => :'email',
-        :'first_name' => :'firstName',
-        :'last_name' => :'lastName',
-        :'address_postcode' => :'addressPostcode',
-        :'telephone' => :'telephone',
-        :'already_subscribed_to_events' => :'alreadySubscribedToEvents',
-        :'already_subscribed_to_mailing_list' => :'alreadySubscribedToMailingList',
-        :'already_subscribed_to_teacher_training_adviser' => :'alreadySubscribedToTeacherTrainingAdviser'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'candidate_id' => :'String',
-        :'qualification_id' => :'String',
-        :'preferred_teaching_subject_id' => :'String',
-        :'accepted_policy_id' => :'String',
-        :'consideration_journey_stage_id' => :'Integer',
-        :'degree_status_id' => :'Integer',
-        :'channel_id' => :'Integer',
-        :'email' => :'String',
-        :'first_name' => :'String',
-        :'last_name' => :'String',
-        :'address_postcode' => :'String',
-        :'telephone' => :'String',
-        :'already_subscribed_to_events' => :'BOOLEAN',
-        :'already_subscribed_to_mailing_list' => :'BOOLEAN',
-        :'already_subscribed_to_teacher_training_adviser' => :'BOOLEAN'
       }
     end
 
@@ -93,66 +34,6 @@ module GetIntoTeachingApiClient
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'candidateId')
-        self.candidate_id = attributes[:'candidateId']
-      end
-
-      if attributes.has_key?(:'qualificationId')
-        self.qualification_id = attributes[:'qualificationId']
-      end
-
-      if attributes.has_key?(:'preferredTeachingSubjectId')
-        self.preferred_teaching_subject_id = attributes[:'preferredTeachingSubjectId']
-      end
-
-      if attributes.has_key?(:'acceptedPolicyId')
-        self.accepted_policy_id = attributes[:'acceptedPolicyId']
-      end
-
-      if attributes.has_key?(:'considerationJourneyStageId')
-        self.consideration_journey_stage_id = attributes[:'considerationJourneyStageId']
-      end
-
-      if attributes.has_key?(:'degreeStatusId')
-        self.degree_status_id = attributes[:'degreeStatusId']
-      end
-
-      if attributes.has_key?(:'channelId')
-        self.channel_id = attributes[:'channelId']
-      end
-
-      if attributes.has_key?(:'email')
-        self.email = attributes[:'email']
-      end
-
-      if attributes.has_key?(:'firstName')
-        self.first_name = attributes[:'firstName']
-      end
-
-      if attributes.has_key?(:'lastName')
-        self.last_name = attributes[:'lastName']
-      end
-
-      if attributes.has_key?(:'addressPostcode')
-        self.address_postcode = attributes[:'addressPostcode']
-      end
-
-      if attributes.has_key?(:'telephone')
-        self.telephone = attributes[:'telephone']
-      end
-
-      if attributes.has_key?(:'alreadySubscribedToEvents')
-        self.already_subscribed_to_events = attributes[:'alreadySubscribedToEvents']
-      end
-
-      if attributes.has_key?(:'alreadySubscribedToMailingList')
-        self.already_subscribed_to_mailing_list = attributes[:'alreadySubscribedToMailingList']
-      end
-
-      if attributes.has_key?(:'alreadySubscribedToTeacherTrainingAdviser')
-        self.already_subscribed_to_teacher_training_adviser = attributes[:'alreadySubscribedToTeacherTrainingAdviser']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -172,22 +53,7 @@ module GetIntoTeachingApiClient
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
-      self.class == o.class &&
-          candidate_id == o.candidate_id &&
-          qualification_id == o.qualification_id &&
-          preferred_teaching_subject_id == o.preferred_teaching_subject_id &&
-          accepted_policy_id == o.accepted_policy_id &&
-          consideration_journey_stage_id == o.consideration_journey_stage_id &&
-          degree_status_id == o.degree_status_id &&
-          channel_id == o.channel_id &&
-          email == o.email &&
-          first_name == o.first_name &&
-          last_name == o.last_name &&
-          address_postcode == o.address_postcode &&
-          telephone == o.telephone &&
-          already_subscribed_to_events == o.already_subscribed_to_events &&
-          already_subscribed_to_mailing_list == o.already_subscribed_to_mailing_list &&
-          already_subscribed_to_teacher_training_adviser == o.already_subscribed_to_teacher_training_adviser
+      self.class == o.class
     end
 
     # @see the `==` method
@@ -199,7 +65,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [candidate_id, qualification_id, preferred_teaching_subject_id, accepted_policy_id, consideration_journey_stage_id, degree_status_id, channel_id, email, first_name, last_name, address_postcode, telephone, already_subscribed_to_events, already_subscribed_to_mailing_list, already_subscribed_to_teacher_training_adviser].hash
+      [].hash
     end
 
     # Builds the object from hash
