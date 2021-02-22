@@ -1,4 +1,5 @@
 RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
+
   let(:host) { "host.api" }
   let(:endpoint) { "endpoint" }
   let(:get_endpoint) { "https://#{host}/#{endpoint}/api/pick_list_items/candidate/channels" }
@@ -34,8 +35,8 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
         stub_request(:get, "https://#{host}/#{endpoint}/api/teaching_events/search_grouped_by_type")
           .with(query: { StartAfter: "2022-01-01T10:30:59+00:00" })
           .to_return(status: 200)
-          
-        expect do 
+
+        expect do
           GetIntoTeachingApiClient::TeachingEventsApi.new.search_teaching_events_grouped_by_type(start_after: date)
         end.to_not raise_error
       end
@@ -48,8 +49,8 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
         stub_request(:get, "https://#{host}/#{endpoint}/api/teaching_events/search_grouped_by_type")
           .with(query: { StartAfter: "2022-01-01T10:30:59-10:00" })
           .to_return(status: 200)
-          
-        expect do 
+
+        expect do
           GetIntoTeachingApiClient::TeachingEventsApi.new.search_teaching_events_grouped_by_type(start_after: date)
         end.to_not raise_error
       end
@@ -62,8 +63,8 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
         stub_request(:get, "https://#{host}/#{endpoint}/api/teaching_events/search_grouped_by_type")
           .with(query: { StartAfter: "2022-01-01" })
           .to_return(status: 200)
-          
-        expect do 
+
+        expect do
           GetIntoTeachingApiClient::TeachingEventsApi.new.search_teaching_events_grouped_by_type(start_after: date)
         end.to_not raise_error
       end
@@ -78,8 +79,8 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
         stub_request(:post, "https://#{host}/#{endpoint}/api/teacher_training_adviser/candidates")
           .with(body: { phoneCallScheduledAt: "2022-01-01T10:30:59+00:00" })
           .to_return(status: 200)
-          
-        expect do 
+
+        expect do
           request = GetIntoTeachingApiClient::TeacherTrainingAdviserSignUp.new(phoneCallScheduledAt: date)
           GetIntoTeachingApiClient::TeacherTrainingAdviserApi.new.sign_up_teacher_training_adviser_candidate(request)
         end.to_not raise_error
@@ -93,8 +94,8 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
         stub_request(:post, "https://#{host}/#{endpoint}/api/teacher_training_adviser/candidates")
           .with(body: { phoneCallScheduledAt: "2022-01-01T10:30:59-10:00" })
           .to_return(status: 200)
-          
-        expect do 
+
+        expect do
           request = GetIntoTeachingApiClient::TeacherTrainingAdviserSignUp.new(phoneCallScheduledAt: date)
           GetIntoTeachingApiClient::TeacherTrainingAdviserApi.new.sign_up_teacher_training_adviser_candidate(request)
         end.to_not raise_error
@@ -108,8 +109,8 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
         stub_request(:post, "https://#{host}/#{endpoint}/api/candidates/access_tokens")
           .with(body: { dateOfBirth: "2022-01-01" })
           .to_return(status: 200)
-          
-        expect do 
+
+        expect do
           request = GetIntoTeachingApiClient::ExistingCandidateRequest.new(dateOfBirth: date)
           GetIntoTeachingApiClient::CandidatesApi.new.create_candidate_access_token(request)
         end.to_not raise_error
@@ -170,5 +171,47 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
       .to_return(status: 200, body: data.to_json)
 
     expect { perform_get_request }.to raise_error(Faraday::ConnectionFailed)
+  end
+
+  describe "Circuit breaker" do
+    before do
+      Stoplight::Light.default_data_store = Stoplight::DataStore::Memory.new
+    end
+
+    context "when the API returns a single error that can cause a broken circuit" do
+      it "does not break the circuit" do
+        stub_request(:get, get_endpoint)
+          .to_return(status: 500)
+
+        expect { perform_get_request }.to raise_error(GetIntoTeachingApiClient::ApiError)
+      end
+    end
+
+    context "when the API returns a number of errors above the threshold that can cause a broken circuit" do
+      it "does not break the circuit" do
+        stub_request(:get, get_endpoint)
+          .to_raise(Faraday::ServerError)
+
+        3.times do
+          expect { get perform_get_request }.to raise_error { |error|
+            expect(error).not_to eq(Extensions::GetIntoTeachingApiClient::CircuitBrokenError)
+          }
+        end
+
+        expect { perform_get_request }.to raise_error(Extensions::GetIntoTeachingApiClient::CircuitBrokenError)
+      end
+
+      context "when the API returns a number of errors above the threshold that cannot cause a broken circuit" do
+        it "does not break the circuit" do
+          stub_request(:get, get_endpoint)
+            .to_raise(Faraday::ResourceNotFound)
+
+          4.times do
+            expect { get perform_get_request }.to raise_error { |error|
+              expect(error).not_to eq(Extensions::GetIntoTeachingApiClient::CircuitBrokenError) }
+          end
+        end
+      end
+    end
   end
 end
