@@ -21,13 +21,19 @@ module Extensions
 
         Faraday.new do |f|
           f.response :logger, logger
-          if config.circuit_breaker != nil && config.circuit_breaker[:enabled]
-            f.use :circuit_breaker,
-                  threshold: config.circuit_breaker[:threshold],
-                  timeout: config.circuit_breaker[:timeout],
-                  fallback: -> (_, exception) { raise_circuit_broken_error(_, exception) },
-                  error_handler: -> (exception, handler) { allow_error_types(exception, handler) }
-          end
+          f.use Circuitbox::FaradayMiddleware,
+                # default_value: lambda { |response, error| raise_circuit_broken_errors(response, error) },
+                # default_value: -> (a, b) do
+                #   raise_circuit_broken_errors
+                #   # raise ::GetIntoTeachingApiClient::ApiError.new(
+                #   #   code: a.status,
+                #   #   response_headers: a.headers,
+                #   #   response_body: a.body,
+                #   #   )
+                # end,
+                sleep_window:1.minute,
+                error_threshold: 2,
+            open_circuit: -> (response) { failure_responses(response) }
           f.use :http_cache, store: config.cache_store, shared_cache: false
           f.response :encoding
           f.adapter Faraday.default_adapter
@@ -36,22 +42,17 @@ module Extensions
         end
       end
 
-      def allow_error_types(exception, handler)
-        puts exception
-        allowed_exceptions = [Faraday::ResourceNotFound,
-                              Faraday::BadRequestError,
-                              Faraday::RetriableResponse,
-                              Faraday::UnprocessableEntityError,
-                              Faraday::ConnectionFailed]
 
-        raise exception if allowed_exceptions.include?(exception.class)
-
-        handler.call(exception)
+      def failure_responses(response)
+        puts response
+        response.status >= 500
+        # raise GetIntoTeachingApiClient::CircuitBrokenError
       end
 
-      def raise_circuit_broken_error(_, exception)
-        puts exception
-        raise GetIntoTeachingApiClient::CircuitBrokenError if exception == nil
+      def raise_circuit_broken_errors(response, error)
+        puts response
+        puts error
+        # raise GetIntoTeachingApiClient::CircuitBrokenError
       end
 
       def call_api(http_method, path, opts = {})
