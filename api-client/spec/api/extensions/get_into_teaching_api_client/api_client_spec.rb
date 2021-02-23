@@ -1,5 +1,4 @@
 RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
-
   let(:host) { "host.api" }
   let(:endpoint) { "endpoint" }
   let(:get_endpoint) { "https://#{host}/#{endpoint}/api/pick_list_items/candidate/channels" }
@@ -174,42 +173,67 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
   end
 
   describe "Circuit breaker" do
-    before do
+    let(:threshold) { 3 }
+    let(:timeout) { 5.minutes }
+
+    before(:each) do
       Stoplight::Light.default_data_store = Stoplight::DataStore::Memory.new
+
+      GetIntoTeachingApiClient.configure do |config|
+        config.circuit_breaker = { enabled: true, threshold: threshold, timeout: timeout }
+      end
     end
 
     context "when the API returns a single error that can cause a broken circuit" do
       it "does not break the circuit" do
         stub_request(:get, get_endpoint)
-          .to_return(status: 500)
+          .to_raise(Faraday::ServerError)
 
-        expect { perform_get_request }.to raise_error(GetIntoTeachingApiClient::ApiError)
+        expect { perform_get_request }.to raise_error(Faraday::ServerError)
       end
     end
 
     context "when the API returns a number of errors above the threshold that can cause a broken circuit" do
       it "does not break the circuit" do
-        stub_request(:get, get_endpoint)
-          .to_raise(Faraday::ServerError)
+        stub_request(:get, get_endpoint).
+          to_return(status: 500)
 
-        3.times do
-          expect { get perform_get_request }.to raise_error { |error|
-            expect(error).not_to eq(Extensions::GetIntoTeachingApiClient::CircuitBrokenError)
+        (threshold).times do
+          expect { perform_get_request }.to raise_error { |error|
+            expect(error.class).to eq(GetIntoTeachingApiClient::ApiError)
           }
         end
 
         expect { perform_get_request }.to raise_error(Extensions::GetIntoTeachingApiClient::CircuitBrokenError)
       end
+    end
 
-      context "when the API returns a number of errors above the threshold that cannot cause a broken circuit" do
-        it "does not break the circuit" do
-          stub_request(:get, get_endpoint)
-            .to_raise(Faraday::ResourceNotFound)
+    context "when the API returns a number of errors above the threshold that cannot cause a broken circuit" do
+      it "does not break the circuit" do
+        stub_request(:get, get_endpoint)
+          .to_raise(Faraday::ResourceNotFound)
 
-          4.times do
-            expect { get perform_get_request }.to raise_error { |error|
-              expect(error).not_to eq(Extensions::GetIntoTeachingApiClient::CircuitBrokenError) }
-          end
+        threshold + 1.times do
+          expect { get perform_get_request }.to raise_error { |error|
+            expect(error).not_to eq(Extensions::GetIntoTeachingApiClient::CircuitBrokenError) }
+        end
+      end
+    end
+
+    context "when the timeout period has passed with no more errors" do
+      it "does not break the circuit" do
+        stub_request(:get, get_endpoint)
+          .to_raise(Faraday::ServerError)
+
+        (threshold).times do
+          expect { get perform_get_request }.to raise_error { |error|
+            expect(error).not_to eq(Extensions::GetIntoTeachingApiClient::CircuitBrokenError) }
+        end
+
+        expect { perform_get_request }.to raise_error(Extensions::GetIntoTeachingApiClient::CircuitBrokenError)
+        travel_to((timeout + 1.minute).from_now) do
+          expect { get perform_get_request }.to raise_error { |error|
+            expect(error).to eq(Faraday::ServerError) }
         end
       end
     end

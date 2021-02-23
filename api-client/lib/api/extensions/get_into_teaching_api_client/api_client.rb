@@ -14,16 +14,20 @@ module Extensions
         exceptions:
           ::Faraday::Request::Retry::DEFAULT_EXCEPTIONS + RETRY_EXCEPTIONS,
       }.freeze
-      CIRCUIT_BREAKER_THRESHOLD = 3
-      CIRCUIT_BREAKER_TIMEOUT = 5.minutes
 
       def faraday
+        logger = Logger.new STDOUT
+        logger.level = Logger::DEBUG
+
         Faraday.new do |f|
-          f.use :circuit_breaker,
-                threshold: CIRCUIT_BREAKER_THRESHOLD,
-                timeout: CIRCUIT_BREAKER_TIMEOUT,
-                fallback: -> (env, exception) { raise_circuit_broken_error(env, exception) },
-                error_handler: -> (exception, handler) { allow_error_types(exception, handler) }
+          f.response :logger, logger
+          if config.circuit_breaker != nil && config.circuit_breaker[:enabled]
+            f.use :circuit_breaker,
+                  threshold: config.circuit_breaker[:threshold],
+                  timeout: config.circuit_breaker[:timeout],
+                  fallback: -> (_, exception) { raise_circuit_broken_error(_, exception) },
+                  error_handler: -> (exception, handler) { allow_error_types(exception, handler) }
+          end
           f.use :http_cache, store: config.cache_store, shared_cache: false
           f.response :encoding
           f.adapter Faraday.default_adapter
@@ -45,15 +49,10 @@ module Extensions
         handler.call(exception)
       end
 
-      def raise_circuit_broken_error(env, exception)
-        puts exception.to_s + "friejfirj"
-        raise GetIntoTeachingApiClient::CircuitBrokenError if Stoplight("https://host.api/").color == "red"
+      def raise_circuit_broken_error(_, exception)
+        puts exception
+        raise GetIntoTeachingApiClient::CircuitBrokenError if exception == nil
       end
-
-      #   puts error
-      #   Faraday::Response.new(status: error, response_headers: {})
-      #   # raise GetIntoTeachingApiClient::CircuitBrokenError if error.code == 500
-      # end
 
       def call_api(http_method, path, opts = {})
         original_request = build_request(http_method, path, opts)

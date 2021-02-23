@@ -2,6 +2,7 @@ require "bundler/setup"
 require "webmock/rspec"
 require "api/client"
 require "byebug"
+require 'active_support/testing/time_helpers'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -13,4 +14,6 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  config.include ActiveSupport::Testing::TimeHelpers
 end
