@@ -28,6 +28,8 @@ module GetIntoTeachingApiClient
 
     attr_accessor :accepted_policy_id
 
+    attr_accessor :type_id
+
     attr_accessor :uk_degree_grade_id
 
     attr_accessor :degree_status_id
@@ -82,6 +84,7 @@ module GetIntoTeachingApiClient
         :'preferred_teaching_subject_id' => :'preferredTeachingSubjectId',
         :'country_id' => :'countryId',
         :'accepted_policy_id' => :'acceptedPolicyId',
+        :'type_id' => :'typeId',
         :'uk_degree_grade_id' => :'ukDegreeGradeId',
         :'degree_status_id' => :'degreeStatusId',
         :'degree_type_id' => :'degreeTypeId',
@@ -117,6 +120,7 @@ module GetIntoTeachingApiClient
         :'preferred_teaching_subject_id' => :'String',
         :'country_id' => :'String',
         :'accepted_policy_id' => :'String',
+        :'type_id' => :'Integer',
         :'uk_degree_grade_id' => :'Integer',
         :'degree_status_id' => :'Integer',
         :'degree_type_id' => :'Integer',
@@ -176,6 +180,10 @@ module GetIntoTeachingApiClient
 
       if attributes.has_key?(:'acceptedPolicyId')
         self.accepted_policy_id = attributes[:'acceptedPolicyId']
+      end
+
+      if attributes.has_key?(:'typeId')
+        self.type_id = attributes[:'typeId']
       end
 
       if attributes.has_key?(:'ukDegreeGradeId')
@@ -322,6 +330,7 @@ module GetIntoTeachingApiClient
           preferred_teaching_subject_id == o.preferred_teaching_subject_id &&
           country_id == o.country_id &&
           accepted_policy_id == o.accepted_policy_id &&
+          type_id == o.type_id &&
           uk_degree_grade_id == o.uk_degree_grade_id &&
           degree_status_id == o.degree_status_id &&
           degree_type_id == o.degree_type_id &&
@@ -355,7 +364,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [candidate_id, qualification_id, subject_taught_id, past_teaching_position_id, preferred_teaching_subject_id, country_id, accepted_policy_id, uk_degree_grade_id, degree_status_id, degree_type_id, initial_teacher_training_year_id, preferred_education_phase_id, has_gcse_maths_and_english_id, has_gcse_science_id, planning_to_retake_gcse_maths_and_english_id, planning_to_retake_gcse_science_id, email, first_name, last_name, date_of_birth, teacher_id, degree_subject, telephone, address_line1, address_line2, address_city, address_postcode, phone_call_scheduled_at, already_subscribed_to_teacher_training_adviser].hash
+      [candidate_id, qualification_id, subject_taught_id, past_teaching_position_id, preferred_teaching_subject_id, country_id, accepted_policy_id, type_id, uk_degree_grade_id, degree_status_id, degree_type_id, initial_teacher_training_year_id, preferred_education_phase_id, has_gcse_maths_and_english_id, has_gcse_science_id, planning_to_retake_gcse_maths_and_english_id, planning_to_retake_gcse_science_id, email, first_name, last_name, date_of_birth, teacher_id, degree_subject, telephone, address_line1, address_line2, address_city, address_postcode, phone_call_scheduled_at, already_subscribed_to_teacher_training_adviser].hash
     end
 
     # Builds the object from hash

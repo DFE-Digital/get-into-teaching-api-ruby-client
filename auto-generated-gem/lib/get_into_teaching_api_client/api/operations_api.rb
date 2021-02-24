@@ -109,49 +109,5 @@ module GetIntoTeachingApiClient
       end
       return data, status_code, headers
     end
-    # Simulates a 500 error to test the Sentry integration.
-    # @param [Hash] opts the optional parameters
-    # @return [HealthCheckResponse]
-    def simulate_error(opts = {})
-      data, _status_code, _headers = simulate_error_with_http_info(opts)
-      data
-    end
-
-    # Simulates a 500 error to test the Sentry integration.
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(HealthCheckResponse, Fixnum, Hash)>] HealthCheckResponse data, response status code and response headers
-    def simulate_error_with_http_info(opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OperationsApi.simulate_error ...'
-      end
-      # resource path
-      local_var_path = '/api/operations/simulate_error'
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = nil
-      auth_names = []
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'HealthCheckResponse')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OperationsApi#simulate_error\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
   end
 end
