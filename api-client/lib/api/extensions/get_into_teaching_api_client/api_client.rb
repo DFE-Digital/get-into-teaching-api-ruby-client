@@ -15,11 +15,20 @@ module Extensions
 
       def faraday
         Faraday.new do |f|
+          if config.circuit_breaker != nil && config.circuit_breaker[:enabled]
+            f.use :circuit_breaker,
+                  threshold: config.circuit_breaker[:threshold],
+                  timeout: config.circuit_breaker[:timeout],
+                  fallback: -> (_, exception) { raise_circuit_broken_error(exception) },
+                  error_handler: -> (exception, handler) { error_breaks_circuit?(exception, handler) }
+          end
+          f.use Faraday::Response::RaiseError
           f.use :http_cache, store: config.cache_store, shared_cache: false
-          f.response :encoding
-          f.adapter Faraday.default_adapter
           f.request :oauth2, config.api_key["Authorization"], token_type: :bearer
           f.request :retry, RETRY_OPTIONS
+          f.response :encoding
+          f.adapter Faraday.default_adapter
+
         end
       end
 
@@ -33,27 +42,30 @@ module Extensions
           req.headers["Content-Type"] = "application/json"
         end
 
-        unless response.success?
-          raise ::GetIntoTeachingApiClient::ApiError.new(
-            code: response.status,
-            response_headers: response.headers,
-            response_body: response.body,
-          )
-        end
-
         if opts[:return_type]
           data = deserialize(response, opts[:return_type])
         end
 
         [data, response.status, response.headers]
+
+      rescue Faraday::Error => error
+        if error.response.present?
+          raise ::GetIntoTeachingApiClient::ApiError.new(
+            code: error.response_status,
+            response_headers: error.response_headers,
+            response_body: error.response_body,
+          )
+        else
+          raise error
+        end
       end
 
       def build_request(http_method, path, opts = {})
         opts[:query_params] = format_date_times(opts[:query_params])
-        
+
         super(http_method, path, opts)
       end
-  
+
       def object_to_hash(obj)
         if obj.respond_to?(:to_hash)
           format_date_times(obj.to_hash)
@@ -62,19 +74,34 @@ module Extensions
         end
       end
 
-    private
+      private
 
       def format_date_times(params = {})
         params.transform_values do |value|
           case value
-            when DateTime, Time
-              value.strftime(API_DATE_TIME_FORMAT) 
-            when Date
-              value.strftime(API_DATE_FORMAT)
-            else
-              value
+          when DateTime, Time
+            value.strftime(API_DATE_TIME_FORMAT)
+          when Date
+            value.strftime(API_DATE_FORMAT)
+          else
+            value
           end
         end
+      end
+
+      def error_breaks_circuit?(exception, handler)
+        exceptions = [Faraday::UnauthorizedError,
+                      Faraday::ForbiddenError,
+                      Faraday::ServerError]
+
+        raise exception unless exceptions.include?(exception.class)
+
+        handler.call(exception)
+      end
+
+      def raise_circuit_broken_error(exception)
+        raise exception if exception.present?
+        raise ::GetIntoTeachingApiClient::CircuitBrokenError
       end
     end
   end
