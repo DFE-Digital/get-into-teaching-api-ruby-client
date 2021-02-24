@@ -53,14 +53,4 @@ describe 'OperationsApi' do
     end
   end
 
-  # unit tests for simulate_error
-  # Simulates a 500 error to test the Sentry integration.
-  # @param [Hash] opts the optional parameters
-  # @return [HealthCheckResponse]
-  describe 'simulate_error test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
 end

@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**generate_mapping_info**](OperationsApi.md#generate_mapping_info) | **GET** /api/operations/generate_mapping_info | Generates the mapping information.
 [**health_check**](OperationsApi.md#health_check) | **GET** /api/operations/health_check | Performs a health check.
-[**simulate_error**](OperationsApi.md#simulate_error) | **GET** /api/operations/simulate_error | Simulates a 500 error to test the Sentry integration.
 
 
 # **generate_mapping_info**
@@ -68,45 +67,6 @@ begin
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling OperationsApi->health_check: #{e}"
-end
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**HealthCheckResponse**](HealthCheckResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
-
-
-
-# **simulate_error**
-> HealthCheckResponse simulate_error
-
-Simulates a 500 error to test the Sentry integration.
-
-### Example
-```ruby
-# load the gem
-require 'get_into_teaching_api_client'
-
-api_instance = GetIntoTeachingApiClient::OperationsApi.new
-
-begin
-  #Simulates a 500 error to test the Sentry integration.
-  result = api_instance.simulate_error
-  p result
-rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Exception when calling OperationsApi->simulate_error: #{e}"
 end
 ```
 

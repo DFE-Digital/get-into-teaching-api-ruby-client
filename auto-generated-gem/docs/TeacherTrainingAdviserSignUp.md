@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **preferred_teaching_subject_id** | **String** |  | [optional] 
 **country_id** | **String** |  | 
 **accepted_policy_id** | **String** |  | 
+**type_id** | **Integer** |  | [optional] 
 **uk_degree_grade_id** | **Integer** |  | [optional] 
 **degree_status_id** | **Integer** |  | [optional] 
 **degree_type_id** | **Integer** |  | [optional] 
