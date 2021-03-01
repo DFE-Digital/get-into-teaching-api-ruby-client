@@ -15,12 +15,12 @@ module Extensions
 
       def faraday
         Faraday.new do |f|
-          if config.circuit_breaker != nil && config.circuit_breaker[:enabled]
+          if config.circuit_breaker&.dig(:enabled)
             f.use :circuit_breaker,
                   threshold: config.circuit_breaker[:threshold],
                   timeout: config.circuit_breaker[:timeout],
                   fallback: -> (_, exception) { raise_circuit_broken_error(exception) },
-                  error_handler: -> (exception, handler) { error_breaks_circuit?(exception, handler) }
+                  error_handler: -> (exception, handler) { handle_error(exception, handler) }
           end
           f.use Faraday::Response::RaiseError
           f.use :http_cache, store: config.cache_store, shared_cache: false
@@ -89,7 +89,7 @@ module Extensions
         end
       end
 
-      def error_breaks_circuit?(exception, handler)
+      def handle_error(exception, handler)
         exceptions = [Faraday::UnauthorizedError,
                       Faraday::ForbiddenError,
                       Faraday::ServerError]
@@ -99,6 +99,9 @@ module Extensions
         handler.call(exception)
       end
 
+      # Stoplight will return nil when the circuit is open; in that scenario,
+      # we want to return a CircuitBrokenError. Otherwise, we want to behaviour
+      # to remain unchanged.
       def raise_circuit_broken_error(exception)
         raise exception if exception.present?
         raise ::GetIntoTeachingApiClient::CircuitBrokenError

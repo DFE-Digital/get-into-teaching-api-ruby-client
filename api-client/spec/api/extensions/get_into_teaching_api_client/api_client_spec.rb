@@ -173,6 +173,12 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
     expect { perform_get_request }.to raise_error(Faraday::ConnectionFailed)
   end
 
+  it "re-raises FaradayError when there is no response" do
+    stub_request(:get, get_endpoint).to_raise(Faraday::Error)
+
+    expect { perform_get_request }.to raise_error(Faraday::Error)
+  end
+
   describe "Circuit breaker" do
     let(:threshold) { 3 }
     let(:timeout) { 5.minutes }
@@ -187,10 +193,14 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
         end
       end
 
-      context "when the API returns a single error that can cause a broken circuit" do
+      context "when the API returns a number of errors below the threshold that can cause a broken circuit" do
         it "does not break the circuit" do
           stub_request(:get, get_endpoint)
             .to_return(status: 500)
+
+          (threshold - 1).times do
+            expect { perform_get_request }.to raise_error(GetIntoTeachingApiClient::ApiError)
+          end
 
           expect { perform_get_request }.to raise_error(GetIntoTeachingApiClient::ApiError)
         end
@@ -202,8 +212,7 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
             .to_return(status: 500)
 
           threshold.times do
-            expect { perform_get_request }.to raise_error { |error|
-              expect(error).to be_kind_of(GetIntoTeachingApiClient::ApiError) }
+            expect { perform_get_request }.to raise_error(GetIntoTeachingApiClient::ApiError)
           end
 
           expect { perform_get_request }.to raise_error(GetIntoTeachingApiClient::CircuitBrokenError)
@@ -216,8 +225,7 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
             .to_return(status: 404)
 
           (threshold + 1).times do
-            expect { perform_get_request }.to raise_error { |error|
-              expect(error).to be_kind_of(GetIntoTeachingApiClient::ApiError) }
+            expect { perform_get_request }.to raise_error(GetIntoTeachingApiClient::ApiError)
           end
         end
       end
@@ -228,8 +236,7 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
             .to_return(status: 500)
 
           threshold.times do
-            expect { perform_get_request }.to raise_error { |error|
-              expect(error).to be_kind_of(GetIntoTeachingApiClient::ApiError) }
+            expect { perform_get_request }.to raise_error(GetIntoTeachingApiClient::ApiError)
           end
 
           expect { perform_get_request }.to raise_error(GetIntoTeachingApiClient::CircuitBrokenError)
@@ -249,8 +256,7 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
             .to_return(status: status_code)
 
           threshold.times do
-            expect { perform_get_request }.to raise_error { |error|
-              expect(error).to be_kind_of(GetIntoTeachingApiClient::ApiError) }
+            expect { perform_get_request }.to raise_error(GetIntoTeachingApiClient::ApiError)
           end
 
           expect { perform_get_request }.to raise_error(GetIntoTeachingApiClient::CircuitBrokenError)

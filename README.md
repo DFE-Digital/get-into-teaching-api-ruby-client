@@ -37,3 +37,19 @@ cd auto-generated-gem; bundle && rspec
 ```
 
 Finally, bump the version of the `get_into_teaching_api_client_faraday` gem.
+
+## Circuit breaker
+
+Circuit breaker middleware is included to protect from API failures. After a threshold number of failed requests, the circuit breaker will trip. Any further calls will raise a `GetIntoTeachingApiClient::CircuitBrokenError` before another request can be made. The circuit breaker will attempt self-reset after a period of time.
+
+To configure the circuit breaker:
+
+```ruby
+GetIntoTeachingApiClient.configure do |config|
+  config.circuit_breaker = {
+    enabled: true, # Enables the circuit breaker middleware
+    threshold: 3, # Number of failures that will cause the circuit breaker to trip
+    timeout: 5.minutes # Amount of time until the circuit breaker will attempt to recover
+  }
+end
+```
