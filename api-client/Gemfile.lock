@@ -8,7 +8,7 @@ PATH
 PATH
   remote: .
   specs:
-    get_into_teaching_api_client_faraday (0.1.16)
+    get_into_teaching_api_client_faraday (0.1.17)
       activesupport
       faraday
       faraday-encoding
