@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **end_at** | **DateTime** |  | [optional] 
 **building** | [**TeachingEventBuilding**](TeachingEventBuilding.md) |  | [optional] 
 **is_virtual** | **BOOLEAN** |  | [optional] 
+**is_in_person** | **BOOLEAN** |  | [optional] 
 **id** | **String** |  | [optional] 
 
 

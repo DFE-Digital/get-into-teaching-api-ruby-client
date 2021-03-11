@@ -30,6 +30,12 @@ rm -rf ./auto-generated-gem
 swagger-codegen generate -i <swagger_docs_url> -l ruby -o ./auto-generated-gem -c config.json
 ```
 
+The generated specs fail due to `Addressable::URI.encode` raising an error when given an empty hostname (`URI.encode` did not complain, but since we updated its a problem). You currently need to manually fix the specs that reference a `GetIntoTeachingApiClient::Configuration` instance by setting a host:
+
+```
+let(:config) { GetIntoTeachingApiClient::Configuration.new { |c| c.host = "example.com" } }
+```
+
 You should then also run the test suite:
 
 ```

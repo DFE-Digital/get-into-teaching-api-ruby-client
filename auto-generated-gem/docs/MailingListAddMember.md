@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **first_name** | **String** |  | 
 **last_name** | **String** |  | 
 **address_postcode** | **String** |  | [optional] 
-**telephone** | **String** |  | [optional] 
 **already_subscribed_to_events** | **BOOLEAN** |  | [optional] 
 **already_subscribed_to_mailing_list** | **BOOLEAN** |  | [optional] 
 **already_subscribed_to_teacher_training_adviser** | **BOOLEAN** |  | [optional] 
