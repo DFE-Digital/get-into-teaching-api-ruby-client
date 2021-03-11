@@ -287,6 +287,10 @@ module GetIntoTeachingApiClient
         invalid_properties.push('invalid value for "accepted_policy_id", accepted_policy_id cannot be nil.')
       end
 
+      if @type_id.nil?
+        invalid_properties.push('invalid value for "type_id", type_id cannot be nil.')
+      end
+
       if @email.nil?
         invalid_properties.push('invalid value for "email", email cannot be nil.')
       end
@@ -311,6 +315,7 @@ module GetIntoTeachingApiClient
     def valid?
       return false if @country_id.nil?
       return false if @accepted_policy_id.nil?
+      return false if @type_id.nil?
       return false if @email.nil?
       return false if @first_name.nil?
       return false if @last_name.nil?

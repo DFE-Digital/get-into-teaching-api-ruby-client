@@ -36,8 +36,6 @@ module GetIntoTeachingApiClient
 
     attr_accessor :address_postcode
 
-    attr_accessor :telephone
-
     attr_accessor :already_subscribed_to_events
 
     attr_accessor :already_subscribed_to_mailing_list
@@ -58,7 +56,6 @@ module GetIntoTeachingApiClient
         :'first_name' => :'firstName',
         :'last_name' => :'lastName',
         :'address_postcode' => :'addressPostcode',
-        :'telephone' => :'telephone',
         :'already_subscribed_to_events' => :'alreadySubscribedToEvents',
         :'already_subscribed_to_mailing_list' => :'alreadySubscribedToMailingList',
         :'already_subscribed_to_teacher_training_adviser' => :'alreadySubscribedToTeacherTrainingAdviser'
@@ -79,7 +76,6 @@ module GetIntoTeachingApiClient
         :'first_name' => :'String',
         :'last_name' => :'String',
         :'address_postcode' => :'String',
-        :'telephone' => :'String',
         :'already_subscribed_to_events' => :'BOOLEAN',
         :'already_subscribed_to_mailing_list' => :'BOOLEAN',
         :'already_subscribed_to_teacher_training_adviser' => :'BOOLEAN'
@@ -136,10 +132,6 @@ module GetIntoTeachingApiClient
 
       if attributes.has_key?(:'addressPostcode')
         self.address_postcode = attributes[:'addressPostcode']
-      end
-
-      if attributes.has_key?(:'telephone')
-        self.telephone = attributes[:'telephone']
       end
 
       if attributes.has_key?(:'alreadySubscribedToEvents')
@@ -276,7 +268,6 @@ module GetIntoTeachingApiClient
           first_name == o.first_name &&
           last_name == o.last_name &&
           address_postcode == o.address_postcode &&
-          telephone == o.telephone &&
           already_subscribed_to_events == o.already_subscribed_to_events &&
           already_subscribed_to_mailing_list == o.already_subscribed_to_mailing_list &&
           already_subscribed_to_teacher_training_adviser == o.already_subscribed_to_teacher_training_adviser
@@ -291,7 +282,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [candidate_id, qualification_id, preferred_teaching_subject_id, accepted_policy_id, consideration_journey_stage_id, degree_status_id, channel_id, email, first_name, last_name, address_postcode, telephone, already_subscribed_to_events, already_subscribed_to_mailing_list, already_subscribed_to_teacher_training_adviser].hash
+      [candidate_id, qualification_id, preferred_teaching_subject_id, accepted_policy_id, consideration_journey_stage_id, degree_status_id, channel_id, email, first_name, last_name, address_postcode, already_subscribed_to_events, already_subscribed_to_mailing_list, already_subscribed_to_teacher_training_adviser].hash
     end
 
     # Builds the object from hash

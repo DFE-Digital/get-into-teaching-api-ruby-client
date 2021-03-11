@@ -54,6 +54,8 @@ module GetIntoTeachingApiClient
 
     attr_accessor :is_virtual
 
+    attr_accessor :is_in_person
+
     attr_accessor :id
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -78,6 +80,7 @@ module GetIntoTeachingApiClient
         :'end_at' => :'endAt',
         :'building' => :'building',
         :'is_virtual' => :'isVirtual',
+        :'is_in_person' => :'isInPerson',
         :'id' => :'id'
       }
     end
@@ -104,6 +107,7 @@ module GetIntoTeachingApiClient
         :'end_at' => :'DateTime',
         :'building' => :'TeachingEventBuilding',
         :'is_virtual' => :'BOOLEAN',
+        :'is_in_person' => :'BOOLEAN',
         :'id' => :'String'
       }
     end
@@ -192,6 +196,10 @@ module GetIntoTeachingApiClient
         self.is_virtual = attributes[:'isVirtual']
       end
 
+      if attributes.has_key?(:'isInPerson')
+        self.is_in_person = attributes[:'isInPerson']
+      end
+
       if attributes.has_key?(:'id')
         self.id = attributes[:'id']
       end
@@ -234,6 +242,7 @@ module GetIntoTeachingApiClient
           end_at == o.end_at &&
           building == o.building &&
           is_virtual == o.is_virtual &&
+          is_in_person == o.is_in_person &&
           id == o.id
     end
 
@@ -246,7 +255,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [type_id, status_id, readable_id, web_feed_id, is_online, name, summary, message, description, video_url, scribble_id, provider_website_url, provider_target_audience, provider_organiser, provider_contact_email, start_at, end_at, building, is_virtual, id].hash
+      [type_id, status_id, readable_id, web_feed_id, is_online, name, summary, message, description, video_url, scribble_id, provider_website_url, provider_target_audience, provider_organiser, provider_contact_email, start_at, end_at, building, is_virtual, is_in_person, id].hash
     end
 
     # Builds the object from hash

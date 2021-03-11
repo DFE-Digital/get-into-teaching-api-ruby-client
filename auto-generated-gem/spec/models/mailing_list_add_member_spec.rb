@@ -98,12 +98,6 @@ describe 'MailingListAddMember' do
     end
   end
 
-  describe 'test attribute "telephone"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   describe 'test attribute "already_subscribed_to_events"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
