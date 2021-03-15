@@ -23,12 +23,12 @@ module Extensions
                   error_handler: -> (exception, handler) { handle_error(exception, handler) }
           end
           f.use Faraday::Response::RaiseError
+          f.use RequestId
           f.use :http_cache, store: config.cache_store, shared_cache: false
           f.request :oauth2, config.api_key["Authorization"], token_type: :bearer
           f.request :retry, RETRY_OPTIONS
           f.response :encoding
           f.adapter Faraday.default_adapter
-
         end
       end
 
@@ -105,6 +105,21 @@ module Extensions
       def raise_circuit_broken_error(exception)
         raise exception if exception.present?
         raise ::GetIntoTeachingApiClient::CircuitBrokenError
+      end
+
+      class RequestId < Faraday::Middleware
+        def initialize(app)
+          super(app)
+        end
+  
+        def call(env)
+          request_id = ::GetIntoTeachingApiClient::Current.request_id
+          
+          env[:request_headers]["Request-Id"] = request_id if request_id
+          
+          @app.call(env)
+        end
+  
       end
     end
   end

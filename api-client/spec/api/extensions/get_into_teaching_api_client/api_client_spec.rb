@@ -27,6 +27,34 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
     cache_store&.clear
   end
 
+  describe "request ids" do
+    let(:request_id) { "1234" }
+
+    context "when Current.request_id exists" do
+      before { GetIntoTeachingApiClient::Current.request_id = request_id }
+
+      it "sets the Request-Id header" do
+        stub_request(:get, "https://#{host}/#{endpoint}/api/pick_list_items/candidate/channels")
+          .with(headers: { "Request-Id": request_id })
+          .to_return(status: 200)
+
+        perform_get_request
+      end
+    end
+
+    context "when Current.request_id does not exist" do
+      before { GetIntoTeachingApiClient::Current.request_id = nil }
+
+      it "does not set a Request-Id header" do
+        stub_request(:get, "https://#{host}/#{endpoint}/api/pick_list_items/candidate/channels")
+          .with { |request| request.headers["Request-Id"].nil? }
+          .to_return(status: 200)
+
+        perform_get_request
+      end
+    end
+  end
+
   describe "formatting DateTime/Time/Date attributes in query string parameters" do
     context "when UTC" do
       it "formats with the offset +00:00" do
@@ -184,7 +212,6 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
     let(:timeout) { 5.minutes }
 
     context "when enabled" do
-
       before(:each) do
         Stoplight::Light.default_data_store = Stoplight::DataStore::Memory.new
 
