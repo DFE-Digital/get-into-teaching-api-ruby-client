@@ -13,29 +13,29 @@ Swagger Codegen version: 2.4.19
 require 'uri'
 
 module GetIntoTeachingApiClient
-  class CallbackBookingQuotasApi
+  class TeachingEventBuildingsApi
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Retrieves all callback booking quotas.
+    # Retrieves all event buildings.
     # @param [Hash] opts the optional parameters
-    # @return [Array<CallbackBookingQuota>]
-    def get_callback_booking_quotas(opts = {})
-      data, _status_code, _headers = get_callback_booking_quotas_with_http_info(opts)
+    # @return [TeachingEventBuilding]
+    def get_teaching_event_buildings(opts = {})
+      data, _status_code, _headers = get_teaching_event_buildings_with_http_info(opts)
       data
     end
 
-    # Retrieves all callback booking quotas.
+    # Retrieves all event buildings.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<CallbackBookingQuota>, Fixnum, Hash)>] Array<CallbackBookingQuota> data, response status code and response headers
-    def get_callback_booking_quotas_with_http_info(opts = {})
+    # @return [Array<(TeachingEventBuilding, Fixnum, Hash)>] TeachingEventBuilding data, response status code and response headers
+    def get_teaching_event_buildings_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CallbackBookingQuotasApi.get_callback_booking_quotas ...'
+        @api_client.config.logger.debug 'Calling API: TeachingEventBuildingsApi.get_teaching_event_buildings ...'
       end
       # resource path
-      local_var_path = '/api/callback_booking_quotas'
+      local_var_path = '/api/teaching_event_buildings'
 
       # query parameters
       query_params = {}
@@ -57,9 +57,9 @@ module GetIntoTeachingApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<CallbackBookingQuota>')
+        :return_type => 'TeachingEventBuilding')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CallbackBookingQuotasApi#get_callback_booking_quotas\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: TeachingEventBuildingsApi#get_teaching_event_buildings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
