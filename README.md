@@ -4,11 +4,11 @@
 
 ## Usage
 
-```
-gem "get_into_teaching_api_client_faraday", "0.1.17", git: "git@github.com:DFE-Digital/get-into-teaching-api-ruby-client.git", require: "api/client"
+```ruby
+gem "get_into_teaching_api_client_faraday", "0.1.20", git: "git@github.com:DFE-Digital/get-into-teaching-api-ruby-client.git", require: "api/client"
 ```
 
-```
+```ruby
 GetIntoTeachingApiClient.configure do |config|
   config.host = host
   config.base_path = endpoint
@@ -32,7 +32,7 @@ swagger-codegen generate -i <swagger_docs_url> -l ruby -o ./auto-generated-gem -
 
 The generated specs fail due to `Addressable::URI.encode` raising an error when given an empty hostname (`URI.encode` did not complain, but since we updated its a problem). You currently need to manually fix the specs that reference a `GetIntoTeachingApiClient::Configuration` instance by setting a host:
 
-```
+```ruby
 let(:config) { GetIntoTeachingApiClient::Configuration.new { |c| c.host = "example.com" } }
 ```
 
