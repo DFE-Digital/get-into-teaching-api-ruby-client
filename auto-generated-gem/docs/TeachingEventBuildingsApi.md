@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **get_teaching_event_buildings**
-> TeachingEventBuilding get_teaching_event_buildings
+> Array&lt;TeachingEventBuilding&gt; get_teaching_event_buildings
 
 Retrieves all event buildings.
 
@@ -40,7 +40,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**TeachingEventBuilding**](TeachingEventBuilding.md)
+[**Array&lt;TeachingEventBuilding&gt;**](TeachingEventBuilding.md)
 
 ### Authorization
 

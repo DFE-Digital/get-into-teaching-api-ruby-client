@@ -13,7 +13,7 @@ Swagger Codegen version: 2.4.19
 require 'spec_helper'
 
 describe GetIntoTeachingApiClient::Configuration do
-  let(:config) { GetIntoTeachingApiClient::Configuration.new { |c| c.host = "example.com" } }
+  let(:config) { GetIntoTeachingApiClient::Configuration.default }
 
   before(:each) do
     # uncomment below to setup host and base_path

@@ -35,7 +35,7 @@ describe 'TeachingEventBuildingsApi' do
   # unit tests for get_teaching_event_buildings
   # Retrieves all event buildings.
   # @param [Hash] opts the optional parameters
-  # @return [TeachingEventBuilding]
+  # @return [Array<TeachingEventBuilding>]
   describe 'get_teaching_event_buildings test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
