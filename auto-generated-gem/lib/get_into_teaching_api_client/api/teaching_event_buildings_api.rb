@@ -21,7 +21,7 @@ module GetIntoTeachingApiClient
     end
     # Retrieves all event buildings.
     # @param [Hash] opts the optional parameters
-    # @return [TeachingEventBuilding]
+    # @return [Array<TeachingEventBuilding>]
     def get_teaching_event_buildings(opts = {})
       data, _status_code, _headers = get_teaching_event_buildings_with_http_info(opts)
       data
@@ -29,7 +29,7 @@ module GetIntoTeachingApiClient
 
     # Retrieves all event buildings.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(TeachingEventBuilding, Fixnum, Hash)>] TeachingEventBuilding data, response status code and response headers
+    # @return [Array<(Array<TeachingEventBuilding>, Fixnum, Hash)>] Array<TeachingEventBuilding> data, response status code and response headers
     def get_teaching_event_buildings_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeachingEventBuildingsApi.get_teaching_event_buildings ...'
@@ -57,7 +57,7 @@ module GetIntoTeachingApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'TeachingEventBuilding')
+        :return_type => 'Array<TeachingEventBuilding>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TeachingEventBuildingsApi#get_teaching_event_buildings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
