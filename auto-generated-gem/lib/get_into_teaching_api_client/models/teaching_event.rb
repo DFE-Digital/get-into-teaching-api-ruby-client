@@ -50,6 +50,8 @@ module GetIntoTeachingApiClient
 
     attr_accessor :end_at
 
+    attr_accessor :providers_list
+
     attr_accessor :building
 
     attr_accessor :is_virtual
@@ -78,6 +80,7 @@ module GetIntoTeachingApiClient
         :'provider_contact_email' => :'providerContactEmail',
         :'start_at' => :'startAt',
         :'end_at' => :'endAt',
+        :'providers_list' => :'providersList',
         :'building' => :'building',
         :'is_virtual' => :'isVirtual',
         :'is_in_person' => :'isInPerson',
@@ -105,6 +108,7 @@ module GetIntoTeachingApiClient
         :'provider_contact_email' => :'String',
         :'start_at' => :'DateTime',
         :'end_at' => :'DateTime',
+        :'providers_list' => :'String',
         :'building' => :'TeachingEventBuilding',
         :'is_virtual' => :'BOOLEAN',
         :'is_in_person' => :'BOOLEAN',
@@ -188,6 +192,10 @@ module GetIntoTeachingApiClient
         self.end_at = attributes[:'endAt']
       end
 
+      if attributes.has_key?(:'providersList')
+        self.providers_list = attributes[:'providersList']
+      end
+
       if attributes.has_key?(:'building')
         self.building = attributes[:'building']
       end
@@ -240,6 +248,7 @@ module GetIntoTeachingApiClient
           provider_contact_email == o.provider_contact_email &&
           start_at == o.start_at &&
           end_at == o.end_at &&
+          providers_list == o.providers_list &&
           building == o.building &&
           is_virtual == o.is_virtual &&
           is_in_person == o.is_in_person &&
@@ -255,7 +264,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [type_id, status_id, readable_id, web_feed_id, is_online, name, summary, message, description, video_url, scribble_id, provider_website_url, provider_target_audience, provider_organiser, provider_contact_email, start_at, end_at, building, is_virtual, is_in_person, id].hash
+      [type_id, status_id, readable_id, web_feed_id, is_online, name, summary, message, description, video_url, scribble_id, provider_website_url, provider_target_audience, provider_organiser, provider_contact_email, start_at, end_at, providers_list, building, is_virtual, is_in_person, id].hash
     end
 
     # Builds the object from hash

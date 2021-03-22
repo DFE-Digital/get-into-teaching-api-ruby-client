@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **provider_contact_email** | **String** |  | [optional] 
 **start_at** | **DateTime** |  | [optional] 
 **end_at** | **DateTime** |  | [optional] 
+**providers_list** | **String** |  | [optional] 
 **building** | [**TeachingEventBuilding**](TeachingEventBuilding.md) |  | [optional] 
 **is_virtual** | **BOOLEAN** |  | [optional] 
 **is_in_person** | **BOOLEAN** |  | [optional] 
