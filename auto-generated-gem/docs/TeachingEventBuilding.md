@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **address_line3** | **String** |  | [optional] 
 **address_city** | **String** |  | [optional] 
 **address_postcode** | **String** |  | [optional] 
+**image_url** | **String** |  | [optional] 
 **id** | **String** |  | [optional] 
 
 

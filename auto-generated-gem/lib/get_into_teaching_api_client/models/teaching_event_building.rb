@@ -26,6 +26,8 @@ module GetIntoTeachingApiClient
 
     attr_accessor :address_postcode
 
+    attr_accessor :image_url
+
     attr_accessor :id
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -37,6 +39,7 @@ module GetIntoTeachingApiClient
         :'address_line3' => :'addressLine3',
         :'address_city' => :'addressCity',
         :'address_postcode' => :'addressPostcode',
+        :'image_url' => :'imageUrl',
         :'id' => :'id'
       }
     end
@@ -50,6 +53,7 @@ module GetIntoTeachingApiClient
         :'address_line3' => :'String',
         :'address_city' => :'String',
         :'address_postcode' => :'String',
+        :'image_url' => :'String',
         :'id' => :'String'
       }
     end
@@ -86,6 +90,10 @@ module GetIntoTeachingApiClient
         self.address_postcode = attributes[:'addressPostcode']
       end
 
+      if attributes.has_key?(:'imageUrl')
+        self.image_url = attributes[:'imageUrl']
+      end
+
       if attributes.has_key?(:'id')
         self.id = attributes[:'id']
       end
@@ -115,6 +123,7 @@ module GetIntoTeachingApiClient
           address_line3 == o.address_line3 &&
           address_city == o.address_city &&
           address_postcode == o.address_postcode &&
+          image_url == o.image_url &&
           id == o.id
     end
 
@@ -127,7 +136,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [venue, address_line1, address_line2, address_line3, address_city, address_postcode, id].hash
+      [venue, address_line1, address_line2, address_line3, address_city, address_postcode, image_url, id].hash
     end
 
     # Builds the object from hash
