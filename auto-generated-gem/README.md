@@ -119,6 +119,7 @@ Class | Method | HTTP request | Description
 *GetIntoTeachingApiClient::TeachingEventsApi* | [**exchange_access_token_for_teaching_event_add_attendee**](docs/TeachingEventsApi.md#exchange_access_token_for_teaching_event_add_attendee) | **POST** /api/teaching_events/attendees/exchange_access_token/{accessToken} | Retrieves a pre-populated TeachingEventAddAttendee for the candidate.
 *GetIntoTeachingApiClient::TeachingEventsApi* | [**get_teaching_event**](docs/TeachingEventsApi.md#get_teaching_event) | **GET** /api/teaching_events/{readableId} | Retrieves an event.
 *GetIntoTeachingApiClient::TeachingEventsApi* | [**search_teaching_events_grouped_by_type**](docs/TeachingEventsApi.md#search_teaching_events_grouped_by_type) | **GET** /api/teaching_events/search_grouped_by_type | Searches for teaching events, returning grouped by type.
+*GetIntoTeachingApiClient::TeachingEventsApi* | [**upsert_teaching_event**](docs/TeachingEventsApi.md#upsert_teaching_event) | **POST** /api/teaching_events | Adds or updates a teaching event.
 
 
 ## Documentation for Models

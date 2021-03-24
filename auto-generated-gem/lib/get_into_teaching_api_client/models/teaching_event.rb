@@ -217,13 +217,133 @@ module GetIntoTeachingApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @readable_id.nil?
+        invalid_properties.push('invalid value for "readable_id", readable_id cannot be nil.')
+      end
+
+      if @readable_id.to_s.length < 1
+        invalid_properties.push('invalid value for "readable_id", the character length must be great than or equal to 1.')
+      end
+
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
+      if @name.to_s.length < 1
+        invalid_properties.push('invalid value for "name", the character length must be great than or equal to 1.')
+      end
+
+      if @summary.nil?
+        invalid_properties.push('invalid value for "summary", summary cannot be nil.')
+      end
+
+      if @summary.to_s.length < 1
+        invalid_properties.push('invalid value for "summary", the character length must be great than or equal to 1.')
+      end
+
+      if @description.nil?
+        invalid_properties.push('invalid value for "description", description cannot be nil.')
+      end
+
+      if @description.to_s.length < 1
+        invalid_properties.push('invalid value for "description", the character length must be great than or equal to 1.')
+      end
+
+      if !@provider_contact_email.nil? && @provider_contact_email.to_s.length > 100
+        invalid_properties.push('invalid value for "provider_contact_email", the character length must be smaller than or equal to 100.')
+      end
+
+      if !@provider_contact_email.nil? && @provider_contact_email.to_s.length < 0
+        invalid_properties.push('invalid value for "provider_contact_email", the character length must be great than or equal to 0.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @readable_id.nil?
+      return false if @readable_id.to_s.length < 1
+      return false if @name.nil?
+      return false if @name.to_s.length < 1
+      return false if @summary.nil?
+      return false if @summary.to_s.length < 1
+      return false if @description.nil?
+      return false if @description.to_s.length < 1
+      return false if !@provider_contact_email.nil? && @provider_contact_email.to_s.length > 100
+      return false if !@provider_contact_email.nil? && @provider_contact_email.to_s.length < 0
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] readable_id Value to be assigned
+    def readable_id=(readable_id)
+      if readable_id.nil?
+        fail ArgumentError, 'readable_id cannot be nil'
+      end
+
+      if readable_id.to_s.length < 1
+        fail ArgumentError, 'invalid value for "readable_id", the character length must be great than or equal to 1.'
+      end
+
+      @readable_id = readable_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] name Value to be assigned
+    def name=(name)
+      if name.nil?
+        fail ArgumentError, 'name cannot be nil'
+      end
+
+      if name.to_s.length < 1
+        fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
+      end
+
+      @name = name
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] summary Value to be assigned
+    def summary=(summary)
+      if summary.nil?
+        fail ArgumentError, 'summary cannot be nil'
+      end
+
+      if summary.to_s.length < 1
+        fail ArgumentError, 'invalid value for "summary", the character length must be great than or equal to 1.'
+      end
+
+      @summary = summary
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] description Value to be assigned
+    def description=(description)
+      if description.nil?
+        fail ArgumentError, 'description cannot be nil'
+      end
+
+      if description.to_s.length < 1
+        fail ArgumentError, 'invalid value for "description", the character length must be great than or equal to 1.'
+      end
+
+      @description = description
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] provider_contact_email Value to be assigned
+    def provider_contact_email=(provider_contact_email)
+      if !provider_contact_email.nil? && provider_contact_email.to_s.length > 100
+        fail ArgumentError, 'invalid value for "provider_contact_email", the character length must be smaller than or equal to 100.'
+      end
+
+      if !provider_contact_email.nil? && provider_contact_email.to_s.length < 0
+        fail ArgumentError, 'invalid value for "provider_contact_email", the character length must be great than or equal to 0.'
+      end
+
+      @provider_contact_email = provider_contact_email
     end
 
     # Checks equality by comparing each attribute.

@@ -85,4 +85,16 @@ describe 'TeachingEventsApi' do
     end
   end
 
+  # unit tests for upsert_teaching_event
+  # Adds or updates a teaching event.
+  # If the &#x60;id&#x60; is specified then the existing teaching event will be updated, otherwise a new teaching event will be created.
+  # @param [Hash] opts the optional parameters
+  # @option opts [TeachingEvent] :body 
+  # @return [TeachingEvent]
+  describe 'upsert_teaching_event test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
 end
