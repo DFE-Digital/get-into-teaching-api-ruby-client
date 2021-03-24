@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**exchange_access_token_for_teaching_event_add_attendee**](TeachingEventsApi.md#exchange_access_token_for_teaching_event_add_attendee) | **POST** /api/teaching_events/attendees/exchange_access_token/{accessToken} | Retrieves a pre-populated TeachingEventAddAttendee for the candidate.
 [**get_teaching_event**](TeachingEventsApi.md#get_teaching_event) | **GET** /api/teaching_events/{readableId} | Retrieves an event.
 [**search_teaching_events_grouped_by_type**](TeachingEventsApi.md#search_teaching_events_grouped_by_type) | **GET** /api/teaching_events/search_grouped_by_type | Searches for teaching events, returning grouped by type.
+[**upsert_teaching_event**](TeachingEventsApi.md#upsert_teaching_event) | **POST** /api/teaching_events | Adds or updates a teaching event.
 
 
 # **add_teaching_event_attendee**
@@ -233,6 +234,61 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+
+# **upsert_teaching_event**
+> TeachingEvent upsert_teaching_event(opts)
+
+Adds or updates a teaching event.
+
+If the `id` is specified then the existing teaching event will be updated, otherwise a new teaching event will be created.
+
+### Example
+```ruby
+# load the gem
+require 'get_into_teaching_api_client'
+# setup authorization
+GetIntoTeachingApiClient.configure do |config|
+  # Configure API key authorization: apiKey
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = GetIntoTeachingApiClient::TeachingEventsApi.new
+
+opts = { 
+  body: GetIntoTeachingApiClient::TeachingEvent.new # TeachingEvent | 
+}
+
+begin
+  #Adds or updates a teaching event.
+  result = api_instance.upsert_teaching_event(opts)
+  p result
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Exception when calling TeachingEventsApi->upsert_teaching_event: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**TeachingEvent**](TeachingEvent.md)|  | [optional] 
+
+### Return type
+
+[**TeachingEvent**](TeachingEvent.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 
