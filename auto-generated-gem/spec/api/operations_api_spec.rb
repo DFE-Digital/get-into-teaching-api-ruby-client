@@ -53,4 +53,25 @@ describe 'OperationsApi' do
     end
   end
 
+  # unit tests for pause_crm_integration
+  # Temporarily pauses the integration with the CRM.
+  # The CRM is taken offline for updates occasionally; this can result in errors when the API attempts to call out to the CRM. The CRM can call this endpoint to pause the API -&gt; CRM integration (if not manually resumed it will auto-resume in 6 hours).
+  # @param [Hash] opts the optional parameters
+  # @return [HealthCheckResponse]
+  describe 'pause_crm_integration test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for resume_crm_integration
+  # Resumes the integration with the CRM (after being paused).
+  # @param [Hash] opts the optional parameters
+  # @return [HealthCheckResponse]
+  describe 'resume_crm_integration test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
 end

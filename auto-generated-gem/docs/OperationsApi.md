@@ -6,6 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**generate_mapping_info**](OperationsApi.md#generate_mapping_info) | **GET** /api/operations/generate_mapping_info | Generates the mapping information.
 [**health_check**](OperationsApi.md#health_check) | **GET** /api/operations/health_check | Performs a health check.
+[**pause_crm_integration**](OperationsApi.md#pause_crm_integration) | **PUT** /api/operations/pause_crm_integration | Temporarily pauses the integration with the CRM.
+[**resume_crm_integration**](OperationsApi.md#resume_crm_integration) | **PUT** /api/operations/resume_crm_integration | Resumes the integration with the CRM (after being paused).
 
 
 # **generate_mapping_info**
@@ -80,6 +82,100 @@ This endpoint does not need any parameter.
 ### Authorization
 
 No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+
+# **pause_crm_integration**
+> HealthCheckResponse pause_crm_integration
+
+Temporarily pauses the integration with the CRM.
+
+The CRM is taken offline for updates occasionally; this can result in errors when the API attempts to call out to the CRM. The CRM can call this endpoint to pause the API -> CRM integration (if not manually resumed it will auto-resume in 6 hours).
+
+### Example
+```ruby
+# load the gem
+require 'get_into_teaching_api_client'
+# setup authorization
+GetIntoTeachingApiClient.configure do |config|
+  # Configure API key authorization: apiKey
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = GetIntoTeachingApiClient::OperationsApi.new
+
+begin
+  #Temporarily pauses the integration with the CRM.
+  result = api_instance.pause_crm_integration
+  p result
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Exception when calling OperationsApi->pause_crm_integration: #{e}"
+end
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**HealthCheckResponse**](HealthCheckResponse.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+
+# **resume_crm_integration**
+> HealthCheckResponse resume_crm_integration
+
+Resumes the integration with the CRM (after being paused).
+
+### Example
+```ruby
+# load the gem
+require 'get_into_teaching_api_client'
+# setup authorization
+GetIntoTeachingApiClient.configure do |config|
+  # Configure API key authorization: apiKey
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = GetIntoTeachingApiClient::OperationsApi.new
+
+begin
+  #Resumes the integration with the CRM (after being paused).
+  result = api_instance.resume_crm_integration
+  p result
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Exception when calling OperationsApi->resume_crm_integration: #{e}"
+end
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**HealthCheckResponse**](HealthCheckResponse.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
 
 ### HTTP request headers
 
