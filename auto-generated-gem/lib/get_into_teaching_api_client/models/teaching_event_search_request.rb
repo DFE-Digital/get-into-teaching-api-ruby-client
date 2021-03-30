@@ -29,6 +29,9 @@ module GetIntoTeachingApiClient
     # Set to filter results to those that start before a given date.
     attr_accessor :start_before
 
+    # Set to filter results by event status.
+    attr_accessor :status_ids
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -36,7 +39,8 @@ module GetIntoTeachingApiClient
         :'radius' => :'radius',
         :'type_id' => :'typeId',
         :'start_after' => :'startAfter',
-        :'start_before' => :'startBefore'
+        :'start_before' => :'startBefore',
+        :'status_ids' => :'statusIds'
       }
     end
 
@@ -47,7 +51,8 @@ module GetIntoTeachingApiClient
         :'radius' => :'Integer',
         :'type_id' => :'Integer',
         :'start_after' => :'DateTime',
-        :'start_before' => :'DateTime'
+        :'start_before' => :'DateTime',
+        :'status_ids' => :'Array<Integer>'
       }
     end
 
@@ -77,6 +82,12 @@ module GetIntoTeachingApiClient
 
       if attributes.has_key?(:'startBefore')
         self.start_before = attributes[:'startBefore']
+      end
+
+      if attributes.has_key?(:'statusIds')
+        if (value = attributes[:'statusIds']).is_a?(Array)
+          self.status_ids = value
+        end
       end
     end
 
@@ -117,7 +128,8 @@ module GetIntoTeachingApiClient
           radius == o.radius &&
           type_id == o.type_id &&
           start_after == o.start_after &&
-          start_before == o.start_before
+          start_before == o.start_before &&
+          status_ids == o.status_ids
     end
 
     # @see the `==` method
@@ -129,7 +141,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [postcode, radius, type_id, start_after, start_before].hash
+      [postcode, radius, type_id, start_after, start_before, status_ids].hash
     end
 
     # Builds the object from hash

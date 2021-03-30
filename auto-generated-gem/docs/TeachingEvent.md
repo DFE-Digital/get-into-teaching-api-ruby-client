@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type_id** | **Integer** |  | [optional] 
 **status_id** | **Integer** |  | [optional] 
-**readable_id** | **String** |  | 
+**readable_id** | **String** |  | [optional] 
 **web_feed_id** | **String** | If set, the API will accept new attendees for this event (an external sign up should be used if this value is nil). | [optional] 
 **is_online** | **BOOLEAN** |  | [optional] 
 **name** | **String** |  | 

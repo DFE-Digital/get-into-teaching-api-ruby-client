@@ -77,6 +77,7 @@ describe 'TeachingEventsApi' do
   # @option opts [Integer] :type_id 
   # @option opts [DateTime] :start_after 
   # @option opts [DateTime] :start_before 
+  # @option opts [Array<Integer>] :status_ids 
   # @option opts [Integer] :quantity_per_type Quantity to return (per type).
   # @return [Array<TeachingEventsByType>]
   describe 'search_teaching_events_grouped_by_type test' do

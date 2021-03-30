@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **type_id** | **Integer** | Set to filter results to a type of teaching event. Must match an &#x60;typeId&#x60; of the &#x60;TeachingEvent&#x60; schema. | [optional] 
 **start_after** | **DateTime** | Set to filter results to those that start after a given date. | [optional] 
 **start_before** | **DateTime** | Set to filter results to those that start before a given date. | [optional] 
+**status_ids** | **Array&lt;Integer&gt;** | Set to filter results by event status. | [optional] 
 
 

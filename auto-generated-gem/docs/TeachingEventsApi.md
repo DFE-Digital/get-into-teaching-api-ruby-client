@@ -200,6 +200,7 @@ opts = {
   type_id: 56, # Integer | 
   start_after: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | 
   start_before: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | 
+  status_ids: [56], # Array<Integer> | 
   quantity_per_type: 3 # Integer | Quantity to return (per type).
 }
 
@@ -221,6 +222,7 @@ Name | Type | Description  | Notes
  **type_id** | **Integer**|  | [optional] 
  **start_after** | **DateTime**|  | [optional] 
  **start_before** | **DateTime**|  | [optional] 
+ **status_ids** | [**Array&lt;Integer&gt;**](Integer.md)|  | [optional] 
  **quantity_per_type** | **Integer**| Quantity to return (per type). | [optional] [default to 3]
 
 ### Return type
