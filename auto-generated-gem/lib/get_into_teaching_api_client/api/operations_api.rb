@@ -109,5 +109,95 @@ module GetIntoTeachingApiClient
       end
       return data, status_code, headers
     end
+    # Temporarily pauses the integration with the CRM.
+    # The CRM is taken offline for updates occasionally; this can result in errors when the API attempts to call out to the CRM. The CRM can call this endpoint to pause the API -> CRM integration (if not manually resumed it will auto-resume in 6 hours).
+    # @param [Hash] opts the optional parameters
+    # @return [HealthCheckResponse]
+    def pause_crm_integration(opts = {})
+      data, _status_code, _headers = pause_crm_integration_with_http_info(opts)
+      data
+    end
+
+    # Temporarily pauses the integration with the CRM.
+    # The CRM is taken offline for updates occasionally; this can result in errors when the API attempts to call out to the CRM. The CRM can call this endpoint to pause the API -&gt; CRM integration (if not manually resumed it will auto-resume in 6 hours).
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(HealthCheckResponse, Fixnum, Hash)>] HealthCheckResponse data, response status code and response headers
+    def pause_crm_integration_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OperationsApi.pause_crm_integration ...'
+      end
+      # resource path
+      local_var_path = '/api/operations/pause_crm_integration'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apiKey']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'HealthCheckResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OperationsApi#pause_crm_integration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Resumes the integration with the CRM (after being paused).
+    # @param [Hash] opts the optional parameters
+    # @return [HealthCheckResponse]
+    def resume_crm_integration(opts = {})
+      data, _status_code, _headers = resume_crm_integration_with_http_info(opts)
+      data
+    end
+
+    # Resumes the integration with the CRM (after being paused).
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(HealthCheckResponse, Fixnum, Hash)>] HealthCheckResponse data, response status code and response headers
+    def resume_crm_integration_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OperationsApi.resume_crm_integration ...'
+      end
+      # resource path
+      local_var_path = '/api/operations/resume_crm_integration'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apiKey']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'HealthCheckResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OperationsApi#resume_crm_integration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
   end
 end
