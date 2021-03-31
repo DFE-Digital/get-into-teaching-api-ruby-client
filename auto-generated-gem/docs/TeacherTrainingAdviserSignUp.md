@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **subject_taught_id** | **String** |  | [optional] 
 **past_teaching_position_id** | **String** |  | [optional] 
 **preferred_teaching_subject_id** | **String** |  | [optional] 
-**country_id** | **String** |  | 
-**accepted_policy_id** | **String** |  | 
-**type_id** | **Integer** |  | 
+**country_id** | **String** |  | [optional] 
+**accepted_policy_id** | **String** |  | [optional] 
+**type_id** | **Integer** |  | [optional] 
 **uk_degree_grade_id** | **Integer** |  | [optional] 
 **degree_status_id** | **Integer** |  | [optional] 
 **degree_type_id** | **Integer** |  | [optional] 
@@ -20,10 +20,10 @@ Name | Type | Description | Notes
 **has_gcse_science_id** | **Integer** |  | [optional] 
 **planning_to_retake_gcse_maths_and_english_id** | **Integer** |  | [optional] 
 **planning_to_retake_gcse_science_id** | **Integer** |  | [optional] 
-**email** | **String** |  | 
-**first_name** | **String** |  | 
-**last_name** | **String** |  | 
-**date_of_birth** | **Date** |  | 
+**email** | **String** |  | [optional] 
+**first_name** | **String** |  | [optional] 
+**last_name** | **String** |  | [optional] 
+**date_of_birth** | **Date** |  | [optional] 
 **teacher_id** | **String** |  | [optional] 
 **degree_subject** | **String** |  | [optional] 
 **telephone** | **String** |  | [optional] 

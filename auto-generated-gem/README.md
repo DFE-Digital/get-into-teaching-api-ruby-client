@@ -141,7 +141,6 @@ Class | Method | HTTP request | Description
  - [GetIntoTeachingApiClient::TeachingEvent](docs/TeachingEvent.md)
  - [GetIntoTeachingApiClient::TeachingEventAddAttendee](docs/TeachingEventAddAttendee.md)
  - [GetIntoTeachingApiClient::TeachingEventBuilding](docs/TeachingEventBuilding.md)
- - [GetIntoTeachingApiClient::TeachingEventSearchRequest](docs/TeachingEventSearchRequest.md)
  - [GetIntoTeachingApiClient::TeachingEventsByType](docs/TeachingEventsByType.md)
 
 
