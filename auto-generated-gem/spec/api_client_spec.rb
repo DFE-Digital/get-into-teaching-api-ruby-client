@@ -52,7 +52,7 @@ describe GetIntoTeachingApiClient::ApiClient do
   end
 
   describe 'params_encoding in #build_request' do
-    let(:config) { GetIntoTeachingApiClient::Configuration.new }
+    let(:config) { GetIntoTeachingApiClient::Configuration.new { |c| c.host = "example.com" } }
     let(:api_client) { GetIntoTeachingApiClient::ApiClient.new(config) }
 
     it 'defaults to nil' do
@@ -71,7 +71,7 @@ describe GetIntoTeachingApiClient::ApiClient do
   end
 
   describe 'timeout in #build_request' do
-    let(:config) { GetIntoTeachingApiClient::Configuration.new }
+    let(:config) { GetIntoTeachingApiClient::Configuration.new { |c| c.host = "example.com" } }
     let(:api_client) { GetIntoTeachingApiClient::ApiClient.new(config) }
 
     it 'defaults to 0' do
@@ -90,7 +90,7 @@ describe GetIntoTeachingApiClient::ApiClient do
   end
 
   describe '#build_request' do
-    let(:config) { GetIntoTeachingApiClient::Configuration.new }
+    let(:config) { GetIntoTeachingApiClient::Configuration.new { |c| c.host = "example.com" } }
     let(:api_client) { GetIntoTeachingApiClient::ApiClient.new(config) }
 
     it 'does not send multipart to request' do
