@@ -1,0 +1,2238 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Get into Teaching API - V1",
+    "description": "\r\nProvides a RESTful API for integrating with the Get into Teaching CRM.\r\n\r\nThe Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events).\r\n\r\nThe GIT API aims to provide:\r\n\r\n* Simple, task-based RESTful APIs.\r\n* Message queueing (while the GIT CRM is offline for updates).\r\n* Validation to ensure consistency across services writing to the GIT CRM.\r\n                        ",
+    "license": {
+      "name": "MIT License",
+      "url": "https://opensource.org/licenses/MIT"
+    },
+    "version": "v1"
+  },
+  "paths": {
+    "/api/callback_booking_quotas": {
+      "get": {
+        "tags": [
+          "Callback Booking Quotas"
+        ],
+        "summary": "Retrieves all callback booking quotas.",
+        "operationId": "GetCallbackBookingQuotas",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CallbackBookingQuota"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/candidates/access_tokens": {
+      "post": {
+        "tags": [
+          "Candidates"
+        ],
+        "summary": "Creates a candidate access token.",
+        "description": "\r\n                Finds a candidate matching at least 3 of the provided CandidateAccessTokenRequest attributes (including email). \r\n                If a candidate is found, an access token (PIN code) will be sent to the candidate email address \r\n                that can then be used for verification.",
+        "operationId": "CreateCandidateAccessToken",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Candidate access token request (must match an existing candidate).",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExistingCandidateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/teacher_training_adviser/candidates": {
+      "post": {
+        "tags": [
+          "Teacher Training Adviser"
+        ],
+        "summary": "Sign up a candidate for the Teacher Training Adviser service.",
+        "description": "Validation errors may be present on the `TeacherTrainingAdviserSignUp` object as well as the hidden `Candidate` model that is mapped to; property names are consistent, so you should check for inclusion of the field in the key when linking an error message back to a property on the request model. For example, an error on `DegreeSubject` can return under the keys `Candidate.Qualifications[0].DegreeSubject` and `DegreeSubject`.",
+        "operationId": "SignUpTeacherTrainingAdviserCandidate",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Candidate to sign up for the Teacher Training Adviser service.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TeacherTrainingAdviserSignUp"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/teacher_training_adviser/candidates/exchange_access_token/{accessToken}": {
+      "post": {
+        "tags": [
+          "Teacher Training Adviser"
+        ],
+        "summary": "Retrieves a pre-populated TeacherTrainingAdviserSignUp for the candidate.",
+        "description": "\r\n                Retrieves a pre-populated TeacherTrainingAdviserSignUp for the candidate. The `accessToken` is obtained from a \r\n                `POST /candidates/access_tokens` request (you must also ensure the `ExistingCandidateRequest` payload you \r\n                exchanged for your token matches the request payload here).",
+        "operationId": "ExchangeAccessTokenForTeacherTrainingAdviserSignUp",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accessToken",
+            "description": "Access token (PIN code).",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Candidate access token request (must match an existing candidate).",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExistingCandidateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TeacherTrainingAdviserSignUp"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/lookup_items/countries": {
+      "get": {
+        "tags": [
+          "Lookup Items"
+        ],
+        "summary": "Retrieves the list of countries.",
+        "operationId": "GetCountries",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/LookupItem"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/lookup_items/teaching_subjects": {
+      "get": {
+        "tags": [
+          "Lookup Items"
+        ],
+        "summary": "Retrieves the list of teaching subjects.",
+        "operationId": "GetTeachingSubjects",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/LookupItem"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/mailing_list/members": {
+      "post": {
+        "tags": [
+          "Mailing List"
+        ],
+        "summary": "Adds a new member to the mailing list.",
+        "description": "If the `CandidateId` is specified then the existing candidate will be added to the mailing list, otherwise a new candidate will be created.\n\nValidation errors may be present on the `MailingListAddMember` object as well as the hidden `Candidate` model that is mapped to; property names are consistent, so you should check for inclusion of the field in the key when linking an error message back to a property on the request model. For example, an error on `UkDegreeGradeId` can return under the keys `Candidate.Qualifications[0].UkDegreeGradeId` and `UkDegreeGradeId`.",
+        "operationId": "AddMailingListMember",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Member to add to the mailing list.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MailingListAddMember"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/mailing_list/members/exchange_access_token/{accessToken}": {
+      "post": {
+        "tags": [
+          "Mailing List"
+        ],
+        "summary": "Retrieves a pre-populated MailingListAddMember for the candidate.",
+        "description": "\r\n                Retrieves a pre-populated MailingListAddMember for the candidate. The `accessToken` is obtained from a \r\n                `POST /candidates/access_tokens` request (you must also ensure the `ExistingCandidateRequest` payload you \r\n                exchanged for your token matches the request payload here).",
+        "operationId": "ExchangeAccessTokenForMailingListAddMember",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accessToken",
+            "description": "Access token (PIN code).",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Candidate access token request (must match an existing candidate).",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExistingCandidateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/MailingListAddMember"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/mailing_list/members/exchange_magic_link_token/{magicLinkToken}": {
+      "get": {
+        "tags": [
+          "Mailing List"
+        ],
+        "summary": "Retrieves a pre-populated MailingListAddMember for the candidate.",
+        "description": "\r\n                Retrieves a pre-populated MailingListAddMember for the candidate. The `magicLinkToken` is obtained from a \r\n                `POST /candidates/magic_link_tokens` request.",
+        "operationId": "ExchangeMagicLinkTokenForMailingListAddMember",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "magicLinkToken",
+            "description": "Magic link token.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/MailingListAddMember"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/CandidateMagicLinkExchangeResult"
+            }
+          }
+        }
+      }
+    },
+    "/api/operations/generate_mapping_info": {
+      "get": {
+        "tags": [
+          "Operations"
+        ],
+        "summary": "Generates the mapping information.",
+        "description": "Generates the mapping information describing how the models in the API map to the corresponding entities in Dynamics 365.",
+        "operationId": "GenerateMappingInfo",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MappingInfo"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/operations/health_check": {
+      "get": {
+        "tags": [
+          "Operations"
+        ],
+        "summary": "Performs a health check.",
+        "operationId": "HealthCheck",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/HealthCheckResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api/operations/pause_crm_integration": {
+      "put": {
+        "tags": [
+          "Operations"
+        ],
+        "summary": "Temporarily pauses the integration with the CRM.",
+        "description": "The CRM is taken offline for updates occasionally; this can result in errors when the API attempts to call out to the CRM. The CRM can call this endpoint to pause the API -> CRM integration (if not manually resumed it will auto-resume in 6 hours).",
+        "operationId": "PauseCrmIntegration",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "204": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/HealthCheckResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/operations/resume_crm_integration": {
+      "put": {
+        "tags": [
+          "Operations"
+        ],
+        "summary": "Resumes the integration with the CRM (after being paused).",
+        "operationId": "ResumeCrmIntegration",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "204": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/HealthCheckResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/pick_list_items/candidate/initial_teacher_training_years": {
+      "get": {
+        "tags": [
+          "Pick List Items"
+        ],
+        "summary": "Retrieves the list of candidate initial teacher training years.",
+        "operationId": "GetCandidateInitialTeacherTrainingYears",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PickListItem"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/pick_list_items/candidate/preferred_education_phases": {
+      "get": {
+        "tags": [
+          "Pick List Items"
+        ],
+        "summary": "Retrieves the list of candidate preferred education phases.",
+        "operationId": "GetCandidatePreferredEducationPhases",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PickListItem"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/pick_list_items/candidate/channels": {
+      "get": {
+        "tags": [
+          "Pick List Items"
+        ],
+        "summary": "Retrieves the list of candidate channels.",
+        "operationId": "GetCandidateChannels",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PickListItem"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/pick_list_items/candidate/mailing_list_subscription_channels": {
+      "get": {
+        "tags": [
+          "Pick List Items"
+        ],
+        "summary": "Retrieves the list of candidate mailing list subscription channels.",
+        "operationId": "GetCandidateMailingListSubscriptionChannels",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PickListItem"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/pick_list_items/candidate/event_subscription_channels": {
+      "get": {
+        "tags": [
+          "Pick List Items"
+        ],
+        "summary": "Retrieves the list of candidate event subscription channels.",
+        "operationId": "GetCandidateEventSubscriptionChannels",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PickListItem"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/pick_list_items/candidate/gcse_status": {
+      "get": {
+        "tags": [
+          "Pick List Items"
+        ],
+        "summary": "Retrieves the list of candidate GCSE status.",
+        "operationId": "GetCandidateGcseStatus",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PickListItem"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/pick_list_items/candidate/retake_gcse_status": {
+      "get": {
+        "tags": [
+          "Pick List Items"
+        ],
+        "summary": "Retrieves the list of candidate retake GCSE status.",
+        "operationId": "GetCandidateRetakeGcseStatus",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PickListItem"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/pick_list_items/candidate/consideration_journey_stages": {
+      "get": {
+        "tags": [
+          "Pick List Items"
+        ],
+        "summary": "Retrieves the list of candidate consideration journey stages.",
+        "operationId": "GetCandidateJourneyStages",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PickListItem"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/pick_list_items/candidate/adviser_eligibilities": {
+      "get": {
+        "tags": [
+          "Pick List Items"
+        ],
+        "summary": "Retrieves the list of candidate adviser eligibilities.",
+        "operationId": "GetCandidateAdviserEligibilities",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PickListItem"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/pick_list_items/candidate/adviser_requirements": {
+      "get": {
+        "tags": [
+          "Pick List Items"
+        ],
+        "summary": "Retrieves the list of candidate adviser requirements.",
+        "operationId": "GetCandidateAdviserRequirements",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PickListItem"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/pick_list_items/candidate/types": {
+      "get": {
+        "tags": [
+          "Pick List Items"
+        ],
+        "summary": "Retrieves the list of candidate types.",
+        "operationId": "GetCandidateTypes",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PickListItem"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/pick_list_items/candidate/assignment_status": {
+      "get": {
+        "tags": [
+          "Pick List Items"
+        ],
+        "summary": "Retrieves the list of candidate assignment status.",
+        "operationId": "GetCandidateAssignmentStatus",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PickListItem"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/pick_list_items/qualification/degree_status": {
+      "get": {
+        "tags": [
+          "Pick List Items"
+        ],
+        "summary": "Retrieves the list of qualification degree status.",
+        "operationId": "GetQualificationDegreeStatus",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PickListItem"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/pick_list_items/qualification/types": {
+      "get": {
+        "tags": [
+          "Pick List Items"
+        ],
+        "summary": "Retrieves the list of qualification types.",
+        "operationId": "GetQualificationTypes",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PickListItem"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/pick_list_items/qualification/uk_degree_grades": {
+      "get": {
+        "tags": [
+          "Pick List Items"
+        ],
+        "summary": "Retrieves the list of qualification UK degree grades.",
+        "operationId": "GetQualificationUkDegreeGrades",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PickListItem"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/pick_list_items/past_teaching_position/education_phases": {
+      "get": {
+        "tags": [
+          "Pick List Items"
+        ],
+        "summary": "Retrieves the list of past teaching position education phases.",
+        "operationId": "GetPastTeachingPositionEducationPhases",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PickListItem"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/pick_list_items/teaching_event/types": {
+      "get": {
+        "tags": [
+          "Pick List Items"
+        ],
+        "summary": "Retrieves the list of teaching event types.",
+        "operationId": "GetTeachingEventTypes",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PickListItem"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/pick_list_items/teaching_event/status": {
+      "get": {
+        "tags": [
+          "Pick List Items"
+        ],
+        "summary": "Retrieves the list of teaching event status.",
+        "operationId": "GetTeachingEventStatus",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PickListItem"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/pick_list_items/teaching_event_registration/channels": {
+      "get": {
+        "tags": [
+          "Pick List Items"
+        ],
+        "summary": "Retrieves the list of teaching event registration channels.",
+        "operationId": "GetTeachingEventRegistrationChannels",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PickListItem"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/pick_list_items/phone_call/channels": {
+      "get": {
+        "tags": [
+          "Pick List Items"
+        ],
+        "summary": "Retrieves the list of phone call channels.",
+        "operationId": "GetPhoneCallChannels",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PickListItem"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/pick_list_items/service_subscription/types": {
+      "get": {
+        "tags": [
+          "Pick List Items"
+        ],
+        "summary": "Retrieves the list of subscription types.",
+        "operationId": "GetSubscriptionTypes",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PickListItem"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/privacy_policies/latest": {
+      "get": {
+        "tags": [
+          "Privacy Policies"
+        ],
+        "summary": "Retrieves the latest privacy policy.",
+        "operationId": "GetLatestPrivacyPolicy",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PrivacyPolicy"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/privacy_policies/{id}": {
+      "get": {
+        "tags": [
+          "Privacy Policies"
+        ],
+        "summary": "Retrieves a privacy policy.",
+        "operationId": "GetPrivacyPolicy",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The `id` of the `PrivacyPolicy`.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PrivacyPolicy"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/teaching_event_buildings": {
+      "get": {
+        "tags": [
+          "Teaching Event Buildings"
+        ],
+        "summary": "Retrieves all event buildings.",
+        "operationId": "GetTeachingEventBuildings",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TeachingEventBuilding"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/teaching_events/search_grouped_by_type": {
+      "get": {
+        "tags": [
+          "Teaching Events"
+        ],
+        "summary": "Searches for teaching events, returning grouped by type.",
+        "description": "Searches for teaching events. Optionally limit the results by distance (in miles) from a postcode, event type and start date.",
+        "operationId": "SearchTeachingEventsGroupedByType",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "Postcode",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "Radius",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "TypeId",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "StartAfter",
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "in": "query",
+            "name": "StartBefore",
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "in": "query",
+            "name": "StatusIds",
+            "type": "array",
+            "items": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "quantityPerType",
+            "description": "Quantity to return (per type).",
+            "type": "integer",
+            "format": "int32",
+            "default": 3
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TeachingEventsByType"
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/teaching_events/{readableId}": {
+      "get": {
+        "tags": [
+          "Teaching Events"
+        ],
+        "summary": "Retrieves an event.",
+        "operationId": "GetTeachingEvent",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "readableId",
+            "description": "The `readableId` of the `TeachingEvent`.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TeachingEvent"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/teaching_events/attendees": {
+      "post": {
+        "tags": [
+          "Teaching Events"
+        ],
+        "summary": "Adds an attendee to a teaching event.",
+        "description": "If the `CandidateId` is specified then the existing candidate will be registered for the event, otherwise a new candidate will be created.\n\nValidation errors may be present on the `TeachingEventAddAttendee` object as well as the hidden `Candidate` model that is mapped to; property names are consistent, so you should check for inclusion of the field in the key when linking an error message back to a property on the request model. For example, an error on `AcceptedPolicyId` can return under the keys `Candidate.PrivacyPolicy.AcceptedPolicyId` and `AcceptedPolicyId`.",
+        "operationId": "AddTeachingEventAttendee",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Attendee to add to the teaching event.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TeachingEventAddAttendee"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/teaching_events/attendees/exchange_access_token/{accessToken}": {
+      "post": {
+        "tags": [
+          "Teaching Events"
+        ],
+        "summary": "Retrieves a pre-populated TeachingEventAddAttendee for the candidate.",
+        "description": "\r\n                Retrieves a pre-populated TeachingEventAddAttendee for the candidate. The `accessToken` is obtained from a \r\n                `POST /candidates/access_tokens` request (you must also ensure the `ExistingCandidateRequest` payload you \r\n                exchanged for your token matches the request payload here).",
+        "operationId": "ExchangeAccessTokenForTeachingEventAddAttendee",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accessToken",
+            "description": "Access token (PIN code).",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Candidate access token request (must match an existing candidate).",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExistingCandidateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TeachingEventAddAttendee"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    },
+    "/api/teaching_events": {
+      "post": {
+        "tags": [
+          "Teaching Events"
+        ],
+        "summary": "Adds or updates a teaching event.",
+        "description": "If the `id` is specified then the existing teaching event will be updated, otherwise a new teaching event will be created.",
+        "operationId": "UpsertTeachingEvent",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Teaching event to upsert.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TeachingEvent"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TeachingEvent"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "apiKey": [ ]
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "CallbackBookingQuota": {
+      "type": "object",
+      "properties": {
+        "timeSlot": {
+          "type": "string"
+        },
+        "day": {
+          "type": "string"
+        },
+        "startAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "endAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "numberOfBookings": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "quota": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "isAvailable": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "id": {
+          "format": "uuid",
+          "type": "string"
+        }
+      }
+    },
+    "ExistingCandidateRequest": {
+      "required": [
+        "email"
+      ],
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "maxLength": 256,
+          "minLength": 0,
+          "type": "string"
+        },
+        "lastName": {
+          "maxLength": 256,
+          "minLength": 0,
+          "type": "string"
+        },
+        "email": {
+          "maxLength": 100,
+          "minLength": 1,
+          "type": "string"
+        },
+        "dateOfBirth": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "ProblemDetails": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "status": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "detail": {
+          "type": "string"
+        },
+        "instance": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {
+        "type": "object"
+      }
+    },
+    "TeacherTrainingAdviserSignUp": {
+      "type": "object",
+      "properties": {
+        "candidateId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "qualificationId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "subjectTaughtId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "pastTeachingPositionId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "preferredTeachingSubjectId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "countryId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "acceptedPolicyId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "typeId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ukDegreeGradeId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "degreeStatusId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "degreeTypeId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "initialTeacherTrainingYearId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "preferredEducationPhaseId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "hasGcseMathsAndEnglishId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "hasGcseScienceId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "planningToRetakeGcseMathsAndEnglishId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "planningToRetakeGcseScienceId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "email": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "dateOfBirth": {
+          "format": "date",
+          "type": "string"
+        },
+        "teacherId": {
+          "type": "string"
+        },
+        "degreeSubject": {
+          "type": "string"
+        },
+        "telephone": {
+          "type": "string"
+        },
+        "addressLine1": {
+          "type": "string"
+        },
+        "addressLine2": {
+          "type": "string"
+        },
+        "addressCity": {
+          "type": "string"
+        },
+        "addressPostcode": {
+          "type": "string"
+        },
+        "phoneCallScheduledAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "alreadySubscribedToTeacherTrainingAdviser": {
+          "type": "boolean",
+          "readOnly": true
+        }
+      }
+    },
+    "LookupItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "MailingListAddMember": {
+      "type": "object",
+      "properties": {
+        "candidateId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "qualificationId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "preferredTeachingSubjectId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "acceptedPolicyId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "considerationJourneyStageId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "degreeStatusId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "channelId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "email": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "addressPostcode": {
+          "type": "string"
+        },
+        "alreadySubscribedToEvents": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "alreadySubscribedToMailingList": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "alreadySubscribedToTeacherTrainingAdviser": {
+          "type": "boolean",
+          "readOnly": true
+        }
+      }
+    },
+    "ExchangeStatus": {
+      "enum": [
+        "Valid",
+        "Invalid",
+        "Expired",
+        "AlreadyExchanged"
+      ],
+      "type": "string"
+    },
+    "CandidateMagicLinkExchangeResult": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "status": {
+          "$ref": "#/definitions/ExchangeStatus"
+        }
+      }
+    },
+    "MappingInfo": {
+      "type": "object",
+      "properties": {
+        "class": {
+          "type": "string"
+        },
+        "logicalName": {
+          "type": "string"
+        },
+        "fields": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "readOnly": true
+        },
+        "relationships": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "readOnly": true
+        }
+      }
+    },
+    "HealthCheckResponse": {
+      "type": "object",
+      "properties": {
+        "gitCommitSha": {
+          "type": "string"
+        },
+        "environment": {
+          "type": "string"
+        },
+        "database": {
+          "type": "string"
+        },
+        "hangfire": {
+          "type": "string"
+        },
+        "crm": {
+          "type": "string"
+        },
+        "redis": {
+          "type": "string"
+        },
+        "notify": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "PickListItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "PrivacyPolicy": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "format": "uuid",
+          "type": "string"
+        }
+      }
+    },
+    "TeachingEventBuilding": {
+      "type": "object",
+      "properties": {
+        "venue": {
+          "type": "string"
+        },
+        "addressLine1": {
+          "type": "string"
+        },
+        "addressLine2": {
+          "type": "string"
+        },
+        "addressLine3": {
+          "type": "string"
+        },
+        "addressCity": {
+          "type": "string"
+        },
+        "addressPostcode": {
+          "type": "string"
+        },
+        "imageUrl": {
+          "type": "string"
+        },
+        "id": {
+          "format": "uuid",
+          "type": "string"
+        }
+      }
+    },
+    "TeachingEvent": {
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "properties": {
+        "typeId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "statusId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "readableId": {
+          "type": "string"
+        },
+        "webFeedId": {
+          "description": "If set, the API will accept new attendees for this event (an external sign up should be used if this value is nil).",
+          "type": "string"
+        },
+        "isOnline": {
+          "type": "boolean"
+        },
+        "name": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "message": {
+          "description": "Used to push miscellaneous messages to users (if an event is close to being booked out, for example).",
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "videoUrl": {
+          "type": "string"
+        },
+        "scribbleId": {
+          "type": "string"
+        },
+        "providerWebsiteUrl": {
+          "type": "string"
+        },
+        "providerTargetAudience": {
+          "type": "string"
+        },
+        "providerOrganiser": {
+          "type": "string"
+        },
+        "providerContactEmail": {
+          "maxLength": 100,
+          "minLength": 0,
+          "type": "string"
+        },
+        "startAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "endAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "providersList": {
+          "type": "string"
+        },
+        "building": {
+          "$ref": "#/definitions/TeachingEventBuilding"
+        },
+        "isVirtual": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "isInPerson": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "id": {
+          "format": "uuid",
+          "type": "string"
+        }
+      }
+    },
+    "TeachingEventsByType": {
+      "type": "object",
+      "properties": {
+        "typeId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "teachingEvents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TeachingEvent"
+          }
+        }
+      }
+    },
+    "TeachingEventAddAttendee": {
+      "type": "object",
+      "properties": {
+        "candidateId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "qualificationId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "eventId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "acceptedPolicyId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "preferredTeachingSubjectId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "considerationJourneyStageId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "degreeStatusId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "email": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "addressPostcode": {
+          "type": "string"
+        },
+        "telephone": {
+          "type": "string"
+        },
+        "subscribeToMailingList": {
+          "type": "boolean"
+        },
+        "alreadySubscribedToEvents": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "alreadySubscribedToMailingList": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "alreadySubscribedToTeacherTrainingAdviser": {
+          "type": "boolean",
+          "readOnly": true
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "apiKey": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  }
+}
