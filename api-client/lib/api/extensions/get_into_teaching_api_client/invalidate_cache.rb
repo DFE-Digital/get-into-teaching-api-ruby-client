@@ -1,5 +1,3 @@
-require "yaml"
-
 class InvalidateCache < Faraday::Middleware
   CACHE_INVALIDATION_PATHS = [
     /api\/teaching_events/

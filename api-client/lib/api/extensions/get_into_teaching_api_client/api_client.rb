@@ -76,7 +76,7 @@ module Extensions
         end
       end
 
-      private
+    private
 
       def format_date_times(params = {})
         params.transform_values do |value|
