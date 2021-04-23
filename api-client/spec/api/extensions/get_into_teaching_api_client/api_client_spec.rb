@@ -294,22 +294,36 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
   end
 
   describe "Invalidate cache" do
+    let(:headers)  { { "Cache-Control" => "max-age=300; private" } }
+
     it "cache is retained when cache is not invalidated" do
       stub_request(:get, get_endpoint)
-        .to_return(status: 200, body: [{ value: "first response" }].to_json)
-
+        .to_return(
+          status: 200, 
+          body: [{ value: "first response" }].to_json, 
+          headers: headers
+        )
+      
       expect(perform_get_request.first).to have_attributes({ value: "first response" })
 
       stub_request(:get, get_endpoint)
-        .to_return(status: 200, body: [{ value: "second response" }].to_json)
+        .to_return(
+          status: 200, 
+          body: [{ value: "second response" }].to_json, 
+          headers: headers
+        )
 
       expect(perform_get_request.first).to have_attributes({ value: "first response" })
     end
 
     it "cache is cleared when posting to a 'teaching event' path" do
       stub_request(:get, get_endpoint)
-        .to_return(status: 200, body: [{ value: "first response" }].to_json)
-
+        .to_return(
+          status: 200, 
+          body: [{ value: "first response" }].to_json, 
+          headers: headers
+        )
+      
       expect(perform_get_request.first).to have_attributes({ value: "first response" })
 
       stub_request(:post, "https://#{host}/#{endpoint}/api/teaching_events")
@@ -318,7 +332,11 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
       GetIntoTeachingApiClient::TeachingEventsApi.new.upsert_teaching_event({})
 
       stub_request(:get, get_endpoint)
-        .to_return(status: 200, body: [{ value: "second response" }].to_json)
+        .to_return(
+          status: 200, 
+          body: [{ value: "second response" }].to_json, 
+          headers: headers
+        )
 
       expect(perform_get_request.first).to have_attributes({ value: "second response" })
     end
