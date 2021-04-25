@@ -1,4 +1,4 @@
-require_relative "./invalidate_cache"
+require_relative "./cache_invalidator"
 
 module Extensions
   module GetIntoTeachingApiClient
@@ -26,8 +26,8 @@ module Extensions
           end
           f.use Faraday::Response::RaiseError
           f.use RequestId
-          f.use InvalidateCache, store: config.cache_store
           f.use :http_cache, store: config.cache_store, shared_cache: false
+          f.request :invalidate_cache, store: config.cache_store
           f.request :oauth2, config.api_key["Authorization"], token_type: :bearer
           f.request :retry, RETRY_OPTIONS
           f.response :encoding
@@ -76,7 +76,7 @@ module Extensions
         end
       end
 
-    private
+      private
 
       def format_date_times(params = {})
         params.transform_values do |value|
