@@ -1,18 +1,20 @@
 class CacheInvalidator < Faraday::Middleware
-  CACHE_INVALIDATION_PATHS = [
-    %r{api/teaching_events}
+  PATHS = %w[
+    /api/teaching_events
   ].freeze
+  METHODS = %i[post put]
 
-  def initialize(app, store: nil)
+  def initialize(app, store: nil, base_path: nil)
     super(app)
 
+    @base_path = base_path
     @store = store
   end
 
   def on_request(env)
-    path_invalidates_cache = CACHE_INVALIDATION_PATHS.any? { |p| p.match?(env.url.path) }
-    method_invalidates_cache = %i[post put].include?(env.method)
-
+    path_invalidates_cache = PATHS.any? { |p| "#{@base_path}#{p}".start_with?(env.url.path) }
+    method_invalidates_cache = METHODS.include?(env.method)
+    
     @store&.clear if method_invalidates_cache && path_invalidates_cache
   end
 end

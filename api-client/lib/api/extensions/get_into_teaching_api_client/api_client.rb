@@ -27,7 +27,7 @@ module Extensions
           f.use Faraday::Response::RaiseError
           f.use RequestId
           f.use :http_cache, store: config.cache_store, shared_cache: false
-          f.request :invalidate_cache, store: config.cache_store
+          f.request :invalidate_cache, store: config.cache_store, base_path: config.base_path
           f.request :oauth2, config.api_key["Authorization"], token_type: :bearer
           f.request :retry, RETRY_OPTIONS
           f.response :encoding
