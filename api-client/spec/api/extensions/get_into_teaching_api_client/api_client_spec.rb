@@ -1,9 +1,10 @@
 RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
 
   let(:host) { "host.api" }
-  let(:endpoint) { "endpoint" }
-  let(:get_endpoint) { "https://#{host}/#{endpoint}/api/pick_list_items/candidate/channels" }
-  let(:post_endpoint) { "https://#{host}/#{endpoint}/api/candidates/access_tokens" }
+  let(:api_client) { GetIntoTeachingApiClient::ApiClient.default }
+  let(:base_url) { api_client.config.base_url }
+  let(:get_endpoint) { "#{base_url}/api/pick_list_items/candidate/channels" }
+  let(:post_endpoint) { "#{base_url}/api/candidates/access_tokens" }
   let(:token) { "test" }
   let(:data) { [{ id: 123, value: "test" }] }
   let(:cache_store) { ActiveSupport::Cache::MemoryStore.new }
@@ -20,7 +21,7 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
   before do
     GetIntoTeachingApiClient.configure do |config|
       config.host = host
-      config.base_path = endpoint
+      config.base_path = "base_path"
       config.api_key["Authorization"] = token
       config.cache_store = cache_store
       config.circuit_breaker = { enabled: false }
@@ -35,7 +36,7 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
       before { GetIntoTeachingApiClient::Current.request_id = request_id }
 
       it "sets the Request-Id header" do
-        stub_request(:get, "https://#{host}/#{endpoint}/api/pick_list_items/candidate/channels")
+        stub_request(:get, "#{base_url}/api/pick_list_items/candidate/channels")
           .with(headers: { "Request-Id": request_id })
           .to_return(status: 200)
 
@@ -47,7 +48,7 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
       before { GetIntoTeachingApiClient::Current.request_id = nil }
 
       it "does not set a Request-Id header" do
-        stub_request(:get, "https://#{host}/#{endpoint}/api/pick_list_items/candidate/channels")
+        stub_request(:get, "#{base_url}/api/pick_list_items/candidate/channels")
           .with { |request| request.headers["Request-Id"].nil? }
           .to_return(status: 200)
 
@@ -61,7 +62,7 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
       it "formats with the offset +00:00" do
         date = DateTime.new(2022, 1, 1, 10, 30, 59).utc
 
-        stub_request(:get, "https://#{host}/#{endpoint}/api/teaching_events/search_grouped_by_type")
+        stub_request(:get, "#{base_url}/api/teaching_events/search_grouped_by_type")
           .with(query: { StartAfter: "2022-01-01T10:30:59+00:00" })
           .to_return(status: 200)
 
@@ -75,7 +76,7 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
       it "formats with the correct offset" do
         date = Time.new(2022, 1, 1, 10, 30, 59, "-10:00")
 
-        stub_request(:get, "https://#{host}/#{endpoint}/api/teaching_events/search_grouped_by_type")
+        stub_request(:get, "#{base_url}/api/teaching_events/search_grouped_by_type")
           .with(query: { StartAfter: "2022-01-01T10:30:59-10:00" })
           .to_return(status: 200)
 
@@ -89,7 +90,7 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
       it "formats correctly" do
         date = Date.new(2022, 1, 1)
 
-        stub_request(:get, "https://#{host}/#{endpoint}/api/teaching_events/search_grouped_by_type")
+        stub_request(:get, "#{base_url}/api/teaching_events/search_grouped_by_type")
           .with(query: { StartAfter: "2022-01-01" })
           .to_return(status: 200)
 
@@ -105,7 +106,7 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
       it "formats with the offset +00:00" do
         date = DateTime.new(2022, 1, 1, 10, 30, 59).utc
 
-        stub_request(:post, "https://#{host}/#{endpoint}/api/teacher_training_adviser/candidates")
+        stub_request(:post, "#{base_url}/api/teacher_training_adviser/candidates")
           .with(body: { phoneCallScheduledAt: "2022-01-01T10:30:59+00:00" })
           .to_return(status: 200)
 
@@ -120,7 +121,7 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
       it "formats with the correct offset" do
         date = Time.new(2022, 1, 1, 10, 30, 59, "-10:00")
 
-        stub_request(:post, "https://#{host}/#{endpoint}/api/teacher_training_adviser/candidates")
+        stub_request(:post, "#{base_url}/api/teacher_training_adviser/candidates")
           .with(body: { phoneCallScheduledAt: "2022-01-01T10:30:59-10:00" })
           .to_return(status: 200)
 
@@ -135,7 +136,7 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
       it "formats correctly" do
         date = Date.new(2022, 1, 1)
 
-        stub_request(:post, "https://#{host}/#{endpoint}/api/candidates/access_tokens")
+        stub_request(:post, "#{base_url}/api/candidates/access_tokens")
           .with(body: { dateOfBirth: "2022-01-01" })
           .to_return(status: 200)
 
@@ -293,52 +294,59 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
     end
   end
 
-  describe "Invalidate cache" do
+  describe "Cache invalidation" do
     let(:headers) { { "Cache-Control" => "max-age=300; private" } }
+    let(:first_response) { [{ value: "first response" }] }
+    let(:second_response) { [{ value: "second response" }] }
 
-    it "cache is retained when cache is not invalidated" do
+    it "caches responses by default" do
       stub_request(:get, get_endpoint)
         .to_return(
           status: 200,
-          body: [{ value: "first response" }].to_json,
+          body: first_response.to_json,
           headers: headers
         )
 
-      expect(perform_get_request.first).to have_attributes({ value: "first response" })
+      expect(perform_get_request.first.value).to eq(first_response.first[:value])
 
       stub_request(:get, get_endpoint)
         .to_return(
           status: 200,
-          body: [{ value: "second response" }].to_json,
+          body: second_response.to_json,
           headers: headers
         )
 
-      expect(perform_get_request.first).to have_attributes({ value: "first response" })
+      expect(perform_get_request.first.value).to eq(first_response.first[:value])
     end
+    
+    CacheInvalidator::PATHS.product(CacheInvalidator::METHODS).each do |path, method|
+      it "clears the cache on #{method.upcase} #{path}" do
+        url = "#{base_url}#{path}"
+        
+        stub_request(:get, get_endpoint)
+          .to_return(
+            status: 200,
+            body: first_response.to_json,
+            headers: headers
+          )
+  
+        expect(perform_get_request.first.value).to eq(first_response.first[:value])
+  
+        stub_request(method, url).to_return(status: 201)
+  
+        response = api_client.faraday.public_send(method.downcase) do |req|
+          req.url(url)
+        end
 
-    it "cache is cleared when posting to a 'teaching event' path" do
-      stub_request(:get, get_endpoint)
-        .to_return(
-          status: 200,
-          body: [{ value: "first response" }].to_json,
-          headers: headers
-        )
-
-      expect(perform_get_request.first).to have_attributes({ value: "first response" })
-
-      stub_request(:post, "https://#{host}/#{endpoint}/api/teaching_events")
-        .to_return(status: 201)
-
-      GetIntoTeachingApiClient::TeachingEventsApi.new.upsert_teaching_event({})
-
-      stub_request(:get, get_endpoint)
-        .to_return(
-          status: 200,
-          body: [{ value: "second response" }].to_json,
-          headers: headers
-        )
-
-      expect(perform_get_request.first).to have_attributes({ value: "second response" })
+        stub_request(:get, get_endpoint)
+          .to_return(
+            status: 200,
+            body: second_response.to_json,
+            headers: headers
+          )
+  
+        expect(perform_get_request.first.value).to eq(second_response.first[:value])
+      end
     end
   end
 end
