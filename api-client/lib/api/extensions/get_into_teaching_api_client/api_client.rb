@@ -1,3 +1,5 @@
+require_relative "./cache_invalidator"
+
 module Extensions
   module GetIntoTeachingApiClient
     module ApiClient
@@ -19,12 +21,13 @@ module Extensions
             f.use :circuit_breaker,
                   threshold: config.circuit_breaker[:threshold],
                   timeout: config.circuit_breaker[:timeout],
-                  fallback: -> (_, exception) { raise_circuit_broken_error(exception) },
-                  error_handler: -> (exception, handler) { handle_error(exception, handler) }
+                  fallback: ->(_, exception) { raise_circuit_broken_error(exception) },
+                  error_handler: ->(exception, handler) { handle_error(exception, handler) }
           end
           f.use Faraday::Response::RaiseError
           f.use RequestId
           f.use :http_cache, store: config.cache_store, shared_cache: false
+          f.request :invalidate_cache, store: config.cache_store
           f.request :oauth2, config.api_key["Authorization"], token_type: :bearer
           f.request :retry, RETRY_OPTIONS
           f.response :encoding
@@ -47,7 +50,6 @@ module Extensions
         end
 
         [data, response.status, response.headers]
-
       rescue Faraday::Error => error
         if error.response.present?
           raise ::GetIntoTeachingApiClient::ApiError.new(
@@ -104,6 +106,7 @@ module Extensions
       # to remain unchanged.
       def raise_circuit_broken_error(exception)
         raise exception if exception.present?
+
         raise ::GetIntoTeachingApiClient::CircuitBrokenError
       end
 
@@ -111,15 +114,14 @@ module Extensions
         def initialize(app)
           super(app)
         end
-  
+
         def call(env)
           request_id = ::GetIntoTeachingApiClient::Current.request_id
-          
+
           env[:request_headers]["Request-Id"] = request_id if request_id
-          
+
           @app.call(env)
         end
-  
       end
     end
   end

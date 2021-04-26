@@ -6,7 +6,7 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
   let(:post_endpoint) { "https://#{host}/#{endpoint}/api/candidates/access_tokens" }
   let(:token) { "test" }
   let(:data) { [{ id: 123, value: "test" }] }
-  let(:cache_store) { ActiveSupport::Cache.lookup_store(:null_store) }
+  let(:cache_store) { ActiveSupport::Cache::MemoryStore.new }
 
   def perform_get_request
     GetIntoTeachingApiClient::PickListItemsApi.new.get_candidate_channels
@@ -23,6 +23,7 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
       config.base_path = endpoint
       config.api_key["Authorization"] = token
       config.cache_store = cache_store
+      config.circuit_breaker = { enabled: false }
     end
     cache_store&.clear
   end
@@ -289,6 +290,55 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
           expect { perform_get_request }.to raise_error(GetIntoTeachingApiClient::CircuitBrokenError)
         end
       end
+    end
+  end
+
+  describe "Invalidate cache" do
+    let(:headers) { { "Cache-Control" => "max-age=300; private" } }
+
+    it "cache is retained when cache is not invalidated" do
+      stub_request(:get, get_endpoint)
+        .to_return(
+          status: 200,
+          body: [{ value: "first response" }].to_json,
+          headers: headers
+        )
+
+      expect(perform_get_request.first).to have_attributes({ value: "first response" })
+
+      stub_request(:get, get_endpoint)
+        .to_return(
+          status: 200,
+          body: [{ value: "second response" }].to_json,
+          headers: headers
+        )
+
+      expect(perform_get_request.first).to have_attributes({ value: "first response" })
+    end
+
+    it "cache is cleared when posting to a 'teaching event' path" do
+      stub_request(:get, get_endpoint)
+        .to_return(
+          status: 200,
+          body: [{ value: "first response" }].to_json,
+          headers: headers
+        )
+
+      expect(perform_get_request.first).to have_attributes({ value: "first response" })
+
+      stub_request(:post, "https://#{host}/#{endpoint}/api/teaching_events")
+        .to_return(status: 201)
+
+      GetIntoTeachingApiClient::TeachingEventsApi.new.upsert_teaching_event({})
+
+      stub_request(:get, get_endpoint)
+        .to_return(
+          status: 200,
+          body: [{ value: "second response" }].to_json,
+          headers: headers
+        )
+
+      expect(perform_get_request.first).to have_attributes({ value: "second response" })
     end
   end
 end
