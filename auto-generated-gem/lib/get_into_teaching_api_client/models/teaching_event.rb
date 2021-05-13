@@ -217,6 +217,14 @@ module GetIntoTeachingApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @readable_id.nil?
+        invalid_properties.push('invalid value for "readable_id", readable_id cannot be nil.')
+      end
+
+      if @readable_id.to_s.length < 1
+        invalid_properties.push('invalid value for "readable_id", the character length must be great than or equal to 1.')
+      end
+
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
@@ -239,11 +247,27 @@ module GetIntoTeachingApiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @readable_id.nil?
+      return false if @readable_id.to_s.length < 1
       return false if @name.nil?
       return false if @name.to_s.length < 1
       return false if !@provider_contact_email.nil? && @provider_contact_email.to_s.length > 100
       return false if !@provider_contact_email.nil? && @provider_contact_email.to_s.length < 0
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] readable_id Value to be assigned
+    def readable_id=(readable_id)
+      if readable_id.nil?
+        fail ArgumentError, 'readable_id cannot be nil'
+      end
+
+      if readable_id.to_s.length < 1
+        fail ArgumentError, 'invalid value for "readable_id", the character length must be great than or equal to 1.'
+      end
+
+      @readable_id = readable_id
     end
 
     # Custom attribute writer method with validation

@@ -151,13 +151,105 @@ module GetIntoTeachingApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @preferred_teaching_subject_id.nil?
+        invalid_properties.push('invalid value for "preferred_teaching_subject_id", preferred_teaching_subject_id cannot be nil.')
+      end
+
+      if @accepted_policy_id.nil?
+        invalid_properties.push('invalid value for "accepted_policy_id", accepted_policy_id cannot be nil.')
+      end
+
+      if @consideration_journey_stage_id.nil?
+        invalid_properties.push('invalid value for "consideration_journey_stage_id", consideration_journey_stage_id cannot be nil.')
+      end
+
+      if @degree_status_id.nil?
+        invalid_properties.push('invalid value for "degree_status_id", degree_status_id cannot be nil.')
+      end
+
+      if @email.nil?
+        invalid_properties.push('invalid value for "email", email cannot be nil.')
+      end
+
+      if @email.to_s.length < 1
+        invalid_properties.push('invalid value for "email", the character length must be great than or equal to 1.')
+      end
+
+      if @first_name.nil?
+        invalid_properties.push('invalid value for "first_name", first_name cannot be nil.')
+      end
+
+      if @first_name.to_s.length < 1
+        invalid_properties.push('invalid value for "first_name", the character length must be great than or equal to 1.')
+      end
+
+      if @last_name.nil?
+        invalid_properties.push('invalid value for "last_name", last_name cannot be nil.')
+      end
+
+      if @last_name.to_s.length < 1
+        invalid_properties.push('invalid value for "last_name", the character length must be great than or equal to 1.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @preferred_teaching_subject_id.nil?
+      return false if @accepted_policy_id.nil?
+      return false if @consideration_journey_stage_id.nil?
+      return false if @degree_status_id.nil?
+      return false if @email.nil?
+      return false if @email.to_s.length < 1
+      return false if @first_name.nil?
+      return false if @first_name.to_s.length < 1
+      return false if @last_name.nil?
+      return false if @last_name.to_s.length < 1
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] email Value to be assigned
+    def email=(email)
+      if email.nil?
+        fail ArgumentError, 'email cannot be nil'
+      end
+
+      if email.to_s.length < 1
+        fail ArgumentError, 'invalid value for "email", the character length must be great than or equal to 1.'
+      end
+
+      @email = email
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] first_name Value to be assigned
+    def first_name=(first_name)
+      if first_name.nil?
+        fail ArgumentError, 'first_name cannot be nil'
+      end
+
+      if first_name.to_s.length < 1
+        fail ArgumentError, 'invalid value for "first_name", the character length must be great than or equal to 1.'
+      end
+
+      @first_name = first_name
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] last_name Value to be assigned
+    def last_name=(last_name)
+      if last_name.nil?
+        fail ArgumentError, 'last_name cannot be nil'
+      end
+
+      if last_name.to_s.length < 1
+        fail ArgumentError, 'invalid value for "last_name", the character length must be great than or equal to 1.'
+      end
+
+      @last_name = last_name
     end
 
     # Checks equality by comparing each attribute.

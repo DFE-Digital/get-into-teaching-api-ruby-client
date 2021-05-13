@@ -38,6 +38,8 @@ module GetIntoTeachingApiClient
 
     attr_accessor :telephone
 
+    attr_accessor :address_telephone
+
     attr_accessor :subscribe_to_mailing_list
 
     attr_accessor :already_subscribed_to_events
@@ -61,6 +63,7 @@ module GetIntoTeachingApiClient
         :'last_name' => :'lastName',
         :'address_postcode' => :'addressPostcode',
         :'telephone' => :'telephone',
+        :'address_telephone' => :'addressTelephone',
         :'subscribe_to_mailing_list' => :'subscribeToMailingList',
         :'already_subscribed_to_events' => :'alreadySubscribedToEvents',
         :'already_subscribed_to_mailing_list' => :'alreadySubscribedToMailingList',
@@ -83,6 +86,7 @@ module GetIntoTeachingApiClient
         :'last_name' => :'String',
         :'address_postcode' => :'String',
         :'telephone' => :'String',
+        :'address_telephone' => :'String',
         :'subscribe_to_mailing_list' => :'BOOLEAN',
         :'already_subscribed_to_events' => :'BOOLEAN',
         :'already_subscribed_to_mailing_list' => :'BOOLEAN',
@@ -146,6 +150,10 @@ module GetIntoTeachingApiClient
         self.telephone = attributes[:'telephone']
       end
 
+      if attributes.has_key?(:'addressTelephone')
+        self.address_telephone = attributes[:'addressTelephone']
+      end
+
       if attributes.has_key?(:'subscribeToMailingList')
         self.subscribe_to_mailing_list = attributes[:'subscribeToMailingList']
       end
@@ -167,13 +175,95 @@ module GetIntoTeachingApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @event_id.nil?
+        invalid_properties.push('invalid value for "event_id", event_id cannot be nil.')
+      end
+
+      if @accepted_policy_id.nil?
+        invalid_properties.push('invalid value for "accepted_policy_id", accepted_policy_id cannot be nil.')
+      end
+
+      if @email.nil?
+        invalid_properties.push('invalid value for "email", email cannot be nil.')
+      end
+
+      if @email.to_s.length < 1
+        invalid_properties.push('invalid value for "email", the character length must be great than or equal to 1.')
+      end
+
+      if @first_name.nil?
+        invalid_properties.push('invalid value for "first_name", first_name cannot be nil.')
+      end
+
+      if @first_name.to_s.length < 1
+        invalid_properties.push('invalid value for "first_name", the character length must be great than or equal to 1.')
+      end
+
+      if @last_name.nil?
+        invalid_properties.push('invalid value for "last_name", last_name cannot be nil.')
+      end
+
+      if @last_name.to_s.length < 1
+        invalid_properties.push('invalid value for "last_name", the character length must be great than or equal to 1.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @event_id.nil?
+      return false if @accepted_policy_id.nil?
+      return false if @email.nil?
+      return false if @email.to_s.length < 1
+      return false if @first_name.nil?
+      return false if @first_name.to_s.length < 1
+      return false if @last_name.nil?
+      return false if @last_name.to_s.length < 1
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] email Value to be assigned
+    def email=(email)
+      if email.nil?
+        fail ArgumentError, 'email cannot be nil'
+      end
+
+      if email.to_s.length < 1
+        fail ArgumentError, 'invalid value for "email", the character length must be great than or equal to 1.'
+      end
+
+      @email = email
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] first_name Value to be assigned
+    def first_name=(first_name)
+      if first_name.nil?
+        fail ArgumentError, 'first_name cannot be nil'
+      end
+
+      if first_name.to_s.length < 1
+        fail ArgumentError, 'invalid value for "first_name", the character length must be great than or equal to 1.'
+      end
+
+      @first_name = first_name
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] last_name Value to be assigned
+    def last_name=(last_name)
+      if last_name.nil?
+        fail ArgumentError, 'last_name cannot be nil'
+      end
+
+      if last_name.to_s.length < 1
+        fail ArgumentError, 'invalid value for "last_name", the character length must be great than or equal to 1.'
+      end
+
+      @last_name = last_name
     end
 
     # Checks equality by comparing each attribute.
@@ -193,6 +283,7 @@ module GetIntoTeachingApiClient
           last_name == o.last_name &&
           address_postcode == o.address_postcode &&
           telephone == o.telephone &&
+          address_telephone == o.address_telephone &&
           subscribe_to_mailing_list == o.subscribe_to_mailing_list &&
           already_subscribed_to_events == o.already_subscribed_to_events &&
           already_subscribed_to_mailing_list == o.already_subscribed_to_mailing_list &&
@@ -208,7 +299,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [candidate_id, qualification_id, event_id, accepted_policy_id, preferred_teaching_subject_id, consideration_journey_stage_id, degree_status_id, email, first_name, last_name, address_postcode, telephone, subscribe_to_mailing_list, already_subscribed_to_events, already_subscribed_to_mailing_list, already_subscribed_to_teacher_training_adviser].hash
+      [candidate_id, qualification_id, event_id, accepted_policy_id, preferred_teaching_subject_id, consideration_journey_stage_id, degree_status_id, email, first_name, last_name, address_postcode, telephone, address_telephone, subscribe_to_mailing_list, already_subscribed_to_events, already_subscribed_to_mailing_list, already_subscribed_to_teacher_training_adviser].hash
     end
 
     # Builds the object from hash

@@ -62,6 +62,8 @@ module GetIntoTeachingApiClient
 
     attr_accessor :telephone
 
+    attr_accessor :address_telephone
+
     attr_accessor :address_line1
 
     attr_accessor :address_line2
@@ -101,6 +103,7 @@ module GetIntoTeachingApiClient
         :'teacher_id' => :'teacherId',
         :'degree_subject' => :'degreeSubject',
         :'telephone' => :'telephone',
+        :'address_telephone' => :'addressTelephone',
         :'address_line1' => :'addressLine1',
         :'address_line2' => :'addressLine2',
         :'address_city' => :'addressCity',
@@ -137,6 +140,7 @@ module GetIntoTeachingApiClient
         :'teacher_id' => :'String',
         :'degree_subject' => :'String',
         :'telephone' => :'String',
+        :'address_telephone' => :'String',
         :'address_line1' => :'String',
         :'address_line2' => :'String',
         :'address_city' => :'String',
@@ -250,6 +254,10 @@ module GetIntoTeachingApiClient
         self.telephone = attributes[:'telephone']
       end
 
+      if attributes.has_key?(:'addressTelephone')
+        self.address_telephone = attributes[:'addressTelephone']
+      end
+
       if attributes.has_key?(:'addressLine1')
         self.address_line1 = attributes[:'addressLine1']
       end
@@ -279,12 +287,47 @@ module GetIntoTeachingApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @country_id.nil?
+        invalid_properties.push('invalid value for "country_id", country_id cannot be nil.')
+      end
+
+      if @accepted_policy_id.nil?
+        invalid_properties.push('invalid value for "accepted_policy_id", accepted_policy_id cannot be nil.')
+      end
+
+      if @type_id.nil?
+        invalid_properties.push('invalid value for "type_id", type_id cannot be nil.')
+      end
+
+      if @email.nil?
+        invalid_properties.push('invalid value for "email", email cannot be nil.')
+      end
+
+      if @first_name.nil?
+        invalid_properties.push('invalid value for "first_name", first_name cannot be nil.')
+      end
+
+      if @last_name.nil?
+        invalid_properties.push('invalid value for "last_name", last_name cannot be nil.')
+      end
+
+      if @date_of_birth.nil?
+        invalid_properties.push('invalid value for "date_of_birth", date_of_birth cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @country_id.nil?
+      return false if @accepted_policy_id.nil?
+      return false if @type_id.nil?
+      return false if @email.nil?
+      return false if @first_name.nil?
+      return false if @last_name.nil?
+      return false if @date_of_birth.nil?
       true
     end
 
@@ -317,6 +360,7 @@ module GetIntoTeachingApiClient
           teacher_id == o.teacher_id &&
           degree_subject == o.degree_subject &&
           telephone == o.telephone &&
+          address_telephone == o.address_telephone &&
           address_line1 == o.address_line1 &&
           address_line2 == o.address_line2 &&
           address_city == o.address_city &&
@@ -334,7 +378,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [candidate_id, qualification_id, subject_taught_id, past_teaching_position_id, preferred_teaching_subject_id, country_id, accepted_policy_id, type_id, uk_degree_grade_id, degree_status_id, degree_type_id, initial_teacher_training_year_id, preferred_education_phase_id, has_gcse_maths_and_english_id, has_gcse_science_id, planning_to_retake_gcse_maths_and_english_id, planning_to_retake_gcse_science_id, email, first_name, last_name, date_of_birth, teacher_id, degree_subject, telephone, address_line1, address_line2, address_city, address_postcode, phone_call_scheduled_at, already_subscribed_to_teacher_training_adviser].hash
+      [candidate_id, qualification_id, subject_taught_id, past_teaching_position_id, preferred_teaching_subject_id, country_id, accepted_policy_id, type_id, uk_degree_grade_id, degree_status_id, degree_type_id, initial_teacher_training_year_id, preferred_education_phase_id, has_gcse_maths_and_english_id, has_gcse_science_id, planning_to_retake_gcse_maths_and_english_id, planning_to_retake_gcse_science_id, email, first_name, last_name, date_of_birth, teacher_id, degree_subject, telephone, address_telephone, address_line1, address_line2, address_city, address_postcode, phone_call_scheduled_at, already_subscribed_to_teacher_training_adviser].hash
     end
 
     # Builds the object from hash
