@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 
 # **upsert_teaching_event**
-> TeachingEvent upsert_teaching_event(body)
+> TeachingEvent upsert_teaching_event(opts)
 
 Adds or updates a teaching event.
 
@@ -261,12 +261,13 @@ end
 
 api_instance = GetIntoTeachingApiClient::TeachingEventsApi.new
 
-body = GetIntoTeachingApiClient::TeachingEvent.new # TeachingEvent | Teaching event to upsert.
-
+opts = { 
+  body: GetIntoTeachingApiClient::TeachingEvent.new # TeachingEvent | 
+}
 
 begin
   #Adds or updates a teaching event.
-  result = api_instance.upsert_teaching_event(body)
+  result = api_instance.upsert_teaching_event(opts)
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TeachingEventsApi->upsert_teaching_event: #{e}"
@@ -277,7 +278,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**TeachingEvent**](TeachingEvent.md)| Teaching event to upsert. | 
+ **body** | [**TeachingEvent**](TeachingEvent.md)|  | [optional] 
 
 ### Return type
 
