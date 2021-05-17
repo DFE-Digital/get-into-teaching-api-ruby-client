@@ -26,7 +26,6 @@ Name | Type | Description | Notes
 **date_of_birth** | **Date** |  | 
 **teacher_id** | **String** |  | [optional] 
 **degree_subject** | **String** |  | [optional] 
-**telephone** | **String** |  | [optional] 
 **address_telephone** | **String** |  | [optional] 
 **address_line1** | **String** |  | [optional] 
 **address_line2** | **String** |  | [optional] 
