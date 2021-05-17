@@ -36,6 +36,8 @@ The generated specs fail due to `Addressable::URI.encode` raising an error when 
 let(:config) { GetIntoTeachingApiClient::Configuration.new { |c| c.host = "example.com" } }
 ```
 
+We also need to update the `rexml` gem as the version used by `swagger-codegen` contains a security vulnerability: `bundle update rexml`.
+
 You should then also run the test suite:
 
 ```
