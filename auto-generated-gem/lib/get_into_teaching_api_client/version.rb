@@ -11,5 +11,5 @@ Swagger Codegen version: 2.4.19
 =end
 
 module GetIntoTeachingApiClient
-  VERSION = '1.1.15'
+  VERSION = '1.1.16'
 end

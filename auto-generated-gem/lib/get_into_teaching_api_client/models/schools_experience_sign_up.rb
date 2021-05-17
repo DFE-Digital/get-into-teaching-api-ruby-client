@@ -13,58 +13,76 @@ Swagger Codegen version: 2.4.19
 require 'date'
 
 module GetIntoTeachingApiClient
-  class TeachingEventAddAttendee
+  class SchoolsExperienceSignUp
     attr_accessor :candidate_id
-
-    attr_accessor :qualification_id
-
-    attr_accessor :event_id
-
-    attr_accessor :accepted_policy_id
 
     attr_accessor :preferred_teaching_subject_id
 
-    attr_accessor :consideration_journey_stage_id
+    attr_accessor :secondary_preferred_teaching_subject_id
 
-    attr_accessor :degree_status_id
+    attr_accessor :country_id
+
+    attr_accessor :accepted_policy_id
 
     attr_accessor :email
+
+    attr_accessor :secondary_email
 
     attr_accessor :first_name
 
     attr_accessor :last_name
 
+    attr_accessor :date_of_birth
+
+    attr_accessor :address_line1
+
+    attr_accessor :address_line2
+
+    attr_accessor :address_line3
+
+    attr_accessor :address_city
+
+    attr_accessor :address_state_or_province
+
     attr_accessor :address_postcode
 
     attr_accessor :address_telephone
 
-    attr_accessor :subscribe_to_mailing_list
+    attr_accessor :telephone
 
-    attr_accessor :already_subscribed_to_events
+    attr_accessor :secondary_telephone
 
-    attr_accessor :already_subscribed_to_mailing_list
+    attr_accessor :mobile_telephone
 
-    attr_accessor :already_subscribed_to_teacher_training_adviser
+    attr_accessor :has_dbs_certificate
+
+    attr_accessor :dbs_certificate_issued_at
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'candidate_id' => :'candidateId',
-        :'qualification_id' => :'qualificationId',
-        :'event_id' => :'eventId',
-        :'accepted_policy_id' => :'acceptedPolicyId',
         :'preferred_teaching_subject_id' => :'preferredTeachingSubjectId',
-        :'consideration_journey_stage_id' => :'considerationJourneyStageId',
-        :'degree_status_id' => :'degreeStatusId',
+        :'secondary_preferred_teaching_subject_id' => :'secondaryPreferredTeachingSubjectId',
+        :'country_id' => :'countryId',
+        :'accepted_policy_id' => :'acceptedPolicyId',
         :'email' => :'email',
+        :'secondary_email' => :'secondaryEmail',
         :'first_name' => :'firstName',
         :'last_name' => :'lastName',
+        :'date_of_birth' => :'dateOfBirth',
+        :'address_line1' => :'addressLine1',
+        :'address_line2' => :'addressLine2',
+        :'address_line3' => :'addressLine3',
+        :'address_city' => :'addressCity',
+        :'address_state_or_province' => :'addressStateOrProvince',
         :'address_postcode' => :'addressPostcode',
         :'address_telephone' => :'addressTelephone',
-        :'subscribe_to_mailing_list' => :'subscribeToMailingList',
-        :'already_subscribed_to_events' => :'alreadySubscribedToEvents',
-        :'already_subscribed_to_mailing_list' => :'alreadySubscribedToMailingList',
-        :'already_subscribed_to_teacher_training_adviser' => :'alreadySubscribedToTeacherTrainingAdviser'
+        :'telephone' => :'telephone',
+        :'secondary_telephone' => :'secondaryTelephone',
+        :'mobile_telephone' => :'mobileTelephone',
+        :'has_dbs_certificate' => :'hasDbsCertificate',
+        :'dbs_certificate_issued_at' => :'dbsCertificateIssuedAt'
       }
     end
 
@@ -72,21 +90,27 @@ module GetIntoTeachingApiClient
     def self.swagger_types
       {
         :'candidate_id' => :'String',
-        :'qualification_id' => :'String',
-        :'event_id' => :'String',
-        :'accepted_policy_id' => :'String',
         :'preferred_teaching_subject_id' => :'String',
-        :'consideration_journey_stage_id' => :'Integer',
-        :'degree_status_id' => :'Integer',
+        :'secondary_preferred_teaching_subject_id' => :'String',
+        :'country_id' => :'String',
+        :'accepted_policy_id' => :'String',
         :'email' => :'String',
+        :'secondary_email' => :'String',
         :'first_name' => :'String',
         :'last_name' => :'String',
+        :'date_of_birth' => :'Date',
+        :'address_line1' => :'String',
+        :'address_line2' => :'String',
+        :'address_line3' => :'String',
+        :'address_city' => :'String',
+        :'address_state_or_province' => :'String',
         :'address_postcode' => :'String',
         :'address_telephone' => :'String',
-        :'subscribe_to_mailing_list' => :'BOOLEAN',
-        :'already_subscribed_to_events' => :'BOOLEAN',
-        :'already_subscribed_to_mailing_list' => :'BOOLEAN',
-        :'already_subscribed_to_teacher_training_adviser' => :'BOOLEAN'
+        :'telephone' => :'String',
+        :'secondary_telephone' => :'String',
+        :'mobile_telephone' => :'String',
+        :'has_dbs_certificate' => :'BOOLEAN',
+        :'dbs_certificate_issued_at' => :'DateTime'
       }
     end
 
@@ -102,32 +126,28 @@ module GetIntoTeachingApiClient
         self.candidate_id = attributes[:'candidateId']
       end
 
-      if attributes.has_key?(:'qualificationId')
-        self.qualification_id = attributes[:'qualificationId']
+      if attributes.has_key?(:'preferredTeachingSubjectId')
+        self.preferred_teaching_subject_id = attributes[:'preferredTeachingSubjectId']
       end
 
-      if attributes.has_key?(:'eventId')
-        self.event_id = attributes[:'eventId']
+      if attributes.has_key?(:'secondaryPreferredTeachingSubjectId')
+        self.secondary_preferred_teaching_subject_id = attributes[:'secondaryPreferredTeachingSubjectId']
+      end
+
+      if attributes.has_key?(:'countryId')
+        self.country_id = attributes[:'countryId']
       end
 
       if attributes.has_key?(:'acceptedPolicyId')
         self.accepted_policy_id = attributes[:'acceptedPolicyId']
       end
 
-      if attributes.has_key?(:'preferredTeachingSubjectId')
-        self.preferred_teaching_subject_id = attributes[:'preferredTeachingSubjectId']
-      end
-
-      if attributes.has_key?(:'considerationJourneyStageId')
-        self.consideration_journey_stage_id = attributes[:'considerationJourneyStageId']
-      end
-
-      if attributes.has_key?(:'degreeStatusId')
-        self.degree_status_id = attributes[:'degreeStatusId']
-      end
-
       if attributes.has_key?(:'email')
         self.email = attributes[:'email']
+      end
+
+      if attributes.has_key?(:'secondaryEmail')
+        self.secondary_email = attributes[:'secondaryEmail']
       end
 
       if attributes.has_key?(:'firstName')
@@ -138,6 +158,30 @@ module GetIntoTeachingApiClient
         self.last_name = attributes[:'lastName']
       end
 
+      if attributes.has_key?(:'dateOfBirth')
+        self.date_of_birth = attributes[:'dateOfBirth']
+      end
+
+      if attributes.has_key?(:'addressLine1')
+        self.address_line1 = attributes[:'addressLine1']
+      end
+
+      if attributes.has_key?(:'addressLine2')
+        self.address_line2 = attributes[:'addressLine2']
+      end
+
+      if attributes.has_key?(:'addressLine3')
+        self.address_line3 = attributes[:'addressLine3']
+      end
+
+      if attributes.has_key?(:'addressCity')
+        self.address_city = attributes[:'addressCity']
+      end
+
+      if attributes.has_key?(:'addressStateOrProvince')
+        self.address_state_or_province = attributes[:'addressStateOrProvince']
+      end
+
       if attributes.has_key?(:'addressPostcode')
         self.address_postcode = attributes[:'addressPostcode']
       end
@@ -146,20 +190,24 @@ module GetIntoTeachingApiClient
         self.address_telephone = attributes[:'addressTelephone']
       end
 
-      if attributes.has_key?(:'subscribeToMailingList')
-        self.subscribe_to_mailing_list = attributes[:'subscribeToMailingList']
+      if attributes.has_key?(:'telephone')
+        self.telephone = attributes[:'telephone']
       end
 
-      if attributes.has_key?(:'alreadySubscribedToEvents')
-        self.already_subscribed_to_events = attributes[:'alreadySubscribedToEvents']
+      if attributes.has_key?(:'secondaryTelephone')
+        self.secondary_telephone = attributes[:'secondaryTelephone']
       end
 
-      if attributes.has_key?(:'alreadySubscribedToMailingList')
-        self.already_subscribed_to_mailing_list = attributes[:'alreadySubscribedToMailingList']
+      if attributes.has_key?(:'mobileTelephone')
+        self.mobile_telephone = attributes[:'mobileTelephone']
       end
 
-      if attributes.has_key?(:'alreadySubscribedToTeacherTrainingAdviser')
-        self.already_subscribed_to_teacher_training_adviser = attributes[:'alreadySubscribedToTeacherTrainingAdviser']
+      if attributes.has_key?(:'hasDbsCertificate')
+        self.has_dbs_certificate = attributes[:'hasDbsCertificate']
+      end
+
+      if attributes.has_key?(:'dbsCertificateIssuedAt')
+        self.dbs_certificate_issued_at = attributes[:'dbsCertificateIssuedAt']
       end
     end
 
@@ -167,8 +215,16 @@ module GetIntoTeachingApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @event_id.nil?
-        invalid_properties.push('invalid value for "event_id", event_id cannot be nil.')
+      if @preferred_teaching_subject_id.nil?
+        invalid_properties.push('invalid value for "preferred_teaching_subject_id", preferred_teaching_subject_id cannot be nil.')
+      end
+
+      if @secondary_preferred_teaching_subject_id.nil?
+        invalid_properties.push('invalid value for "secondary_preferred_teaching_subject_id", secondary_preferred_teaching_subject_id cannot be nil.')
+      end
+
+      if @country_id.nil?
+        invalid_properties.push('invalid value for "country_id", country_id cannot be nil.')
       end
 
       if @accepted_policy_id.nil?
@@ -199,13 +255,51 @@ module GetIntoTeachingApiClient
         invalid_properties.push('invalid value for "last_name", the character length must be great than or equal to 1.')
       end
 
+      if @date_of_birth.nil?
+        invalid_properties.push('invalid value for "date_of_birth", date_of_birth cannot be nil.')
+      end
+
+      if @address_line1.nil?
+        invalid_properties.push('invalid value for "address_line1", address_line1 cannot be nil.')
+      end
+
+      if @address_city.nil?
+        invalid_properties.push('invalid value for "address_city", address_city cannot be nil.')
+      end
+
+      if @address_state_or_province.nil?
+        invalid_properties.push('invalid value for "address_state_or_province", address_state_or_province cannot be nil.')
+      end
+
+      if @address_postcode.nil?
+        invalid_properties.push('invalid value for "address_postcode", address_postcode cannot be nil.')
+      end
+
+      if @address_telephone.nil?
+        invalid_properties.push('invalid value for "address_telephone", address_telephone cannot be nil.')
+      end
+
+      if @telephone.nil?
+        invalid_properties.push('invalid value for "telephone", telephone cannot be nil.')
+      end
+
+      if @secondary_telephone.nil?
+        invalid_properties.push('invalid value for "secondary_telephone", secondary_telephone cannot be nil.')
+      end
+
+      if @has_dbs_certificate.nil?
+        invalid_properties.push('invalid value for "has_dbs_certificate", has_dbs_certificate cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @event_id.nil?
+      return false if @preferred_teaching_subject_id.nil?
+      return false if @secondary_preferred_teaching_subject_id.nil?
+      return false if @country_id.nil?
       return false if @accepted_policy_id.nil?
       return false if @email.nil?
       return false if @email.to_s.length < 1
@@ -213,6 +307,15 @@ module GetIntoTeachingApiClient
       return false if @first_name.to_s.length < 1
       return false if @last_name.nil?
       return false if @last_name.to_s.length < 1
+      return false if @date_of_birth.nil?
+      return false if @address_line1.nil?
+      return false if @address_city.nil?
+      return false if @address_state_or_province.nil?
+      return false if @address_postcode.nil?
+      return false if @address_telephone.nil?
+      return false if @telephone.nil?
+      return false if @secondary_telephone.nil?
+      return false if @has_dbs_certificate.nil?
       true
     end
 
@@ -264,21 +367,27 @@ module GetIntoTeachingApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           candidate_id == o.candidate_id &&
-          qualification_id == o.qualification_id &&
-          event_id == o.event_id &&
-          accepted_policy_id == o.accepted_policy_id &&
           preferred_teaching_subject_id == o.preferred_teaching_subject_id &&
-          consideration_journey_stage_id == o.consideration_journey_stage_id &&
-          degree_status_id == o.degree_status_id &&
+          secondary_preferred_teaching_subject_id == o.secondary_preferred_teaching_subject_id &&
+          country_id == o.country_id &&
+          accepted_policy_id == o.accepted_policy_id &&
           email == o.email &&
+          secondary_email == o.secondary_email &&
           first_name == o.first_name &&
           last_name == o.last_name &&
+          date_of_birth == o.date_of_birth &&
+          address_line1 == o.address_line1 &&
+          address_line2 == o.address_line2 &&
+          address_line3 == o.address_line3 &&
+          address_city == o.address_city &&
+          address_state_or_province == o.address_state_or_province &&
           address_postcode == o.address_postcode &&
           address_telephone == o.address_telephone &&
-          subscribe_to_mailing_list == o.subscribe_to_mailing_list &&
-          already_subscribed_to_events == o.already_subscribed_to_events &&
-          already_subscribed_to_mailing_list == o.already_subscribed_to_mailing_list &&
-          already_subscribed_to_teacher_training_adviser == o.already_subscribed_to_teacher_training_adviser
+          telephone == o.telephone &&
+          secondary_telephone == o.secondary_telephone &&
+          mobile_telephone == o.mobile_telephone &&
+          has_dbs_certificate == o.has_dbs_certificate &&
+          dbs_certificate_issued_at == o.dbs_certificate_issued_at
     end
 
     # @see the `==` method
@@ -290,7 +399,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [candidate_id, qualification_id, event_id, accepted_policy_id, preferred_teaching_subject_id, consideration_journey_stage_id, degree_status_id, email, first_name, last_name, address_postcode, address_telephone, subscribe_to_mailing_list, already_subscribed_to_events, already_subscribed_to_mailing_list, already_subscribed_to_teacher_training_adviser].hash
+      [candidate_id, preferred_teaching_subject_id, secondary_preferred_teaching_subject_id, country_id, accepted_policy_id, email, secondary_email, first_name, last_name, date_of_birth, address_line1, address_line2, address_line3, address_city, address_state_or_province, address_postcode, address_telephone, telephone, secondary_telephone, mobile_telephone, has_dbs_certificate, dbs_certificate_issued_at].hash
     end
 
     # Builds the object from hash
