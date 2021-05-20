@@ -58,12 +58,23 @@ describe 'SchoolsExperienceApi' do
     end
   end
 
+  # unit tests for get_schools_experience_sign_up
+  # Retrieves an existing SchoolsExperienceSignUp for the candidate.
+  # @param id The &#x60;id&#x60; of the &#x60;Candidate&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @return [SchoolsExperienceSignUp]
+  describe 'get_schools_experience_sign_up test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for sign_up_schools_experience_candidate
   # Sign up a candidate for the Schools Experience service.
   # Validation errors may be present on the &#x60;SchoolsExperienceSignUp&#x60; object as well as the hidden &#x60;Candidate&#x60; model that is mapped to; property names are consistent, so you should check for inclusion of the field in the key when linking an error message back to a property on the request model. For example, an error on &#x60;DegreeSubject&#x60; can return under the keys &#x60;Candidate.Qualifications[0].DegreeSubject&#x60; and &#x60;DegreeSubject&#x60;.
   # @param body Candidate to sign up for the Schools Experience service.
   # @param [Hash] opts the optional parameters
-  # @return [nil]
+  # @return [SchoolsExperienceSignUp]
   describe 'sign_up_schools_experience_candidate test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

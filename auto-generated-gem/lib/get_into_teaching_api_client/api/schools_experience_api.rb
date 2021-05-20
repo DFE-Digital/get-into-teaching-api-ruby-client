@@ -138,21 +138,71 @@ module GetIntoTeachingApiClient
       end
       return data, status_code, headers
     end
+    # Retrieves an existing SchoolsExperienceSignUp for the candidate.
+    # @param id The &#x60;id&#x60; of the &#x60;Candidate&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [SchoolsExperienceSignUp]
+    def get_schools_experience_sign_up(id, opts = {})
+      data, _status_code, _headers = get_schools_experience_sign_up_with_http_info(id, opts)
+      data
+    end
+
+    # Retrieves an existing SchoolsExperienceSignUp for the candidate.
+    # @param id The &#x60;id&#x60; of the &#x60;Candidate&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(SchoolsExperienceSignUp, Fixnum, Hash)>] SchoolsExperienceSignUp data, response status code and response headers
+    def get_schools_experience_sign_up_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SchoolsExperienceApi.get_schools_experience_sign_up ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling SchoolsExperienceApi.get_schools_experience_sign_up"
+      end
+      # resource path
+      local_var_path = '/api/schools_experience/candidates/{id}'.sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apiKey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'SchoolsExperienceSignUp')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SchoolsExperienceApi#get_schools_experience_sign_up\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Sign up a candidate for the Schools Experience service.
     # Validation errors may be present on the `SchoolsExperienceSignUp` object as well as the hidden `Candidate` model that is mapped to; property names are consistent, so you should check for inclusion of the field in the key when linking an error message back to a property on the request model. For example, an error on `DegreeSubject` can return under the keys `Candidate.Qualifications[0].DegreeSubject` and `DegreeSubject`.
     # @param body Candidate to sign up for the Schools Experience service.
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [SchoolsExperienceSignUp]
     def sign_up_schools_experience_candidate(body, opts = {})
-      sign_up_schools_experience_candidate_with_http_info(body, opts)
-      nil
+      data, _status_code, _headers = sign_up_schools_experience_candidate_with_http_info(body, opts)
+      data
     end
 
     # Sign up a candidate for the Schools Experience service.
     # Validation errors may be present on the &#x60;SchoolsExperienceSignUp&#x60; object as well as the hidden &#x60;Candidate&#x60; model that is mapped to; property names are consistent, so you should check for inclusion of the field in the key when linking an error message back to a property on the request model. For example, an error on &#x60;DegreeSubject&#x60; can return under the keys &#x60;Candidate.Qualifications[0].DegreeSubject&#x60; and &#x60;DegreeSubject&#x60;.
     # @param body Candidate to sign up for the Schools Experience service.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    # @return [Array<(SchoolsExperienceSignUp, Fixnum, Hash)>] SchoolsExperienceSignUp data, response status code and response headers
     def sign_up_schools_experience_candidate_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SchoolsExperienceApi.sign_up_schools_experience_candidate ...'
@@ -185,7 +235,8 @@ module GetIntoTeachingApiClient
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
-        :auth_names => auth_names)
+        :auth_names => auth_names,
+        :return_type => 'SchoolsExperienceSignUp')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SchoolsExperienceApi#sign_up_schools_experience_candidate\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

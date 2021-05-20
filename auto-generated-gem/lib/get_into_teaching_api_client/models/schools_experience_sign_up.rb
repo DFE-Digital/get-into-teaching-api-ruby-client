@@ -20,8 +20,6 @@ module GetIntoTeachingApiClient
 
     attr_accessor :secondary_preferred_teaching_subject_id
 
-    attr_accessor :country_id
-
     attr_accessor :accepted_policy_id
 
     attr_accessor :email
@@ -64,7 +62,6 @@ module GetIntoTeachingApiClient
         :'candidate_id' => :'candidateId',
         :'preferred_teaching_subject_id' => :'preferredTeachingSubjectId',
         :'secondary_preferred_teaching_subject_id' => :'secondaryPreferredTeachingSubjectId',
-        :'country_id' => :'countryId',
         :'accepted_policy_id' => :'acceptedPolicyId',
         :'email' => :'email',
         :'secondary_email' => :'secondaryEmail',
@@ -92,7 +89,6 @@ module GetIntoTeachingApiClient
         :'candidate_id' => :'String',
         :'preferred_teaching_subject_id' => :'String',
         :'secondary_preferred_teaching_subject_id' => :'String',
-        :'country_id' => :'String',
         :'accepted_policy_id' => :'String',
         :'email' => :'String',
         :'secondary_email' => :'String',
@@ -132,10 +128,6 @@ module GetIntoTeachingApiClient
 
       if attributes.has_key?(:'secondaryPreferredTeachingSubjectId')
         self.secondary_preferred_teaching_subject_id = attributes[:'secondaryPreferredTeachingSubjectId']
-      end
-
-      if attributes.has_key?(:'countryId')
-        self.country_id = attributes[:'countryId']
       end
 
       if attributes.has_key?(:'acceptedPolicyId')
@@ -219,14 +211,6 @@ module GetIntoTeachingApiClient
         invalid_properties.push('invalid value for "preferred_teaching_subject_id", preferred_teaching_subject_id cannot be nil.')
       end
 
-      if @secondary_preferred_teaching_subject_id.nil?
-        invalid_properties.push('invalid value for "secondary_preferred_teaching_subject_id", secondary_preferred_teaching_subject_id cannot be nil.')
-      end
-
-      if @country_id.nil?
-        invalid_properties.push('invalid value for "country_id", country_id cannot be nil.')
-      end
-
       if @accepted_policy_id.nil?
         invalid_properties.push('invalid value for "accepted_policy_id", accepted_policy_id cannot be nil.')
       end
@@ -298,8 +282,6 @@ module GetIntoTeachingApiClient
     # @return true if the model is valid
     def valid?
       return false if @preferred_teaching_subject_id.nil?
-      return false if @secondary_preferred_teaching_subject_id.nil?
-      return false if @country_id.nil?
       return false if @accepted_policy_id.nil?
       return false if @email.nil?
       return false if @email.to_s.length < 1
@@ -369,7 +351,6 @@ module GetIntoTeachingApiClient
           candidate_id == o.candidate_id &&
           preferred_teaching_subject_id == o.preferred_teaching_subject_id &&
           secondary_preferred_teaching_subject_id == o.secondary_preferred_teaching_subject_id &&
-          country_id == o.country_id &&
           accepted_policy_id == o.accepted_policy_id &&
           email == o.email &&
           secondary_email == o.secondary_email &&
@@ -399,7 +380,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [candidate_id, preferred_teaching_subject_id, secondary_preferred_teaching_subject_id, country_id, accepted_policy_id, email, secondary_email, first_name, last_name, date_of_birth, address_line1, address_line2, address_line3, address_city, address_state_or_province, address_postcode, address_telephone, telephone, secondary_telephone, mobile_telephone, has_dbs_certificate, dbs_certificate_issued_at].hash
+      [candidate_id, preferred_teaching_subject_id, secondary_preferred_teaching_subject_id, accepted_policy_id, email, secondary_email, first_name, last_name, date_of_birth, address_line1, address_line2, address_line3, address_city, address_state_or_province, address_postcode, address_telephone, telephone, secondary_telephone, mobile_telephone, has_dbs_certificate, dbs_certificate_issued_at].hash
     end
 
     # Builds the object from hash
