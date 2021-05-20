@@ -50,12 +50,6 @@ describe 'SchoolsExperienceSignUp' do
     end
   end
 
-  describe 'test attribute "country_id"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   describe 'test attribute "accepted_policy_id"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

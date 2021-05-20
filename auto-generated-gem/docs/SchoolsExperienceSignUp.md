@@ -5,8 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **candidate_id** | **String** |  | [optional] 
 **preferred_teaching_subject_id** | **String** |  | 
-**secondary_preferred_teaching_subject_id** | **String** |  | 
-**country_id** | **String** |  | 
+**secondary_preferred_teaching_subject_id** | **String** |  | [optional] 
 **accepted_policy_id** | **String** |  | 
 **email** | **String** |  | 
 **secondary_email** | **String** |  | [optional] 

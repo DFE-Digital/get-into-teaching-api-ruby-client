@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_classroom_experience_note**](SchoolsExperienceApi.md#add_classroom_experience_note) | **POST** /api/schools_experience/candidates/{id}/classroom_experience_notes | Add a classroom experience note to the candidate.
 [**exchange_access_token_for_schools_experience_sign_up**](SchoolsExperienceApi.md#exchange_access_token_for_schools_experience_sign_up) | **POST** /api/schools_experience/candidates/exchange_access_token/{accessToken} | Retrieves a pre-populated SchoolsExperienceSignUp for the candidate.
+[**get_schools_experience_sign_up**](SchoolsExperienceApi.md#get_schools_experience_sign_up) | **GET** /api/schools_experience/candidates/{id} | Retrieves an existing SchoolsExperienceSignUp for the candidate.
 [**sign_up_schools_experience_candidate**](SchoolsExperienceApi.md#sign_up_schools_experience_candidate) | **POST** /api/schools_experience/candidates | Sign up a candidate for the Schools Experience service.
 
 
@@ -122,8 +123,60 @@ Name | Type | Description  | Notes
 
 
 
+# **get_schools_experience_sign_up**
+> SchoolsExperienceSignUp get_schools_experience_sign_up(id)
+
+Retrieves an existing SchoolsExperienceSignUp for the candidate.
+
+### Example
+```ruby
+# load the gem
+require 'get_into_teaching_api_client'
+# setup authorization
+GetIntoTeachingApiClient.configure do |config|
+  # Configure API key authorization: apiKey
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = GetIntoTeachingApiClient::SchoolsExperienceApi.new
+
+id = 'id_example' # String | The `id` of the `Candidate`.
+
+
+begin
+  #Retrieves an existing SchoolsExperienceSignUp for the candidate.
+  result = api_instance.get_schools_experience_sign_up(id)
+  p result
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Exception when calling SchoolsExperienceApi->get_schools_experience_sign_up: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | [**String**](.md)| The &#x60;id&#x60; of the &#x60;Candidate&#x60;. | 
+
+### Return type
+
+[**SchoolsExperienceSignUp**](SchoolsExperienceSignUp.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+
 # **sign_up_schools_experience_candidate**
-> sign_up_schools_experience_candidate(body)
+> SchoolsExperienceSignUp sign_up_schools_experience_candidate(body)
 
 Sign up a candidate for the Schools Experience service.
 
@@ -148,7 +201,8 @@ body = GetIntoTeachingApiClient::SchoolsExperienceSignUp.new # SchoolsExperience
 
 begin
   #Sign up a candidate for the Schools Experience service.
-  api_instance.sign_up_schools_experience_candidate(body)
+  result = api_instance.sign_up_schools_experience_candidate(body)
+  p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling SchoolsExperienceApi->sign_up_schools_experience_candidate: #{e}"
 end
@@ -162,7 +216,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-nil (empty response body)
+[**SchoolsExperienceSignUp**](SchoolsExperienceSignUp.md)
 
 ### Authorization
 
