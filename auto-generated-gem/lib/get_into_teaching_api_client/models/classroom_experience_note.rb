@@ -91,10 +91,6 @@ module GetIntoTeachingApiClient
         invalid_properties.push('invalid value for "action", the character length must be great than or equal to 1.')
       end
 
-      if @action !~ Regexp.new(/\\A(REQUEST|ACCEPTED|ATTENDED|DID NOT ATTEND|CANCELLED BY (SCHOOL|CANDIDATE))\\z/)
-        invalid_properties.push('invalid value for "action", must conform to the pattern /\\A(REQUEST|ACCEPTED|ATTENDED|DID NOT ATTEND|CANCELLED BY (SCHOOL|CANDIDATE))\\z/.')
-      end
-
       if @date.nil?
         invalid_properties.push('invalid value for "date", date cannot be nil.')
       end
@@ -128,7 +124,6 @@ module GetIntoTeachingApiClient
       return false if @recorded_at.nil?
       return false if @action.nil?
       return false if @action.to_s.length < 1
-      return false if @action !~ Regexp.new(/\\A(REQUEST|ACCEPTED|ATTENDED|DID NOT ATTEND|CANCELLED BY (SCHOOL|CANDIDATE))\\z/)
       return false if @date.nil?
       return false if @school_urn.nil?
       return false if @school_urn.to_s.length > 6
@@ -147,10 +142,6 @@ module GetIntoTeachingApiClient
 
       if action.to_s.length < 1
         fail ArgumentError, 'invalid value for "action", the character length must be great than or equal to 1.'
-      end
-
-      if action !~ Regexp.new(/\\A(REQUEST|ACCEPTED|ATTENDED|DID NOT ATTEND|CANCELLED BY (SCHOOL|CANDIDATE))\\z/)
-        fail ArgumentError, 'invalid value for "action", must conform to the pattern /\\A(REQUEST|ACCEPTED|ATTENDED|DID NOT ATTEND|CANCELLED BY (SCHOOL|CANDIDATE))\\z/.'
       end
 
       @action = action
