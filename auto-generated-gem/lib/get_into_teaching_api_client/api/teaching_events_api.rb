@@ -255,22 +255,26 @@ module GetIntoTeachingApiClient
     end
     # Adds or updates a teaching event.
     # If the `id` is specified then the existing teaching event will be updated, otherwise a new teaching event will be created.
+    # @param body Teaching event to upsert.
     # @param [Hash] opts the optional parameters
-    # @option opts [TeachingEvent] :body 
     # @return [TeachingEvent]
-    def upsert_teaching_event(opts = {})
-      data, _status_code, _headers = upsert_teaching_event_with_http_info(opts)
+    def upsert_teaching_event(body, opts = {})
+      data, _status_code, _headers = upsert_teaching_event_with_http_info(body, opts)
       data
     end
 
     # Adds or updates a teaching event.
     # If the &#x60;id&#x60; is specified then the existing teaching event will be updated, otherwise a new teaching event will be created.
+    # @param body Teaching event to upsert.
     # @param [Hash] opts the optional parameters
-    # @option opts [TeachingEvent] :body 
     # @return [Array<(TeachingEvent, Fixnum, Hash)>] TeachingEvent data, response status code and response headers
-    def upsert_teaching_event_with_http_info(opts = {})
+    def upsert_teaching_event_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeachingEventsApi.upsert_teaching_event ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling TeachingEventsApi.upsert_teaching_event"
       end
       # resource path
       local_var_path = '/api/teaching_events'
@@ -289,7 +293,7 @@ module GetIntoTeachingApiClient
       form_params = {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(opts[:'body'])
+      post_body = @api_client.object_to_http_body(body)
       auth_names = ['apiKey']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,

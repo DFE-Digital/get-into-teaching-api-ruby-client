@@ -89,8 +89,8 @@ describe 'TeachingEventsApi' do
   # unit tests for upsert_teaching_event
   # Adds or updates a teaching event.
   # If the &#x60;id&#x60; is specified then the existing teaching event will be updated, otherwise a new teaching event will be created.
+  # @param body Teaching event to upsert.
   # @param [Hash] opts the optional parameters
-  # @option opts [TeachingEvent] :body 
   # @return [TeachingEvent]
   describe 'upsert_teaching_event test' do
     it 'should work' do
