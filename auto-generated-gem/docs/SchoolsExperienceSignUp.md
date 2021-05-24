@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **preferred_teaching_subject_id** | **String** |  | 
 **secondary_preferred_teaching_subject_id** | **String** |  | [optional] 
 **accepted_policy_id** | **String** |  | 
+**full_name** | **String** |  | [optional] 
 **email** | **String** |  | 
 **secondary_email** | **String** |  | [optional] 
 **first_name** | **String** |  | 

@@ -188,6 +188,57 @@ module GetIntoTeachingApiClient
       end
       return data, status_code, headers
     end
+    # Retrieves existing SchoolsExperienceSignUps for the candidate `ids`.
+    # @param ids A collection of &#x60;Candidate&#x60; &#x60;id&#x60;s.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<SchoolsExperienceSignUp>]
+    def get_schools_experience_sign_ups(ids, opts = {})
+      data, _status_code, _headers = get_schools_experience_sign_ups_with_http_info(ids, opts)
+      data
+    end
+
+    # Retrieves existing SchoolsExperienceSignUps for the candidate &#x60;ids&#x60;.
+    # @param ids A collection of &#x60;Candidate&#x60; &#x60;id&#x60;s.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Array<SchoolsExperienceSignUp>, Fixnum, Hash)>] Array<SchoolsExperienceSignUp> data, response status code and response headers
+    def get_schools_experience_sign_ups_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SchoolsExperienceApi.get_schools_experience_sign_ups ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling SchoolsExperienceApi.get_schools_experience_sign_ups"
+      end
+      # resource path
+      local_var_path = '/api/schools_experience/candidates'
+
+      # query parameters
+      query_params = {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :csv)
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apiKey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<SchoolsExperienceSignUp>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SchoolsExperienceApi#get_schools_experience_sign_ups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Sign up a candidate for the Schools Experience service.
     # Validation errors may be present on the `SchoolsExperienceSignUp` object as well as the hidden `Candidate` model that is mapped to; property names are consistent, so you should check for inclusion of the field in the key when linking an error message back to a property on the request model. For example, an error on `DegreeSubject` can return under the keys `Candidate.Qualifications[0].DegreeSubject` and `DegreeSubject`.
     # @param body Candidate to sign up for the Schools Experience service.
