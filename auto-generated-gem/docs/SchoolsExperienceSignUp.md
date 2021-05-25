@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **secondary_preferred_teaching_subject_id** | **String** |  | [optional] 
 **accepted_policy_id** | **String** |  | 
 **master_id** | **String** |  | [optional] 
+**merged** | **BOOLEAN** |  | [optional] 
 **full_name** | **String** |  | [optional] 
 **email** | **String** |  | 
 **secondary_email** | **String** |  | [optional] 
