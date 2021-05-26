@@ -41,7 +41,7 @@ module GetIntoTeachingApiClient
         :'recorded_at' => :'Date',
         :'action' => :'String',
         :'date' => :'Date',
-        :'school_urn' => :'String',
+        :'school_urn' => :'Integer',
         :'school_name' => :'String'
       }
     end
@@ -95,18 +95,6 @@ module GetIntoTeachingApiClient
         invalid_properties.push('invalid value for "date", date cannot be nil.')
       end
 
-      if @school_urn.nil?
-        invalid_properties.push('invalid value for "school_urn", school_urn cannot be nil.')
-      end
-
-      if @school_urn.to_s.length > 6
-        invalid_properties.push('invalid value for "school_urn", the character length must be smaller than or equal to 6.')
-      end
-
-      if @school_urn.to_s.length < 1
-        invalid_properties.push('invalid value for "school_urn", the character length must be great than or equal to 1.')
-      end
-
       if @school_name.nil?
         invalid_properties.push('invalid value for "school_name", school_name cannot be nil.')
       end
@@ -125,9 +113,6 @@ module GetIntoTeachingApiClient
       return false if @action.nil?
       return false if @action.to_s.length < 1
       return false if @date.nil?
-      return false if @school_urn.nil?
-      return false if @school_urn.to_s.length > 6
-      return false if @school_urn.to_s.length < 1
       return false if @school_name.nil?
       return false if @school_name.to_s.length < 1
       true
@@ -145,24 +130,6 @@ module GetIntoTeachingApiClient
       end
 
       @action = action
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] school_urn Value to be assigned
-    def school_urn=(school_urn)
-      if school_urn.nil?
-        fail ArgumentError, 'school_urn cannot be nil'
-      end
-
-      if school_urn.to_s.length > 6
-        fail ArgumentError, 'invalid value for "school_urn", the character length must be smaller than or equal to 6.'
-      end
-
-      if school_urn.to_s.length < 1
-        fail ArgumentError, 'invalid value for "school_urn", the character length must be great than or equal to 1.'
-      end
-
-      @school_urn = school_urn
     end
 
     # Custom attribute writer method with validation
