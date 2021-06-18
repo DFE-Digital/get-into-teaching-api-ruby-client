@@ -13,36 +13,44 @@ Swagger Codegen version: 2.4.19
 require 'date'
 
 module GetIntoTeachingApiClient
-  class ClassroomExperienceNote
-    attr_accessor :recorded_at
+  class GetIntoTeachingCallback
+    attr_accessor :candidate_id
 
-    attr_accessor :action
+    attr_accessor :accepted_policy_id
 
-    attr_accessor :date
+    attr_accessor :email
 
-    attr_accessor :school_urn
+    attr_accessor :first_name
 
-    attr_accessor :school_name
+    attr_accessor :last_name
+
+    attr_accessor :address_telephone
+
+    attr_accessor :phone_call_scheduled_at
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'recorded_at' => :'recordedAt',
-        :'action' => :'action',
-        :'date' => :'date',
-        :'school_urn' => :'schoolUrn',
-        :'school_name' => :'schoolName'
+        :'candidate_id' => :'candidateId',
+        :'accepted_policy_id' => :'acceptedPolicyId',
+        :'email' => :'email',
+        :'first_name' => :'firstName',
+        :'last_name' => :'lastName',
+        :'address_telephone' => :'addressTelephone',
+        :'phone_call_scheduled_at' => :'phoneCallScheduledAt'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'recorded_at' => :'Date',
-        :'action' => :'String',
-        :'date' => :'Date',
-        :'school_urn' => :'Integer',
-        :'school_name' => :'String'
+        :'candidate_id' => :'String',
+        :'accepted_policy_id' => :'String',
+        :'email' => :'String',
+        :'first_name' => :'String',
+        :'last_name' => :'String',
+        :'address_telephone' => :'String',
+        :'phone_call_scheduled_at' => :'DateTime'
       }
     end
 
@@ -54,24 +62,32 @@ module GetIntoTeachingApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'recordedAt')
-        self.recorded_at = attributes[:'recordedAt']
+      if attributes.has_key?(:'candidateId')
+        self.candidate_id = attributes[:'candidateId']
       end
 
-      if attributes.has_key?(:'action')
-        self.action = attributes[:'action']
+      if attributes.has_key?(:'acceptedPolicyId')
+        self.accepted_policy_id = attributes[:'acceptedPolicyId']
       end
 
-      if attributes.has_key?(:'date')
-        self.date = attributes[:'date']
+      if attributes.has_key?(:'email')
+        self.email = attributes[:'email']
       end
 
-      if attributes.has_key?(:'schoolUrn')
-        self.school_urn = attributes[:'schoolUrn']
+      if attributes.has_key?(:'firstName')
+        self.first_name = attributes[:'firstName']
       end
 
-      if attributes.has_key?(:'schoolName')
-        self.school_name = attributes[:'schoolName']
+      if attributes.has_key?(:'lastName')
+        self.last_name = attributes[:'lastName']
+      end
+
+      if attributes.has_key?(:'addressTelephone')
+        self.address_telephone = attributes[:'addressTelephone']
+      end
+
+      if attributes.has_key?(:'phoneCallScheduledAt')
+        self.phone_call_scheduled_at = attributes[:'phoneCallScheduledAt']
       end
     end
 
@@ -79,28 +95,40 @@ module GetIntoTeachingApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @recorded_at.nil?
-        invalid_properties.push('invalid value for "recorded_at", recorded_at cannot be nil.')
+      if @accepted_policy_id.nil?
+        invalid_properties.push('invalid value for "accepted_policy_id", accepted_policy_id cannot be nil.')
       end
 
-      if @action.nil?
-        invalid_properties.push('invalid value for "action", action cannot be nil.')
+      if @email.nil?
+        invalid_properties.push('invalid value for "email", email cannot be nil.')
       end
 
-      if @action.to_s.length < 1
-        invalid_properties.push('invalid value for "action", the character length must be great than or equal to 1.')
+      if @email.to_s.length < 1
+        invalid_properties.push('invalid value for "email", the character length must be great than or equal to 1.')
       end
 
-      if @school_urn.nil?
-        invalid_properties.push('invalid value for "school_urn", school_urn cannot be nil.')
+      if @first_name.nil?
+        invalid_properties.push('invalid value for "first_name", first_name cannot be nil.')
       end
 
-      if @school_name.nil?
-        invalid_properties.push('invalid value for "school_name", school_name cannot be nil.')
+      if @first_name.to_s.length < 1
+        invalid_properties.push('invalid value for "first_name", the character length must be great than or equal to 1.')
       end
 
-      if @school_name.to_s.length < 1
-        invalid_properties.push('invalid value for "school_name", the character length must be great than or equal to 1.')
+      if @last_name.nil?
+        invalid_properties.push('invalid value for "last_name", last_name cannot be nil.')
+      end
+
+      if @last_name.to_s.length < 1
+        invalid_properties.push('invalid value for "last_name", the character length must be great than or equal to 1.')
+      end
+
+      if @address_telephone.nil?
+        invalid_properties.push('invalid value for "address_telephone", address_telephone cannot be nil.')
+      end
+
+      if @phone_call_scheduled_at.nil?
+        invalid_properties.push('invalid value for "phone_call_scheduled_at", phone_call_scheduled_at cannot be nil.')
       end
 
       invalid_properties
@@ -109,41 +137,58 @@ module GetIntoTeachingApiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @recorded_at.nil?
-      return false if @action.nil?
-      return false if @action.to_s.length < 1
-      return false if @school_urn.nil?
-      return false if @school_name.nil?
-      return false if @school_name.to_s.length < 1
+      return false if @accepted_policy_id.nil?
+      return false if @email.nil?
+      return false if @email.to_s.length < 1
+      return false if @first_name.nil?
+      return false if @first_name.to_s.length < 1
+      return false if @last_name.nil?
+      return false if @last_name.to_s.length < 1
+      return false if @address_telephone.nil?
+      return false if @phone_call_scheduled_at.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] action Value to be assigned
-    def action=(action)
-      if action.nil?
-        fail ArgumentError, 'action cannot be nil'
+    # @param [Object] email Value to be assigned
+    def email=(email)
+      if email.nil?
+        fail ArgumentError, 'email cannot be nil'
       end
 
-      if action.to_s.length < 1
-        fail ArgumentError, 'invalid value for "action", the character length must be great than or equal to 1.'
+      if email.to_s.length < 1
+        fail ArgumentError, 'invalid value for "email", the character length must be great than or equal to 1.'
       end
 
-      @action = action
+      @email = email
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] school_name Value to be assigned
-    def school_name=(school_name)
-      if school_name.nil?
-        fail ArgumentError, 'school_name cannot be nil'
+    # @param [Object] first_name Value to be assigned
+    def first_name=(first_name)
+      if first_name.nil?
+        fail ArgumentError, 'first_name cannot be nil'
       end
 
-      if school_name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "school_name", the character length must be great than or equal to 1.'
+      if first_name.to_s.length < 1
+        fail ArgumentError, 'invalid value for "first_name", the character length must be great than or equal to 1.'
       end
 
-      @school_name = school_name
+      @first_name = first_name
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] last_name Value to be assigned
+    def last_name=(last_name)
+      if last_name.nil?
+        fail ArgumentError, 'last_name cannot be nil'
+      end
+
+      if last_name.to_s.length < 1
+        fail ArgumentError, 'invalid value for "last_name", the character length must be great than or equal to 1.'
+      end
+
+      @last_name = last_name
     end
 
     # Checks equality by comparing each attribute.
@@ -151,11 +196,13 @@ module GetIntoTeachingApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          recorded_at == o.recorded_at &&
-          action == o.action &&
-          date == o.date &&
-          school_urn == o.school_urn &&
-          school_name == o.school_name
+          candidate_id == o.candidate_id &&
+          accepted_policy_id == o.accepted_policy_id &&
+          email == o.email &&
+          first_name == o.first_name &&
+          last_name == o.last_name &&
+          address_telephone == o.address_telephone &&
+          phone_call_scheduled_at == o.phone_call_scheduled_at
     end
 
     # @see the `==` method
@@ -167,7 +214,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [recorded_at, action, date, school_urn, school_name].hash
+      [candidate_id, accepted_policy_id, email, first_name, last_name, address_telephone, phone_call_scheduled_at].hash
     end
 
     # Builds the object from hash

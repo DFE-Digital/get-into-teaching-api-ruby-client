@@ -82,6 +82,8 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *GetIntoTeachingApiClient::CallbackBookingQuotasApi* | [**get_callback_booking_quotas**](docs/CallbackBookingQuotasApi.md#get_callback_booking_quotas) | **GET** /api/callback_booking_quotas | Retrieves all callback booking quotas.
 *GetIntoTeachingApiClient::CandidatesApi* | [**create_candidate_access_token**](docs/CandidatesApi.md#create_candidate_access_token) | **POST** /api/candidates/access_tokens | Creates a candidate access token.
+*GetIntoTeachingApiClient::GetIntoTeachingApi* | [**book_get_into_teaching_callback**](docs/GetIntoTeachingApi.md#book_get_into_teaching_callback) | **POST** /api/get_into_teaching/callbacks | Schedule a callback for the candidate.
+*GetIntoTeachingApiClient::GetIntoTeachingApi* | [**exchange_access_token_for_get_into_teaching_callback**](docs/GetIntoTeachingApi.md#exchange_access_token_for_get_into_teaching_callback) | **POST** /api/get_into_teaching/callbacks/exchange_access_token/{accessToken} | Retrieves a pre-populated GetIntoTeachingCallback for the candidate.
 *GetIntoTeachingApiClient::LookupItemsApi* | [**get_countries**](docs/LookupItemsApi.md#get_countries) | **GET** /api/lookup_items/countries | Retrieves the list of countries.
 *GetIntoTeachingApiClient::LookupItemsApi* | [**get_teaching_subjects**](docs/LookupItemsApi.md#get_teaching_subjects) | **GET** /api/lookup_items/teaching_subjects | Retrieves the list of teaching subjects.
 *GetIntoTeachingApiClient::MailingListApi* | [**add_mailing_list_member**](docs/MailingListApi.md#add_mailing_list_member) | **POST** /api/mailing_list/members | Adds a new member to the mailing list.
@@ -136,6 +138,7 @@ Class | Method | HTTP request | Description
  - [GetIntoTeachingApiClient::ClassroomExperienceNote](docs/ClassroomExperienceNote.md)
  - [GetIntoTeachingApiClient::ExchangeStatus](docs/ExchangeStatus.md)
  - [GetIntoTeachingApiClient::ExistingCandidateRequest](docs/ExistingCandidateRequest.md)
+ - [GetIntoTeachingApiClient::GetIntoTeachingCallback](docs/GetIntoTeachingCallback.md)
  - [GetIntoTeachingApiClient::HealthCheckResponse](docs/HealthCheckResponse.md)
  - [GetIntoTeachingApiClient::LookupItem](docs/LookupItem.md)
  - [GetIntoTeachingApiClient::MailingListAddMember](docs/MailingListAddMember.md)

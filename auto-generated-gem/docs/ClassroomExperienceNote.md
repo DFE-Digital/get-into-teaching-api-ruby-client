@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **recorded_at** | **Date** |  | 
 **action** | **String** |  | 
-**date** | **Date** |  | 
-**school_urn** | **Integer** |  | [optional] 
+**date** | **Date** |  | [optional] 
+**school_urn** | **Integer** |  | 
 **school_name** | **String** |  | 
 
 
