@@ -13,24 +13,56 @@ Swagger Codegen version: 2.4.19
 require 'date'
 
 module GetIntoTeachingApiClient
-  class PickListItem
+  class PhoneCall
     attr_accessor :id
 
-    attr_accessor :value
+    attr_accessor :candidate_id
+
+    attr_accessor :channel_id
+
+    attr_accessor :destination_id
+
+    attr_accessor :scheduled_at
+
+    attr_accessor :telephone
+
+    attr_accessor :subject
+
+    attr_accessor :is_appointment
+
+    attr_accessor :appointment_required
+
+    attr_accessor :is_direction_code
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
-        :'value' => :'value'
+        :'candidate_id' => :'candidateId',
+        :'channel_id' => :'channelId',
+        :'destination_id' => :'destinationId',
+        :'scheduled_at' => :'scheduledAt',
+        :'telephone' => :'telephone',
+        :'subject' => :'subject',
+        :'is_appointment' => :'isAppointment',
+        :'appointment_required' => :'appointmentRequired',
+        :'is_direction_code' => :'isDirectionCode'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'Integer',
-        :'value' => :'String'
+        :'id' => :'String',
+        :'candidate_id' => :'String',
+        :'channel_id' => :'Integer',
+        :'destination_id' => :'Integer',
+        :'scheduled_at' => :'DateTime',
+        :'telephone' => :'String',
+        :'subject' => :'String',
+        :'is_appointment' => :'BOOLEAN',
+        :'appointment_required' => :'BOOLEAN',
+        :'is_direction_code' => :'BOOLEAN'
       }
     end
 
@@ -46,8 +78,40 @@ module GetIntoTeachingApiClient
         self.id = attributes[:'id']
       end
 
-      if attributes.has_key?(:'value')
-        self.value = attributes[:'value']
+      if attributes.has_key?(:'candidateId')
+        self.candidate_id = attributes[:'candidateId']
+      end
+
+      if attributes.has_key?(:'channelId')
+        self.channel_id = attributes[:'channelId']
+      end
+
+      if attributes.has_key?(:'destinationId')
+        self.destination_id = attributes[:'destinationId']
+      end
+
+      if attributes.has_key?(:'scheduledAt')
+        self.scheduled_at = attributes[:'scheduledAt']
+      end
+
+      if attributes.has_key?(:'telephone')
+        self.telephone = attributes[:'telephone']
+      end
+
+      if attributes.has_key?(:'subject')
+        self.subject = attributes[:'subject']
+      end
+
+      if attributes.has_key?(:'isAppointment')
+        self.is_appointment = attributes[:'isAppointment']
+      end
+
+      if attributes.has_key?(:'appointmentRequired')
+        self.appointment_required = attributes[:'appointmentRequired']
+      end
+
+      if attributes.has_key?(:'isDirectionCode')
+        self.is_direction_code = attributes[:'isDirectionCode']
       end
     end
 
@@ -70,7 +134,15 @@ module GetIntoTeachingApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
-          value == o.value
+          candidate_id == o.candidate_id &&
+          channel_id == o.channel_id &&
+          destination_id == o.destination_id &&
+          scheduled_at == o.scheduled_at &&
+          telephone == o.telephone &&
+          subject == o.subject &&
+          is_appointment == o.is_appointment &&
+          appointment_required == o.appointment_required &&
+          is_direction_code == o.is_direction_code
     end
 
     # @see the `==` method
@@ -82,7 +154,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, value].hash
+      [id, candidate_id, channel_id, destination_id, scheduled_at, telephone, subject, is_appointment, appointment_required, is_direction_code].hash
     end
 
     # Builds the object from hash

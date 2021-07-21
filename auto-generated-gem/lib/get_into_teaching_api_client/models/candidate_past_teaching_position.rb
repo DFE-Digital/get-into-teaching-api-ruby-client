@@ -13,24 +13,36 @@ Swagger Codegen version: 2.4.19
 require 'date'
 
 module GetIntoTeachingApiClient
-  class PickListItem
+  class CandidatePastTeachingPosition
     attr_accessor :id
 
-    attr_accessor :value
+    attr_accessor :candidate_id
+
+    attr_accessor :subject_taught_id
+
+    attr_accessor :education_phase_id
+
+    attr_accessor :created_at
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
-        :'value' => :'value'
+        :'candidate_id' => :'candidateId',
+        :'subject_taught_id' => :'subjectTaughtId',
+        :'education_phase_id' => :'educationPhaseId',
+        :'created_at' => :'createdAt'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'Integer',
-        :'value' => :'String'
+        :'id' => :'String',
+        :'candidate_id' => :'String',
+        :'subject_taught_id' => :'String',
+        :'education_phase_id' => :'Integer',
+        :'created_at' => :'DateTime'
       }
     end
 
@@ -46,8 +58,20 @@ module GetIntoTeachingApiClient
         self.id = attributes[:'id']
       end
 
-      if attributes.has_key?(:'value')
-        self.value = attributes[:'value']
+      if attributes.has_key?(:'candidateId')
+        self.candidate_id = attributes[:'candidateId']
+      end
+
+      if attributes.has_key?(:'subjectTaughtId')
+        self.subject_taught_id = attributes[:'subjectTaughtId']
+      end
+
+      if attributes.has_key?(:'educationPhaseId')
+        self.education_phase_id = attributes[:'educationPhaseId']
+      end
+
+      if attributes.has_key?(:'createdAt')
+        self.created_at = attributes[:'createdAt']
       end
     end
 
@@ -70,7 +94,10 @@ module GetIntoTeachingApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
-          value == o.value
+          candidate_id == o.candidate_id &&
+          subject_taught_id == o.subject_taught_id &&
+          education_phase_id == o.education_phase_id &&
+          created_at == o.created_at
     end
 
     # @see the `==` method
@@ -82,7 +109,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, value].hash
+      [id, candidate_id, subject_taught_id, education_phase_id, created_at].hash
     end
 
     # Builds the object from hash

@@ -13,24 +13,44 @@ Swagger Codegen version: 2.4.19
 require 'date'
 
 module GetIntoTeachingApiClient
-  class PickListItem
+  class CandidateQualification
     attr_accessor :id
 
-    attr_accessor :value
+    attr_accessor :candidate_id
+
+    attr_accessor :type_id
+
+    attr_accessor :uk_degree_grade_id
+
+    attr_accessor :degree_status_id
+
+    attr_accessor :degree_subject
+
+    attr_accessor :created_at
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
-        :'value' => :'value'
+        :'candidate_id' => :'candidateId',
+        :'type_id' => :'typeId',
+        :'uk_degree_grade_id' => :'ukDegreeGradeId',
+        :'degree_status_id' => :'degreeStatusId',
+        :'degree_subject' => :'degreeSubject',
+        :'created_at' => :'createdAt'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'Integer',
-        :'value' => :'String'
+        :'id' => :'String',
+        :'candidate_id' => :'String',
+        :'type_id' => :'Integer',
+        :'uk_degree_grade_id' => :'Integer',
+        :'degree_status_id' => :'Integer',
+        :'degree_subject' => :'String',
+        :'created_at' => :'DateTime'
       }
     end
 
@@ -46,8 +66,28 @@ module GetIntoTeachingApiClient
         self.id = attributes[:'id']
       end
 
-      if attributes.has_key?(:'value')
-        self.value = attributes[:'value']
+      if attributes.has_key?(:'candidateId')
+        self.candidate_id = attributes[:'candidateId']
+      end
+
+      if attributes.has_key?(:'typeId')
+        self.type_id = attributes[:'typeId']
+      end
+
+      if attributes.has_key?(:'ukDegreeGradeId')
+        self.uk_degree_grade_id = attributes[:'ukDegreeGradeId']
+      end
+
+      if attributes.has_key?(:'degreeStatusId')
+        self.degree_status_id = attributes[:'degreeStatusId']
+      end
+
+      if attributes.has_key?(:'degreeSubject')
+        self.degree_subject = attributes[:'degreeSubject']
+      end
+
+      if attributes.has_key?(:'createdAt')
+        self.created_at = attributes[:'createdAt']
       end
     end
 
@@ -55,13 +95,28 @@ module GetIntoTeachingApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@degree_subject.nil? && @degree_subject.to_s.length > 600
+        invalid_properties.push('invalid value for "degree_subject", the character length must be smaller than or equal to 600.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@degree_subject.nil? && @degree_subject.to_s.length > 600
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] degree_subject Value to be assigned
+    def degree_subject=(degree_subject)
+      if !degree_subject.nil? && degree_subject.to_s.length > 600
+        fail ArgumentError, 'invalid value for "degree_subject", the character length must be smaller than or equal to 600.'
+      end
+
+      @degree_subject = degree_subject
     end
 
     # Checks equality by comparing each attribute.
@@ -70,7 +125,12 @@ module GetIntoTeachingApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
-          value == o.value
+          candidate_id == o.candidate_id &&
+          type_id == o.type_id &&
+          uk_degree_grade_id == o.uk_degree_grade_id &&
+          degree_status_id == o.degree_status_id &&
+          degree_subject == o.degree_subject &&
+          created_at == o.created_at
     end
 
     # @see the `==` method
@@ -82,7 +142,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, value].hash
+      [id, candidate_id, type_id, uk_degree_grade_id, degree_status_id, degree_subject, created_at].hash
     end
 
     # Builds the object from hash

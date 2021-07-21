@@ -13,24 +13,44 @@ Swagger Codegen version: 2.4.19
 require 'date'
 
 module GetIntoTeachingApiClient
-  class PickListItem
+  class CandidatePrivacyPolicy
     attr_accessor :id
 
-    attr_accessor :value
+    attr_accessor :candidate_id
+
+    attr_accessor :accepted_policy_id
+
+    attr_accessor :consent_received_by_id
+
+    attr_accessor :mean_of_consent_id
+
+    attr_accessor :description
+
+    attr_accessor :accepted_at
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
-        :'value' => :'value'
+        :'candidate_id' => :'candidateId',
+        :'accepted_policy_id' => :'acceptedPolicyId',
+        :'consent_received_by_id' => :'consentReceivedById',
+        :'mean_of_consent_id' => :'meanOfConsentId',
+        :'description' => :'description',
+        :'accepted_at' => :'acceptedAt'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'Integer',
-        :'value' => :'String'
+        :'id' => :'String',
+        :'candidate_id' => :'String',
+        :'accepted_policy_id' => :'String',
+        :'consent_received_by_id' => :'Integer',
+        :'mean_of_consent_id' => :'Integer',
+        :'description' => :'String',
+        :'accepted_at' => :'DateTime'
       }
     end
 
@@ -46,8 +66,28 @@ module GetIntoTeachingApiClient
         self.id = attributes[:'id']
       end
 
-      if attributes.has_key?(:'value')
-        self.value = attributes[:'value']
+      if attributes.has_key?(:'candidateId')
+        self.candidate_id = attributes[:'candidateId']
+      end
+
+      if attributes.has_key?(:'acceptedPolicyId')
+        self.accepted_policy_id = attributes[:'acceptedPolicyId']
+      end
+
+      if attributes.has_key?(:'consentReceivedById')
+        self.consent_received_by_id = attributes[:'consentReceivedById']
+      end
+
+      if attributes.has_key?(:'meanOfConsentId')
+        self.mean_of_consent_id = attributes[:'meanOfConsentId']
+      end
+
+      if attributes.has_key?(:'description')
+        self.description = attributes[:'description']
+      end
+
+      if attributes.has_key?(:'acceptedAt')
+        self.accepted_at = attributes[:'acceptedAt']
       end
     end
 
@@ -70,7 +110,12 @@ module GetIntoTeachingApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
-          value == o.value
+          candidate_id == o.candidate_id &&
+          accepted_policy_id == o.accepted_policy_id &&
+          consent_received_by_id == o.consent_received_by_id &&
+          mean_of_consent_id == o.mean_of_consent_id &&
+          description == o.description &&
+          accepted_at == o.accepted_at
     end
 
     # @see the `==` method
@@ -82,7 +127,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, value].hash
+      [id, candidate_id, accepted_policy_id, consent_received_by_id, mean_of_consent_id, description, accepted_at].hash
     end
 
     # Builds the object from hash

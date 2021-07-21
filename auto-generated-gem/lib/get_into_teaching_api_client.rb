@@ -1,7 +1,7 @@
 =begin
 #Get into Teaching API - V1
 
-#  Provides a RESTful API for integrating with the Get into Teaching CRM.    The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events).    The GIT API aims to provide:    * Simple, task-based RESTful APIs.  * Message queueing (while the GIT CRM is offline for updates).  * Validation to ensure consistency across services writing to the GIT CRM.                          
+# Provides a RESTful API for integrating with the Get into Teaching CRM. The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events). The GIT API aims to provide: * Simple, task-based RESTful APIs. * Message queueing (while the GIT CRM is offline for updates). * Validation to ensure consistency across services writing to the GIT CRM.                         
 
 OpenAPI spec version: v1
 
@@ -18,7 +18,11 @@ require 'get_into_teaching_api_client/configuration'
 
 # Models
 require 'get_into_teaching_api_client/models/callback_booking_quota'
+require 'get_into_teaching_api_client/models/candidate'
 require 'get_into_teaching_api_client/models/candidate_magic_link_exchange_result'
+require 'get_into_teaching_api_client/models/candidate_past_teaching_position'
+require 'get_into_teaching_api_client/models/candidate_privacy_policy'
+require 'get_into_teaching_api_client/models/candidate_qualification'
 require 'get_into_teaching_api_client/models/classroom_experience_note'
 require 'get_into_teaching_api_client/models/exchange_status'
 require 'get_into_teaching_api_client/models/existing_candidate_request'
@@ -27,6 +31,7 @@ require 'get_into_teaching_api_client/models/health_check_response'
 require 'get_into_teaching_api_client/models/lookup_item'
 require 'get_into_teaching_api_client/models/mailing_list_add_member'
 require 'get_into_teaching_api_client/models/mapping_info'
+require 'get_into_teaching_api_client/models/phone_call'
 require 'get_into_teaching_api_client/models/pick_list_item'
 require 'get_into_teaching_api_client/models/privacy_policy'
 require 'get_into_teaching_api_client/models/problem_details'
@@ -35,6 +40,7 @@ require 'get_into_teaching_api_client/models/teacher_training_adviser_sign_up'
 require 'get_into_teaching_api_client/models/teaching_event'
 require 'get_into_teaching_api_client/models/teaching_event_add_attendee'
 require 'get_into_teaching_api_client/models/teaching_event_building'
+require 'get_into_teaching_api_client/models/teaching_event_registration'
 require 'get_into_teaching_api_client/models/teaching_event_search_request'
 require 'get_into_teaching_api_client/models/teaching_events_by_type'
 

@@ -13,24 +13,40 @@ Swagger Codegen version: 2.4.19
 require 'date'
 
 module GetIntoTeachingApiClient
-  class PickListItem
+  class TeachingEventRegistration
     attr_accessor :id
 
-    attr_accessor :value
+    attr_accessor :candidate_id
+
+    attr_accessor :event_id
+
+    attr_accessor :channel_id
+
+    attr_accessor :is_cancelled
+
+    attr_accessor :registration_notification_seen
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
-        :'value' => :'value'
+        :'candidate_id' => :'candidateId',
+        :'event_id' => :'eventId',
+        :'channel_id' => :'channelId',
+        :'is_cancelled' => :'isCancelled',
+        :'registration_notification_seen' => :'registrationNotificationSeen'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'Integer',
-        :'value' => :'String'
+        :'id' => :'String',
+        :'candidate_id' => :'String',
+        :'event_id' => :'String',
+        :'channel_id' => :'Integer',
+        :'is_cancelled' => :'BOOLEAN',
+        :'registration_notification_seen' => :'BOOLEAN'
       }
     end
 
@@ -46,8 +62,24 @@ module GetIntoTeachingApiClient
         self.id = attributes[:'id']
       end
 
-      if attributes.has_key?(:'value')
-        self.value = attributes[:'value']
+      if attributes.has_key?(:'candidateId')
+        self.candidate_id = attributes[:'candidateId']
+      end
+
+      if attributes.has_key?(:'eventId')
+        self.event_id = attributes[:'eventId']
+      end
+
+      if attributes.has_key?(:'channelId')
+        self.channel_id = attributes[:'channelId']
+      end
+
+      if attributes.has_key?(:'isCancelled')
+        self.is_cancelled = attributes[:'isCancelled']
+      end
+
+      if attributes.has_key?(:'registrationNotificationSeen')
+        self.registration_notification_seen = attributes[:'registrationNotificationSeen']
       end
     end
 
@@ -70,7 +102,11 @@ module GetIntoTeachingApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
-          value == o.value
+          candidate_id == o.candidate_id &&
+          event_id == o.event_id &&
+          channel_id == o.channel_id &&
+          is_cancelled == o.is_cancelled &&
+          registration_notification_seen == o.registration_notification_seen
     end
 
     # @see the `==` method
@@ -82,7 +118,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, value].hash
+      [id, candidate_id, event_id, channel_id, is_cancelled, registration_notification_seen].hash
     end
 
     # Builds the object from hash
