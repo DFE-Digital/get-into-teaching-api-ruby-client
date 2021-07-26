@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **String** |  | [optional] 
 **type_id** | **Integer** |  | [optional] 
 **status_id** | **Integer** |  | [optional] 
 **readable_id** | **String** |  | 
@@ -24,6 +25,5 @@ Name | Type | Description | Notes
 **building** | [**TeachingEventBuilding**](TeachingEventBuilding.md) |  | [optional] 
 **is_virtual** | **BOOLEAN** |  | [optional] 
 **is_in_person** | **BOOLEAN** |  | [optional] 
-**id** | **String** |  | [optional] 
 
 

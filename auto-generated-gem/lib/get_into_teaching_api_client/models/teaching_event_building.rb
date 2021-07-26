@@ -1,7 +1,7 @@
 =begin
 #Get into Teaching API - V1
 
-#  Provides a RESTful API for integrating with the Get into Teaching CRM.    The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events).    The GIT API aims to provide:    * Simple, task-based RESTful APIs.  * Message queueing (while the GIT CRM is offline for updates).  * Validation to ensure consistency across services writing to the GIT CRM.                          
+# Provides a RESTful API for integrating with the Get into Teaching CRM. The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events). The GIT API aims to provide: * Simple, task-based RESTful APIs. * Message queueing (while the GIT CRM is offline for updates). * Validation to ensure consistency across services writing to the GIT CRM.                         
 
 OpenAPI spec version: v1
 
@@ -14,6 +14,8 @@ require 'date'
 
 module GetIntoTeachingApiClient
   class TeachingEventBuilding
+    attr_accessor :id
+
     attr_accessor :venue
 
     attr_accessor :address_line1
@@ -28,33 +30,31 @@ module GetIntoTeachingApiClient
 
     attr_accessor :image_url
 
-    attr_accessor :id
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'id' => :'id',
         :'venue' => :'venue',
         :'address_line1' => :'addressLine1',
         :'address_line2' => :'addressLine2',
         :'address_line3' => :'addressLine3',
         :'address_city' => :'addressCity',
         :'address_postcode' => :'addressPostcode',
-        :'image_url' => :'imageUrl',
-        :'id' => :'id'
+        :'image_url' => :'imageUrl'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'id' => :'String',
         :'venue' => :'String',
         :'address_line1' => :'String',
         :'address_line2' => :'String',
         :'address_line3' => :'String',
         :'address_city' => :'String',
         :'address_postcode' => :'String',
-        :'image_url' => :'String',
-        :'id' => :'String'
+        :'image_url' => :'String'
       }
     end
 
@@ -65,6 +65,10 @@ module GetIntoTeachingApiClient
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
+      end
 
       if attributes.has_key?(:'venue')
         self.venue = attributes[:'venue']
@@ -93,10 +97,6 @@ module GetIntoTeachingApiClient
       if attributes.has_key?(:'imageUrl')
         self.image_url = attributes[:'imageUrl']
       end
-
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -117,14 +117,14 @@ module GetIntoTeachingApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          id == o.id &&
           venue == o.venue &&
           address_line1 == o.address_line1 &&
           address_line2 == o.address_line2 &&
           address_line3 == o.address_line3 &&
           address_city == o.address_city &&
           address_postcode == o.address_postcode &&
-          image_url == o.image_url &&
-          id == o.id
+          image_url == o.image_url
     end
 
     # @see the `==` method
@@ -136,7 +136,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [venue, address_line1, address_line2, address_line3, address_city, address_postcode, image_url, id].hash
+      [id, venue, address_line1, address_line2, address_line3, address_city, address_postcode, image_url].hash
     end
 
     # Builds the object from hash

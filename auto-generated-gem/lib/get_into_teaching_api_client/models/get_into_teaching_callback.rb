@@ -1,7 +1,7 @@
 =begin
 #Get into Teaching API - V1
 
-#  Provides a RESTful API for integrating with the Get into Teaching CRM.    The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events).    The GIT API aims to provide:    * Simple, task-based RESTful APIs.  * Message queueing (while the GIT CRM is offline for updates).  * Validation to ensure consistency across services writing to the GIT CRM.                          
+# Provides a RESTful API for integrating with the Get into Teaching CRM. The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events). The GIT API aims to provide: * Simple, task-based RESTful APIs. * Message queueing (while the GIT CRM is offline for updates). * Validation to ensure consistency across services writing to the GIT CRM.                         
 
 OpenAPI spec version: v1
 
@@ -28,6 +28,8 @@ module GetIntoTeachingApiClient
 
     attr_accessor :phone_call_scheduled_at
 
+    attr_accessor :talking_points
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -37,7 +39,8 @@ module GetIntoTeachingApiClient
         :'first_name' => :'firstName',
         :'last_name' => :'lastName',
         :'address_telephone' => :'addressTelephone',
-        :'phone_call_scheduled_at' => :'phoneCallScheduledAt'
+        :'phone_call_scheduled_at' => :'phoneCallScheduledAt',
+        :'talking_points' => :'talkingPoints'
       }
     end
 
@@ -50,7 +53,8 @@ module GetIntoTeachingApiClient
         :'first_name' => :'String',
         :'last_name' => :'String',
         :'address_telephone' => :'String',
-        :'phone_call_scheduled_at' => :'DateTime'
+        :'phone_call_scheduled_at' => :'DateTime',
+        :'talking_points' => :'String'
       }
     end
 
@@ -88,6 +92,10 @@ module GetIntoTeachingApiClient
 
       if attributes.has_key?(:'phoneCallScheduledAt')
         self.phone_call_scheduled_at = attributes[:'phoneCallScheduledAt']
+      end
+
+      if attributes.has_key?(:'talkingPoints')
+        self.talking_points = attributes[:'talkingPoints']
       end
     end
 
@@ -131,6 +139,14 @@ module GetIntoTeachingApiClient
         invalid_properties.push('invalid value for "phone_call_scheduled_at", phone_call_scheduled_at cannot be nil.')
       end
 
+      if @talking_points.nil?
+        invalid_properties.push('invalid value for "talking_points", talking_points cannot be nil.')
+      end
+
+      if @talking_points.to_s.length < 1
+        invalid_properties.push('invalid value for "talking_points", the character length must be great than or equal to 1.')
+      end
+
       invalid_properties
     end
 
@@ -146,6 +162,8 @@ module GetIntoTeachingApiClient
       return false if @last_name.to_s.length < 1
       return false if @address_telephone.nil?
       return false if @phone_call_scheduled_at.nil?
+      return false if @talking_points.nil?
+      return false if @talking_points.to_s.length < 1
       true
     end
 
@@ -191,6 +209,20 @@ module GetIntoTeachingApiClient
       @last_name = last_name
     end
 
+    # Custom attribute writer method with validation
+    # @param [Object] talking_points Value to be assigned
+    def talking_points=(talking_points)
+      if talking_points.nil?
+        fail ArgumentError, 'talking_points cannot be nil'
+      end
+
+      if talking_points.to_s.length < 1
+        fail ArgumentError, 'invalid value for "talking_points", the character length must be great than or equal to 1.'
+      end
+
+      @talking_points = talking_points
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
@@ -202,7 +234,8 @@ module GetIntoTeachingApiClient
           first_name == o.first_name &&
           last_name == o.last_name &&
           address_telephone == o.address_telephone &&
-          phone_call_scheduled_at == o.phone_call_scheduled_at
+          phone_call_scheduled_at == o.phone_call_scheduled_at &&
+          talking_points == o.talking_points
     end
 
     # @see the `==` method
@@ -214,7 +247,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [candidate_id, accepted_policy_id, email, first_name, last_name, address_telephone, phone_call_scheduled_at].hash
+      [candidate_id, accepted_policy_id, email, first_name, last_name, address_telephone, phone_call_scheduled_at, talking_points].hash
     end
 
     # Builds the object from hash

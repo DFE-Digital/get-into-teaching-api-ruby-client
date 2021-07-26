@@ -1,7 +1,7 @@
 =begin
 #Get into Teaching API - V1
 
-#  Provides a RESTful API for integrating with the Get into Teaching CRM.    The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events).    The GIT API aims to provide:    * Simple, task-based RESTful APIs.  * Message queueing (while the GIT CRM is offline for updates).  * Validation to ensure consistency across services writing to the GIT CRM.                          
+# Provides a RESTful API for integrating with the Get into Teaching CRM. The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events). The GIT API aims to provide: * Simple, task-based RESTful APIs. * Message queueing (while the GIT CRM is offline for updates). * Validation to ensure consistency across services writing to the GIT CRM.                         
 
 OpenAPI spec version: v1
 
@@ -14,6 +14,8 @@ require 'date'
 
 module GetIntoTeachingApiClient
   class TeachingEvent
+    attr_accessor :id
+
     attr_accessor :type_id
 
     attr_accessor :status_id
@@ -58,11 +60,10 @@ module GetIntoTeachingApiClient
 
     attr_accessor :is_in_person
 
-    attr_accessor :id
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'id' => :'id',
         :'type_id' => :'typeId',
         :'status_id' => :'statusId',
         :'readable_id' => :'readableId',
@@ -83,14 +84,14 @@ module GetIntoTeachingApiClient
         :'providers_list' => :'providersList',
         :'building' => :'building',
         :'is_virtual' => :'isVirtual',
-        :'is_in_person' => :'isInPerson',
-        :'id' => :'id'
+        :'is_in_person' => :'isInPerson'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'id' => :'String',
         :'type_id' => :'Integer',
         :'status_id' => :'Integer',
         :'readable_id' => :'String',
@@ -111,8 +112,7 @@ module GetIntoTeachingApiClient
         :'providers_list' => :'String',
         :'building' => :'TeachingEventBuilding',
         :'is_virtual' => :'BOOLEAN',
-        :'is_in_person' => :'BOOLEAN',
-        :'id' => :'String'
+        :'is_in_person' => :'BOOLEAN'
       }
     end
 
@@ -123,6 +123,10 @@ module GetIntoTeachingApiClient
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
+      end
 
       if attributes.has_key?(:'typeId')
         self.type_id = attributes[:'typeId']
@@ -207,10 +211,6 @@ module GetIntoTeachingApiClient
       if attributes.has_key?(:'isInPerson')
         self.is_in_person = attributes[:'isInPerson']
       end
-
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -237,10 +237,6 @@ module GetIntoTeachingApiClient
         invalid_properties.push('invalid value for "provider_contact_email", the character length must be smaller than or equal to 100.')
       end
 
-      if !@provider_contact_email.nil? && @provider_contact_email.to_s.length < 0
-        invalid_properties.push('invalid value for "provider_contact_email", the character length must be great than or equal to 0.')
-      end
-
       invalid_properties
     end
 
@@ -252,7 +248,6 @@ module GetIntoTeachingApiClient
       return false if @name.nil?
       return false if @name.to_s.length < 1
       return false if !@provider_contact_email.nil? && @provider_contact_email.to_s.length > 100
-      return false if !@provider_contact_email.nil? && @provider_contact_email.to_s.length < 0
       true
     end
 
@@ -291,10 +286,6 @@ module GetIntoTeachingApiClient
         fail ArgumentError, 'invalid value for "provider_contact_email", the character length must be smaller than or equal to 100.'
       end
 
-      if !provider_contact_email.nil? && provider_contact_email.to_s.length < 0
-        fail ArgumentError, 'invalid value for "provider_contact_email", the character length must be great than or equal to 0.'
-      end
-
       @provider_contact_email = provider_contact_email
     end
 
@@ -303,6 +294,7 @@ module GetIntoTeachingApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          id == o.id &&
           type_id == o.type_id &&
           status_id == o.status_id &&
           readable_id == o.readable_id &&
@@ -323,8 +315,7 @@ module GetIntoTeachingApiClient
           providers_list == o.providers_list &&
           building == o.building &&
           is_virtual == o.is_virtual &&
-          is_in_person == o.is_in_person &&
-          id == o.id
+          is_in_person == o.is_in_person
     end
 
     # @see the `==` method
@@ -336,7 +327,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [type_id, status_id, readable_id, web_feed_id, is_online, name, summary, message, description, video_url, scribble_id, provider_website_url, provider_target_audience, provider_organiser, provider_contact_email, start_at, end_at, providers_list, building, is_virtual, is_in_person, id].hash
+      [id, type_id, status_id, readable_id, web_feed_id, is_online, name, summary, message, description, video_url, scribble_id, provider_website_url, provider_target_audience, provider_organiser, provider_contact_email, start_at, end_at, providers_list, building, is_virtual, is_in_person].hash
     end
 
     # Builds the object from hash

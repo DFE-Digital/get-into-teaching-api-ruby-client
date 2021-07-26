@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **last_name** | **String** |  | 
 **address_telephone** | **String** |  | 
 **phone_call_scheduled_at** | **DateTime** |  | 
+**talking_points** | **String** |  | 
 
 

@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 Adds an attendee to a teaching event.
 
-If the `CandidateId` is specified then the existing candidate will be registered for the event, otherwise a new candidate will be created.  Validation errors may be present on the `TeachingEventAddAttendee` object as well as the hidden `Candidate` model that is mapped to; property names are consistent, so you should check for inclusion of the field in the key when linking an error message back to a property on the request model. For example, an error on `AcceptedPolicyId` can return under the keys `Candidate.PrivacyPolicy.AcceptedPolicyId` and `AcceptedPolicyId`.
+                 If the `CandidateId` is specified then the existing candidate will be                  registered for the event, otherwise a new candidate will be created.
 
 ### Example
 ```ruby
@@ -69,7 +69,7 @@ nil (empty response body)
 
 Retrieves a pre-populated TeachingEventAddAttendee for the candidate.
 
-                  Retrieves a pre-populated TeachingEventAddAttendee for the candidate. The `accessToken` is obtained from a                   `POST /candidates/access_tokens` request (you must also ensure the `ExistingCandidateRequest` payload you                   exchanged for your token matches the request payload here).
+                 Retrieves a pre-populated TeachingEventAddAttendee for the candidate. The `accessToken` is obtained from a                  `POST /candidates/access_tokens` request (you must also ensure the `ExistingCandidateRequest` payload you                  exchanged for your token matches the request payload here).
 
 ### Example
 ```ruby

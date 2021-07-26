@@ -1,7 +1,7 @@
 =begin
 #Get into Teaching API - V1
 
-#  Provides a RESTful API for integrating with the Get into Teaching CRM.    The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events).    The GIT API aims to provide:    * Simple, task-based RESTful APIs.  * Message queueing (while the GIT CRM is offline for updates).  * Validation to ensure consistency across services writing to the GIT CRM.                          
+# Provides a RESTful API for integrating with the Get into Teaching CRM. The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events). The GIT API aims to provide: * Simple, task-based RESTful APIs. * Message queueing (while the GIT CRM is offline for updates). * Validation to ensure consistency across services writing to the GIT CRM.                         
 
 OpenAPI spec version: v1
 
@@ -14,27 +14,27 @@ require 'date'
 
 module GetIntoTeachingApiClient
   class PrivacyPolicy
+    attr_accessor :id
+
     attr_accessor :text
 
     attr_accessor :created_at
 
-    attr_accessor :id
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'id' => :'id',
         :'text' => :'text',
-        :'created_at' => :'createdAt',
-        :'id' => :'id'
+        :'created_at' => :'createdAt'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'id' => :'String',
         :'text' => :'String',
-        :'created_at' => :'DateTime',
-        :'id' => :'String'
+        :'created_at' => :'DateTime'
       }
     end
 
@@ -46,16 +46,16 @@ module GetIntoTeachingApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
+      end
+
       if attributes.has_key?(:'text')
         self.text = attributes[:'text']
       end
 
       if attributes.has_key?(:'createdAt')
         self.created_at = attributes[:'createdAt']
-      end
-
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
       end
     end
 
@@ -77,9 +77,9 @@ module GetIntoTeachingApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          id == o.id &&
           text == o.text &&
-          created_at == o.created_at &&
-          id == o.id
+          created_at == o.created_at
     end
 
     # @see the `==` method
@@ -91,7 +91,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [text, created_at, id].hash
+      [id, text, created_at].hash
     end
 
     # Builds the object from hash

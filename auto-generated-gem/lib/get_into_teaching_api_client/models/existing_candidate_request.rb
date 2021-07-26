@@ -1,7 +1,7 @@
 =begin
 #Get into Teaching API - V1
 
-#  Provides a RESTful API for integrating with the Get into Teaching CRM.    The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events).    The GIT API aims to provide:    * Simple, task-based RESTful APIs.  * Message queueing (while the GIT CRM is offline for updates).  * Validation to ensure consistency across services writing to the GIT CRM.                          
+# Provides a RESTful API for integrating with the Get into Teaching CRM. The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events). The GIT API aims to provide: * Simple, task-based RESTful APIs. * Message queueing (while the GIT CRM is offline for updates). * Validation to ensure consistency across services writing to the GIT CRM.                         
 
 OpenAPI spec version: v1
 
@@ -75,16 +75,8 @@ module GetIntoTeachingApiClient
         invalid_properties.push('invalid value for "first_name", the character length must be smaller than or equal to 256.')
       end
 
-      if !@first_name.nil? && @first_name.to_s.length < 0
-        invalid_properties.push('invalid value for "first_name", the character length must be great than or equal to 0.')
-      end
-
       if !@last_name.nil? && @last_name.to_s.length > 256
         invalid_properties.push('invalid value for "last_name", the character length must be smaller than or equal to 256.')
-      end
-
-      if !@last_name.nil? && @last_name.to_s.length < 0
-        invalid_properties.push('invalid value for "last_name", the character length must be great than or equal to 0.')
       end
 
       if @email.nil?
@@ -106,9 +98,7 @@ module GetIntoTeachingApiClient
     # @return true if the model is valid
     def valid?
       return false if !@first_name.nil? && @first_name.to_s.length > 256
-      return false if !@first_name.nil? && @first_name.to_s.length < 0
       return false if !@last_name.nil? && @last_name.to_s.length > 256
-      return false if !@last_name.nil? && @last_name.to_s.length < 0
       return false if @email.nil?
       return false if @email.to_s.length > 100
       return false if @email.to_s.length < 1
@@ -122,10 +112,6 @@ module GetIntoTeachingApiClient
         fail ArgumentError, 'invalid value for "first_name", the character length must be smaller than or equal to 256.'
       end
 
-      if !first_name.nil? && first_name.to_s.length < 0
-        fail ArgumentError, 'invalid value for "first_name", the character length must be great than or equal to 0.'
-      end
-
       @first_name = first_name
     end
 
@@ -134,10 +120,6 @@ module GetIntoTeachingApiClient
     def last_name=(last_name)
       if !last_name.nil? && last_name.to_s.length > 256
         fail ArgumentError, 'invalid value for "last_name", the character length must be smaller than or equal to 256.'
-      end
-
-      if !last_name.nil? && last_name.to_s.length < 0
-        fail ArgumentError, 'invalid value for "last_name", the character length must be great than or equal to 0.'
       end
 
       @last_name = last_name
