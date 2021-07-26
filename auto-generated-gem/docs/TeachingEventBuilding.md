@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **String** |  | [optional] 
 **venue** | **String** |  | [optional] 
 **address_line1** | **String** |  | [optional] 
 **address_line2** | **String** |  | [optional] 
@@ -10,6 +11,5 @@ Name | Type | Description | Notes
 **address_city** | **String** |  | [optional] 
 **address_postcode** | **String** |  | [optional] 
 **image_url** | **String** |  | [optional] 
-**id** | **String** |  | [optional] 
 
 

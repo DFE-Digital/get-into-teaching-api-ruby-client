@@ -1,7 +1,7 @@
 =begin
 #Get into Teaching API - V1
 
-#  Provides a RESTful API for integrating with the Get into Teaching CRM.    The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events).    The GIT API aims to provide:    * Simple, task-based RESTful APIs.  * Message queueing (while the GIT CRM is offline for updates).  * Validation to ensure consistency across services writing to the GIT CRM.                          
+# Provides a RESTful API for integrating with the Get into Teaching CRM. The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events). The GIT API aims to provide: * Simple, task-based RESTful APIs. * Message queueing (while the GIT CRM is offline for updates). * Validation to ensure consistency across services writing to the GIT CRM.                         
 
 OpenAPI spec version: v1
 
@@ -14,6 +14,8 @@ require 'date'
 
 module GetIntoTeachingApiClient
   class CallbackBookingQuota
+    attr_accessor :id
+
     attr_accessor :time_slot
 
     attr_accessor :day
@@ -28,33 +30,31 @@ module GetIntoTeachingApiClient
 
     attr_accessor :is_available
 
-    attr_accessor :id
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'id' => :'id',
         :'time_slot' => :'timeSlot',
         :'day' => :'day',
         :'start_at' => :'startAt',
         :'end_at' => :'endAt',
         :'number_of_bookings' => :'numberOfBookings',
         :'quota' => :'quota',
-        :'is_available' => :'isAvailable',
-        :'id' => :'id'
+        :'is_available' => :'isAvailable'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'id' => :'String',
         :'time_slot' => :'String',
         :'day' => :'String',
         :'start_at' => :'DateTime',
         :'end_at' => :'DateTime',
         :'number_of_bookings' => :'Integer',
         :'quota' => :'Integer',
-        :'is_available' => :'BOOLEAN',
-        :'id' => :'String'
+        :'is_available' => :'BOOLEAN'
       }
     end
 
@@ -65,6 +65,10 @@ module GetIntoTeachingApiClient
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
+      end
 
       if attributes.has_key?(:'timeSlot')
         self.time_slot = attributes[:'timeSlot']
@@ -93,10 +97,6 @@ module GetIntoTeachingApiClient
       if attributes.has_key?(:'isAvailable')
         self.is_available = attributes[:'isAvailable']
       end
-
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -117,14 +117,14 @@ module GetIntoTeachingApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          id == o.id &&
           time_slot == o.time_slot &&
           day == o.day &&
           start_at == o.start_at &&
           end_at == o.end_at &&
           number_of_bookings == o.number_of_bookings &&
           quota == o.quota &&
-          is_available == o.is_available &&
-          id == o.id
+          is_available == o.is_available
     end
 
     # @see the `==` method
@@ -136,7 +136,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [time_slot, day, start_at, end_at, number_of_bookings, quota, is_available, id].hash
+      [id, time_slot, day, start_at, end_at, number_of_bookings, quota, is_available].hash
     end
 
     # Builds the object from hash

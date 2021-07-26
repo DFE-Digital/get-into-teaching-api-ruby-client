@@ -1,7 +1,7 @@
 =begin
 #Get into Teaching API - V1
 
-#  Provides a RESTful API for integrating with the Get into Teaching CRM.    The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events).    The GIT API aims to provide:    * Simple, task-based RESTful APIs.  * Message queueing (while the GIT CRM is offline for updates).  * Validation to ensure consistency across services writing to the GIT CRM.                          
+# Provides a RESTful API for integrating with the Get into Teaching CRM. The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events). The GIT API aims to provide: * Simple, task-based RESTful APIs. * Message queueing (while the GIT CRM is offline for updates). * Validation to ensure consistency across services writing to the GIT CRM.                         
 
 OpenAPI spec version: v1
 
@@ -34,7 +34,7 @@ describe 'GetIntoTeachingApi' do
 
   # unit tests for book_get_into_teaching_callback
   # Schedule a callback for the candidate.
-  # Validation errors may be present on the &#x60;GetIntoTeachingCallback&#x60; object as well as the hidden &#x60;Candidate&#x60; model that is mapped to; property names are consistent, so you should check for inclusion of the field in the key when linking an error message back to a property on the request model. For example, an error on &#x60;AddressTelephone&#x60; can return under the keys &#x60;Candidate.AddressTelephone&#x60; and &#x60;AddressTelephone&#x60;.
+  # Queues a candidate upsert job.
   # @param body Candidate to book a callback for.
   # @param [Hash] opts the optional parameters
   # @return [nil]

@@ -1,7 +1,7 @@
 =begin
 #Get into Teaching API - V1
 
-#  Provides a RESTful API for integrating with the Get into Teaching CRM.    The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events).    The GIT API aims to provide:    * Simple, task-based RESTful APIs.  * Message queueing (while the GIT CRM is offline for updates).  * Validation to ensure consistency across services writing to the GIT CRM.                          
+# Provides a RESTful API for integrating with the Get into Teaching CRM. The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events). The GIT API aims to provide: * Simple, task-based RESTful APIs. * Message queueing (while the GIT CRM is offline for updates). * Validation to ensure consistency across services writing to the GIT CRM.                         
 
 OpenAPI spec version: v1
 
@@ -34,7 +34,7 @@ describe 'TeachingEventsApi' do
 
   # unit tests for add_teaching_event_attendee
   # Adds an attendee to a teaching event.
-  # If the &#x60;CandidateId&#x60; is specified then the existing candidate will be registered for the event, otherwise a new candidate will be created.  Validation errors may be present on the &#x60;TeachingEventAddAttendee&#x60; object as well as the hidden &#x60;Candidate&#x60; model that is mapped to; property names are consistent, so you should check for inclusion of the field in the key when linking an error message back to a property on the request model. For example, an error on &#x60;AcceptedPolicyId&#x60; can return under the keys &#x60;Candidate.PrivacyPolicy.AcceptedPolicyId&#x60; and &#x60;AcceptedPolicyId&#x60;.
+  #                  If the &#x60;CandidateId&#x60; is specified then the existing candidate will be                  registered for the event, otherwise a new candidate will be created.
   # @param body Attendee to add to the teaching event.
   # @param [Hash] opts the optional parameters
   # @return [nil]
@@ -46,7 +46,7 @@ describe 'TeachingEventsApi' do
 
   # unit tests for exchange_access_token_for_teaching_event_add_attendee
   # Retrieves a pre-populated TeachingEventAddAttendee for the candidate.
-  #                   Retrieves a pre-populated TeachingEventAddAttendee for the candidate. The &#x60;accessToken&#x60; is obtained from a                   &#x60;POST /candidates/access_tokens&#x60; request (you must also ensure the &#x60;ExistingCandidateRequest&#x60; payload you                   exchanged for your token matches the request payload here).
+  #                  Retrieves a pre-populated TeachingEventAddAttendee for the candidate. The &#x60;accessToken&#x60; is obtained from a                  &#x60;POST /candidates/access_tokens&#x60; request (you must also ensure the &#x60;ExistingCandidateRequest&#x60; payload you                  exchanged for your token matches the request payload here).
   # @param access_token Access token (PIN code).
   # @param body Candidate access token request (must match an existing candidate).
   # @param [Hash] opts the optional parameters

@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **String** |  | [optional] 
 **time_slot** | **String** |  | [optional] 
 **day** | **String** |  | [optional] 
 **start_at** | **DateTime** |  | [optional] 
@@ -10,6 +11,5 @@ Name | Type | Description | Notes
 **number_of_bookings** | **Integer** |  | [optional] 
 **quota** | **Integer** |  | [optional] 
 **is_available** | **BOOLEAN** |  | [optional] 
-**id** | **String** |  | [optional] 
 
 
