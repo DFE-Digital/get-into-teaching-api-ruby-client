@@ -212,4 +212,10 @@ describe 'TeacherTrainingAdviserSignUp' do
     end
   end
 
+  describe 'test attribute "can_subscribe_to_teacher_training_adviser"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
 end
