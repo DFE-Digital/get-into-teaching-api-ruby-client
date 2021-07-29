@@ -33,5 +33,6 @@ Name | Type | Description | Notes
 **address_postcode** | **String** |  | [optional] 
 **phone_call_scheduled_at** | **DateTime** |  | [optional] 
 **already_subscribed_to_teacher_training_adviser** | **BOOLEAN** |  | [optional] 
+**can_subscribe_to_teacher_training_adviser** | **BOOLEAN** |  | [optional] 
 
 

@@ -74,6 +74,8 @@ module GetIntoTeachingApiClient
 
     attr_accessor :already_subscribed_to_teacher_training_adviser
 
+    attr_accessor :can_subscribe_to_teacher_training_adviser
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -106,7 +108,8 @@ module GetIntoTeachingApiClient
         :'address_city' => :'addressCity',
         :'address_postcode' => :'addressPostcode',
         :'phone_call_scheduled_at' => :'phoneCallScheduledAt',
-        :'already_subscribed_to_teacher_training_adviser' => :'alreadySubscribedToTeacherTrainingAdviser'
+        :'already_subscribed_to_teacher_training_adviser' => :'alreadySubscribedToTeacherTrainingAdviser',
+        :'can_subscribe_to_teacher_training_adviser' => :'canSubscribeToTeacherTrainingAdviser'
       }
     end
 
@@ -142,7 +145,8 @@ module GetIntoTeachingApiClient
         :'address_city' => :'String',
         :'address_postcode' => :'String',
         :'phone_call_scheduled_at' => :'DateTime',
-        :'already_subscribed_to_teacher_training_adviser' => :'BOOLEAN'
+        :'already_subscribed_to_teacher_training_adviser' => :'BOOLEAN',
+        :'can_subscribe_to_teacher_training_adviser' => :'BOOLEAN'
       }
     end
 
@@ -273,6 +277,10 @@ module GetIntoTeachingApiClient
       if attributes.has_key?(:'alreadySubscribedToTeacherTrainingAdviser')
         self.already_subscribed_to_teacher_training_adviser = attributes[:'alreadySubscribedToTeacherTrainingAdviser']
       end
+
+      if attributes.has_key?(:'canSubscribeToTeacherTrainingAdviser')
+        self.can_subscribe_to_teacher_training_adviser = attributes[:'canSubscribeToTeacherTrainingAdviser']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -357,7 +365,8 @@ module GetIntoTeachingApiClient
           address_city == o.address_city &&
           address_postcode == o.address_postcode &&
           phone_call_scheduled_at == o.phone_call_scheduled_at &&
-          already_subscribed_to_teacher_training_adviser == o.already_subscribed_to_teacher_training_adviser
+          already_subscribed_to_teacher_training_adviser == o.already_subscribed_to_teacher_training_adviser &&
+          can_subscribe_to_teacher_training_adviser == o.can_subscribe_to_teacher_training_adviser
     end
 
     # @see the `==` method
@@ -369,7 +378,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [candidate_id, qualification_id, subject_taught_id, past_teaching_position_id, preferred_teaching_subject_id, country_id, accepted_policy_id, type_id, uk_degree_grade_id, degree_status_id, degree_type_id, initial_teacher_training_year_id, preferred_education_phase_id, has_gcse_maths_and_english_id, has_gcse_science_id, planning_to_retake_gcse_maths_and_english_id, planning_to_retake_gcse_science_id, email, first_name, last_name, date_of_birth, teacher_id, degree_subject, address_telephone, address_line1, address_line2, address_city, address_postcode, phone_call_scheduled_at, already_subscribed_to_teacher_training_adviser].hash
+      [candidate_id, qualification_id, subject_taught_id, past_teaching_position_id, preferred_teaching_subject_id, country_id, accepted_policy_id, type_id, uk_degree_grade_id, degree_status_id, degree_type_id, initial_teacher_training_year_id, preferred_education_phase_id, has_gcse_maths_and_english_id, has_gcse_science_id, planning_to_retake_gcse_maths_and_english_id, planning_to_retake_gcse_science_id, email, first_name, last_name, date_of_birth, teacher_id, degree_subject, address_telephone, address_line1, address_line2, address_city, address_postcode, phone_call_scheduled_at, already_subscribed_to_teacher_training_adviser, can_subscribe_to_teacher_training_adviser].hash
     end
 
     # Builds the object from hash
