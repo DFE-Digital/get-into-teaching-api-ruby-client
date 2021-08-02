@@ -38,6 +38,8 @@ module GetIntoTeachingApiClient
 
     attr_accessor :address_telephone
 
+    attr_accessor :is_walk_in
+
     attr_accessor :subscribe_to_mailing_list
 
     attr_accessor :already_subscribed_to_events
@@ -61,6 +63,7 @@ module GetIntoTeachingApiClient
         :'last_name' => :'lastName',
         :'address_postcode' => :'addressPostcode',
         :'address_telephone' => :'addressTelephone',
+        :'is_walk_in' => :'isWalkIn',
         :'subscribe_to_mailing_list' => :'subscribeToMailingList',
         :'already_subscribed_to_events' => :'alreadySubscribedToEvents',
         :'already_subscribed_to_mailing_list' => :'alreadySubscribedToMailingList',
@@ -83,6 +86,7 @@ module GetIntoTeachingApiClient
         :'last_name' => :'String',
         :'address_postcode' => :'String',
         :'address_telephone' => :'String',
+        :'is_walk_in' => :'BOOLEAN',
         :'subscribe_to_mailing_list' => :'BOOLEAN',
         :'already_subscribed_to_events' => :'BOOLEAN',
         :'already_subscribed_to_mailing_list' => :'BOOLEAN',
@@ -144,6 +148,10 @@ module GetIntoTeachingApiClient
 
       if attributes.has_key?(:'addressTelephone')
         self.address_telephone = attributes[:'addressTelephone']
+      end
+
+      if attributes.has_key?(:'isWalkIn')
+        self.is_walk_in = attributes[:'isWalkIn']
       end
 
       if attributes.has_key?(:'subscribeToMailingList')
@@ -275,6 +283,7 @@ module GetIntoTeachingApiClient
           last_name == o.last_name &&
           address_postcode == o.address_postcode &&
           address_telephone == o.address_telephone &&
+          is_walk_in == o.is_walk_in &&
           subscribe_to_mailing_list == o.subscribe_to_mailing_list &&
           already_subscribed_to_events == o.already_subscribed_to_events &&
           already_subscribed_to_mailing_list == o.already_subscribed_to_mailing_list &&
@@ -290,7 +299,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [candidate_id, qualification_id, event_id, accepted_policy_id, preferred_teaching_subject_id, consideration_journey_stage_id, degree_status_id, email, first_name, last_name, address_postcode, address_telephone, subscribe_to_mailing_list, already_subscribed_to_events, already_subscribed_to_mailing_list, already_subscribed_to_teacher_training_adviser].hash
+      [candidate_id, qualification_id, event_id, accepted_policy_id, preferred_teaching_subject_id, consideration_journey_stage_id, degree_status_id, email, first_name, last_name, address_postcode, address_telephone, is_walk_in, subscribe_to_mailing_list, already_subscribed_to_events, already_subscribed_to_mailing_list, already_subscribed_to_teacher_training_adviser].hash
     end
 
     # Builds the object from hash
