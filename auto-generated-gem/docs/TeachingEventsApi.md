@@ -198,6 +198,7 @@ opts = {
   postcode: 'postcode_example', # String | 
   radius: 56, # Integer | 
   type_id: 56, # Integer | 
+  type_ids: [56], # Array<Integer> | 
   start_after: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | 
   start_before: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | 
   status_ids: [56], # Array<Integer> | 
@@ -220,6 +221,7 @@ Name | Type | Description  | Notes
  **postcode** | **String**|  | [optional] 
  **radius** | **Integer**|  | [optional] 
  **type_id** | **Integer**|  | [optional] 
+ **type_ids** | [**Array&lt;Integer&gt;**](Integer.md)|  | [optional] 
  **start_after** | **DateTime**|  | [optional] 
  **start_before** | **DateTime**|  | [optional] 
  **status_ids** | [**Array&lt;Integer&gt;**](Integer.md)|  | [optional] 

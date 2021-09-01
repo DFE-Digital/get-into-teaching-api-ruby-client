@@ -23,6 +23,9 @@ module GetIntoTeachingApiClient
     # Set to filter results to a type of teaching event. Must match an `typeId` of the `TeachingEvent` schema.
     attr_accessor :type_id
 
+    # Set to filter results to a type of teaching event. Each ID must match a `typeId` of the `TeachingEvent` schema.
+    attr_accessor :type_ids
+
     # Set to filter results to those that start after a given date.
     attr_accessor :start_after
 
@@ -38,6 +41,7 @@ module GetIntoTeachingApiClient
         :'postcode' => :'postcode',
         :'radius' => :'radius',
         :'type_id' => :'typeId',
+        :'type_ids' => :'typeIds',
         :'start_after' => :'startAfter',
         :'start_before' => :'startBefore',
         :'status_ids' => :'statusIds'
@@ -50,6 +54,7 @@ module GetIntoTeachingApiClient
         :'postcode' => :'String',
         :'radius' => :'Integer',
         :'type_id' => :'Integer',
+        :'type_ids' => :'Array<Integer>',
         :'start_after' => :'DateTime',
         :'start_before' => :'DateTime',
         :'status_ids' => :'Array<Integer>'
@@ -74,6 +79,12 @@ module GetIntoTeachingApiClient
 
       if attributes.has_key?(:'typeId')
         self.type_id = attributes[:'typeId']
+      end
+
+      if attributes.has_key?(:'typeIds')
+        if (value = attributes[:'typeIds']).is_a?(Array)
+          self.type_ids = value
+        end
       end
 
       if attributes.has_key?(:'startAfter')
@@ -127,6 +138,7 @@ module GetIntoTeachingApiClient
           postcode == o.postcode &&
           radius == o.radius &&
           type_id == o.type_id &&
+          type_ids == o.type_ids &&
           start_after == o.start_after &&
           start_before == o.start_before &&
           status_ids == o.status_ids
@@ -141,7 +153,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [postcode, radius, type_id, start_after, start_before, status_ids].hash
+      [postcode, radius, type_id, type_ids, start_after, start_before, status_ids].hash
     end
 
     # Builds the object from hash
