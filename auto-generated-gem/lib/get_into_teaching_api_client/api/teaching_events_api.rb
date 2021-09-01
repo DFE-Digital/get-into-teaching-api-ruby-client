@@ -188,6 +188,7 @@ module GetIntoTeachingApiClient
     # @option opts [String] :postcode 
     # @option opts [Integer] :radius 
     # @option opts [Integer] :type_id 
+    # @option opts [Array<Integer>] :type_ids 
     # @option opts [DateTime] :start_after 
     # @option opts [DateTime] :start_before 
     # @option opts [Array<Integer>] :status_ids 
@@ -204,6 +205,7 @@ module GetIntoTeachingApiClient
     # @option opts [String] :postcode 
     # @option opts [Integer] :radius 
     # @option opts [Integer] :type_id 
+    # @option opts [Array<Integer>] :type_ids 
     # @option opts [DateTime] :start_after 
     # @option opts [DateTime] :start_before 
     # @option opts [Array<Integer>] :status_ids 
@@ -225,6 +227,7 @@ module GetIntoTeachingApiClient
       query_params[:'Postcode'] = opts[:'postcode'] if !opts[:'postcode'].nil?
       query_params[:'Radius'] = opts[:'radius'] if !opts[:'radius'].nil?
       query_params[:'TypeId'] = opts[:'type_id'] if !opts[:'type_id'].nil?
+      query_params[:'TypeIds'] = @api_client.build_collection_param(opts[:'type_ids'], :csv) if !opts[:'type_ids'].nil?
       query_params[:'StartAfter'] = opts[:'start_after'] if !opts[:'start_after'].nil?
       query_params[:'StartBefore'] = opts[:'start_before'] if !opts[:'start_before'].nil?
       query_params[:'StatusIds'] = @api_client.build_collection_param(opts[:'status_ids'], :csv) if !opts[:'status_ids'].nil?
