@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**get_candidate_mailing_list_subscription_channels**](PickListItemsApi.md#get_candidate_mailing_list_subscription_channels) | **GET** /api/pick_list_items/candidate/mailing_list_subscription_channels | Retrieves the list of candidate mailing list subscription channels.
 [**get_candidate_preferred_education_phases**](PickListItemsApi.md#get_candidate_preferred_education_phases) | **GET** /api/pick_list_items/candidate/preferred_education_phases | Retrieves the list of candidate preferred education phases.
 [**get_candidate_retake_gcse_status**](PickListItemsApi.md#get_candidate_retake_gcse_status) | **GET** /api/pick_list_items/candidate/retake_gcse_status | Retrieves the list of candidate retake GCSE status.
+[**get_candidate_teacher_training_adviser_subscription_channels**](PickListItemsApi.md#get_candidate_teacher_training_adviser_subscription_channels) | **GET** /api/pick_list_items/candidate/teacher_training_adviser_subscription_channels | Retrieves the list of candidate teacher training adviser subscription channels.
 [**get_candidate_types**](PickListItemsApi.md#get_candidate_types) | **GET** /api/pick_list_items/candidate/types | Retrieves the list of candidate types.
 [**get_past_teaching_position_education_phases**](PickListItemsApi.md#get_past_teaching_position_education_phases) | **GET** /api/pick_list_items/past_teaching_position/education_phases | Retrieves the list of past teaching position education phases.
 [**get_phone_call_channels**](PickListItemsApi.md#get_phone_call_channels) | **GET** /api/pick_list_items/phone_call/channels | Retrieves the list of phone call channels.
@@ -512,6 +513,52 @@ begin
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling PickListItemsApi->get_candidate_retake_gcse_status: #{e}"
+end
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Array&lt;PickListItem&gt;**](PickListItem.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+
+# **get_candidate_teacher_training_adviser_subscription_channels**
+> Array&lt;PickListItem&gt; get_candidate_teacher_training_adviser_subscription_channels
+
+Retrieves the list of candidate teacher training adviser subscription channels.
+
+### Example
+```ruby
+# load the gem
+require 'get_into_teaching_api_client'
+# setup authorization
+GetIntoTeachingApiClient.configure do |config|
+  # Configure API key authorization: apiKey
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
+
+begin
+  #Retrieves the list of candidate teacher training adviser subscription channels.
+  result = api_instance.get_candidate_teacher_training_adviser_subscription_channels
+  p result
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Exception when calling PickListItemsApi->get_candidate_teacher_training_adviser_subscription_channels: #{e}"
 end
 ```
 

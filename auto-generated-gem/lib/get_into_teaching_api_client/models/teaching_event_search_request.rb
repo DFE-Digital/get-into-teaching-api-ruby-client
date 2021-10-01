@@ -20,9 +20,6 @@ module GetIntoTeachingApiClient
     # Set to filter results to a radius (in miles) around the postcode.
     attr_accessor :radius
 
-    # Set to filter results to a type of teaching event. Must match an `typeId` of the `TeachingEvent` schema.
-    attr_accessor :type_id
-
     # Set to filter results to a type of teaching event. Each ID must match a `typeId` of the `TeachingEvent` schema.
     attr_accessor :type_ids
 
@@ -40,7 +37,6 @@ module GetIntoTeachingApiClient
       {
         :'postcode' => :'postcode',
         :'radius' => :'radius',
-        :'type_id' => :'typeId',
         :'type_ids' => :'typeIds',
         :'start_after' => :'startAfter',
         :'start_before' => :'startBefore',
@@ -53,7 +49,6 @@ module GetIntoTeachingApiClient
       {
         :'postcode' => :'String',
         :'radius' => :'Integer',
-        :'type_id' => :'Integer',
         :'type_ids' => :'Array<Integer>',
         :'start_after' => :'DateTime',
         :'start_before' => :'DateTime',
@@ -75,10 +70,6 @@ module GetIntoTeachingApiClient
 
       if attributes.has_key?(:'radius')
         self.radius = attributes[:'radius']
-      end
-
-      if attributes.has_key?(:'typeId')
-        self.type_id = attributes[:'typeId']
       end
 
       if attributes.has_key?(:'typeIds')
@@ -137,7 +128,6 @@ module GetIntoTeachingApiClient
       self.class == o.class &&
           postcode == o.postcode &&
           radius == o.radius &&
-          type_id == o.type_id &&
           type_ids == o.type_ids &&
           start_after == o.start_after &&
           start_before == o.start_before &&
@@ -153,7 +143,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [postcode, radius, type_id, type_ids, start_after, start_before, status_ids].hash
+      [postcode, radius, type_ids, start_after, start_before, status_ids].hash
     end
 
     # Builds the object from hash
