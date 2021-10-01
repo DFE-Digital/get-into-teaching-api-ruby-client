@@ -74,7 +74,6 @@ describe 'TeachingEventsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [String] :postcode 
   # @option opts [Integer] :radius 
-  # @option opts [Integer] :type_id 
   # @option opts [Array<Integer>] :type_ids 
   # @option opts [DateTime] :start_after 
   # @option opts [DateTime] :start_before 

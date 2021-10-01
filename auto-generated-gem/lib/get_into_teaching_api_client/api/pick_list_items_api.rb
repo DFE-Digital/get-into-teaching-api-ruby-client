@@ -503,6 +503,50 @@ module GetIntoTeachingApiClient
       end
       return data, status_code, headers
     end
+    # Retrieves the list of candidate teacher training adviser subscription channels.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<PickListItem>]
+    def get_candidate_teacher_training_adviser_subscription_channels(opts = {})
+      data, _status_code, _headers = get_candidate_teacher_training_adviser_subscription_channels_with_http_info(opts)
+      data
+    end
+
+    # Retrieves the list of candidate teacher training adviser subscription channels.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Array<PickListItem>, Fixnum, Hash)>] Array<PickListItem> data, response status code and response headers
+    def get_candidate_teacher_training_adviser_subscription_channels_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: PickListItemsApi.get_candidate_teacher_training_adviser_subscription_channels ...'
+      end
+      # resource path
+      local_var_path = '/api/pick_list_items/candidate/teacher_training_adviser_subscription_channels'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apiKey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<PickListItem>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PickListItemsApi#get_candidate_teacher_training_adviser_subscription_channels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Retrieves the list of candidate types.
     # @param [Hash] opts the optional parameters
     # @return [Array<PickListItem>]

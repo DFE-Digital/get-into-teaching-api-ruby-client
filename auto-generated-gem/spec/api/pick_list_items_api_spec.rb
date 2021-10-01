@@ -142,6 +142,16 @@ describe 'PickListItemsApi' do
     end
   end
 
+  # unit tests for get_candidate_teacher_training_adviser_subscription_channels
+  # Retrieves the list of candidate teacher training adviser subscription channels.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<PickListItem>]
+  describe 'get_candidate_teacher_training_adviser_subscription_channels test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_candidate_types
   # Retrieves the list of candidate types.
   # @param [Hash] opts the optional parameters
