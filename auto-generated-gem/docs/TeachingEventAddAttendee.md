@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **last_name** | **String** |  | 
 **address_postcode** | **String** |  | [optional] 
 **address_telephone** | **String** |  | [optional] 
+**is_verified** | **BOOLEAN** |  | [optional] 
 **is_walk_in** | **BOOLEAN** |  | [optional] 
 **subscribe_to_mailing_list** | **BOOLEAN** |  | [optional] 
 **already_subscribed_to_events** | **BOOLEAN** |  | [optional] 
