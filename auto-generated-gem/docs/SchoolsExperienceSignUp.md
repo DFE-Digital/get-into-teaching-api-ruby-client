@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **secondary_email** | **String** |  | [optional] 
 **first_name** | **String** |  | 
 **last_name** | **String** |  | 
-**date_of_birth** | **Date** |  | 
+**date_of_birth** | **Date** |  | [optional] 
 **address_line1** | **String** |  | 
 **address_line2** | **String** |  | [optional] 
 **address_line3** | **String** |  | [optional] 

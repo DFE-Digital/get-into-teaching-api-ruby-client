@@ -4,10 +4,58 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**backfill_find_apply_candidates**](OperationsApi.md#backfill_find_apply_candidates) | **POST** /api/operations/backfill_find_apply_candidates | Triggers a backfill job to sync the CRM with the Find/Apply candidates.
 [**generate_mapping_info**](OperationsApi.md#generate_mapping_info) | **GET** /api/operations/generate_mapping_info | Generates the mapping information.
 [**health_check**](OperationsApi.md#health_check) | **GET** /api/operations/health_check | Performs a health check.
 [**pause_crm_integration**](OperationsApi.md#pause_crm_integration) | **PUT** /api/operations/pause_crm_integration | Temporarily pauses the integration with the CRM.
 [**resume_crm_integration**](OperationsApi.md#resume_crm_integration) | **PUT** /api/operations/resume_crm_integration | Resumes the integration with the CRM (after being paused).
+
+
+# **backfill_find_apply_candidates**
+> backfill_find_apply_candidates
+
+Triggers a backfill job to sync the CRM with the Find/Apply candidates.
+
+The backfill will query all candidate information from the Find/Apply API and queue jobs to sync the data with the CRM.
+
+### Example
+```ruby
+# load the gem
+require 'get_into_teaching_api_client'
+# setup authorization
+GetIntoTeachingApiClient.configure do |config|
+  # Configure API key authorization: apiKey
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = GetIntoTeachingApiClient::OperationsApi.new
+
+begin
+  #Triggers a backfill job to sync the CRM with the Find/Apply candidates.
+  api_instance.backfill_find_apply_candidates
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Exception when calling OperationsApi->backfill_find_apply_candidates: #{e}"
+end
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
 
 
 # **generate_mapping_info**
