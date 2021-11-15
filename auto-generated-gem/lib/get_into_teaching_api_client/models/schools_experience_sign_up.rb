@@ -36,8 +36,6 @@ module GetIntoTeachingApiClient
 
     attr_accessor :last_name
 
-    attr_accessor :date_of_birth
-
     attr_accessor :address_line1
 
     attr_accessor :address_line2
@@ -76,7 +74,6 @@ module GetIntoTeachingApiClient
         :'secondary_email' => :'secondaryEmail',
         :'first_name' => :'firstName',
         :'last_name' => :'lastName',
-        :'date_of_birth' => :'dateOfBirth',
         :'address_line1' => :'addressLine1',
         :'address_line2' => :'addressLine2',
         :'address_line3' => :'addressLine3',
@@ -106,7 +103,6 @@ module GetIntoTeachingApiClient
         :'secondary_email' => :'String',
         :'first_name' => :'String',
         :'last_name' => :'String',
-        :'date_of_birth' => :'Date',
         :'address_line1' => :'String',
         :'address_line2' => :'String',
         :'address_line3' => :'String',
@@ -172,10 +168,6 @@ module GetIntoTeachingApiClient
 
       if attributes.has_key?(:'lastName')
         self.last_name = attributes[:'lastName']
-      end
-
-      if attributes.has_key?(:'dateOfBirth')
-        self.date_of_birth = attributes[:'dateOfBirth']
       end
 
       if attributes.has_key?(:'addressLine1')
@@ -378,7 +370,6 @@ module GetIntoTeachingApiClient
           secondary_email == o.secondary_email &&
           first_name == o.first_name &&
           last_name == o.last_name &&
-          date_of_birth == o.date_of_birth &&
           address_line1 == o.address_line1 &&
           address_line2 == o.address_line2 &&
           address_line3 == o.address_line3 &&
@@ -402,7 +393,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [candidate_id, preferred_teaching_subject_id, secondary_preferred_teaching_subject_id, accepted_policy_id, master_id, merged, full_name, email, secondary_email, first_name, last_name, date_of_birth, address_line1, address_line2, address_line3, address_city, address_state_or_province, address_postcode, address_telephone, telephone, secondary_telephone, mobile_telephone, has_dbs_certificate, dbs_certificate_issued_at].hash
+      [candidate_id, preferred_teaching_subject_id, secondary_preferred_teaching_subject_id, accepted_policy_id, master_id, merged, full_name, email, secondary_email, first_name, last_name, address_line1, address_line2, address_line3, address_city, address_state_or_province, address_postcode, address_telephone, telephone, secondary_telephone, mobile_telephone, has_dbs_certificate, dbs_certificate_issued_at].hash
     end
 
     # Builds the object from hash
