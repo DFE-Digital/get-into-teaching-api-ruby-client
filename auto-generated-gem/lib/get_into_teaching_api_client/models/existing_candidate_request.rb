@@ -22,13 +22,16 @@ module GetIntoTeachingApiClient
 
     attr_accessor :date_of_birth
 
+    attr_accessor :reference
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'first_name' => :'firstName',
         :'last_name' => :'lastName',
         :'email' => :'email',
-        :'date_of_birth' => :'dateOfBirth'
+        :'date_of_birth' => :'dateOfBirth',
+        :'reference' => :'reference'
       }
     end
 
@@ -38,7 +41,8 @@ module GetIntoTeachingApiClient
         :'first_name' => :'String',
         :'last_name' => :'String',
         :'email' => :'String',
-        :'date_of_birth' => :'DateTime'
+        :'date_of_birth' => :'DateTime',
+        :'reference' => :'String'
       }
     end
 
@@ -64,6 +68,10 @@ module GetIntoTeachingApiClient
 
       if attributes.has_key?(:'dateOfBirth')
         self.date_of_birth = attributes[:'dateOfBirth']
+      end
+
+      if attributes.has_key?(:'reference')
+        self.reference = attributes[:'reference']
       end
     end
 
@@ -151,7 +159,8 @@ module GetIntoTeachingApiClient
           first_name == o.first_name &&
           last_name == o.last_name &&
           email == o.email &&
-          date_of_birth == o.date_of_birth
+          date_of_birth == o.date_of_birth &&
+          reference == o.reference
     end
 
     # @see the `==` method
@@ -163,7 +172,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [first_name, last_name, email, date_of_birth].hash
+      [first_name, last_name, email, date_of_birth, reference].hash
     end
 
     # Builds the object from hash

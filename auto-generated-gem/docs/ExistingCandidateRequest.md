@@ -7,5 +7,6 @@ Name | Type | Description | Notes
 **last_name** | **String** |  | [optional] 
 **email** | **String** |  | 
 **date_of_birth** | **DateTime** |  | [optional] 
+**reference** | **String** |  | [optional] 
 
 
