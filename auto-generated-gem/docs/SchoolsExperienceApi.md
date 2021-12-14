@@ -5,6 +5,7 @@ All URIs are relative to *https://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_classroom_experience_note**](SchoolsExperienceApi.md#add_classroom_experience_note) | **POST** /api/schools_experience/candidates/{id}/classroom_experience_notes | Add a classroom experience note to the candidate.
+[**add_school_experience**](SchoolsExperienceApi.md#add_school_experience) | **POST** /api/schools_experience/candidates/{id}/school_experience | Add a school experience to the candidate.
 [**exchange_access_token_for_schools_experience_sign_up**](SchoolsExperienceApi.md#exchange_access_token_for_schools_experience_sign_up) | **POST** /api/schools_experience/candidates/exchange_access_token/{accessToken} | Retrieves a pre-populated SchoolsExperienceSignUp for the candidate.
 [**get_schools_experience_sign_up**](SchoolsExperienceApi.md#get_schools_experience_sign_up) | **GET** /api/schools_experience/candidates/{id} | Retrieves an existing SchoolsExperienceSignUp for the candidate.
 [**get_schools_experience_sign_ups**](SchoolsExperienceApi.md#get_schools_experience_sign_ups) | **GET** /api/schools_experience/candidates | Retrieves existing SchoolsExperienceSignUps for the candidate &#x60;ids&#x60;.
@@ -51,6 +52,62 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**String**](.md)| The &#x60;id&#x60; of the &#x60;Candidate&#x60;. | 
  **body** | [**ClassroomExperienceNote**](ClassroomExperienceNote.md)| Classroom experience note. | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+
+# **add_school_experience**
+> add_school_experience(id, body)
+
+Add a school experience to the candidate.
+
+Adds a new school experience to the candidate record
+
+### Example
+```ruby
+# load the gem
+require 'get_into_teaching_api_client'
+# setup authorization
+GetIntoTeachingApiClient.configure do |config|
+  # Configure API key authorization: apiKey
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = GetIntoTeachingApiClient::SchoolsExperienceApi.new
+
+id = 'id_example' # String | 
+
+body = GetIntoTeachingApiClient::CandidateSchoolExperience.new # CandidateSchoolExperience | School experience.
+
+
+begin
+  #Add a school experience to the candidate.
+  api_instance.add_school_experience(id, body)
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Exception when calling SchoolsExperienceApi->add_school_experience: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  | 
+ **body** | [**CandidateSchoolExperience**](CandidateSchoolExperience.md)| School experience. | 
 
 ### Return type
 
