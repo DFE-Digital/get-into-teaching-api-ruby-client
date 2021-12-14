@@ -45,6 +45,19 @@ describe 'SchoolsExperienceApi' do
     end
   end
 
+  # unit tests for add_school_experience
+  # Add a school experience to the candidate.
+  # Adds a new school experience to the candidate record
+  # @param id 
+  # @param body School experience.
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'add_school_experience test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for exchange_access_token_for_schools_experience_sign_up
   # Retrieves a pre-populated SchoolsExperienceSignUp for the candidate.
   #                  Retrieves a pre-populated SchoolsExperienceSignUp for the candidate. The &#x60;accessToken&#x60; is obtained from a                  &#x60;POST /candidates/access_tokens&#x60; request (you must also ensure the &#x60;ExistingCandidateRequest&#x60; payload you                  exchanged for your token matches the request payload here).

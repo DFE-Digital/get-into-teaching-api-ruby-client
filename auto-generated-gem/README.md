@@ -119,6 +119,7 @@ Class | Method | HTTP request | Description
 *GetIntoTeachingApiClient::PrivacyPoliciesApi* | [**get_latest_privacy_policy**](docs/PrivacyPoliciesApi.md#get_latest_privacy_policy) | **GET** /api/privacy_policies/latest | Retrieves the latest privacy policy.
 *GetIntoTeachingApiClient::PrivacyPoliciesApi* | [**get_privacy_policy**](docs/PrivacyPoliciesApi.md#get_privacy_policy) | **GET** /api/privacy_policies/{id} | Retrieves a privacy policy.
 *GetIntoTeachingApiClient::SchoolsExperienceApi* | [**add_classroom_experience_note**](docs/SchoolsExperienceApi.md#add_classroom_experience_note) | **POST** /api/schools_experience/candidates/{id}/classroom_experience_notes | Add a classroom experience note to the candidate.
+*GetIntoTeachingApiClient::SchoolsExperienceApi* | [**add_school_experience**](docs/SchoolsExperienceApi.md#add_school_experience) | **POST** /api/schools_experience/candidates/{id}/school_experience | Add a school experience to the candidate.
 *GetIntoTeachingApiClient::SchoolsExperienceApi* | [**exchange_access_token_for_schools_experience_sign_up**](docs/SchoolsExperienceApi.md#exchange_access_token_for_schools_experience_sign_up) | **POST** /api/schools_experience/candidates/exchange_access_token/{accessToken} | Retrieves a pre-populated SchoolsExperienceSignUp for the candidate.
 *GetIntoTeachingApiClient::SchoolsExperienceApi* | [**get_schools_experience_sign_up**](docs/SchoolsExperienceApi.md#get_schools_experience_sign_up) | **GET** /api/schools_experience/candidates/{id} | Retrieves an existing SchoolsExperienceSignUp for the candidate.
 *GetIntoTeachingApiClient::SchoolsExperienceApi* | [**get_schools_experience_sign_ups**](docs/SchoolsExperienceApi.md#get_schools_experience_sign_ups) | **GET** /api/schools_experience/candidates | Retrieves existing SchoolsExperienceSignUps for the candidate `ids`.
@@ -138,6 +139,7 @@ Class | Method | HTTP request | Description
 
  - [GetIntoTeachingApiClient::CallbackBookingQuota](docs/CallbackBookingQuota.md)
  - [GetIntoTeachingApiClient::CandidateMagicLinkExchangeResult](docs/CandidateMagicLinkExchangeResult.md)
+ - [GetIntoTeachingApiClient::CandidateSchoolExperience](docs/CandidateSchoolExperience.md)
  - [GetIntoTeachingApiClient::ClassroomExperienceNote](docs/ClassroomExperienceNote.md)
  - [GetIntoTeachingApiClient::ExchangeStatus](docs/ExchangeStatus.md)
  - [GetIntoTeachingApiClient::ExistingCandidateRequest](docs/ExistingCandidateRequest.md)

@@ -78,6 +78,65 @@ module GetIntoTeachingApiClient
       end
       return data, status_code, headers
     end
+    # Add a school experience to the candidate.
+    # Adds a new school experience to the candidate record
+    # @param id 
+    # @param body School experience.
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def add_school_experience(id, body, opts = {})
+      add_school_experience_with_http_info(id, body, opts)
+      nil
+    end
+
+    # Add a school experience to the candidate.
+    # Adds a new school experience to the candidate record
+    # @param id 
+    # @param body School experience.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def add_school_experience_with_http_info(id, body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SchoolsExperienceApi.add_school_experience ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling SchoolsExperienceApi.add_school_experience"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SchoolsExperienceApi.add_school_experience"
+      end
+      # resource path
+      local_var_path = '/api/schools_experience/candidates/{id}/school_experience'.sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/*+json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(body)
+      auth_names = ['apiKey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SchoolsExperienceApi#add_school_experience\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Retrieves a pre-populated SchoolsExperienceSignUp for the candidate.
     #                  Retrieves a pre-populated SchoolsExperienceSignUp for the candidate. The `accessToken` is obtained from a                  `POST /candidates/access_tokens` request (you must also ensure the `ExistingCandidateRequest` payload you                  exchanged for your token matches the request payload here).
     # @param access_token Access token (PIN code).
