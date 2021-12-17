@@ -1,15 +1,14 @@
 # GetIntoTeachingApiClient::TeacherTrainingAdviserApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**exchange_access_token_for_teacher_training_adviser_sign_up**](TeacherTrainingAdviserApi.md#exchange_access_token_for_teacher_training_adviser_sign_up) | **POST** /api/teacher_training_adviser/candidates/exchange_access_token/{accessToken} | Retrieves a pre-populated TeacherTrainingAdviserSignUp for the candidate.
 [**sign_up_teacher_training_adviser_candidate**](TeacherTrainingAdviserApi.md#sign_up_teacher_training_adviser_candidate) | **POST** /api/teacher_training_adviser/candidates | Sign up a candidate for the Teacher Training Adviser service.
 
-
 # **exchange_access_token_for_teacher_training_adviser_sign_up**
-> TeacherTrainingAdviserSignUp exchange_access_token_for_teacher_training_adviser_sign_up(access_token, body)
+> TeacherTrainingAdviserSignUp exchange_access_token_for_teacher_training_adviser_sign_up(bodyaccess_token)
 
 Retrieves a pre-populated TeacherTrainingAdviserSignUp for the candidate.
 
@@ -28,15 +27,13 @@ GetIntoTeachingApiClient.configure do |config|
 end
 
 api_instance = GetIntoTeachingApiClient::TeacherTrainingAdviserApi.new
-
-access_token = 'access_token_example' # String | Access token (PIN code).
-
 body = GetIntoTeachingApiClient::ExistingCandidateRequest.new # ExistingCandidateRequest | Candidate access token request (must match an existing candidate).
+access_token = 'access_token_example' # String | Access token (PIN code).
 
 
 begin
   #Retrieves a pre-populated TeacherTrainingAdviserSignUp for the candidate.
-  result = api_instance.exchange_access_token_for_teacher_training_adviser_sign_up(access_token, body)
+  result = api_instance.exchange_access_token_for_teacher_training_adviser_sign_up(bodyaccess_token)
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TeacherTrainingAdviserApi->exchange_access_token_for_teacher_training_adviser_sign_up: #{e}"
@@ -47,8 +44,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **access_token** | **String**| Access token (PIN code). | 
  **body** | [**ExistingCandidateRequest**](ExistingCandidateRequest.md)| Candidate access token request (must match an existing candidate). | 
+ **access_token** | **String**| Access token (PIN code). | 
 
 ### Return type
 
@@ -85,7 +82,6 @@ GetIntoTeachingApiClient.configure do |config|
 end
 
 api_instance = GetIntoTeachingApiClient::TeacherTrainingAdviserApi.new
-
 body = GetIntoTeachingApiClient::TeacherTrainingAdviserSignUp.new # TeacherTrainingAdviserSignUp | Candidate to sign up for the Teacher Training Adviser service.
 
 

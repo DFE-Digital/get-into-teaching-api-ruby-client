@@ -1,11 +1,10 @@
 # GetIntoTeachingApiClient::CandidatesApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_candidate_access_token**](CandidatesApi.md#create_candidate_access_token) | **POST** /api/candidates/access_tokens | Creates a candidate access token.
-
 
 # **create_candidate_access_token**
 > create_candidate_access_token(body)
@@ -27,7 +26,6 @@ GetIntoTeachingApiClient.configure do |config|
 end
 
 api_instance = GetIntoTeachingApiClient::CandidatesApi.new
-
 body = GetIntoTeachingApiClient::ExistingCandidateRequest.new # ExistingCandidateRequest | Candidate access token request (must match an existing candidate).
 
 

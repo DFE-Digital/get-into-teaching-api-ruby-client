@@ -22,4 +22,3 @@ Name | Type | Description | Notes
 **already_subscribed_to_mailing_list** | **BOOLEAN** |  | [optional] 
 **already_subscribed_to_teacher_training_adviser** | **BOOLEAN** |  | [optional] 
 
-

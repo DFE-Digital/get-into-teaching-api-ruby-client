@@ -12,4 +12,3 @@ Name | Type | Description | Notes
 **quota** | **Integer** |  | [optional] 
 **is_available** | **BOOLEAN** |  | [optional] 
 
-

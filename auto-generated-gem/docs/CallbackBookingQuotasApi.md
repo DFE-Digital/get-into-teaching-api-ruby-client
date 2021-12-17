@@ -1,11 +1,10 @@
 # GetIntoTeachingApiClient::CallbackBookingQuotasApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_callback_booking_quotas**](CallbackBookingQuotasApi.md#get_callback_booking_quotas) | **GET** /api/callback_booking_quotas | Retrieves all callback booking quotas.
-
 
 # **get_callback_booking_quotas**
 > Array&lt;CallbackBookingQuota&gt; get_callback_booking_quotas

@@ -11,4 +11,3 @@ Name | Type | Description | Notes
 **start_before** | **DateTime** | Set to filter results to those that start before a given date. | [optional] 
 **status_ids** | **Array&lt;Integer&gt;** | Set to filter results by event status. | [optional] 
 
-

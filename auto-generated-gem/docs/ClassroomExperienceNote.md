@@ -9,4 +9,3 @@ Name | Type | Description | Notes
 **school_urn** | **Integer** |  | 
 **school_name** | **String** |  | 
 
-

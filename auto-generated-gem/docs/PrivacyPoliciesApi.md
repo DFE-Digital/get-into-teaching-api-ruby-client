@@ -1,12 +1,11 @@
 # GetIntoTeachingApiClient::PrivacyPoliciesApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_latest_privacy_policy**](PrivacyPoliciesApi.md#get_latest_privacy_policy) | **GET** /api/privacy_policies/latest | Retrieves the latest privacy policy.
 [**get_privacy_policy**](PrivacyPoliciesApi.md#get_privacy_policy) | **GET** /api/privacy_policies/{id} | Retrieves a privacy policy.
-
 
 # **get_latest_privacy_policy**
 > PrivacyPolicy get_latest_privacy_policy
@@ -72,8 +71,7 @@ GetIntoTeachingApiClient.configure do |config|
 end
 
 api_instance = GetIntoTeachingApiClient::PrivacyPoliciesApi.new
-
-id = 'id_example' # String | The `id` of the `PrivacyPolicy`.
+id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | The `id` of the `PrivacyPolicy`.
 
 
 begin

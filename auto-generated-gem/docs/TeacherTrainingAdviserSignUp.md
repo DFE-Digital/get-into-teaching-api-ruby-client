@@ -36,4 +36,3 @@ Name | Type | Description | Notes
 **phone_call_scheduled_at** | **DateTime** |  | [optional] 
 **can_subscribe_to_teacher_training_adviser** | **BOOLEAN** |  | [optional] 
 
-

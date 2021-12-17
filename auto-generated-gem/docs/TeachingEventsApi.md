@@ -1,6 +1,6 @@
 # GetIntoTeachingApiClient::TeachingEventsApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,6 @@ Method | HTTP request | Description
 [**get_teaching_event**](TeachingEventsApi.md#get_teaching_event) | **GET** /api/teaching_events/{readableId} | Retrieves an event.
 [**search_teaching_events_grouped_by_type**](TeachingEventsApi.md#search_teaching_events_grouped_by_type) | **GET** /api/teaching_events/search_grouped_by_type | Searches for teaching events, returning grouped by type.
 [**upsert_teaching_event**](TeachingEventsApi.md#upsert_teaching_event) | **POST** /api/teaching_events | Adds or updates a teaching event.
-
 
 # **add_teaching_event_attendee**
 > add_teaching_event_attendee(body)
@@ -32,7 +31,6 @@ GetIntoTeachingApiClient.configure do |config|
 end
 
 api_instance = GetIntoTeachingApiClient::TeachingEventsApi.new
-
 body = GetIntoTeachingApiClient::TeachingEventAddAttendee.new # TeachingEventAddAttendee | Attendee to add to the teaching event.
 
 
@@ -66,7 +64,7 @@ nil (empty response body)
 
 
 # **exchange_access_token_for_teaching_event_add_attendee**
-> TeachingEventAddAttendee exchange_access_token_for_teaching_event_add_attendee(access_token, body)
+> TeachingEventAddAttendee exchange_access_token_for_teaching_event_add_attendee(bodyaccess_token)
 
 Retrieves a pre-populated TeachingEventAddAttendee for the candidate.
 
@@ -85,15 +83,13 @@ GetIntoTeachingApiClient.configure do |config|
 end
 
 api_instance = GetIntoTeachingApiClient::TeachingEventsApi.new
-
-access_token = 'access_token_example' # String | Access token (PIN code).
-
 body = GetIntoTeachingApiClient::ExistingCandidateRequest.new # ExistingCandidateRequest | Candidate access token request (must match an existing candidate).
+access_token = 'access_token_example' # String | Access token (PIN code).
 
 
 begin
   #Retrieves a pre-populated TeachingEventAddAttendee for the candidate.
-  result = api_instance.exchange_access_token_for_teaching_event_add_attendee(access_token, body)
+  result = api_instance.exchange_access_token_for_teaching_event_add_attendee(bodyaccess_token)
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling TeachingEventsApi->exchange_access_token_for_teaching_event_add_attendee: #{e}"
@@ -104,8 +100,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **access_token** | **String**| Access token (PIN code). | 
  **body** | [**ExistingCandidateRequest**](ExistingCandidateRequest.md)| Candidate access token request (must match an existing candidate). | 
+ **access_token** | **String**| Access token (PIN code). | 
 
 ### Return type
 
@@ -142,7 +138,6 @@ GetIntoTeachingApiClient.configure do |config|
 end
 
 api_instance = GetIntoTeachingApiClient::TeachingEventsApi.new
-
 body = GetIntoTeachingApiClient::ExistingCandidateRequest.new # ExistingCandidateRequest | Candidate access token request (must match an existing candidate).
 
 
@@ -194,7 +189,6 @@ GetIntoTeachingApiClient.configure do |config|
 end
 
 api_instance = GetIntoTeachingApiClient::TeachingEventsApi.new
-
 readable_id = 'readable_id_example' # String | The `readableId` of the `TeachingEvent`.
 
 
@@ -248,7 +242,6 @@ GetIntoTeachingApiClient.configure do |config|
 end
 
 api_instance = GetIntoTeachingApiClient::TeachingEventsApi.new
-
 opts = { 
   postcode: 'postcode_example', # String | 
   radius: 56, # Integer | 
@@ -317,7 +310,6 @@ GetIntoTeachingApiClient.configure do |config|
 end
 
 api_instance = GetIntoTeachingApiClient::TeachingEventsApi.new
-
 body = GetIntoTeachingApiClient::TeachingEvent.new # TeachingEvent | Teaching event to upsert.
 
 

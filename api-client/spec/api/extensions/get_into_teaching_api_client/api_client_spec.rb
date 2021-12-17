@@ -111,7 +111,7 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
           .to_return(status: 200)
 
         expect do
-          request = GetIntoTeachingApiClient::TeacherTrainingAdviserSignUp.new(phoneCallScheduledAt: date)
+          request = GetIntoTeachingApiClient::TeacherTrainingAdviserSignUp.new(phone_call_scheduled_at: date)
           GetIntoTeachingApiClient::TeacherTrainingAdviserApi.new.sign_up_teacher_training_adviser_candidate(request)
         end.to_not raise_error
       end
@@ -126,7 +126,7 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
           .to_return(status: 200)
 
         expect do
-          request = GetIntoTeachingApiClient::TeacherTrainingAdviserSignUp.new(phoneCallScheduledAt: date)
+          request = GetIntoTeachingApiClient::TeacherTrainingAdviserSignUp.new(phone_call_scheduled_at: date)
           GetIntoTeachingApiClient::TeacherTrainingAdviserApi.new.sign_up_teacher_training_adviser_candidate(request)
         end.to_not raise_error
       end
@@ -141,7 +141,7 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
           .to_return(status: 200)
 
         expect do
-          request = GetIntoTeachingApiClient::ExistingCandidateRequest.new(dateOfBirth: date)
+          request = GetIntoTeachingApiClient::ExistingCandidateRequest.new(date_of_birth: date)
           GetIntoTeachingApiClient::CandidatesApi.new.create_candidate_access_token(request)
         end.to_not raise_error
       end

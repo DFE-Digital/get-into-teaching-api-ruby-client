@@ -12,4 +12,3 @@ Name | Type | Description | Notes
 **notes** | **String** |  | [optional] 
 **school_name** | **String** |  | [optional] 
 
-

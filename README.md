@@ -5,7 +5,7 @@
 ## Usage
 
 ```
-gem "get_into_teaching_api_client_faraday", "0.1.49", git: "git@github.com:DFE-Digital/get-into-teaching-api-ruby-client.git", require: "api/client"
+gem "get_into_teaching_api_client_faraday", "2.0.0", git: "git@github.com:DFE-Digital/get-into-teaching-api-ruby-client.git", require: "api/client"
 ```
 
 ```ruby
@@ -19,10 +19,10 @@ end
 
 ## Development
 
-You can update the Ruby client by regenerating it from the Get into Teaching API swagger documentation. We need to use v2 of `swagger-codegen` as v3 does not yet support Ruby.
+You can update the Ruby client by regenerating it from the Get into Teaching API swagger documentation.
 
 ```
-brew install swagger-codegen@2
+brew install swagger-codegen
 ```
 
 ```
@@ -30,13 +30,7 @@ rm -rf ./auto-generated-gem
 swagger-codegen generate -i <swagger_docs_url> -l ruby -o ./auto-generated-gem -c config.json
 ```
 
-The generated specs fail due to `Addressable::URI.encode` raising an error when given an empty hostname (`URI.encode` did not complain, but since we updated its a problem). You currently need to manually fix the specs that reference a `GetIntoTeachingApiClient::Configuration` instance by setting a host:
-
-```ruby
-let(:config) { GetIntoTeachingApiClient::Configuration.new { |c| c.host = "example.com" } }
-```
-
-We also need to update the `rexml` gem as the version used by `swagger-codegen` contains a security vulnerability: `bundle update rexml`.
+You then need to overwrite the `base_object_spec.rb` with the version in master as it has been manually patched. See [this pull request](https://github.com/swagger-api/swagger-codegen-generators/pull/856) for details. Finally, remove the call to `super(attributes)` from `problem_details.rb` - it has no parent and I'm not yet sure why swagger-codegen puts this call in.
 
 You should then also run the test suite:
 

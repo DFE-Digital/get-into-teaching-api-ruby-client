@@ -9,4 +9,3 @@ Name | Type | Description | Notes
 **date_of_birth** | **DateTime** |  | [optional] 
 **reference** | **String** |  | [optional] 
 
-

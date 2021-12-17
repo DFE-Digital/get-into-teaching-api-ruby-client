@@ -1,12 +1,11 @@
 # GetIntoTeachingApiClient::GetIntoTeachingApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**book_get_into_teaching_callback**](GetIntoTeachingApi.md#book_get_into_teaching_callback) | **POST** /api/get_into_teaching/callbacks | Schedule a callback for the candidate.
 [**exchange_access_token_for_get_into_teaching_callback**](GetIntoTeachingApi.md#exchange_access_token_for_get_into_teaching_callback) | **POST** /api/get_into_teaching/callbacks/exchange_access_token/{accessToken} | Retrieves a pre-populated GetIntoTeachingCallback for the candidate.
-
 
 # **book_get_into_teaching_callback**
 > book_get_into_teaching_callback(body)
@@ -28,7 +27,6 @@ GetIntoTeachingApiClient.configure do |config|
 end
 
 api_instance = GetIntoTeachingApiClient::GetIntoTeachingApi.new
-
 body = GetIntoTeachingApiClient::GetIntoTeachingCallback.new # GetIntoTeachingCallback | Candidate to book a callback for.
 
 
@@ -62,7 +60,7 @@ nil (empty response body)
 
 
 # **exchange_access_token_for_get_into_teaching_callback**
-> GetIntoTeachingCallback exchange_access_token_for_get_into_teaching_callback(access_token, body)
+> GetIntoTeachingCallback exchange_access_token_for_get_into_teaching_callback(bodyaccess_token)
 
 Retrieves a pre-populated GetIntoTeachingCallback for the candidate.
 
@@ -81,15 +79,13 @@ GetIntoTeachingApiClient.configure do |config|
 end
 
 api_instance = GetIntoTeachingApiClient::GetIntoTeachingApi.new
-
-access_token = 'access_token_example' # String | Access token (PIN code).
-
 body = GetIntoTeachingApiClient::ExistingCandidateRequest.new # ExistingCandidateRequest | Candidate access token request (must match an existing candidate).
+access_token = 'access_token_example' # String | Access token (PIN code).
 
 
 begin
   #Retrieves a pre-populated GetIntoTeachingCallback for the candidate.
-  result = api_instance.exchange_access_token_for_get_into_teaching_callback(access_token, body)
+  result = api_instance.exchange_access_token_for_get_into_teaching_callback(bodyaccess_token)
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling GetIntoTeachingApi->exchange_access_token_for_get_into_teaching_callback: #{e}"
@@ -100,8 +96,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **access_token** | **String**| Access token (PIN code). | 
  **body** | [**ExistingCandidateRequest**](ExistingCandidateRequest.md)| Candidate access token request (must match an existing candidate). | 
+ **access_token** | **String**| Access token (PIN code). | 
 
 ### Return type
 

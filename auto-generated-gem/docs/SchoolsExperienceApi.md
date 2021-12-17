@@ -1,6 +1,6 @@
 # GetIntoTeachingApiClient::SchoolsExperienceApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,9 +11,8 @@ Method | HTTP request | Description
 [**get_schools_experience_sign_ups**](SchoolsExperienceApi.md#get_schools_experience_sign_ups) | **GET** /api/schools_experience/candidates | Retrieves existing SchoolsExperienceSignUps for the candidate &#x60;ids&#x60;.
 [**sign_up_schools_experience_candidate**](SchoolsExperienceApi.md#sign_up_schools_experience_candidate) | **POST** /api/schools_experience/candidates | Sign up a candidate for the Schools Experience service.
 
-
 # **add_classroom_experience_note**
-> add_classroom_experience_note(id, body)
+> add_classroom_experience_note(bodyid)
 
 Add a classroom experience note to the candidate.
 
@@ -32,15 +31,13 @@ GetIntoTeachingApiClient.configure do |config|
 end
 
 api_instance = GetIntoTeachingApiClient::SchoolsExperienceApi.new
-
-id = 'id_example' # String | The `id` of the `Candidate`.
-
 body = GetIntoTeachingApiClient::ClassroomExperienceNote.new # ClassroomExperienceNote | Classroom experience note.
+id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | The `id` of the `Candidate`.
 
 
 begin
   #Add a classroom experience note to the candidate.
-  api_instance.add_classroom_experience_note(id, body)
+  api_instance.add_classroom_experience_note(bodyid)
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling SchoolsExperienceApi->add_classroom_experience_note: #{e}"
 end
@@ -50,8 +47,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**String**](.md)| The &#x60;id&#x60; of the &#x60;Candidate&#x60;. | 
  **body** | [**ClassroomExperienceNote**](ClassroomExperienceNote.md)| Classroom experience note. | 
+ **id** | [**String**](.md)| The &#x60;id&#x60; of the &#x60;Candidate&#x60;. | 
 
 ### Return type
 
@@ -69,7 +66,7 @@ nil (empty response body)
 
 
 # **add_school_experience**
-> add_school_experience(id, body)
+> add_school_experience(bodyid)
 
 Add a school experience to the candidate.
 
@@ -88,15 +85,13 @@ GetIntoTeachingApiClient.configure do |config|
 end
 
 api_instance = GetIntoTeachingApiClient::SchoolsExperienceApi.new
-
-id = 'id_example' # String | 
-
 body = GetIntoTeachingApiClient::CandidateSchoolExperience.new # CandidateSchoolExperience | School experience.
+id = 'id_example' # String | 
 
 
 begin
   #Add a school experience to the candidate.
-  api_instance.add_school_experience(id, body)
+  api_instance.add_school_experience(bodyid)
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling SchoolsExperienceApi->add_school_experience: #{e}"
 end
@@ -106,8 +101,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**|  | 
  **body** | [**CandidateSchoolExperience**](CandidateSchoolExperience.md)| School experience. | 
+ **id** | **String**|  | 
 
 ### Return type
 
@@ -125,7 +120,7 @@ nil (empty response body)
 
 
 # **exchange_access_token_for_schools_experience_sign_up**
-> SchoolsExperienceSignUp exchange_access_token_for_schools_experience_sign_up(access_token, body)
+> SchoolsExperienceSignUp exchange_access_token_for_schools_experience_sign_up(bodyaccess_token)
 
 Retrieves a pre-populated SchoolsExperienceSignUp for the candidate.
 
@@ -144,15 +139,13 @@ GetIntoTeachingApiClient.configure do |config|
 end
 
 api_instance = GetIntoTeachingApiClient::SchoolsExperienceApi.new
-
-access_token = 'access_token_example' # String | Access token (PIN code).
-
 body = GetIntoTeachingApiClient::ExistingCandidateRequest.new # ExistingCandidateRequest | Candidate access token request (must match an existing candidate).
+access_token = 'access_token_example' # String | Access token (PIN code).
 
 
 begin
   #Retrieves a pre-populated SchoolsExperienceSignUp for the candidate.
-  result = api_instance.exchange_access_token_for_schools_experience_sign_up(access_token, body)
+  result = api_instance.exchange_access_token_for_schools_experience_sign_up(bodyaccess_token)
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Exception when calling SchoolsExperienceApi->exchange_access_token_for_schools_experience_sign_up: #{e}"
@@ -163,8 +156,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **access_token** | **String**| Access token (PIN code). | 
  **body** | [**ExistingCandidateRequest**](ExistingCandidateRequest.md)| Candidate access token request (must match an existing candidate). | 
+ **access_token** | **String**| Access token (PIN code). | 
 
 ### Return type
 
@@ -199,8 +192,7 @@ GetIntoTeachingApiClient.configure do |config|
 end
 
 api_instance = GetIntoTeachingApiClient::SchoolsExperienceApi.new
-
-id = 'id_example' # String | The `id` of the `Candidate`.
+id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | The `id` of the `Candidate`.
 
 
 begin
@@ -251,7 +243,6 @@ GetIntoTeachingApiClient.configure do |config|
 end
 
 api_instance = GetIntoTeachingApiClient::SchoolsExperienceApi.new
-
 ids = ['ids_example'] # Array<String> | A collection of `Candidate` `id`s.
 
 
@@ -305,7 +296,6 @@ GetIntoTeachingApiClient.configure do |config|
 end
 
 api_instance = GetIntoTeachingApiClient::SchoolsExperienceApi.new
-
 body = GetIntoTeachingApiClient::SchoolsExperienceSignUp.new # SchoolsExperienceSignUp | Candidate to sign up for the Schools Experience service.
 
 

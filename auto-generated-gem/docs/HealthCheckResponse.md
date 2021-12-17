@@ -12,4 +12,3 @@ Name | Type | Description | Notes
 **notify** | **String** |  | [optional] 
 **status** | **String** |  | [optional] 
 
-

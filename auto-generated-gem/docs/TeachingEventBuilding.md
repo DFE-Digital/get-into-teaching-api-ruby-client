@@ -12,4 +12,3 @@ Name | Type | Description | Notes
 **address_postcode** | **String** |  | [optional] 
 **image_url** | **String** |  | [optional] 
 
-

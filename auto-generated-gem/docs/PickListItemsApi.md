@@ -1,6 +1,6 @@
 # GetIntoTeachingApiClient::PickListItemsApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -26,7 +26,6 @@ Method | HTTP request | Description
 [**get_teaching_event_registration_channels**](PickListItemsApi.md#get_teaching_event_registration_channels) | **GET** /api/pick_list_items/teaching_event_registration/channels | Retrieves the list of teaching event registration channels.
 [**get_teaching_event_status**](PickListItemsApi.md#get_teaching_event_status) | **GET** /api/pick_list_items/teaching_event/status | Retrieves the list of teaching event status.
 [**get_teaching_event_types**](PickListItemsApi.md#get_teaching_event_types) | **GET** /api/pick_list_items/teaching_event/types | Retrieves the list of teaching event types.
-
 
 # **get_candidate_adviser_eligibilities**
 > Array&lt;PickListItem&gt; get_candidate_adviser_eligibilities

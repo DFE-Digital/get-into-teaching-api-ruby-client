@@ -7,4 +7,3 @@ Name | Type | Description | Notes
 **text** | **String** |  | [optional] 
 **created_at** | **DateTime** |  | [optional] 
 
-

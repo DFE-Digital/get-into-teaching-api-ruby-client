@@ -1,11 +1,10 @@
 # GetIntoTeachingApiClient::TeachingEventBuildingsApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_teaching_event_buildings**](TeachingEventBuildingsApi.md#get_teaching_event_buildings) | **GET** /api/teaching_event_buildings | Retrieves all event buildings.
-
 
 # **get_teaching_event_buildings**
 > Array&lt;TeachingEventBuilding&gt; get_teaching_event_buildings

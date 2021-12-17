@@ -1,6 +1,6 @@
 # GetIntoTeachingApiClient::OperationsApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,6 @@ Method | HTTP request | Description
 [**health_check**](OperationsApi.md#health_check) | **GET** /api/operations/health_check | Performs a health check.
 [**pause_crm_integration**](OperationsApi.md#pause_crm_integration) | **PUT** /api/operations/pause_crm_integration | Temporarily pauses the integration with the CRM.
 [**resume_crm_integration**](OperationsApi.md#resume_crm_integration) | **PUT** /api/operations/resume_crm_integration | Resumes the integration with the CRM (after being paused).
-
 
 # **backfill_find_apply_candidates**
 > backfill_find_apply_candidates

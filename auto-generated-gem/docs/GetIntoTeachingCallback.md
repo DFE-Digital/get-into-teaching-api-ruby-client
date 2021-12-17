@@ -12,4 +12,3 @@ Name | Type | Description | Notes
 **phone_call_scheduled_at** | **DateTime** |  | 
 **talking_points** | **String** |  | 
 
-

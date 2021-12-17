@@ -27,4 +27,3 @@ Name | Type | Description | Notes
 **has_dbs_certificate** | **BOOLEAN** |  | 
 **dbs_certificate_issued_at** | **DateTime** |  | [optional] 
 
-

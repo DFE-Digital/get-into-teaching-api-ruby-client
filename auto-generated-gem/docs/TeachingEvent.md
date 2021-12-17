@@ -26,4 +26,3 @@ Name | Type | Description | Notes
 **is_virtual** | **BOOLEAN** |  | [optional] 
 **is_in_person** | **BOOLEAN** |  | [optional] 
 
-

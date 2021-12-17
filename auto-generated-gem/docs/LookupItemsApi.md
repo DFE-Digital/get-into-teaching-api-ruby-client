@@ -1,12 +1,11 @@
 # GetIntoTeachingApiClient::LookupItemsApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_countries**](LookupItemsApi.md#get_countries) | **GET** /api/lookup_items/countries | Retrieves the list of countries.
 [**get_teaching_subjects**](LookupItemsApi.md#get_teaching_subjects) | **GET** /api/lookup_items/teaching_subjects | Retrieves the list of teaching subjects.
-
 
 # **get_countries**
 > Array&lt;LookupItem&gt; get_countries
