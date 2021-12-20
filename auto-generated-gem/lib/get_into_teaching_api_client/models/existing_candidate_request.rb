@@ -48,6 +48,10 @@ module GetIntoTeachingApiClient
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'first_name',
+        :'last_name',
+        :'date_of_birth',
+        :'reference'
       ])
     end
   

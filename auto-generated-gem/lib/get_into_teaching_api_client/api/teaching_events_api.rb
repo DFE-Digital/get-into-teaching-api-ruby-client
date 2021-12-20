@@ -290,11 +290,11 @@ module GetIntoTeachingApiClient
       query_params = opts[:query_params] || {}
       query_params[:'Postcode'] = opts[:'postcode'] if !opts[:'postcode'].nil?
       query_params[:'Radius'] = opts[:'radius'] if !opts[:'radius'].nil?
-      query_params[:'TypeIds'] = @api_client.build_collection_param(opts[:'type_ids'], :csv) if !opts[:'type_ids'].nil?
+      query_params[:'TypeIds'] = @api_client.build_collection_param(opts[:'type_ids'], :multi) if !opts[:'type_ids'].nil?
       query_params[:'Online'] = opts[:'online'] if !opts[:'online'].nil?
       query_params[:'StartAfter'] = opts[:'start_after'] if !opts[:'start_after'].nil?
       query_params[:'StartBefore'] = opts[:'start_before'] if !opts[:'start_before'].nil?
-      query_params[:'StatusIds'] = @api_client.build_collection_param(opts[:'status_ids'], :csv) if !opts[:'status_ids'].nil?
+      query_params[:'StatusIds'] = @api_client.build_collection_param(opts[:'status_ids'], :multi) if !opts[:'status_ids'].nil?
       query_params[:'quantityPerType'] = opts[:'quantity_per_type'] if !opts[:'quantity_per_type'].nil?
 
       # header parameters

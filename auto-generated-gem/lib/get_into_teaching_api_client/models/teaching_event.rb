@@ -118,6 +118,18 @@ module GetIntoTeachingApiClient
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'id',
+        :'web_feed_id',
+        :'summary',
+        :'message',
+        :'description',
+        :'video_url',
+        :'scribble_id',
+        :'provider_website_url',
+        :'provider_target_audience',
+        :'provider_organiser',
+        :'provider_contact_email',
+        :'providers_list',
       ])
     end
   

@@ -126,7 +126,7 @@ module GetIntoTeachingApiClient
 
     def initialize
       @scheme = 'http'
-      @host = 'get-into-teaching-api-dev.london.cloudapps.digital'
+      @host = 'localhost'
       @base_path = '/'
       @api_key = {}
       @api_key_prefix = {}

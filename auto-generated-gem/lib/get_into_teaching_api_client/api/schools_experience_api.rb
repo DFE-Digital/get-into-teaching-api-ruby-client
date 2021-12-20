@@ -288,7 +288,7 @@ module GetIntoTeachingApiClient
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'ids'] = @api_client.build_collection_param(ids, :csv)
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
 
       # header parameters
       header_params = opts[:header_params] || {}

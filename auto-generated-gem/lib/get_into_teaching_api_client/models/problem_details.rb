@@ -45,6 +45,9 @@ module GetIntoTeachingApiClient
         end
         h[k.to_sym] = v
       }
+
+      # call parent's initialize
+      super()
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?

@@ -60,6 +60,14 @@ module GetIntoTeachingApiClient
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'git_commit_sha',
+        :'environment',
+        :'database',
+        :'hangfire',
+        :'crm',
+        :'redis',
+        :'notify',
+        :'status'
       ])
     end
   
