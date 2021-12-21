@@ -1,5 +1,4 @@
 RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
-
   let(:host) { "host.api" }
   let(:api_client) { GetIntoTeachingApiClient::ApiClient.default }
   let(:base_url) { api_client.config.base_url }
@@ -20,9 +19,12 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
 
   before do
     GetIntoTeachingApiClient.configure do |config|
+      config.server_index = nil
+      config.scheme = "https"
       config.host = host
       config.base_path = "base_path"
-      config.api_key["Authorization"] = token
+      config.api_key_prefix["apiKey"] = "Bearer"
+      config.api_key["apiKey"] = token
       config.cache_store = cache_store
       config.circuit_breaker = { enabled: false }
     end
@@ -152,7 +154,7 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
     stub_request(:post, post_endpoint)
       .with(body: { email: "test@test.com" })
       .to_return(status: 200, body: data.to_json)
-
+    
     expect { perform_post_request }.to_not raise_error
   end
 
@@ -334,9 +336,7 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
   
         stub_request(method, url).to_return(status: 201)
   
-        response = api_client.faraday.public_send(method.downcase) do |req|
-          req.url(url)
-        end
+        api_client.call_api(method.downcase, path, { header_params: {}, query_params: {} })
 
         stub_request(:get, get_endpoint)
           .to_return(

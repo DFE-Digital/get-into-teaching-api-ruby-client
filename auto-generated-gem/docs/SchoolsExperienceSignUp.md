@@ -1,29 +1,62 @@
 # GetIntoTeachingApiClient::SchoolsExperienceSignUp
 
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**candidate_id** | **String** |  | [optional] 
-**preferred_teaching_subject_id** | **String** |  | 
-**secondary_preferred_teaching_subject_id** | **String** |  | [optional] 
-**accepted_policy_id** | **String** |  | 
-**master_id** | **String** |  | [optional] 
-**merged** | **BOOLEAN** |  | [optional] 
-**full_name** | **String** |  | [optional] 
-**email** | **String** |  | 
-**secondary_email** | **String** |  | [optional] 
-**first_name** | **String** |  | 
-**last_name** | **String** |  | 
-**address_line1** | **String** |  | 
-**address_line2** | **String** |  | [optional] 
-**address_line3** | **String** |  | [optional] 
-**address_city** | **String** |  | 
-**address_state_or_province** | **String** |  | 
-**address_postcode** | **String** |  | 
-**address_telephone** | **String** |  | 
-**telephone** | **String** |  | 
-**secondary_telephone** | **String** |  | 
-**mobile_telephone** | **String** |  | [optional] 
-**has_dbs_certificate** | **BOOLEAN** |  | 
-**dbs_certificate_issued_at** | **DateTime** |  | [optional] 
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **candidate_id** | **String** |  | [optional] |
+| **preferred_teaching_subject_id** | **String** |  |  |
+| **secondary_preferred_teaching_subject_id** | **String** |  | [optional] |
+| **accepted_policy_id** | **String** |  |  |
+| **master_id** | **String** |  | [optional][readonly] |
+| **merged** | **Boolean** |  | [optional][readonly] |
+| **full_name** | **String** |  | [optional][readonly] |
+| **email** | **String** |  |  |
+| **secondary_email** | **String** |  | [optional] |
+| **first_name** | **String** |  |  |
+| **last_name** | **String** |  |  |
+| **address_line1** | **String** |  |  |
+| **address_line2** | **String** |  | [optional] |
+| **address_line3** | **String** |  | [optional] |
+| **address_city** | **String** |  |  |
+| **address_state_or_province** | **String** |  |  |
+| **address_postcode** | **String** |  |  |
+| **address_telephone** | **String** |  |  |
+| **telephone** | **String** |  |  |
+| **secondary_telephone** | **String** |  |  |
+| **mobile_telephone** | **String** |  | [optional] |
+| **has_dbs_certificate** | **Boolean** |  |  |
+| **dbs_certificate_issued_at** | **Time** |  | [optional] |
+
+## Example
+
+```ruby
+require 'get_into_teaching_api_client'
+
+instance = GetIntoTeachingApiClient::SchoolsExperienceSignUp.new(
+  candidate_id: null,
+  preferred_teaching_subject_id: null,
+  secondary_preferred_teaching_subject_id: null,
+  accepted_policy_id: null,
+  master_id: null,
+  merged: null,
+  full_name: null,
+  email: null,
+  secondary_email: null,
+  first_name: null,
+  last_name: null,
+  address_line1: null,
+  address_line2: null,
+  address_line3: null,
+  address_city: null,
+  address_state_or_province: null,
+  address_postcode: null,
+  address_telephone: null,
+  telephone: null,
+  secondary_telephone: null,
+  mobile_telephone: null,
+  has_dbs_certificate: null,
+  dbs_certificate_issued_at: null
+)
+```
 

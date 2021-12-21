@@ -12,6 +12,7 @@ require "api/client/version"
 require "api/models/current"
 require "api/extensions/get_into_teaching_api_client/configuration"
 require "api/extensions/get_into_teaching_api_client/api_client"
+require "api/middleware/request_id"
 
 class GetIntoTeachingApiClient::CircuitBrokenError < RuntimeError; end
 

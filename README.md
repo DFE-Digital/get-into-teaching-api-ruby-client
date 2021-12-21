@@ -10,10 +10,18 @@ gem "get_into_teaching_api_client_faraday", "2.0.0", git: "git@github.com:DFE-Di
 
 ```ruby
 GetIntoTeachingApiClient.configure do |config|
+  config.server_index = nil
+  config.scheme = "https"
   config.host = host
-  config.base_path = endpoint
-  config.api_key["Authorization"] = token
+  config.base_path = "base_path"
+  config.api_key_prefix["apiKey"] = "Bearer"
+  config.api_key["apiKey"] = token
   config.cache_store = Rails.cache
+  config.circuit_breaker = {
+    enabled: true,
+    threshold: 5,
+    timeout: 5.minutes,
+  }
 end
 ```
 
@@ -22,15 +30,13 @@ end
 You can update the Ruby client by regenerating it from the Get into Teaching API swagger documentation.
 
 ```
-brew install swagger-codegen
+brew install openapi-generator
 ```
 
 ```
 rm -rf ./auto-generated-gem
-swagger-codegen generate -i <swagger_docs_url> -l ruby -o ./auto-generated-gem -c config.json
+openapi-generator generate -i <swagger_docs_url> -g ruby -o ./auto-generated-gem -c config.yaml
 ```
-
-You then need to overwrite the `base_object_spec.rb` with the version in master as it has been manually patched. See [this pull request](https://github.com/swagger-api/swagger-codegen-generators/pull/856) for details. Finally, remove the call to `super(attributes)` from `problem_details.rb` - it has no parent and I'm not yet sure why swagger-codegen puts this call in.
 
 You should then also run the test suite:
 
