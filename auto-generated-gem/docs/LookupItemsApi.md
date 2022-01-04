@@ -1,42 +1,63 @@
 # GetIntoTeachingApiClient::LookupItemsApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**get_countries**](LookupItemsApi.md#get_countries) | **GET** /api/lookup_items/countries | Retrieves the list of countries.
-[**get_teaching_subjects**](LookupItemsApi.md#get_teaching_subjects) | **GET** /api/lookup_items/teaching_subjects | Retrieves the list of teaching subjects.
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**get_countries**](LookupItemsApi.md#get_countries) | **GET** /api/lookup_items/countries | Retrieves the list of countries. |
+| [**get_teaching_subjects**](LookupItemsApi.md#get_teaching_subjects) | **GET** /api/lookup_items/teaching_subjects | Retrieves the list of teaching subjects. |
 
 
-# **get_countries**
-> Array&lt;LookupItem&gt; get_countries
+## get_countries
+
+> <Array<LookupItem>> get_countries
 
 Retrieves the list of countries.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
   # Configure API key authorization: apiKey
-  config.api_key['Authorization'] = 'YOUR API KEY'
+  config.api_key['apiKey'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
+  # config.api_key_prefix['apiKey'] = 'Bearer'
 end
 
 api_instance = GetIntoTeachingApiClient::LookupItemsApi.new
 
 begin
-  #Retrieves the list of countries.
+  # Retrieves the list of countries.
   result = api_instance.get_countries
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Exception when calling LookupItemsApi->get_countries: #{e}"
+  puts "Error when calling LookupItemsApi->get_countries: #{e}"
+end
+```
+
+#### Using the get_countries_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<LookupItem>>, Integer, Hash)> get_countries_with_http_info
+
+```ruby
+begin
+  # Retrieves the list of countries.
+  data, status_code, headers = api_instance.get_countries_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<LookupItem>>
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Error when calling LookupItemsApi->get_countries_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -49,40 +70,60 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
 
+## get_teaching_subjects
 
-# **get_teaching_subjects**
-> Array&lt;LookupItem&gt; get_teaching_subjects
+> <Array<LookupItem>> get_teaching_subjects
 
 Retrieves the list of teaching subjects.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
   # Configure API key authorization: apiKey
-  config.api_key['Authorization'] = 'YOUR API KEY'
+  config.api_key['apiKey'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
+  # config.api_key_prefix['apiKey'] = 'Bearer'
 end
 
 api_instance = GetIntoTeachingApiClient::LookupItemsApi.new
 
 begin
-  #Retrieves the list of teaching subjects.
+  # Retrieves the list of teaching subjects.
   result = api_instance.get_teaching_subjects
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Exception when calling LookupItemsApi->get_teaching_subjects: #{e}"
+  puts "Error when calling LookupItemsApi->get_teaching_subjects: #{e}"
+end
+```
+
+#### Using the get_teaching_subjects_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<LookupItem>>, Integer, Hash)> get_teaching_subjects_with_http_info
+
+```ruby
+begin
+  # Retrieves the list of teaching subjects.
+  data, status_code, headers = api_instance.get_teaching_subjects_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<LookupItem>>
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Error when calling LookupItemsApi->get_teaching_subjects_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -95,8 +136,6 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
-
-
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 

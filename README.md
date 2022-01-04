@@ -5,38 +5,38 @@
 ## Usage
 
 ```
-gem "get_into_teaching_api_client_faraday", "0.1.49", git: "git@github.com:DFE-Digital/get-into-teaching-api-ruby-client.git", require: "api/client"
+gem "get_into_teaching_api_client_faraday", "2.0.0", git: "git@github.com:DFE-Digital/get-into-teaching-api-ruby-client.git", require: "api/client"
 ```
 
 ```ruby
 GetIntoTeachingApiClient.configure do |config|
+  config.server_index = nil
+  config.scheme = "https"
   config.host = host
-  config.base_path = endpoint
-  config.api_key["Authorization"] = token
+  config.base_path = "base_path"
+  config.api_key_prefix["apiKey"] = "Bearer"
+  config.api_key["apiKey"] = token
   config.cache_store = Rails.cache
+  config.circuit_breaker = {
+    enabled: true,
+    threshold: 5,
+    timeout: 5.minutes,
+  }
 end
 ```
 
 ## Development
 
-You can update the Ruby client by regenerating it from the Get into Teaching API swagger documentation. We need to use v2 of `swagger-codegen` as v3 does not yet support Ruby.
+You can update the Ruby client by regenerating it from the Get into Teaching API swagger documentation.
 
 ```
-brew install swagger-codegen@2
+brew install openapi-generator
 ```
 
 ```
 rm -rf ./auto-generated-gem
-swagger-codegen generate -i <swagger_docs_url> -l ruby -o ./auto-generated-gem -c config.json
+openapi-generator generate -i <swagger_docs_url> -g ruby -o ./auto-generated-gem -c config.yaml
 ```
-
-The generated specs fail due to `Addressable::URI.encode` raising an error when given an empty hostname (`URI.encode` did not complain, but since we updated its a problem). You currently need to manually fix the specs that reference a `GetIntoTeachingApiClient::Configuration` instance by setting a host:
-
-```ruby
-let(:config) { GetIntoTeachingApiClient::Configuration.new { |c| c.host = "example.com" } }
-```
-
-We also need to update the `rexml` gem as the version used by `swagger-codegen` contains a security vulnerability: `bundle update rexml`.
 
 You should then also run the test suite:
 
