@@ -21,7 +21,7 @@ module Extensions
       end
 
       def build_request(http_method, path, request, opts = {})
-        opts[:query_params] = format_date_times(opts[:query_params])
+        opts[:query_params] = format_query_params(opts[:query_params])
 
         super(http_method, path, request, opts)
       end
@@ -35,6 +35,13 @@ module Extensions
       end
 
       private
+
+      def format_query_params(params = {})
+        params = format_date_times(params)
+        params.transform_values do |value|
+          value.is_a?(Array) ? value.join(",") : value
+        end
+      end
 
       def format_date_times(params = {})
         params.transform_values do |value|
