@@ -175,6 +175,15 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
     expect { perform_get_request }.to raise_error(GetIntoTeachingApiClient::ApiError)
   end
 
+  it "performs a GET request with multiple query parameters successfully" do
+    stub_request(:get, "#{base_url}/api/schools_experience/candidates")
+      .with(query: { ids: "first,second" })
+      .to_return(status: 200, body: data.to_json)
+
+    ids = %w(first second)
+    GetIntoTeachingApiClient::SchoolsExperienceApi.new.get_schools_experience_sign_ups(ids)
+  end
+
   it "sets an Authorization header on the request" do
     stub_request(:get, get_endpoint)
       .with(headers: { "Authorization" => "Bearer #{token}" })
