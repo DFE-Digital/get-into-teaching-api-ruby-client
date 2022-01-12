@@ -12,7 +12,6 @@
 | **merged** | **Boolean** |  | [optional][readonly] |
 | **full_name** | **String** |  | [optional][readonly] |
 | **email** | **String** |  |  |
-| **secondary_email** | **String** |  | [optional] |
 | **first_name** | **String** |  |  |
 | **last_name** | **String** |  |  |
 | **address_line1** | **String** |  |  |
@@ -21,10 +20,7 @@
 | **address_city** | **String** |  |  |
 | **address_state_or_province** | **String** |  |  |
 | **address_postcode** | **String** |  |  |
-| **address_telephone** | **String** |  |  |
 | **telephone** | **String** |  |  |
-| **secondary_telephone** | **String** |  |  |
-| **mobile_telephone** | **String** |  | [optional] |
 | **has_dbs_certificate** | **Boolean** |  |  |
 | **dbs_certificate_issued_at** | **Time** |  | [optional] |
 
@@ -42,7 +38,6 @@ instance = GetIntoTeachingApiClient::SchoolsExperienceSignUp.new(
   merged: null,
   full_name: null,
   email: null,
-  secondary_email: null,
   first_name: null,
   last_name: null,
   address_line1: null,
@@ -51,10 +46,7 @@ instance = GetIntoTeachingApiClient::SchoolsExperienceSignUp.new(
   address_city: null,
   address_state_or_province: null,
   address_postcode: null,
-  address_telephone: null,
   telephone: null,
-  secondary_telephone: null,
-  mobile_telephone: null,
   has_dbs_certificate: null,
   dbs_certificate_issued_at: null
 )

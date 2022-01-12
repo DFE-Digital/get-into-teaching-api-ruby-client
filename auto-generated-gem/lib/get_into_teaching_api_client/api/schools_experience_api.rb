@@ -95,7 +95,7 @@ module GetIntoTeachingApiClient
 
     # Add a school experience to the candidate.
     # Adds a new school experience to the candidate record
-    # @param id [String] 
+    # @param id [String] The &#x60;id&#x60; of the &#x60;Candidate&#x60;.
     # @param candidate_school_experience [CandidateSchoolExperience] School experience.
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -106,7 +106,7 @@ module GetIntoTeachingApiClient
 
     # Add a school experience to the candidate.
     # Adds a new school experience to the candidate record
-    # @param id [String] 
+    # @param id [String] The &#x60;id&#x60; of the &#x60;Candidate&#x60;.
     # @param candidate_school_experience [CandidateSchoolExperience] School experience.
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers

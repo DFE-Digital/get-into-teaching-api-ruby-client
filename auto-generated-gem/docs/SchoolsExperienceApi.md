@@ -106,7 +106,7 @@ GetIntoTeachingApiClient.configure do |config|
 end
 
 api_instance = GetIntoTeachingApiClient::SchoolsExperienceApi.new
-id = 'id_example' # String | 
+id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | The `id` of the `Candidate`.
 candidate_school_experience = GetIntoTeachingApiClient::CandidateSchoolExperience.new # CandidateSchoolExperience | School experience.
 
 begin
@@ -139,7 +139,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **String** |  |  |
+| **id** | **String** | The &#x60;id&#x60; of the &#x60;Candidate&#x60;. |  |
 | **candidate_school_experience** | [**CandidateSchoolExperience**](CandidateSchoolExperience.md) | School experience. |  |
 
 ### Return type
@@ -389,7 +389,7 @@ GetIntoTeachingApiClient.configure do |config|
 end
 
 api_instance = GetIntoTeachingApiClient::SchoolsExperienceApi.new
-schools_experience_sign_up = GetIntoTeachingApiClient::SchoolsExperienceSignUp.new({preferred_teaching_subject_id: 'preferred_teaching_subject_id_example', accepted_policy_id: 'accepted_policy_id_example', email: 'email_example', first_name: 'first_name_example', last_name: 'last_name_example', address_line1: 'address_line1_example', address_city: 'address_city_example', address_state_or_province: 'address_state_or_province_example', address_postcode: 'address_postcode_example', address_telephone: 'address_telephone_example', telephone: 'telephone_example', secondary_telephone: 'secondary_telephone_example', has_dbs_certificate: false}) # SchoolsExperienceSignUp | Candidate to sign up for the Schools Experience service.
+schools_experience_sign_up = GetIntoTeachingApiClient::SchoolsExperienceSignUp.new({preferred_teaching_subject_id: 'preferred_teaching_subject_id_example', accepted_policy_id: 'accepted_policy_id_example', email: 'email_example', first_name: 'first_name_example', last_name: 'last_name_example', address_line1: 'address_line1_example', address_city: 'address_city_example', address_state_or_province: 'address_state_or_province_example', address_postcode: 'address_postcode_example', telephone: 'telephone_example', has_dbs_certificate: false}) # SchoolsExperienceSignUp | Candidate to sign up for the Schools Experience service.
 
 begin
   # Sign up a candidate for the Schools Experience service.

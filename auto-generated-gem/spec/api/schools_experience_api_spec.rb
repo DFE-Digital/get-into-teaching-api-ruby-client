@@ -48,7 +48,7 @@ describe 'SchoolsExperienceApi' do
   # unit tests for add_school_experience
   # Add a school experience to the candidate.
   # Adds a new school experience to the candidate record
-  # @param id 
+  # @param id The &#x60;id&#x60; of the &#x60;Candidate&#x60;.
   # @param candidate_school_experience School experience.
   # @param [Hash] opts the optional parameters
   # @return [nil]
