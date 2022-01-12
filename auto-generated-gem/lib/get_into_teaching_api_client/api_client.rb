@@ -116,7 +116,7 @@ module GetIntoTeachingApiClient
       form_params = opts[:form_params] || {}
 
       update_params_for_auth! header_params, query_params, opts[:auth_names]
-      
+
       req_opts = {
         :params_encoding => @config.params_encoding,
         :timeout => @config.timeout,

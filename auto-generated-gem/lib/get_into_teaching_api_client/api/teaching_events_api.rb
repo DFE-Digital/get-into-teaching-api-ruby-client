@@ -290,6 +290,91 @@ module GetIntoTeachingApiClient
       return data, status_code, headers
     end
 
+    # Searches for teaching events.
+    # Searches for teaching events. Optionally limit the results by distance (in miles) from a postcode, event type and start date.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :postcode 
+    # @option opts [Integer] :radius 
+    # @option opts [Array<Integer>] :type_ids 
+    # @option opts [Boolean] :online 
+    # @option opts [Time] :start_after 
+    # @option opts [Time] :start_before 
+    # @option opts [Array<Integer>] :status_ids 
+    # @option opts [Integer] :quantity Quantity to return. (default to 10)
+    # @return [Array<TeachingEvent>]
+    def search_teaching_events(opts = {})
+      data, _status_code, _headers = search_teaching_events_with_http_info(opts)
+      data
+    end
+
+    # Searches for teaching events.
+    # Searches for teaching events. Optionally limit the results by distance (in miles) from a postcode, event type and start date.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :postcode 
+    # @option opts [Integer] :radius 
+    # @option opts [Array<Integer>] :type_ids 
+    # @option opts [Boolean] :online 
+    # @option opts [Time] :start_after 
+    # @option opts [Time] :start_before 
+    # @option opts [Array<Integer>] :status_ids 
+    # @option opts [Integer] :quantity Quantity to return.
+    # @return [Array<(Array<TeachingEvent>, Integer, Hash)>] Array<TeachingEvent> data, response status code and response headers
+    def search_teaching_events_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeachingEventsApi.search_teaching_events ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'radius'].nil? && opts[:'radius'] <= 0
+        fail ArgumentError, 'invalid value for "opts[:"radius"]" when calling TeachingEventsApi.search_teaching_events, must be greater than 0.'
+      end
+
+      # resource path
+      local_var_path = '/api/teaching_events/search'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'Postcode'] = opts[:'postcode'] if !opts[:'postcode'].nil?
+      query_params[:'Radius'] = opts[:'radius'] if !opts[:'radius'].nil?
+      query_params[:'TypeIds'] = @api_client.build_collection_param(opts[:'type_ids'], :multi) if !opts[:'type_ids'].nil?
+      query_params[:'Online'] = opts[:'online'] if !opts[:'online'].nil?
+      query_params[:'StartAfter'] = opts[:'start_after'] if !opts[:'start_after'].nil?
+      query_params[:'StartBefore'] = opts[:'start_before'] if !opts[:'start_before'].nil?
+      query_params[:'StatusIds'] = @api_client.build_collection_param(opts[:'status_ids'], :multi) if !opts[:'status_ids'].nil?
+      query_params[:'quantity'] = opts[:'quantity'] if !opts[:'quantity'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Array<TeachingEvent>'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apiKey']
+
+      new_options = opts.merge(
+        :operation => :"TeachingEventsApi.search_teaching_events",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeachingEventsApi#search_teaching_events\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Searches for teaching events, returning grouped by type.
     # Searches for teaching events. Optionally limit the results by distance (in miles) from a postcode, event type and start date.
     # @param [Hash] opts the optional parameters

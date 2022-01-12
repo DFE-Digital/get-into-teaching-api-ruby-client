@@ -31,8 +31,6 @@ module GetIntoTeachingApiClient
 
     attr_accessor :email
 
-    attr_accessor :secondary_email
-
     attr_accessor :first_name
 
     attr_accessor :last_name
@@ -49,13 +47,7 @@ module GetIntoTeachingApiClient
 
     attr_accessor :address_postcode
 
-    attr_accessor :address_telephone
-
     attr_accessor :telephone
-
-    attr_accessor :secondary_telephone
-
-    attr_accessor :mobile_telephone
 
     attr_accessor :has_dbs_certificate
 
@@ -72,7 +64,6 @@ module GetIntoTeachingApiClient
         :'merged' => :'merged',
         :'full_name' => :'fullName',
         :'email' => :'email',
-        :'secondary_email' => :'secondaryEmail',
         :'first_name' => :'firstName',
         :'last_name' => :'lastName',
         :'address_line1' => :'addressLine1',
@@ -81,10 +72,7 @@ module GetIntoTeachingApiClient
         :'address_city' => :'addressCity',
         :'address_state_or_province' => :'addressStateOrProvince',
         :'address_postcode' => :'addressPostcode',
-        :'address_telephone' => :'addressTelephone',
         :'telephone' => :'telephone',
-        :'secondary_telephone' => :'secondaryTelephone',
-        :'mobile_telephone' => :'mobileTelephone',
         :'has_dbs_certificate' => :'hasDbsCertificate',
         :'dbs_certificate_issued_at' => :'dbsCertificateIssuedAt'
       }
@@ -106,7 +94,6 @@ module GetIntoTeachingApiClient
         :'merged' => :'Boolean',
         :'full_name' => :'String',
         :'email' => :'String',
-        :'secondary_email' => :'String',
         :'first_name' => :'String',
         :'last_name' => :'String',
         :'address_line1' => :'String',
@@ -115,10 +102,7 @@ module GetIntoTeachingApiClient
         :'address_city' => :'String',
         :'address_state_or_province' => :'String',
         :'address_postcode' => :'String',
-        :'address_telephone' => :'String',
         :'telephone' => :'String',
-        :'secondary_telephone' => :'String',
-        :'mobile_telephone' => :'String',
         :'has_dbs_certificate' => :'Boolean',
         :'dbs_certificate_issued_at' => :'Time'
       }
@@ -131,10 +115,8 @@ module GetIntoTeachingApiClient
         :'secondary_preferred_teaching_subject_id',
         :'master_id',
         :'full_name',
-        :'secondary_email',
         :'address_line2',
         :'address_line3',
-        :'mobile_telephone',
         :'dbs_certificate_issued_at'
       ])
     end
@@ -186,10 +168,6 @@ module GetIntoTeachingApiClient
         self.email = attributes[:'email']
       end
 
-      if attributes.key?(:'secondary_email')
-        self.secondary_email = attributes[:'secondary_email']
-      end
-
       if attributes.key?(:'first_name')
         self.first_name = attributes[:'first_name']
       end
@@ -222,20 +200,8 @@ module GetIntoTeachingApiClient
         self.address_postcode = attributes[:'address_postcode']
       end
 
-      if attributes.key?(:'address_telephone')
-        self.address_telephone = attributes[:'address_telephone']
-      end
-
       if attributes.key?(:'telephone')
         self.telephone = attributes[:'telephone']
-      end
-
-      if attributes.key?(:'secondary_telephone')
-        self.secondary_telephone = attributes[:'secondary_telephone']
-      end
-
-      if attributes.key?(:'mobile_telephone')
-        self.mobile_telephone = attributes[:'mobile_telephone']
       end
 
       if attributes.key?(:'has_dbs_certificate')
@@ -299,16 +265,8 @@ module GetIntoTeachingApiClient
         invalid_properties.push('invalid value for "address_postcode", address_postcode cannot be nil.')
       end
 
-      if @address_telephone.nil?
-        invalid_properties.push('invalid value for "address_telephone", address_telephone cannot be nil.')
-      end
-
       if @telephone.nil?
         invalid_properties.push('invalid value for "telephone", telephone cannot be nil.')
-      end
-
-      if @secondary_telephone.nil?
-        invalid_properties.push('invalid value for "secondary_telephone", secondary_telephone cannot be nil.')
       end
 
       if @has_dbs_certificate.nil?
@@ -333,9 +291,7 @@ module GetIntoTeachingApiClient
       return false if @address_city.nil?
       return false if @address_state_or_province.nil?
       return false if @address_postcode.nil?
-      return false if @address_telephone.nil?
       return false if @telephone.nil?
-      return false if @secondary_telephone.nil?
       return false if @has_dbs_certificate.nil?
       true
     end
@@ -395,7 +351,6 @@ module GetIntoTeachingApiClient
           merged == o.merged &&
           full_name == o.full_name &&
           email == o.email &&
-          secondary_email == o.secondary_email &&
           first_name == o.first_name &&
           last_name == o.last_name &&
           address_line1 == o.address_line1 &&
@@ -404,10 +359,7 @@ module GetIntoTeachingApiClient
           address_city == o.address_city &&
           address_state_or_province == o.address_state_or_province &&
           address_postcode == o.address_postcode &&
-          address_telephone == o.address_telephone &&
           telephone == o.telephone &&
-          secondary_telephone == o.secondary_telephone &&
-          mobile_telephone == o.mobile_telephone &&
           has_dbs_certificate == o.has_dbs_certificate &&
           dbs_certificate_issued_at == o.dbs_certificate_issued_at
     end
@@ -421,7 +373,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [candidate_id, preferred_teaching_subject_id, secondary_preferred_teaching_subject_id, accepted_policy_id, master_id, merged, full_name, email, secondary_email, first_name, last_name, address_line1, address_line2, address_line3, address_city, address_state_or_province, address_postcode, address_telephone, telephone, secondary_telephone, mobile_telephone, has_dbs_certificate, dbs_certificate_issued_at].hash
+      [candidate_id, preferred_teaching_subject_id, secondary_preferred_teaching_subject_id, accepted_policy_id, master_id, merged, full_name, email, first_name, last_name, address_line1, address_line2, address_line3, address_city, address_state_or_province, address_postcode, telephone, has_dbs_certificate, dbs_certificate_issued_at].hash
     end
 
     # Builds the object from hash
