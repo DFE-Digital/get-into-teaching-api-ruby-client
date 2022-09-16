@@ -32,19 +32,6 @@ describe 'SchoolsExperienceApi' do
     end
   end
 
-  # unit tests for add_classroom_experience_note
-  # Add a classroom experience note to the candidate.
-  # Adds a new classroom experience note to the candidate record
-  # @param id The &#x60;id&#x60; of the &#x60;Candidate&#x60;.
-  # @param classroom_experience_note Classroom experience note.
-  # @param [Hash] opts the optional parameters
-  # @return [nil]
-  describe 'add_classroom_experience_note test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   # unit tests for add_school_experience
   # Add a school experience to the candidate.
   # Adds a new school experience to the candidate record

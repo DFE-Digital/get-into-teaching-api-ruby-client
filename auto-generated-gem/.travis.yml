@@ -11,4 +11,4 @@ script:
   - bundle install --path vendor/bundle
   - bundle exec rspec
   - gem build get_into_teaching_api_client.gemspec
-  - gem install ./get_into_teaching_api_client-2.1.0.gem
+  - gem install ./get_into_teaching_api_client-2.2.0.gem

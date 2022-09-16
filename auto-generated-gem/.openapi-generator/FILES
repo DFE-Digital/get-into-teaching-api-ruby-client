@@ -11,7 +11,6 @@ docs/CallbackBookingQuotasApi.md
 docs/CandidateMagicLinkExchangeResult.md
 docs/CandidateSchoolExperience.md
 docs/CandidatesApi.md
-docs/ClassroomExperienceNote.md
 docs/ExchangeStatus.md
 docs/ExistingCandidateRequest.md
 docs/GetIntoTeachingApi.md
@@ -60,7 +59,6 @@ lib/get_into_teaching_api_client/configuration.rb
 lib/get_into_teaching_api_client/models/callback_booking_quota.rb
 lib/get_into_teaching_api_client/models/candidate_magic_link_exchange_result.rb
 lib/get_into_teaching_api_client/models/candidate_school_experience.rb
-lib/get_into_teaching_api_client/models/classroom_experience_note.rb
 lib/get_into_teaching_api_client/models/exchange_status.rb
 lib/get_into_teaching_api_client/models/existing_candidate_request.rb
 lib/get_into_teaching_api_client/models/get_into_teaching_callback.rb
@@ -96,7 +94,6 @@ spec/configuration_spec.rb
 spec/models/callback_booking_quota_spec.rb
 spec/models/candidate_magic_link_exchange_result_spec.rb
 spec/models/candidate_school_experience_spec.rb
-spec/models/classroom_experience_note_spec.rb
 spec/models/exchange_status_spec.rb
 spec/models/existing_candidate_request_spec.rb
 spec/models/get_into_teaching_callback_spec.rb

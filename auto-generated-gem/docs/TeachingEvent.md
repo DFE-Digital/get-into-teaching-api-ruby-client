@@ -7,6 +7,7 @@
 | **id** | **String** |  | [optional] |
 | **type_id** | **Integer** |  | [optional] |
 | **status_id** | **Integer** |  | [optional] |
+| **region_id** | **Integer** |  | [optional] |
 | **readable_id** | **String** |  |  |
 | **web_feed_id** | **String** | If set, the API will accept new attendees for this event (an external sign up should be used if this value is nil). | [optional] |
 | **is_online** | **Boolean** |  | [optional] |
@@ -36,6 +37,7 @@ instance = GetIntoTeachingApiClient::TeachingEvent.new(
   id: null,
   type_id: null,
   status_id: null,
+  region_id: null,
   readable_id: null,
   web_feed_id: null,
   is_online: null,
