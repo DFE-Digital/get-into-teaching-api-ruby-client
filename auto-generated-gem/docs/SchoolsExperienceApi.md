@@ -4,84 +4,11 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_classroom_experience_note**](SchoolsExperienceApi.md#add_classroom_experience_note) | **POST** /api/schools_experience/candidates/{id}/classroom_experience_notes | Add a classroom experience note to the candidate. |
 | [**add_school_experience**](SchoolsExperienceApi.md#add_school_experience) | **POST** /api/schools_experience/candidates/{id}/school_experience | Add a school experience to the candidate. |
 | [**exchange_access_token_for_schools_experience_sign_up**](SchoolsExperienceApi.md#exchange_access_token_for_schools_experience_sign_up) | **POST** /api/schools_experience/candidates/exchange_access_token/{accessToken} | Retrieves a pre-populated SchoolsExperienceSignUp for the candidate. |
 | [**get_schools_experience_sign_up**](SchoolsExperienceApi.md#get_schools_experience_sign_up) | **GET** /api/schools_experience/candidates/{id} | Retrieves an existing SchoolsExperienceSignUp for the candidate. |
 | [**get_schools_experience_sign_ups**](SchoolsExperienceApi.md#get_schools_experience_sign_ups) | **GET** /api/schools_experience/candidates | Retrieves existing SchoolsExperienceSignUps for the candidate &#x60;ids&#x60;. |
 | [**sign_up_schools_experience_candidate**](SchoolsExperienceApi.md#sign_up_schools_experience_candidate) | **POST** /api/schools_experience/candidates | Sign up a candidate for the Schools Experience service. |
-
-
-## add_classroom_experience_note
-
-> add_classroom_experience_note(id, classroom_experience_note)
-
-Add a classroom experience note to the candidate.
-
-Adds a new classroom experience note to the candidate record
-
-### Examples
-
-```ruby
-require 'time'
-require 'get_into_teaching_api_client'
-# setup authorization
-GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
-end
-
-api_instance = GetIntoTeachingApiClient::SchoolsExperienceApi.new
-id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | The `id` of the `Candidate`.
-classroom_experience_note = GetIntoTeachingApiClient::ClassroomExperienceNote.new({recorded_at: Date.today, action: 'action_example', school_urn: 37, school_name: 'school_name_example'}) # ClassroomExperienceNote | Classroom experience note.
-
-begin
-  # Add a classroom experience note to the candidate.
-  api_instance.add_classroom_experience_note(id, classroom_experience_note)
-rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling SchoolsExperienceApi->add_classroom_experience_note: #{e}"
-end
-```
-
-#### Using the add_classroom_experience_note_with_http_info variant
-
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
-
-> <Array(nil, Integer, Hash)> add_classroom_experience_note_with_http_info(id, classroom_experience_note)
-
-```ruby
-begin
-  # Add a classroom experience note to the candidate.
-  data, status_code, headers = api_instance.add_classroom_experience_note_with_http_info(id, classroom_experience_note)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => nil
-rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling SchoolsExperienceApi->add_classroom_experience_note_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **id** | **String** | The &#x60;id&#x60; of the &#x60;Candidate&#x60;. |  |
-| **classroom_experience_note** | [**ClassroomExperienceNote**](ClassroomExperienceNote.md) | Classroom experience note. |  |
-
-### Return type
-
-nil (empty response body)
-
-### Authorization
-
-[apiKey](../README.md#apiKey)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, text/json, application/*+json
-- **Accept**: text/plain, application/json, text/json
 
 
 ## add_school_experience

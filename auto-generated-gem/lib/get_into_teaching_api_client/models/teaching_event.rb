@@ -21,6 +21,8 @@ module GetIntoTeachingApiClient
 
     attr_accessor :status_id
 
+    attr_accessor :region_id
+
     attr_accessor :readable_id
 
     # If set, the API will accept new attendees for this event (an external sign up should be used if this value is nil).
@@ -67,6 +69,7 @@ module GetIntoTeachingApiClient
         :'id' => :'id',
         :'type_id' => :'typeId',
         :'status_id' => :'statusId',
+        :'region_id' => :'regionId',
         :'readable_id' => :'readableId',
         :'web_feed_id' => :'webFeedId',
         :'is_online' => :'isOnline',
@@ -100,6 +103,7 @@ module GetIntoTeachingApiClient
         :'id' => :'String',
         :'type_id' => :'Integer',
         :'status_id' => :'Integer',
+        :'region_id' => :'Integer',
         :'readable_id' => :'String',
         :'web_feed_id' => :'String',
         :'is_online' => :'Boolean',
@@ -126,6 +130,7 @@ module GetIntoTeachingApiClient
     def self.openapi_nullable
       Set.new([
         :'id',
+        :'region_id',
         :'web_feed_id',
         :'summary',
         :'message',
@@ -165,6 +170,10 @@ module GetIntoTeachingApiClient
 
       if attributes.key?(:'status_id')
         self.status_id = attributes[:'status_id']
+      end
+
+      if attributes.key?(:'region_id')
+        self.region_id = attributes[:'region_id']
       end
 
       if attributes.key?(:'readable_id')
@@ -328,6 +337,7 @@ module GetIntoTeachingApiClient
           id == o.id &&
           type_id == o.type_id &&
           status_id == o.status_id &&
+          region_id == o.region_id &&
           readable_id == o.readable_id &&
           web_feed_id == o.web_feed_id &&
           is_online == o.is_online &&
@@ -358,7 +368,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, type_id, status_id, readable_id, web_feed_id, is_online, name, summary, message, description, video_url, scribble_id, provider_website_url, provider_target_audience, provider_organiser, provider_contact_email, start_at, end_at, providers_list, building, is_virtual, is_in_person].hash
+      [id, type_id, status_id, region_id, readable_id, web_feed_id, is_online, name, summary, message, description, video_url, scribble_id, provider_website_url, provider_target_audience, provider_organiser, provider_contact_email, start_at, end_at, providers_list, building, is_virtual, is_in_person].hash
     end
 
     # Builds the object from hash
