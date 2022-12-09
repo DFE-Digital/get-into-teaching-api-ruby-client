@@ -2,11 +2,12 @@ module Extensions
   module GetIntoTeachingApiClient
     module Configuration
       RETRY_OPTIONS = {
-        max: 1,
+        max: 2,
         methods: %i[get],
         exceptions:
           ::Faraday::Request::Retry::DEFAULT_EXCEPTIONS + [::Faraday::ConnectionFailed],
       }.freeze
+      REQUEST_TIMEOUT = 10.seconds
 
       attr_accessor :cache_store
       attr_accessor :circuit_breaker
@@ -28,6 +29,8 @@ module Extensions
         connection.request :retry, RETRY_OPTIONS
 
         connection.response :encoding
+
+        connection.options.timeout = REQUEST_TIMEOUT
       end
 
       def handle_error(exception, handler)

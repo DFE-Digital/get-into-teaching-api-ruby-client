@@ -6,4 +6,4 @@ gemSummary: "Ruby client for the Get into Teaching API"
 gemDescription: "A Ruby client auto-generated from the Get into Teaching API swagger documentation."
 gemAuthor: "Ross Oliver"
 gemAuthorEmail: "ross.oliver@digital.education.gov.uk"
-gemVersion: 2.2.0
+gemVersion: 2.3.0
