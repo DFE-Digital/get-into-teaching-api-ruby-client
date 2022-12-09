@@ -203,8 +203,10 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
     expect { perform_get_request }.to_not raise_error
   end
 
-  it "gives up after the first retry" do
+  it "gives up after the second retry" do
     stub_request(:get, get_endpoint)
+      .to_timeout
+      .then
       .to_timeout
       .then
       .to_timeout
