@@ -5,7 +5,7 @@
 ## Usage
 
 ```
-gem "get_into_teaching_api_client_faraday", "2.3.0", git: "git@github.com:DFE-Digital/get-into-teaching-api-ruby-client.git", require: "api/client"
+gem "get_into_teaching_api_client_faraday", "3.0.0", git: "git@github.com:DFE-Digital/get-into-teaching-api-ruby-client.git", require: "api/client"
 ```
 
 ```ruby
@@ -30,12 +30,13 @@ end
 You can update the Ruby client by regenerating it from the Get into Teaching API swagger documentation.
 
 ```
-brew install openapi-generator
+npm install @openapitools/openapi-generator-cli
+openapi-generator-cli version-manager set 5.3.0
 ```
 
 ```
 rm -rf ./auto-generated-gem
-openapi-generator generate -i <swagger_docs_url> -g ruby -o ./auto-generated-gem -c config.yaml
+openapi-generator-cli generate -i <swagger_docs_url> -g ruby -o ./auto-generated-gem -c config.yaml
 ```
 
 You should then also run the test suite:

@@ -99,25 +99,6 @@ describe 'TeachingEventsApi' do
     end
   end
 
-  # unit tests for search_teaching_events_grouped_by_type
-  # Searches for teaching events, returning grouped by type.
-  # Searches for teaching events. Optionally limit the results by distance (in miles) from a postcode, event type and start date.
-  # @param [Hash] opts the optional parameters
-  # @option opts [String] :postcode 
-  # @option opts [Integer] :radius 
-  # @option opts [Array<Integer>] :type_ids 
-  # @option opts [Boolean] :online 
-  # @option opts [Time] :start_after 
-  # @option opts [Time] :start_before 
-  # @option opts [Array<Integer>] :status_ids 
-  # @option opts [Integer] :quantity_per_type Quantity to return (per type).
-  # @return [Array<TeachingEventsByType>]
-  describe 'search_teaching_events_grouped_by_type test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   # unit tests for upsert_teaching_event
   # Adds or updates a teaching event.
   # If the &#x60;id&#x60; is specified then the existing teaching event will be updated, otherwise a new teaching event will be created.

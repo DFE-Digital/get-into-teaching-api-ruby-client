@@ -11,12 +11,12 @@ docs/CallbackBookingQuotasApi.md
 docs/CandidateMagicLinkExchangeResult.md
 docs/CandidateSchoolExperience.md
 docs/CandidatesApi.md
+docs/Country.md
 docs/ExchangeStatus.md
 docs/ExistingCandidateRequest.md
 docs/GetIntoTeachingApi.md
 docs/GetIntoTeachingCallback.md
 docs/HealthCheckResponse.md
-docs/LookupItem.md
 docs/LookupItemsApi.md
 docs/MailingListAddMember.md
 docs/MailingListApi.md
@@ -37,7 +37,7 @@ docs/TeachingEventBuilding.md
 docs/TeachingEventBuildingsApi.md
 docs/TeachingEventSearchRequest.md
 docs/TeachingEventsApi.md
-docs/TeachingEventsByType.md
+docs/TeachingSubject.md
 get_into_teaching_api_client.gemspec
 git_push.sh
 lib/get_into_teaching_api_client.rb
@@ -59,11 +59,11 @@ lib/get_into_teaching_api_client/configuration.rb
 lib/get_into_teaching_api_client/models/callback_booking_quota.rb
 lib/get_into_teaching_api_client/models/candidate_magic_link_exchange_result.rb
 lib/get_into_teaching_api_client/models/candidate_school_experience.rb
+lib/get_into_teaching_api_client/models/country.rb
 lib/get_into_teaching_api_client/models/exchange_status.rb
 lib/get_into_teaching_api_client/models/existing_candidate_request.rb
 lib/get_into_teaching_api_client/models/get_into_teaching_callback.rb
 lib/get_into_teaching_api_client/models/health_check_response.rb
-lib/get_into_teaching_api_client/models/lookup_item.rb
 lib/get_into_teaching_api_client/models/mailing_list_add_member.rb
 lib/get_into_teaching_api_client/models/mapping_info.rb
 lib/get_into_teaching_api_client/models/pick_list_item.rb
@@ -75,7 +75,7 @@ lib/get_into_teaching_api_client/models/teaching_event.rb
 lib/get_into_teaching_api_client/models/teaching_event_add_attendee.rb
 lib/get_into_teaching_api_client/models/teaching_event_building.rb
 lib/get_into_teaching_api_client/models/teaching_event_search_request.rb
-lib/get_into_teaching_api_client/models/teaching_events_by_type.rb
+lib/get_into_teaching_api_client/models/teaching_subject.rb
 lib/get_into_teaching_api_client/version.rb
 spec/api/callback_booking_quotas_api_spec.rb
 spec/api/candidates_api_spec.rb
@@ -94,11 +94,11 @@ spec/configuration_spec.rb
 spec/models/callback_booking_quota_spec.rb
 spec/models/candidate_magic_link_exchange_result_spec.rb
 spec/models/candidate_school_experience_spec.rb
+spec/models/country_spec.rb
 spec/models/exchange_status_spec.rb
 spec/models/existing_candidate_request_spec.rb
 spec/models/get_into_teaching_callback_spec.rb
 spec/models/health_check_response_spec.rb
-spec/models/lookup_item_spec.rb
 spec/models/mailing_list_add_member_spec.rb
 spec/models/mapping_info_spec.rb
 spec/models/pick_list_item_spec.rb
@@ -110,5 +110,5 @@ spec/models/teaching_event_add_attendee_spec.rb
 spec/models/teaching_event_building_spec.rb
 spec/models/teaching_event_search_request_spec.rb
 spec/models/teaching_event_spec.rb
-spec/models/teaching_events_by_type_spec.rb
+spec/models/teaching_subject_spec.rb
 spec/spec_helper.rb

@@ -9,7 +9,6 @@ All URIs are relative to *http://localhost*
 | [**exchange_unverified_request_for_teaching_event_add_attendee**](TeachingEventsApi.md#exchange_unverified_request_for_teaching_event_add_attendee) | **POST** /api/teaching_events/attendees/exchange_unverified_request | Retrieves a pre-populated TeachingEventAddAttendee for the candidate (allowing to proceed as unverified). |
 | [**get_teaching_event**](TeachingEventsApi.md#get_teaching_event) | **GET** /api/teaching_events/{readableId} | Retrieves an event. |
 | [**search_teaching_events**](TeachingEventsApi.md#search_teaching_events) | **GET** /api/teaching_events/search | Searches for teaching events. |
-| [**search_teaching_events_grouped_by_type**](TeachingEventsApi.md#search_teaching_events_grouped_by_type) | **GET** /api/teaching_events/search_grouped_by_type | Searches for teaching events, returning grouped by type. |
 | [**upsert_teaching_event**](TeachingEventsApi.md#upsert_teaching_event) | **POST** /api/teaching_events | Adds or updates a teaching event. |
 
 
@@ -372,93 +371,6 @@ end
 ### Return type
 
 [**Array&lt;TeachingEvent&gt;**](TeachingEvent.md)
-
-### Authorization
-
-[apiKey](../README.md#apiKey)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
-
-
-## search_teaching_events_grouped_by_type
-
-> <Array<TeachingEventsByType>> search_teaching_events_grouped_by_type(opts)
-
-Searches for teaching events, returning grouped by type.
-
-Searches for teaching events. Optionally limit the results by distance (in miles) from a postcode, event type and start date.
-
-### Examples
-
-```ruby
-require 'time'
-require 'get_into_teaching_api_client'
-# setup authorization
-GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
-end
-
-api_instance = GetIntoTeachingApiClient::TeachingEventsApi.new
-opts = {
-  postcode: 'postcode_example', # String | 
-  radius: 56, # Integer | 
-  type_ids: [37], # Array<Integer> | 
-  online: true, # Boolean | 
-  start_after: Time.parse('2013-10-20T19:20:30+01:00'), # Time | 
-  start_before: Time.parse('2013-10-20T19:20:30+01:00'), # Time | 
-  status_ids: [37], # Array<Integer> | 
-  quantity_per_type: 56 # Integer | Quantity to return (per type).
-}
-
-begin
-  # Searches for teaching events, returning grouped by type.
-  result = api_instance.search_teaching_events_grouped_by_type(opts)
-  p result
-rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling TeachingEventsApi->search_teaching_events_grouped_by_type: #{e}"
-end
-```
-
-#### Using the search_teaching_events_grouped_by_type_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<Array<TeachingEventsByType>>, Integer, Hash)> search_teaching_events_grouped_by_type_with_http_info(opts)
-
-```ruby
-begin
-  # Searches for teaching events, returning grouped by type.
-  data, status_code, headers = api_instance.search_teaching_events_grouped_by_type_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <Array<TeachingEventsByType>>
-rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling TeachingEventsApi->search_teaching_events_grouped_by_type_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **postcode** | **String** |  | [optional] |
-| **radius** | **Integer** |  | [optional] |
-| **type_ids** | [**Array&lt;Integer&gt;**](Integer.md) |  | [optional] |
-| **online** | **Boolean** |  | [optional] |
-| **start_after** | **Time** |  | [optional] |
-| **start_before** | **Time** |  | [optional] |
-| **status_ids** | [**Array&lt;Integer&gt;**](Integer.md) |  | [optional] |
-| **quantity_per_type** | **Integer** | Quantity to return (per type). | [optional][default to 3] |
-
-### Return type
-
-[**Array&lt;TeachingEventsByType&gt;**](TeachingEventsByType.md)
 
 ### Authorization
 
