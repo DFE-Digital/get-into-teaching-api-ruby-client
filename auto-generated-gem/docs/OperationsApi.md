@@ -4,20 +4,20 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**backfill_find_apply_candidates**](OperationsApi.md#backfill_find_apply_candidates) | **POST** /api/operations/backfill_find_apply_candidates | Triggers a backfill job to sync the CRM with the Find/Apply candidates. |
+| [**backfill_apply_candidates**](OperationsApi.md#backfill_apply_candidates) | **POST** /api/operations/backfill_apply_candidates | Triggers a backfill job to sync the CRM with the Apply candidates. |
 | [**generate_mapping_info**](OperationsApi.md#generate_mapping_info) | **GET** /api/operations/generate_mapping_info | Generates the mapping information. |
 | [**health_check**](OperationsApi.md#health_check) | **GET** /api/operations/health_check | Performs a health check. |
 | [**pause_crm_integration**](OperationsApi.md#pause_crm_integration) | **PUT** /api/operations/pause_crm_integration | Temporarily pauses the integration with the CRM. |
 | [**resume_crm_integration**](OperationsApi.md#resume_crm_integration) | **PUT** /api/operations/resume_crm_integration | Resumes the integration with the CRM (after being paused). |
 
 
-## backfill_find_apply_candidates
+## backfill_apply_candidates
 
-> backfill_find_apply_candidates
+> backfill_apply_candidates
 
-Triggers a backfill job to sync the CRM with the Find/Apply candidates.
+Triggers a backfill job to sync the CRM with the Apply candidates.
 
-The backfill will query all candidate information from the Find/Apply API and queue jobs to sync the data with the CRM.
+The backfill will query all candidate information from the Apply API and queue jobs to sync the data with the CRM.
 
 ### Examples
 
@@ -35,28 +35,28 @@ end
 api_instance = GetIntoTeachingApiClient::OperationsApi.new
 
 begin
-  # Triggers a backfill job to sync the CRM with the Find/Apply candidates.
-  api_instance.backfill_find_apply_candidates
+  # Triggers a backfill job to sync the CRM with the Apply candidates.
+  api_instance.backfill_apply_candidates
 rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling OperationsApi->backfill_find_apply_candidates: #{e}"
+  puts "Error when calling OperationsApi->backfill_apply_candidates: #{e}"
 end
 ```
 
-#### Using the backfill_find_apply_candidates_with_http_info variant
+#### Using the backfill_apply_candidates_with_http_info variant
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> backfill_find_apply_candidates_with_http_info
+> <Array(nil, Integer, Hash)> backfill_apply_candidates_with_http_info
 
 ```ruby
 begin
-  # Triggers a backfill job to sync the CRM with the Find/Apply candidates.
-  data, status_code, headers = api_instance.backfill_find_apply_candidates_with_http_info
+  # Triggers a backfill job to sync the CRM with the Apply candidates.
+  data, status_code, headers = api_instance.backfill_apply_candidates_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
 rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling OperationsApi->backfill_find_apply_candidates_with_http_info: #{e}"
+  puts "Error when calling OperationsApi->backfill_apply_candidates_with_http_info: #{e}"
 end
 ```
 

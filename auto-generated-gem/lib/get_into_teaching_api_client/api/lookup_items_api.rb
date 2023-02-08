@@ -21,7 +21,7 @@ module GetIntoTeachingApiClient
     end
     # Retrieves the list of countries.
     # @param [Hash] opts the optional parameters
-    # @return [Array<LookupItem>]
+    # @return [Array<Country>]
     def get_countries(opts = {})
       data, _status_code, _headers = get_countries_with_http_info(opts)
       data
@@ -29,7 +29,7 @@ module GetIntoTeachingApiClient
 
     # Retrieves the list of countries.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<LookupItem>, Integer, Hash)>] Array<LookupItem> data, response status code and response headers
+    # @return [Array<(Array<Country>, Integer, Hash)>] Array<Country> data, response status code and response headers
     def get_countries_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LookupItemsApi.get_countries ...'
@@ -52,7 +52,7 @@ module GetIntoTeachingApiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Array<LookupItem>'
+      return_type = opts[:debug_return_type] || 'Array<Country>'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['apiKey']
@@ -76,7 +76,7 @@ module GetIntoTeachingApiClient
 
     # Retrieves the list of teaching subjects.
     # @param [Hash] opts the optional parameters
-    # @return [Array<LookupItem>]
+    # @return [Array<TeachingSubject>]
     def get_teaching_subjects(opts = {})
       data, _status_code, _headers = get_teaching_subjects_with_http_info(opts)
       data
@@ -84,7 +84,7 @@ module GetIntoTeachingApiClient
 
     # Retrieves the list of teaching subjects.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<LookupItem>, Integer, Hash)>] Array<LookupItem> data, response status code and response headers
+    # @return [Array<(Array<TeachingSubject>, Integer, Hash)>] Array<TeachingSubject> data, response status code and response headers
     def get_teaching_subjects_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LookupItemsApi.get_teaching_subjects ...'
@@ -107,7 +107,7 @@ module GetIntoTeachingApiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Array<LookupItem>'
+      return_type = opts[:debug_return_type] || 'Array<TeachingSubject>'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['apiKey']

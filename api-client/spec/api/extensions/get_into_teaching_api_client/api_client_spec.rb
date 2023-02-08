@@ -64,12 +64,12 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
       it "formats with the offset +00:00" do
         date = DateTime.new(2022, 1, 1, 10, 30, 59).utc
 
-        stub_request(:get, "#{base_url}/api/teaching_events/search_grouped_by_type")
+        stub_request(:get, "#{base_url}/api/teaching_events/search")
           .with(query: { StartAfter: "2022-01-01T10:30:59+00:00" })
           .to_return(status: 200)
 
         expect do
-          GetIntoTeachingApiClient::TeachingEventsApi.new.search_teaching_events_grouped_by_type(start_after: date)
+          GetIntoTeachingApiClient::TeachingEventsApi.new.search_teaching_events(start_after: date)
         end.to_not raise_error
       end
     end
@@ -78,12 +78,12 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
       it "formats with the correct offset" do
         date = Time.new(2022, 1, 1, 10, 30, 59, "-10:00")
 
-        stub_request(:get, "#{base_url}/api/teaching_events/search_grouped_by_type")
+        stub_request(:get, "#{base_url}/api/teaching_events/search")
           .with(query: { StartAfter: "2022-01-01T10:30:59-10:00" })
           .to_return(status: 200)
 
         expect do
-          GetIntoTeachingApiClient::TeachingEventsApi.new.search_teaching_events_grouped_by_type(start_after: date)
+          GetIntoTeachingApiClient::TeachingEventsApi.new.search_teaching_events(start_after: date)
         end.to_not raise_error
       end
     end
@@ -92,12 +92,12 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
       it "formats correctly" do
         date = Date.new(2022, 1, 1)
 
-        stub_request(:get, "#{base_url}/api/teaching_events/search_grouped_by_type")
+        stub_request(:get, "#{base_url}/api/teaching_events/search")
           .with(query: { StartAfter: "2022-01-01" })
           .to_return(status: 200)
 
         expect do
-          GetIntoTeachingApiClient::TeachingEventsApi.new.search_teaching_events_grouped_by_type(start_after: date)
+          GetIntoTeachingApiClient::TeachingEventsApi.new.search_teaching_events(start_after: date)
         end.to_not raise_error
       end
     end

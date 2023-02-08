@@ -19,25 +19,25 @@ module GetIntoTeachingApiClient
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Triggers a backfill job to sync the CRM with the Find/Apply candidates.
-    # The backfill will query all candidate information from the Find/Apply API and queue jobs to sync the data with the CRM.
+    # Triggers a backfill job to sync the CRM with the Apply candidates.
+    # The backfill will query all candidate information from the Apply API and queue jobs to sync the data with the CRM.
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def backfill_find_apply_candidates(opts = {})
-      backfill_find_apply_candidates_with_http_info(opts)
+    def backfill_apply_candidates(opts = {})
+      backfill_apply_candidates_with_http_info(opts)
       nil
     end
 
-    # Triggers a backfill job to sync the CRM with the Find/Apply candidates.
-    # The backfill will query all candidate information from the Find/Apply API and queue jobs to sync the data with the CRM.
+    # Triggers a backfill job to sync the CRM with the Apply candidates.
+    # The backfill will query all candidate information from the Apply API and queue jobs to sync the data with the CRM.
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def backfill_find_apply_candidates_with_http_info(opts = {})
+    def backfill_apply_candidates_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OperationsApi.backfill_find_apply_candidates ...'
+        @api_client.config.logger.debug 'Calling API: OperationsApi.backfill_apply_candidates ...'
       end
       # resource path
-      local_var_path = '/api/operations/backfill_find_apply_candidates'
+      local_var_path = '/api/operations/backfill_apply_candidates'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -60,7 +60,7 @@ module GetIntoTeachingApiClient
       auth_names = opts[:debug_auth_names] || ['apiKey']
 
       new_options = opts.merge(
-        :operation => :"OperationsApi.backfill_find_apply_candidates",
+        :operation => :"OperationsApi.backfill_apply_candidates",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -71,7 +71,7 @@ module GetIntoTeachingApiClient
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OperationsApi#backfill_find_apply_candidates\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: OperationsApi#backfill_apply_candidates\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

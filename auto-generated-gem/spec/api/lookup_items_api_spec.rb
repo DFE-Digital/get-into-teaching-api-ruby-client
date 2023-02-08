@@ -35,7 +35,7 @@ describe 'LookupItemsApi' do
   # unit tests for get_countries
   # Retrieves the list of countries.
   # @param [Hash] opts the optional parameters
-  # @return [Array<LookupItem>]
+  # @return [Array<Country>]
   describe 'get_countries test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -45,7 +45,7 @@ describe 'LookupItemsApi' do
   # unit tests for get_teaching_subjects
   # Retrieves the list of teaching subjects.
   # @param [Hash] opts the optional parameters
-  # @return [Array<LookupItem>]
+  # @return [Array<TeachingSubject>]
   describe 'get_teaching_subjects test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

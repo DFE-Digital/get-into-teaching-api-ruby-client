@@ -32,12 +32,12 @@ describe 'OperationsApi' do
     end
   end
 
-  # unit tests for backfill_find_apply_candidates
-  # Triggers a backfill job to sync the CRM with the Find/Apply candidates.
-  # The backfill will query all candidate information from the Find/Apply API and queue jobs to sync the data with the CRM.
+  # unit tests for backfill_apply_candidates
+  # Triggers a backfill job to sync the CRM with the Apply candidates.
+  # The backfill will query all candidate information from the Apply API and queue jobs to sync the data with the CRM.
   # @param [Hash] opts the optional parameters
   # @return [nil]
-  describe 'backfill_find_apply_candidates test' do
+  describe 'backfill_apply_candidates test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

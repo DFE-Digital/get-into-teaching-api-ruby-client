@@ -1,4 +1,4 @@
-# GetIntoTeachingApiClient::LookupItem
+# GetIntoTeachingApiClient::TeachingSubject
 
 ## Properties
 
@@ -12,7 +12,7 @@
 ```ruby
 require 'get_into_teaching_api_client'
 
-instance = GetIntoTeachingApiClient::LookupItem.new(
+instance = GetIntoTeachingApiClient::TeachingSubject.new(
   id: null,
   value: null
 )

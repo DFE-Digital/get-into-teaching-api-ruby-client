@@ -14,16 +14,19 @@ require 'date'
 require 'time'
 
 module GetIntoTeachingApiClient
-  class TeachingEventsByType
-    attr_accessor :type_id
+  class Country
+    attr_accessor :id
 
-    attr_accessor :teaching_events
+    attr_accessor :value
+
+    attr_accessor :iso_code
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'type_id' => :'typeId',
-        :'teaching_events' => :'teachingEvents'
+        :'id' => :'id',
+        :'value' => :'value',
+        :'iso_code' => :'isoCode'
       }
     end
 
@@ -35,15 +38,18 @@ module GetIntoTeachingApiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'type_id' => :'Integer',
-        :'teaching_events' => :'Array<TeachingEvent>'
+        :'id' => :'String',
+        :'value' => :'String',
+        :'iso_code' => :'String'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'teaching_events'
+        :'id',
+        :'value',
+        :'iso_code'
       ])
     end
 
@@ -51,25 +57,27 @@ module GetIntoTeachingApiClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `GetIntoTeachingApiClient::TeachingEventsByType` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `GetIntoTeachingApiClient::Country` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `GetIntoTeachingApiClient::TeachingEventsByType`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `GetIntoTeachingApiClient::Country`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'type_id')
-        self.type_id = attributes[:'type_id']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'teaching_events')
-        if (value = attributes[:'teaching_events']).is_a?(Array)
-          self.teaching_events = value
-        end
+      if attributes.key?(:'value')
+        self.value = attributes[:'value']
+      end
+
+      if attributes.key?(:'iso_code')
+        self.iso_code = attributes[:'iso_code']
       end
     end
 
@@ -91,8 +99,9 @@ module GetIntoTeachingApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          type_id == o.type_id &&
-          teaching_events == o.teaching_events
+          id == o.id &&
+          value == o.value &&
+          iso_code == o.iso_code
     end
 
     # @see the `==` method
@@ -104,7 +113,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type_id, teaching_events].hash
+      [id, value, iso_code].hash
     end
 
     # Builds the object from hash

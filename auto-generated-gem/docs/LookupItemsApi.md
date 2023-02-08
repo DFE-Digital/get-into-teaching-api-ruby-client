@@ -10,7 +10,7 @@ All URIs are relative to *http://localhost*
 
 ## get_countries
 
-> <Array<LookupItem>> get_countries
+> <Array<Country>> get_countries
 
 Retrieves the list of countries.
 
@@ -42,7 +42,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<LookupItem>>, Integer, Hash)> get_countries_with_http_info
+> <Array(<Array<Country>>, Integer, Hash)> get_countries_with_http_info
 
 ```ruby
 begin
@@ -50,7 +50,7 @@ begin
   data, status_code, headers = api_instance.get_countries_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <Array<LookupItem>>
+  p data # => <Array<Country>>
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Error when calling LookupItemsApi->get_countries_with_http_info: #{e}"
 end
@@ -62,7 +62,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Array&lt;LookupItem&gt;**](LookupItem.md)
+[**Array&lt;Country&gt;**](Country.md)
 
 ### Authorization
 
@@ -76,7 +76,7 @@ This endpoint does not need any parameter.
 
 ## get_teaching_subjects
 
-> <Array<LookupItem>> get_teaching_subjects
+> <Array<TeachingSubject>> get_teaching_subjects
 
 Retrieves the list of teaching subjects.
 
@@ -108,7 +108,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<LookupItem>>, Integer, Hash)> get_teaching_subjects_with_http_info
+> <Array(<Array<TeachingSubject>>, Integer, Hash)> get_teaching_subjects_with_http_info
 
 ```ruby
 begin
@@ -116,7 +116,7 @@ begin
   data, status_code, headers = api_instance.get_teaching_subjects_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <Array<LookupItem>>
+  p data # => <Array<TeachingSubject>>
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Error when calling LookupItemsApi->get_teaching_subjects_with_http_info: #{e}"
 end
@@ -128,7 +128,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Array&lt;LookupItem&gt;**](LookupItem.md)
+[**Array&lt;TeachingSubject&gt;**](TeachingSubject.md)
 
 ### Authorization
 
