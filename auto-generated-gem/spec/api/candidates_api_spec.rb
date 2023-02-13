@@ -44,4 +44,16 @@ describe 'CandidatesApi' do
     end
   end
 
+  # unit tests for matchback_candidate
+  # Perform a matchback operation, returning the match candidate id.
+  # Attempts to matchback against a known candidate and returns the candidate id.
+  # @param existing_candidate_request Candidate details to matchback.
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'matchback_candidate test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
 end
