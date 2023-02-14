@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost*
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**exchange_access_token_for_teacher_training_adviser_sign_up**](TeacherTrainingAdviserApi.md#exchange_access_token_for_teacher_training_adviser_sign_up) | **POST** /api/teacher_training_adviser/candidates/exchange_access_token/{accessToken} | Retrieves a pre-populated TeacherTrainingAdviserSignUp for the candidate. |
+| [**matchback_candidate**](TeacherTrainingAdviserApi.md#matchback_candidate) | **POST** /api/teacher_training_adviser/candidates/matchback | Perform a matchback operation to retrieve a pre-populated TeacherTrainingAdviserSignUp for the candidate. |
 | [**sign_up_teacher_training_adviser_candidate**](TeacherTrainingAdviserApi.md#sign_up_teacher_training_adviser_candidate) | **POST** /api/teacher_training_adviser/candidates | Sign up a candidate for the Teacher Training Adviser service. |
 
 
@@ -70,6 +71,76 @@ end
 ### Return type
 
 [**TeacherTrainingAdviserSignUp**](TeacherTrainingAdviserSignUp.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, text/json, application/*+json
+- **Accept**: text/plain, application/json, text/json
+
+
+## matchback_candidate
+
+> matchback_candidate(existing_candidate_request)
+
+Perform a matchback operation to retrieve a pre-populated TeacherTrainingAdviserSignUp for the candidate.
+
+Attempts to matchback against a known candidate and returns a pre-populated TeacherTrainingAdviser sign up if a match is found.
+
+### Examples
+
+```ruby
+require 'time'
+require 'get_into_teaching_api_client'
+# setup authorization
+GetIntoTeachingApiClient.configure do |config|
+  # Configure API key authorization: apiKey
+  config.api_key['apiKey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['apiKey'] = 'Bearer'
+end
+
+api_instance = GetIntoTeachingApiClient::TeacherTrainingAdviserApi.new
+existing_candidate_request = GetIntoTeachingApiClient::ExistingCandidateRequest.new({email: 'email_example'}) # ExistingCandidateRequest | Candidate details to matchback.
+
+begin
+  # Perform a matchback operation to retrieve a pre-populated TeacherTrainingAdviserSignUp for the candidate.
+  api_instance.matchback_candidate(existing_candidate_request)
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Error when calling TeacherTrainingAdviserApi->matchback_candidate: #{e}"
+end
+```
+
+#### Using the matchback_candidate_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> matchback_candidate_with_http_info(existing_candidate_request)
+
+```ruby
+begin
+  # Perform a matchback operation to retrieve a pre-populated TeacherTrainingAdviserSignUp for the candidate.
+  data, status_code, headers = api_instance.matchback_candidate_with_http_info(existing_candidate_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Error when calling TeacherTrainingAdviserApi->matchback_candidate_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **existing_candidate_request** | [**ExistingCandidateRequest**](ExistingCandidateRequest.md) | Candidate details to matchback. |  |
+
+### Return type
+
+nil (empty response body)
 
 ### Authorization
 

@@ -45,6 +45,18 @@ describe 'TeacherTrainingAdviserApi' do
     end
   end
 
+  # unit tests for matchback_candidate
+  # Perform a matchback operation to retrieve a pre-populated TeacherTrainingAdviserSignUp for the candidate.
+  # Attempts to matchback against a known candidate and returns a pre-populated TeacherTrainingAdviser sign up if a match is found.
+  # @param existing_candidate_request Candidate details to matchback.
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'matchback_candidate test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for sign_up_teacher_training_adviser_candidate
   # Sign up a candidate for the Teacher Training Adviser service.
   # Queue a candidate upsert job.
