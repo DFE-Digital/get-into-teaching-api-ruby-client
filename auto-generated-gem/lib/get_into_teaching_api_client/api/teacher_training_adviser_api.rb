@@ -93,6 +93,74 @@ module GetIntoTeachingApiClient
       return data, status_code, headers
     end
 
+    # Perform a matchback operation to retrieve a pre-populated TeacherTrainingAdviserSignUp for the candidate.
+    # Attempts to matchback against a known candidate and returns a pre-populated TeacherTrainingAdviser sign up if a match is found.
+    # @param existing_candidate_request [ExistingCandidateRequest] Candidate details to matchback.
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def matchback_candidate(existing_candidate_request, opts = {})
+      matchback_candidate_with_http_info(existing_candidate_request, opts)
+      nil
+    end
+
+    # Perform a matchback operation to retrieve a pre-populated TeacherTrainingAdviserSignUp for the candidate.
+    # Attempts to matchback against a known candidate and returns a pre-populated TeacherTrainingAdviser sign up if a match is found.
+    # @param existing_candidate_request [ExistingCandidateRequest] Candidate details to matchback.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def matchback_candidate_with_http_info(existing_candidate_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeacherTrainingAdviserApi.matchback_candidate ...'
+      end
+      # verify the required parameter 'existing_candidate_request' is set
+      if @api_client.config.client_side_validation && existing_candidate_request.nil?
+        fail ArgumentError, "Missing the required parameter 'existing_candidate_request' when calling TeacherTrainingAdviserApi.matchback_candidate"
+      end
+      # resource path
+      local_var_path = '/api/teacher_training_adviser/candidates/matchback'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json', 'text/json', 'application/*+json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(existing_candidate_request)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apiKey']
+
+      new_options = opts.merge(
+        :operation => :"TeacherTrainingAdviserApi.matchback_candidate",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeacherTrainingAdviserApi#matchback_candidate\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Sign up a candidate for the Teacher Training Adviser service.
     # Queue a candidate upsert job.
     # @param teacher_training_adviser_sign_up [TeacherTrainingAdviserSignUp] Candidate to sign up for the Teacher Training Adviser service.
