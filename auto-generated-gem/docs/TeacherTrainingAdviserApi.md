@@ -84,7 +84,7 @@ end
 
 ## matchback_candidate
 
-> matchback_candidate(existing_candidate_request)
+> <TeacherTrainingAdviserSignUp> matchback_candidate(existing_candidate_request)
 
 Perform a matchback operation to retrieve a pre-populated TeacherTrainingAdviserSignUp for the candidate.
 
@@ -108,7 +108,8 @@ existing_candidate_request = GetIntoTeachingApiClient::ExistingCandidateRequest.
 
 begin
   # Perform a matchback operation to retrieve a pre-populated TeacherTrainingAdviserSignUp for the candidate.
-  api_instance.matchback_candidate(existing_candidate_request)
+  result = api_instance.matchback_candidate(existing_candidate_request)
+  p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Error when calling TeacherTrainingAdviserApi->matchback_candidate: #{e}"
 end
@@ -116,9 +117,9 @@ end
 
 #### Using the matchback_candidate_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> matchback_candidate_with_http_info(existing_candidate_request)
+> <Array(<TeacherTrainingAdviserSignUp>, Integer, Hash)> matchback_candidate_with_http_info(existing_candidate_request)
 
 ```ruby
 begin
@@ -126,7 +127,7 @@ begin
   data, status_code, headers = api_instance.matchback_candidate_with_http_info(existing_candidate_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <TeacherTrainingAdviserSignUp>
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Error when calling TeacherTrainingAdviserApi->matchback_candidate_with_http_info: #{e}"
 end
@@ -140,7 +141,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**TeacherTrainingAdviserSignUp**](TeacherTrainingAdviserSignUp.md)
 
 ### Authorization
 

@@ -97,17 +97,17 @@ module GetIntoTeachingApiClient
     # Attempts to matchback against a known candidate and returns a pre-populated TeacherTrainingAdviser sign up if a match is found.
     # @param existing_candidate_request [ExistingCandidateRequest] Candidate details to matchback.
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [TeacherTrainingAdviserSignUp]
     def matchback_candidate(existing_candidate_request, opts = {})
-      matchback_candidate_with_http_info(existing_candidate_request, opts)
-      nil
+      data, _status_code, _headers = matchback_candidate_with_http_info(existing_candidate_request, opts)
+      data
     end
 
     # Perform a matchback operation to retrieve a pre-populated TeacherTrainingAdviserSignUp for the candidate.
     # Attempts to matchback against a known candidate and returns a pre-populated TeacherTrainingAdviser sign up if a match is found.
     # @param existing_candidate_request [ExistingCandidateRequest] Candidate details to matchback.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(TeacherTrainingAdviserSignUp, Integer, Hash)>] TeacherTrainingAdviserSignUp data, response status code and response headers
     def matchback_candidate_with_http_info(existing_candidate_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeacherTrainingAdviserApi.matchback_candidate ...'
@@ -139,7 +139,7 @@ module GetIntoTeachingApiClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(existing_candidate_request)
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'TeacherTrainingAdviserSignUp'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['apiKey']
