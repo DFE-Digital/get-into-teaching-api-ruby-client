@@ -22,6 +22,7 @@ module GetIntoTeachingApiClient
     # Triggers a backfill job to sync the CRM with the Apply candidates.
     # The backfill will query all candidate information from the Apply API and queue jobs to sync the data with the CRM.
     # @param [Hash] opts the optional parameters
+    # @option opts [Time] :updated_since 
     # @return [nil]
     def backfill_apply_candidates(opts = {})
       backfill_apply_candidates_with_http_info(opts)
@@ -31,6 +32,7 @@ module GetIntoTeachingApiClient
     # Triggers a backfill job to sync the CRM with the Apply candidates.
     # The backfill will query all candidate information from the Apply API and queue jobs to sync the data with the CRM.
     # @param [Hash] opts the optional parameters
+    # @option opts [Time] :updated_since 
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def backfill_apply_candidates_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -41,6 +43,7 @@ module GetIntoTeachingApiClient
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'updatedSince'] = opts[:'updated_since'] if !opts[:'updated_since'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
