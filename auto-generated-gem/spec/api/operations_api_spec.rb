@@ -36,6 +36,7 @@ describe 'OperationsApi' do
   # Triggers a backfill job to sync the CRM with the Apply candidates.
   # The backfill will query all candidate information from the Apply API and queue jobs to sync the data with the CRM.
   # @param [Hash] opts the optional parameters
+  # @option opts [Time] :updated_since 
   # @return [nil]
   describe 'backfill_apply_candidates test' do
     it 'should work' do

@@ -30,12 +30,10 @@
 | **teacher_id** | **String** |  | [optional] |
 | **degree_subject** | **String** |  | [optional] |
 | **address_telephone** | **String** |  | [optional] |
-| **address_line1** | **String** |  | [optional] |
-| **address_line2** | **String** |  | [optional] |
-| **address_city** | **String** |  | [optional] |
 | **address_postcode** | **String** |  | [optional] |
 | **phone_call_scheduled_at** | **Time** |  | [optional] |
 | **can_subscribe_to_teacher_training_adviser** | **Boolean** |  | [optional][readonly] |
+| **assignment_status_id** | **Integer** |  | [optional][readonly] |
 
 ## Example
 
@@ -69,12 +67,10 @@ instance = GetIntoTeachingApiClient::TeacherTrainingAdviserSignUp.new(
   teacher_id: null,
   degree_subject: null,
   address_telephone: null,
-  address_line1: null,
-  address_line2: null,
-  address_city: null,
   address_postcode: null,
   phone_call_scheduled_at: null,
-  can_subscribe_to_teacher_training_adviser: null
+  can_subscribe_to_teacher_training_adviser: null,
+  assignment_status_id: null
 )
 ```
 
