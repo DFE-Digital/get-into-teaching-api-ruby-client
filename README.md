@@ -5,7 +5,7 @@
 ## Usage
 
 ```
-gem "get_into_teaching_api_client_faraday", "3.1.0", git: "git@github.com:DFE-Digital/get-into-teaching-api-ruby-client.git", require: "api/client"
+gem "get_into_teaching_api_client_faraday", "3.2.0", git: "git@github.com:DFE-Digital/get-into-teaching-api-ruby-client.git", require: "api/client"
 ```
 
 ```ruby

@@ -13,7 +13,7 @@ All URIs are relative to *http://localhost*
 
 ## backfill_apply_candidates
 
-> backfill_apply_candidates
+> backfill_apply_candidates(opts)
 
 Triggers a backfill job to sync the CRM with the Apply candidates.
 
@@ -33,10 +33,13 @@ GetIntoTeachingApiClient.configure do |config|
 end
 
 api_instance = GetIntoTeachingApiClient::OperationsApi.new
+opts = {
+  updated_since: Time.parse('2013-10-20T19:20:30+01:00') # Time | 
+}
 
 begin
   # Triggers a backfill job to sync the CRM with the Apply candidates.
-  api_instance.backfill_apply_candidates
+  api_instance.backfill_apply_candidates(opts)
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Error when calling OperationsApi->backfill_apply_candidates: #{e}"
 end
@@ -46,12 +49,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> backfill_apply_candidates_with_http_info
+> <Array(nil, Integer, Hash)> backfill_apply_candidates_with_http_info(opts)
 
 ```ruby
 begin
   # Triggers a backfill job to sync the CRM with the Apply candidates.
-  data, status_code, headers = api_instance.backfill_apply_candidates_with_http_info
+  data, status_code, headers = api_instance.backfill_apply_candidates_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -62,7 +65,9 @@ end
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **updated_since** | **Time** |  | [optional] |
 
 ### Return type
 

@@ -67,17 +67,13 @@ module GetIntoTeachingApiClient
 
     attr_accessor :address_telephone
 
-    attr_accessor :address_line1
-
-    attr_accessor :address_line2
-
-    attr_accessor :address_city
-
     attr_accessor :address_postcode
 
     attr_accessor :phone_call_scheduled_at
 
     attr_accessor :can_subscribe_to_teacher_training_adviser
+
+    attr_accessor :assignment_status_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -108,12 +104,10 @@ module GetIntoTeachingApiClient
         :'teacher_id' => :'teacherId',
         :'degree_subject' => :'degreeSubject',
         :'address_telephone' => :'addressTelephone',
-        :'address_line1' => :'addressLine1',
-        :'address_line2' => :'addressLine2',
-        :'address_city' => :'addressCity',
         :'address_postcode' => :'addressPostcode',
         :'phone_call_scheduled_at' => :'phoneCallScheduledAt',
-        :'can_subscribe_to_teacher_training_adviser' => :'canSubscribeToTeacherTrainingAdviser'
+        :'can_subscribe_to_teacher_training_adviser' => :'canSubscribeToTeacherTrainingAdviser',
+        :'assignment_status_id' => :'assignmentStatusId'
       }
     end
 
@@ -151,12 +145,10 @@ module GetIntoTeachingApiClient
         :'teacher_id' => :'String',
         :'degree_subject' => :'String',
         :'address_telephone' => :'String',
-        :'address_line1' => :'String',
-        :'address_line2' => :'String',
-        :'address_city' => :'String',
         :'address_postcode' => :'String',
         :'phone_call_scheduled_at' => :'Time',
-        :'can_subscribe_to_teacher_training_adviser' => :'Boolean'
+        :'can_subscribe_to_teacher_training_adviser' => :'Boolean',
+        :'assignment_status_id' => :'Integer'
       }
     end
 
@@ -182,11 +174,9 @@ module GetIntoTeachingApiClient
         :'teacher_id',
         :'degree_subject',
         :'address_telephone',
-        :'address_line1',
-        :'address_line2',
-        :'address_city',
         :'address_postcode',
         :'phone_call_scheduled_at',
+        :'assignment_status_id'
       ])
     end
 
@@ -309,18 +299,6 @@ module GetIntoTeachingApiClient
         self.address_telephone = attributes[:'address_telephone']
       end
 
-      if attributes.key?(:'address_line1')
-        self.address_line1 = attributes[:'address_line1']
-      end
-
-      if attributes.key?(:'address_line2')
-        self.address_line2 = attributes[:'address_line2']
-      end
-
-      if attributes.key?(:'address_city')
-        self.address_city = attributes[:'address_city']
-      end
-
       if attributes.key?(:'address_postcode')
         self.address_postcode = attributes[:'address_postcode']
       end
@@ -331,6 +309,10 @@ module GetIntoTeachingApiClient
 
       if attributes.key?(:'can_subscribe_to_teacher_training_adviser')
         self.can_subscribe_to_teacher_training_adviser = attributes[:'can_subscribe_to_teacher_training_adviser']
+      end
+
+      if attributes.key?(:'assignment_status_id')
+        self.assignment_status_id = attributes[:'assignment_status_id']
       end
     end
 
@@ -413,12 +395,10 @@ module GetIntoTeachingApiClient
           teacher_id == o.teacher_id &&
           degree_subject == o.degree_subject &&
           address_telephone == o.address_telephone &&
-          address_line1 == o.address_line1 &&
-          address_line2 == o.address_line2 &&
-          address_city == o.address_city &&
           address_postcode == o.address_postcode &&
           phone_call_scheduled_at == o.phone_call_scheduled_at &&
-          can_subscribe_to_teacher_training_adviser == o.can_subscribe_to_teacher_training_adviser
+          can_subscribe_to_teacher_training_adviser == o.can_subscribe_to_teacher_training_adviser &&
+          assignment_status_id == o.assignment_status_id
     end
 
     # @see the `==` method
@@ -430,7 +410,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [candidate_id, qualification_id, subject_taught_id, past_teaching_position_id, preferred_teaching_subject_id, country_id, accepted_policy_id, type_id, uk_degree_grade_id, degree_status_id, degree_type_id, initial_teacher_training_year_id, preferred_education_phase_id, has_gcse_maths_and_english_id, has_gcse_science_id, planning_to_retake_gcse_maths_and_english_id, planning_to_retake_gcse_science_id, adviser_status_id, channel_id, email, first_name, last_name, date_of_birth, teacher_id, degree_subject, address_telephone, address_line1, address_line2, address_city, address_postcode, phone_call_scheduled_at, can_subscribe_to_teacher_training_adviser].hash
+      [candidate_id, qualification_id, subject_taught_id, past_teaching_position_id, preferred_teaching_subject_id, country_id, accepted_policy_id, type_id, uk_degree_grade_id, degree_status_id, degree_type_id, initial_teacher_training_year_id, preferred_education_phase_id, has_gcse_maths_and_english_id, has_gcse_science_id, planning_to_retake_gcse_maths_and_english_id, planning_to_retake_gcse_science_id, adviser_status_id, channel_id, email, first_name, last_name, date_of_birth, teacher_id, degree_subject, address_telephone, address_postcode, phone_call_scheduled_at, can_subscribe_to_teacher_training_adviser, assignment_status_id].hash
     end
 
     # Builds the object from hash
