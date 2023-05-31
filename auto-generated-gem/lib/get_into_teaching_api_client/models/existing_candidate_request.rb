@@ -102,14 +102,6 @@ module GetIntoTeachingApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@first_name.nil? && @first_name.to_s.length > 256
-        invalid_properties.push('invalid value for "first_name", the character length must be smaller than or equal to 256.')
-      end
-
-      if !@last_name.nil? && @last_name.to_s.length > 256
-        invalid_properties.push('invalid value for "last_name", the character length must be smaller than or equal to 256.')
-      end
-
       if @email.nil?
         invalid_properties.push('invalid value for "email", email cannot be nil.')
       end
@@ -128,32 +120,10 @@ module GetIntoTeachingApiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if !@first_name.nil? && @first_name.to_s.length > 256
-      return false if !@last_name.nil? && @last_name.to_s.length > 256
       return false if @email.nil?
       return false if @email.to_s.length > 100
       return false if @email.to_s.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] first_name Value to be assigned
-    def first_name=(first_name)
-      if !first_name.nil? && first_name.to_s.length > 256
-        fail ArgumentError, 'invalid value for "first_name", the character length must be smaller than or equal to 256.'
-      end
-
-      @first_name = first_name
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] last_name Value to be assigned
-    def last_name=(last_name)
-      if !last_name.nil? && last_name.to_s.length > 256
-        fail ArgumentError, 'invalid value for "last_name", the character length must be smaller than or equal to 256.'
-      end
-
-      @last_name = last_name
     end
 
     # Custom attribute writer method with validation
