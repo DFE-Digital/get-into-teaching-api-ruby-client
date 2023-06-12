@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** |  | [optional] |
-| **venue** | **String** |  | [optional] |
+| **venue** | **String** |  |  |
 | **address_line1** | **String** |  | [optional] |
 | **address_line2** | **String** |  | [optional] |
 | **address_line3** | **String** |  | [optional] |

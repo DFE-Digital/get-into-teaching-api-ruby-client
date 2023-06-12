@@ -160,5 +160,73 @@ module GetIntoTeachingApiClient
       end
       return data, status_code, headers
     end
+
+    # Perform a matchback operation to retrieve a pre-populated GetIntoTeachingCallback for the candidate.
+    # Attempts to matchback against a known candidate and returns a pre-populated GetIntoTeachingCallback if a match is found.
+    # @param existing_candidate_request [ExistingCandidateRequest] Candidate details to matchback.
+    # @param [Hash] opts the optional parameters
+    # @return [GetIntoTeachingCallback]
+    def matchback_get_into_teaching_callback(existing_candidate_request, opts = {})
+      data, _status_code, _headers = matchback_get_into_teaching_callback_with_http_info(existing_candidate_request, opts)
+      data
+    end
+
+    # Perform a matchback operation to retrieve a pre-populated GetIntoTeachingCallback for the candidate.
+    # Attempts to matchback against a known candidate and returns a pre-populated GetIntoTeachingCallback if a match is found.
+    # @param existing_candidate_request [ExistingCandidateRequest] Candidate details to matchback.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetIntoTeachingCallback, Integer, Hash)>] GetIntoTeachingCallback data, response status code and response headers
+    def matchback_get_into_teaching_callback_with_http_info(existing_candidate_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: GetIntoTeachingApi.matchback_get_into_teaching_callback ...'
+      end
+      # verify the required parameter 'existing_candidate_request' is set
+      if @api_client.config.client_side_validation && existing_candidate_request.nil?
+        fail ArgumentError, "Missing the required parameter 'existing_candidate_request' when calling GetIntoTeachingApi.matchback_get_into_teaching_callback"
+      end
+      # resource path
+      local_var_path = '/api/get_into_teaching/callbacks/matchback'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json', 'text/json', 'application/*+json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(existing_candidate_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GetIntoTeachingCallback'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apiKey']
+
+      new_options = opts.merge(
+        :operation => :"GetIntoTeachingApi.matchback_get_into_teaching_callback",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: GetIntoTeachingApi#matchback_get_into_teaching_callback\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
   end
 end

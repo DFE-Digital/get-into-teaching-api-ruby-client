@@ -6,6 +6,7 @@ All URIs are relative to *http://localhost*
 | ------ | ------------ | ----------- |
 | [**book_get_into_teaching_callback**](GetIntoTeachingApi.md#book_get_into_teaching_callback) | **POST** /api/get_into_teaching/callbacks | Schedule a callback for the candidate. |
 | [**exchange_access_token_for_get_into_teaching_callback**](GetIntoTeachingApi.md#exchange_access_token_for_get_into_teaching_callback) | **POST** /api/get_into_teaching/callbacks/exchange_access_token/{accessToken} | Retrieves a pre-populated GetIntoTeachingCallback for the candidate. |
+| [**matchback_get_into_teaching_callback**](GetIntoTeachingApi.md#matchback_get_into_teaching_callback) | **POST** /api/get_into_teaching/callbacks/matchback | Perform a matchback operation to retrieve a pre-populated GetIntoTeachingCallback for the candidate. |
 
 
 ## book_get_into_teaching_callback
@@ -136,6 +137,77 @@ end
 | ---- | ---- | ----------- | ----- |
 | **access_token** | **String** | Access token (PIN code). |  |
 | **existing_candidate_request** | [**ExistingCandidateRequest**](ExistingCandidateRequest.md) | Candidate access token request (must match an existing candidate). |  |
+
+### Return type
+
+[**GetIntoTeachingCallback**](GetIntoTeachingCallback.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, text/json, application/*+json
+- **Accept**: text/plain, application/json, text/json
+
+
+## matchback_get_into_teaching_callback
+
+> <GetIntoTeachingCallback> matchback_get_into_teaching_callback(existing_candidate_request)
+
+Perform a matchback operation to retrieve a pre-populated GetIntoTeachingCallback for the candidate.
+
+Attempts to matchback against a known candidate and returns a pre-populated GetIntoTeachingCallback if a match is found.
+
+### Examples
+
+```ruby
+require 'time'
+require 'get_into_teaching_api_client'
+# setup authorization
+GetIntoTeachingApiClient.configure do |config|
+  # Configure API key authorization: apiKey
+  config.api_key['apiKey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['apiKey'] = 'Bearer'
+end
+
+api_instance = GetIntoTeachingApiClient::GetIntoTeachingApi.new
+existing_candidate_request = GetIntoTeachingApiClient::ExistingCandidateRequest.new({email: 'email_example'}) # ExistingCandidateRequest | Candidate details to matchback.
+
+begin
+  # Perform a matchback operation to retrieve a pre-populated GetIntoTeachingCallback for the candidate.
+  result = api_instance.matchback_get_into_teaching_callback(existing_candidate_request)
+  p result
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Error when calling GetIntoTeachingApi->matchback_get_into_teaching_callback: #{e}"
+end
+```
+
+#### Using the matchback_get_into_teaching_callback_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GetIntoTeachingCallback>, Integer, Hash)> matchback_get_into_teaching_callback_with_http_info(existing_candidate_request)
+
+```ruby
+begin
+  # Perform a matchback operation to retrieve a pre-populated GetIntoTeachingCallback for the candidate.
+  data, status_code, headers = api_instance.matchback_get_into_teaching_callback_with_http_info(existing_candidate_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GetIntoTeachingCallback>
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Error when calling GetIntoTeachingApi->matchback_get_into_teaching_callback_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **existing_candidate_request** | [**ExistingCandidateRequest**](ExistingCandidateRequest.md) | Candidate details to matchback. |  |
 
 ### Return type
 
