@@ -57,4 +57,16 @@ describe 'GetIntoTeachingApi' do
     end
   end
 
+  # unit tests for matchback_get_into_teaching_callback
+  # Perform a matchback operation to retrieve a pre-populated GetIntoTeachingCallback for the candidate.
+  # Attempts to matchback against a known candidate and returns a pre-populated GetIntoTeachingCallback if a match is found.
+  # @param existing_candidate_request Candidate details to matchback.
+  # @param [Hash] opts the optional parameters
+  # @return [GetIntoTeachingCallback]
+  describe 'matchback_get_into_teaching_callback test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
 end

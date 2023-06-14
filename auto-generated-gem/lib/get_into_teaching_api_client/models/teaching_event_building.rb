@@ -68,7 +68,6 @@ module GetIntoTeachingApiClient
     def self.openapi_nullable
       Set.new([
         :'id',
-        :'venue',
         :'address_line1',
         :'address_line2',
         :'address_line3',
@@ -130,13 +129,37 @@ module GetIntoTeachingApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @venue.nil?
+        invalid_properties.push('invalid value for "venue", venue cannot be nil.')
+      end
+
+      if @venue.to_s.length < 1
+        invalid_properties.push('invalid value for "venue", the character length must be great than or equal to 1.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @venue.nil?
+      return false if @venue.to_s.length < 1
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] venue Value to be assigned
+    def venue=(venue)
+      if venue.nil?
+        fail ArgumentError, 'venue cannot be nil'
+      end
+
+      if venue.to_s.length < 1
+        fail ArgumentError, 'invalid value for "venue", the character length must be great than or equal to 1.'
+      end
+
+      @venue = venue
     end
 
     # Checks equality by comparing each attribute.
