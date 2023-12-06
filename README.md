@@ -47,6 +47,26 @@ cd auto-generated-gem; bundle && rspec
 
 Finally, bump the version of the `get_into_teaching_api_client_faraday` gem.
 
+### Localhost and Java self-signed certificate issues
+
+If regenerating the API using a locally-hosted Swagger instance with a self-signed certificate, you may run into a certificate error:
+
+```
+npm x -c 'openapi-generator-cli generate -i https://localhost:5001/swagger/v1/swagger.json  -g ruby -o ./auto-generated-gem -c config.yaml'
+...
+[main] ERROR io.swagger.v3.parser.util.RemoteUrl - unable to read
+javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at java.base/sun.security.ssl.Alert.createSSLException(Alert.java:131)
+...
+```
+
+This can be resolved by temporarily disabling certificate checking:
+
+```
+export JAVA_OPTS="-Dio.swagger.parser.util.RemoteUrl.trustAll=true -Dio.swagger.v3.parser.util.RemoteUrl.trustAll=true"
+npm x -c 'openapi-generator-cli generate -i https://localhost:5001/swagger/v1/swagger.json  -g ruby -o ./auto-generated-gem -c config.yaml'
+```
+
 ## Circuit breaker
 
 Circuit breaker middleware is included to protect from API failures. After a threshold number of failed requests, the circuit breaker will trip. Any further calls will raise a `GetIntoTeachingApiClient::CircuitBrokenError` before another request can be made. The circuit breaker will attempt self-reset after a period of time.
