@@ -16,6 +16,7 @@
 | **degree_status_id** | **Integer** |  | [optional] |
 | **degree_type_id** | **Integer** |  | [optional] |
 | **initial_teacher_training_year_id** | **Integer** |  | [optional] |
+| **stage_taught_id** | **Integer** |  | [optional] |
 | **preferred_education_phase_id** | **Integer** |  | [optional] |
 | **has_gcse_maths_and_english_id** | **Integer** |  | [optional] |
 | **has_gcse_science_id** | **Integer** |  | [optional] |
@@ -53,6 +54,7 @@ instance = GetIntoTeachingApiClient::TeacherTrainingAdviserSignUp.new(
   degree_status_id: null,
   degree_type_id: null,
   initial_teacher_training_year_id: null,
+  stage_taught_id: null,
   preferred_education_phase_id: null,
   has_gcse_maths_and_english_id: null,
   has_gcse_science_id: null,

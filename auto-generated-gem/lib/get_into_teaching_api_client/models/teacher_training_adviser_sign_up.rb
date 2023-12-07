@@ -39,6 +39,8 @@ module GetIntoTeachingApiClient
 
     attr_accessor :initial_teacher_training_year_id
 
+    attr_accessor :stage_taught_id
+
     attr_accessor :preferred_education_phase_id
 
     attr_accessor :has_gcse_maths_and_english_id
@@ -90,6 +92,7 @@ module GetIntoTeachingApiClient
         :'degree_status_id' => :'degreeStatusId',
         :'degree_type_id' => :'degreeTypeId',
         :'initial_teacher_training_year_id' => :'initialTeacherTrainingYearId',
+        :'stage_taught_id' => :'stageTaughtId',
         :'preferred_education_phase_id' => :'preferredEducationPhaseId',
         :'has_gcse_maths_and_english_id' => :'hasGcseMathsAndEnglishId',
         :'has_gcse_science_id' => :'hasGcseScienceId',
@@ -131,6 +134,7 @@ module GetIntoTeachingApiClient
         :'degree_status_id' => :'Integer',
         :'degree_type_id' => :'Integer',
         :'initial_teacher_training_year_id' => :'Integer',
+        :'stage_taught_id' => :'Integer',
         :'preferred_education_phase_id' => :'Integer',
         :'has_gcse_maths_and_english_id' => :'Integer',
         :'has_gcse_science_id' => :'Integer',
@@ -164,6 +168,7 @@ module GetIntoTeachingApiClient
         :'degree_status_id',
         :'degree_type_id',
         :'initial_teacher_training_year_id',
+        :'stage_taught_id',
         :'preferred_education_phase_id',
         :'has_gcse_maths_and_english_id',
         :'has_gcse_science_id',
@@ -241,6 +246,10 @@ module GetIntoTeachingApiClient
 
       if attributes.key?(:'initial_teacher_training_year_id')
         self.initial_teacher_training_year_id = attributes[:'initial_teacher_training_year_id']
+      end
+
+      if attributes.key?(:'stage_taught_id')
+        self.stage_taught_id = attributes[:'stage_taught_id']
       end
 
       if attributes.key?(:'preferred_education_phase_id')
@@ -381,6 +390,7 @@ module GetIntoTeachingApiClient
           degree_status_id == o.degree_status_id &&
           degree_type_id == o.degree_type_id &&
           initial_teacher_training_year_id == o.initial_teacher_training_year_id &&
+          stage_taught_id == o.stage_taught_id &&
           preferred_education_phase_id == o.preferred_education_phase_id &&
           has_gcse_maths_and_english_id == o.has_gcse_maths_and_english_id &&
           has_gcse_science_id == o.has_gcse_science_id &&
@@ -410,7 +420,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [candidate_id, qualification_id, subject_taught_id, past_teaching_position_id, preferred_teaching_subject_id, country_id, accepted_policy_id, type_id, uk_degree_grade_id, degree_status_id, degree_type_id, initial_teacher_training_year_id, preferred_education_phase_id, has_gcse_maths_and_english_id, has_gcse_science_id, planning_to_retake_gcse_maths_and_english_id, planning_to_retake_gcse_science_id, adviser_status_id, channel_id, email, first_name, last_name, date_of_birth, teacher_id, degree_subject, address_telephone, address_postcode, phone_call_scheduled_at, can_subscribe_to_teacher_training_adviser, assignment_status_id].hash
+      [candidate_id, qualification_id, subject_taught_id, past_teaching_position_id, preferred_teaching_subject_id, country_id, accepted_policy_id, type_id, uk_degree_grade_id, degree_status_id, degree_type_id, initial_teacher_training_year_id, stage_taught_id, preferred_education_phase_id, has_gcse_maths_and_english_id, has_gcse_science_id, planning_to_retake_gcse_maths_and_english_id, planning_to_retake_gcse_science_id, adviser_status_id, channel_id, email, first_name, last_name, date_of_birth, teacher_id, degree_subject, address_telephone, address_postcode, phone_call_scheduled_at, can_subscribe_to_teacher_training_adviser, assignment_status_id].hash
     end
 
     # Builds the object from hash
