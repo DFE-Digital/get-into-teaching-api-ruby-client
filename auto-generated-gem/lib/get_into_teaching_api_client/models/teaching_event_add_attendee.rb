@@ -21,6 +21,8 @@ module GetIntoTeachingApiClient
 
     attr_accessor :event_id
 
+    attr_accessor :channel_id
+
     attr_accessor :accepted_policy_id
 
     attr_accessor :preferred_teaching_subject_id
@@ -57,6 +59,7 @@ module GetIntoTeachingApiClient
         :'candidate_id' => :'candidateId',
         :'qualification_id' => :'qualificationId',
         :'event_id' => :'eventId',
+        :'channel_id' => :'channelId',
         :'accepted_policy_id' => :'acceptedPolicyId',
         :'preferred_teaching_subject_id' => :'preferredTeachingSubjectId',
         :'consideration_journey_stage_id' => :'considerationJourneyStageId',
@@ -86,6 +89,7 @@ module GetIntoTeachingApiClient
         :'candidate_id' => :'String',
         :'qualification_id' => :'String',
         :'event_id' => :'String',
+        :'channel_id' => :'Integer',
         :'accepted_policy_id' => :'String',
         :'preferred_teaching_subject_id' => :'String',
         :'consideration_journey_stage_id' => :'Integer',
@@ -109,6 +113,7 @@ module GetIntoTeachingApiClient
       Set.new([
         :'candidate_id',
         :'qualification_id',
+        :'channel_id',
         :'preferred_teaching_subject_id',
         :'consideration_journey_stage_id',
         :'degree_status_id',
@@ -142,6 +147,10 @@ module GetIntoTeachingApiClient
 
       if attributes.key?(:'event_id')
         self.event_id = attributes[:'event_id']
+      end
+
+      if attributes.key?(:'channel_id')
+        self.channel_id = attributes[:'channel_id']
       end
 
       if attributes.key?(:'accepted_policy_id')
@@ -346,6 +355,7 @@ module GetIntoTeachingApiClient
           candidate_id == o.candidate_id &&
           qualification_id == o.qualification_id &&
           event_id == o.event_id &&
+          channel_id == o.channel_id &&
           accepted_policy_id == o.accepted_policy_id &&
           preferred_teaching_subject_id == o.preferred_teaching_subject_id &&
           consideration_journey_stage_id == o.consideration_journey_stage_id &&
@@ -372,7 +382,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [candidate_id, qualification_id, event_id, accepted_policy_id, preferred_teaching_subject_id, consideration_journey_stage_id, degree_status_id, email, first_name, last_name, address_postcode, address_telephone, is_verified, is_walk_in, subscribe_to_mailing_list, already_subscribed_to_events, already_subscribed_to_mailing_list, already_subscribed_to_teacher_training_adviser].hash
+      [candidate_id, qualification_id, event_id, channel_id, accepted_policy_id, preferred_teaching_subject_id, consideration_journey_stage_id, degree_status_id, email, first_name, last_name, address_postcode, address_telephone, is_verified, is_walk_in, subscribe_to_mailing_list, already_subscribed_to_events, already_subscribed_to_mailing_list, already_subscribed_to_teacher_training_adviser].hash
     end
 
     # Builds the object from hash
