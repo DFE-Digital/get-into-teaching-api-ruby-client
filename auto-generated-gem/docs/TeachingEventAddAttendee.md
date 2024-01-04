@@ -7,6 +7,7 @@
 | **candidate_id** | **String** |  | [optional] |
 | **qualification_id** | **String** |  | [optional] |
 | **event_id** | **String** |  |  |
+| **channel_id** | **Integer** |  | [optional] |
 | **accepted_policy_id** | **String** |  |  |
 | **preferred_teaching_subject_id** | **String** |  | [optional] |
 | **consideration_journey_stage_id** | **Integer** |  | [optional] |
@@ -32,6 +33,7 @@ instance = GetIntoTeachingApiClient::TeachingEventAddAttendee.new(
   candidate_id: null,
   qualification_id: null,
   event_id: null,
+  channel_id: null,
   accepted_policy_id: null,
   preferred_teaching_subject_id: null,
   consideration_journey_stage_id: null,
