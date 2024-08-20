@@ -79,6 +79,74 @@ module GetIntoTeachingApiClient
       return data, status_code, headers
     end
 
+    # Triggers a backfill job to sync the CRM with the Apply candidates for specified candidate Ids.
+    # The backfill will query all candidate information from the Apply API and queue jobs to sync the data with the CRM.
+    # @param candidate_ids_request [CandidateIdsRequest] Candidate IDs to backfill
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def backfill_apply_candidates_from_ids(candidate_ids_request, opts = {})
+      backfill_apply_candidates_from_ids_with_http_info(candidate_ids_request, opts)
+      nil
+    end
+
+    # Triggers a backfill job to sync the CRM with the Apply candidates for specified candidate Ids.
+    # The backfill will query all candidate information from the Apply API and queue jobs to sync the data with the CRM.
+    # @param candidate_ids_request [CandidateIdsRequest] Candidate IDs to backfill
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def backfill_apply_candidates_from_ids_with_http_info(candidate_ids_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OperationsApi.backfill_apply_candidates_from_ids ...'
+      end
+      # verify the required parameter 'candidate_ids_request' is set
+      if @api_client.config.client_side_validation && candidate_ids_request.nil?
+        fail ArgumentError, "Missing the required parameter 'candidate_ids_request' when calling OperationsApi.backfill_apply_candidates_from_ids"
+      end
+      # resource path
+      local_var_path = '/api/operations/backfill_apply_candidates_from_ids'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json', 'text/json', 'application/*+json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(candidate_ids_request)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apiKey']
+
+      new_options = opts.merge(
+        :operation => :"OperationsApi.backfill_apply_candidates_from_ids",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OperationsApi#backfill_apply_candidates_from_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Generates the mapping information.
     # Generates the mapping information describing how the models in the API map to the corresponding entities in Dynamics 365.
     # @param [Hash] opts the optional parameters

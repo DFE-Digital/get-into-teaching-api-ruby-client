@@ -8,6 +8,7 @@ README.md
 Rakefile
 docs/CallbackBookingQuota.md
 docs/CallbackBookingQuotasApi.md
+docs/CandidateIdsRequest.md
 docs/CandidateMagicLinkExchangeResult.md
 docs/CandidateSchoolExperience.md
 docs/CandidatesApi.md
@@ -57,6 +58,7 @@ lib/get_into_teaching_api_client/api_client.rb
 lib/get_into_teaching_api_client/api_error.rb
 lib/get_into_teaching_api_client/configuration.rb
 lib/get_into_teaching_api_client/models/callback_booking_quota.rb
+lib/get_into_teaching_api_client/models/candidate_ids_request.rb
 lib/get_into_teaching_api_client/models/candidate_magic_link_exchange_result.rb
 lib/get_into_teaching_api_client/models/candidate_school_experience.rb
 lib/get_into_teaching_api_client/models/country.rb
@@ -92,6 +94,7 @@ spec/api/teaching_events_api_spec.rb
 spec/api_client_spec.rb
 spec/configuration_spec.rb
 spec/models/callback_booking_quota_spec.rb
+spec/models/candidate_ids_request_spec.rb
 spec/models/candidate_magic_link_exchange_result_spec.rb
 spec/models/candidate_school_experience_spec.rb
 spec/models/country_spec.rb

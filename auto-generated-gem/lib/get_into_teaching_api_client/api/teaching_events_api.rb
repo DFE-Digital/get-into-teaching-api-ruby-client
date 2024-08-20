@@ -293,13 +293,13 @@ module GetIntoTeachingApiClient
     # Searches for teaching events.
     # Searches for teaching events. Optionally limit the results by distance (in miles) from a postcode, event type and start date.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :postcode 
-    # @option opts [Integer] :radius 
-    # @option opts [Array<Integer>] :type_ids 
-    # @option opts [Boolean] :online 
-    # @option opts [Time] :start_after 
-    # @option opts [Time] :start_before 
-    # @option opts [Array<Integer>] :status_ids 
+    # @option opts [String] :postcode Postcode to center search around.
+    # @option opts [Integer] :radius Set to filter results to a radius (in miles) around the postcode.
+    # @option opts [Array<Integer>] :type_ids Set to filter results to a type of teaching event. Each ID must match a &#x60;typeId&#x60; of the &#x60;TeachingEvent&#x60; schema.
+    # @option opts [Boolean] :online Set to true to return only online events and false to return only in-person events.
+    # @option opts [Time] :start_after Set to filter results to those that start after a given date.
+    # @option opts [Time] :start_before Set to filter results to those that start before a given date.
+    # @option opts [Array<Integer>] :status_ids Set to filter results by event status.
     # @option opts [Integer] :quantity Quantity to return. (default to 10)
     # @return [Array<TeachingEvent>]
     def search_teaching_events(opts = {})
@@ -310,13 +310,13 @@ module GetIntoTeachingApiClient
     # Searches for teaching events.
     # Searches for teaching events. Optionally limit the results by distance (in miles) from a postcode, event type and start date.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :postcode 
-    # @option opts [Integer] :radius 
-    # @option opts [Array<Integer>] :type_ids 
-    # @option opts [Boolean] :online 
-    # @option opts [Time] :start_after 
-    # @option opts [Time] :start_before 
-    # @option opts [Array<Integer>] :status_ids 
+    # @option opts [String] :postcode Postcode to center search around.
+    # @option opts [Integer] :radius Set to filter results to a radius (in miles) around the postcode.
+    # @option opts [Array<Integer>] :type_ids Set to filter results to a type of teaching event. Each ID must match a &#x60;typeId&#x60; of the &#x60;TeachingEvent&#x60; schema.
+    # @option opts [Boolean] :online Set to true to return only online events and false to return only in-person events.
+    # @option opts [Time] :start_after Set to filter results to those that start after a given date.
+    # @option opts [Time] :start_before Set to filter results to those that start before a given date.
+    # @option opts [Array<Integer>] :status_ids Set to filter results by event status.
     # @option opts [Integer] :quantity Quantity to return.
     # @return [Array<(Array<TeachingEvent>, Integer, Hash)>] Array<TeachingEvent> data, response status code and response headers
     def search_teaching_events_with_http_info(opts = {})

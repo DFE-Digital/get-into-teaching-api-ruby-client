@@ -318,13 +318,13 @@ end
 
 api_instance = GetIntoTeachingApiClient::TeachingEventsApi.new
 opts = {
-  postcode: 'postcode_example', # String | 
-  radius: 56, # Integer | 
-  type_ids: [37], # Array<Integer> | 
-  online: true, # Boolean | 
-  start_after: Time.parse('2013-10-20T19:20:30+01:00'), # Time | 
-  start_before: Time.parse('2013-10-20T19:20:30+01:00'), # Time | 
-  status_ids: [37], # Array<Integer> | 
+  postcode: 'postcode_example', # String | Postcode to center search around.
+  radius: 56, # Integer | Set to filter results to a radius (in miles) around the postcode.
+  type_ids: [37], # Array<Integer> | Set to filter results to a type of teaching event. Each ID must match a `typeId` of the `TeachingEvent` schema.
+  online: true, # Boolean | Set to true to return only online events and false to return only in-person events.
+  start_after: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Set to filter results to those that start after a given date.
+  start_before: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Set to filter results to those that start before a given date.
+  status_ids: [37], # Array<Integer> | Set to filter results by event status.
   quantity: 56 # Integer | Quantity to return.
 }
 
@@ -359,13 +359,13 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **postcode** | **String** |  | [optional] |
-| **radius** | **Integer** |  | [optional] |
-| **type_ids** | [**Array&lt;Integer&gt;**](Integer.md) |  | [optional] |
-| **online** | **Boolean** |  | [optional] |
-| **start_after** | **Time** |  | [optional] |
-| **start_before** | **Time** |  | [optional] |
-| **status_ids** | [**Array&lt;Integer&gt;**](Integer.md) |  | [optional] |
+| **postcode** | **String** | Postcode to center search around. | [optional] |
+| **radius** | **Integer** | Set to filter results to a radius (in miles) around the postcode. | [optional] |
+| **type_ids** | [**Array&lt;Integer&gt;**](Integer.md) | Set to filter results to a type of teaching event. Each ID must match a &#x60;typeId&#x60; of the &#x60;TeachingEvent&#x60; schema. | [optional] |
+| **online** | **Boolean** | Set to true to return only online events and false to return only in-person events. | [optional] |
+| **start_after** | **Time** | Set to filter results to those that start after a given date. | [optional] |
+| **start_before** | **Time** | Set to filter results to those that start before a given date. | [optional] |
+| **status_ids** | [**Array&lt;Integer&gt;**](Integer.md) | Set to filter results by event status. | [optional] |
 | **quantity** | **Integer** | Quantity to return. | [optional][default to 10] |
 
 ### Return type
