@@ -23,6 +23,11 @@
 | **telephone** | **String** |  |  |
 | **has_dbs_certificate** | **Boolean** |  |  |
 | **dbs_certificate_issued_at** | **Time** |  | [optional] |
+| **qualification_id** | **String** |  | [optional] |
+| **degree_status_id** | **Integer** |  | [optional] |
+| **degree_type_id** | **Integer** |  | [optional] |
+| **degree_subject** | **String** |  | [optional] |
+| **uk_degree_grade_id** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -48,7 +53,12 @@ instance = GetIntoTeachingApiClient::SchoolsExperienceSignUp.new(
   address_postcode: null,
   telephone: null,
   has_dbs_certificate: null,
-  dbs_certificate_issued_at: null
+  dbs_certificate_issued_at: null,
+  qualification_id: null,
+  degree_status_id: null,
+  degree_type_id: null,
+  degree_subject: null,
+  uk_degree_grade_id: null
 )
 ```
 

@@ -44,6 +44,18 @@ describe 'OperationsApi' do
     end
   end
 
+  # unit tests for backfill_apply_candidates_from_ids
+  # Triggers a backfill job to sync the CRM with the Apply candidates for specified candidate Ids.
+  # The backfill will query all candidate information from the Apply API and queue jobs to sync the data with the CRM.
+  # @param candidate_ids_request Candidate IDs to backfill
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'backfill_apply_candidates_from_ids test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for generate_mapping_info
   # Generates the mapping information.
   # Generates the mapping information describing how the models in the API map to the corresponding entities in Dynamics 365.

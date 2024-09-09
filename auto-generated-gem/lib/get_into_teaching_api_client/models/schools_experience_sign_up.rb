@@ -53,6 +53,16 @@ module GetIntoTeachingApiClient
 
     attr_accessor :dbs_certificate_issued_at
 
+    attr_accessor :qualification_id
+
+    attr_accessor :degree_status_id
+
+    attr_accessor :degree_type_id
+
+    attr_accessor :degree_subject
+
+    attr_accessor :uk_degree_grade_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -74,7 +84,12 @@ module GetIntoTeachingApiClient
         :'address_postcode' => :'addressPostcode',
         :'telephone' => :'telephone',
         :'has_dbs_certificate' => :'hasDbsCertificate',
-        :'dbs_certificate_issued_at' => :'dbsCertificateIssuedAt'
+        :'dbs_certificate_issued_at' => :'dbsCertificateIssuedAt',
+        :'qualification_id' => :'qualificationId',
+        :'degree_status_id' => :'degreeStatusId',
+        :'degree_type_id' => :'degreeTypeId',
+        :'degree_subject' => :'degreeSubject',
+        :'uk_degree_grade_id' => :'ukDegreeGradeId'
       }
     end
 
@@ -104,7 +119,12 @@ module GetIntoTeachingApiClient
         :'address_postcode' => :'String',
         :'telephone' => :'String',
         :'has_dbs_certificate' => :'Boolean',
-        :'dbs_certificate_issued_at' => :'Time'
+        :'dbs_certificate_issued_at' => :'Time',
+        :'qualification_id' => :'String',
+        :'degree_status_id' => :'Integer',
+        :'degree_type_id' => :'Integer',
+        :'degree_subject' => :'String',
+        :'uk_degree_grade_id' => :'Integer'
       }
     end
 
@@ -117,7 +137,12 @@ module GetIntoTeachingApiClient
         :'full_name',
         :'address_line2',
         :'address_line3',
-        :'dbs_certificate_issued_at'
+        :'dbs_certificate_issued_at',
+        :'qualification_id',
+        :'degree_status_id',
+        :'degree_type_id',
+        :'degree_subject',
+        :'uk_degree_grade_id'
       ])
     end
 
@@ -210,6 +235,26 @@ module GetIntoTeachingApiClient
 
       if attributes.key?(:'dbs_certificate_issued_at')
         self.dbs_certificate_issued_at = attributes[:'dbs_certificate_issued_at']
+      end
+
+      if attributes.key?(:'qualification_id')
+        self.qualification_id = attributes[:'qualification_id']
+      end
+
+      if attributes.key?(:'degree_status_id')
+        self.degree_status_id = attributes[:'degree_status_id']
+      end
+
+      if attributes.key?(:'degree_type_id')
+        self.degree_type_id = attributes[:'degree_type_id']
+      end
+
+      if attributes.key?(:'degree_subject')
+        self.degree_subject = attributes[:'degree_subject']
+      end
+
+      if attributes.key?(:'uk_degree_grade_id')
+        self.uk_degree_grade_id = attributes[:'uk_degree_grade_id']
       end
     end
 
@@ -361,7 +406,12 @@ module GetIntoTeachingApiClient
           address_postcode == o.address_postcode &&
           telephone == o.telephone &&
           has_dbs_certificate == o.has_dbs_certificate &&
-          dbs_certificate_issued_at == o.dbs_certificate_issued_at
+          dbs_certificate_issued_at == o.dbs_certificate_issued_at &&
+          qualification_id == o.qualification_id &&
+          degree_status_id == o.degree_status_id &&
+          degree_type_id == o.degree_type_id &&
+          degree_subject == o.degree_subject &&
+          uk_degree_grade_id == o.uk_degree_grade_id
     end
 
     # @see the `==` method
@@ -373,7 +423,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [candidate_id, preferred_teaching_subject_id, secondary_preferred_teaching_subject_id, accepted_policy_id, master_id, merged, full_name, email, first_name, last_name, address_line1, address_line2, address_line3, address_city, address_state_or_province, address_postcode, telephone, has_dbs_certificate, dbs_certificate_issued_at].hash
+      [candidate_id, preferred_teaching_subject_id, secondary_preferred_teaching_subject_id, accepted_policy_id, master_id, merged, full_name, email, first_name, last_name, address_line1, address_line2, address_line3, address_city, address_state_or_province, address_postcode, telephone, has_dbs_certificate, dbs_certificate_issued_at, qualification_id, degree_status_id, degree_type_id, degree_subject, uk_degree_grade_id].hash
     end
 
     # Builds the object from hash

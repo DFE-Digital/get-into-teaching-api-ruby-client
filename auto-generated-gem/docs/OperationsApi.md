@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost*
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**backfill_apply_candidates**](OperationsApi.md#backfill_apply_candidates) | **POST** /api/operations/backfill_apply_candidates | Triggers a backfill job to sync the CRM with the Apply candidates. |
+| [**backfill_apply_candidates_from_ids**](OperationsApi.md#backfill_apply_candidates_from_ids) | **POST** /api/operations/backfill_apply_candidates_from_ids | Triggers a backfill job to sync the CRM with the Apply candidates for specified candidate Ids. |
 | [**generate_mapping_info**](OperationsApi.md#generate_mapping_info) | **GET** /api/operations/generate_mapping_info | Generates the mapping information. |
 | [**health_check**](OperationsApi.md#health_check) | **GET** /api/operations/health_check | Performs a health check. |
 | [**pause_crm_integration**](OperationsApi.md#pause_crm_integration) | **PUT** /api/operations/pause_crm_integration | Temporarily pauses the integration with the CRM. |
@@ -80,6 +81,76 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+
+## backfill_apply_candidates_from_ids
+
+> backfill_apply_candidates_from_ids(candidate_ids_request)
+
+Triggers a backfill job to sync the CRM with the Apply candidates for specified candidate Ids.
+
+The backfill will query all candidate information from the Apply API and queue jobs to sync the data with the CRM.
+
+### Examples
+
+```ruby
+require 'time'
+require 'get_into_teaching_api_client'
+# setup authorization
+GetIntoTeachingApiClient.configure do |config|
+  # Configure API key authorization: apiKey
+  config.api_key['apiKey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['apiKey'] = 'Bearer'
+end
+
+api_instance = GetIntoTeachingApiClient::OperationsApi.new
+candidate_ids_request = GetIntoTeachingApiClient::CandidateIdsRequest.new # CandidateIdsRequest | Candidate IDs to backfill
+
+begin
+  # Triggers a backfill job to sync the CRM with the Apply candidates for specified candidate Ids.
+  api_instance.backfill_apply_candidates_from_ids(candidate_ids_request)
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Error when calling OperationsApi->backfill_apply_candidates_from_ids: #{e}"
+end
+```
+
+#### Using the backfill_apply_candidates_from_ids_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> backfill_apply_candidates_from_ids_with_http_info(candidate_ids_request)
+
+```ruby
+begin
+  # Triggers a backfill job to sync the CRM with the Apply candidates for specified candidate Ids.
+  data, status_code, headers = api_instance.backfill_apply_candidates_from_ids_with_http_info(candidate_ids_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Error when calling OperationsApi->backfill_apply_candidates_from_ids_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **candidate_ids_request** | [**CandidateIdsRequest**](CandidateIdsRequest.md) | Candidate IDs to backfill |  |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, text/json, application/*+json
 - **Accept**: text/plain, application/json, text/json
 
 
