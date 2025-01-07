@@ -24,6 +24,9 @@
 | **planning_to_retake_gcse_science_id** | **Integer** |  | [optional] |
 | **adviser_status_id** | **Integer** |  | [optional] |
 | **channel_id** | **Integer** |  | [optional] |
+| **creation_channel_source_id** | **Integer** |  | [optional] |
+| **creation_channel_service_id** | **Integer** |  | [optional] |
+| **creation_channel_activity_id** | **Integer** |  | [optional] |
 | **email** | **String** |  |  |
 | **first_name** | **String** |  |  |
 | **last_name** | **String** |  |  |
@@ -62,6 +65,9 @@ instance = GetIntoTeachingApiClient::TeacherTrainingAdviserSignUp.new(
   planning_to_retake_gcse_science_id: null,
   adviser_status_id: null,
   channel_id: null,
+  creation_channel_source_id: null,
+  creation_channel_service_id: null,
+  creation_channel_activity_id: null,
   email: null,
   first_name: null,
   last_name: null,

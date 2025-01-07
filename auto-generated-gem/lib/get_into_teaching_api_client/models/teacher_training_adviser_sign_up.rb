@@ -55,6 +55,12 @@ module GetIntoTeachingApiClient
 
     attr_accessor :channel_id
 
+    attr_accessor :creation_channel_source_id
+
+    attr_accessor :creation_channel_service_id
+
+    attr_accessor :creation_channel_activity_id
+
     attr_accessor :email
 
     attr_accessor :first_name
@@ -100,6 +106,9 @@ module GetIntoTeachingApiClient
         :'planning_to_retake_gcse_science_id' => :'planningToRetakeGcseScienceId',
         :'adviser_status_id' => :'adviserStatusId',
         :'channel_id' => :'channelId',
+        :'creation_channel_source_id' => :'creationChannelSourceId',
+        :'creation_channel_service_id' => :'creationChannelServiceId',
+        :'creation_channel_activity_id' => :'creationChannelActivityId',
         :'email' => :'email',
         :'first_name' => :'firstName',
         :'last_name' => :'lastName',
@@ -142,6 +151,9 @@ module GetIntoTeachingApiClient
         :'planning_to_retake_gcse_science_id' => :'Integer',
         :'adviser_status_id' => :'Integer',
         :'channel_id' => :'Integer',
+        :'creation_channel_source_id' => :'Integer',
+        :'creation_channel_service_id' => :'Integer',
+        :'creation_channel_activity_id' => :'Integer',
         :'email' => :'String',
         :'first_name' => :'String',
         :'last_name' => :'String',
@@ -176,6 +188,9 @@ module GetIntoTeachingApiClient
         :'planning_to_retake_gcse_science_id',
         :'adviser_status_id',
         :'channel_id',
+        :'creation_channel_source_id',
+        :'creation_channel_service_id',
+        :'creation_channel_activity_id',
         :'teacher_id',
         :'degree_subject',
         :'address_telephone',
@@ -278,6 +293,18 @@ module GetIntoTeachingApiClient
 
       if attributes.key?(:'channel_id')
         self.channel_id = attributes[:'channel_id']
+      end
+
+      if attributes.key?(:'creation_channel_source_id')
+        self.creation_channel_source_id = attributes[:'creation_channel_source_id']
+      end
+
+      if attributes.key?(:'creation_channel_service_id')
+        self.creation_channel_service_id = attributes[:'creation_channel_service_id']
+      end
+
+      if attributes.key?(:'creation_channel_activity_id')
+        self.creation_channel_activity_id = attributes[:'creation_channel_activity_id']
       end
 
       if attributes.key?(:'email')
@@ -398,6 +425,9 @@ module GetIntoTeachingApiClient
           planning_to_retake_gcse_science_id == o.planning_to_retake_gcse_science_id &&
           adviser_status_id == o.adviser_status_id &&
           channel_id == o.channel_id &&
+          creation_channel_source_id == o.creation_channel_source_id &&
+          creation_channel_service_id == o.creation_channel_service_id &&
+          creation_channel_activity_id == o.creation_channel_activity_id &&
           email == o.email &&
           first_name == o.first_name &&
           last_name == o.last_name &&
@@ -420,7 +450,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [candidate_id, qualification_id, subject_taught_id, past_teaching_position_id, preferred_teaching_subject_id, country_id, accepted_policy_id, type_id, uk_degree_grade_id, degree_status_id, degree_type_id, initial_teacher_training_year_id, stage_taught_id, preferred_education_phase_id, has_gcse_maths_and_english_id, has_gcse_science_id, planning_to_retake_gcse_maths_and_english_id, planning_to_retake_gcse_science_id, adviser_status_id, channel_id, email, first_name, last_name, date_of_birth, teacher_id, degree_subject, address_telephone, address_postcode, phone_call_scheduled_at, can_subscribe_to_teacher_training_adviser, assignment_status_id].hash
+      [candidate_id, qualification_id, subject_taught_id, past_teaching_position_id, preferred_teaching_subject_id, country_id, accepted_policy_id, type_id, uk_degree_grade_id, degree_status_id, degree_type_id, initial_teacher_training_year_id, stage_taught_id, preferred_education_phase_id, has_gcse_maths_and_english_id, has_gcse_science_id, planning_to_retake_gcse_maths_and_english_id, planning_to_retake_gcse_science_id, adviser_status_id, channel_id, creation_channel_source_id, creation_channel_service_id, creation_channel_activity_id, email, first_name, last_name, date_of_birth, teacher_id, degree_subject, address_telephone, address_postcode, phone_call_scheduled_at, can_subscribe_to_teacher_training_adviser, assignment_status_id].hash
     end
 
     # Builds the object from hash

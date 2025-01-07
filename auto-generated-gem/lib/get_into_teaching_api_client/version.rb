@@ -11,5 +11,5 @@ OpenAPI Generator version: 5.3.0
 =end
 
 module GetIntoTeachingApiClient
-  VERSION = '3.4.0'
+  VERSION = '3.5.0'
 end
