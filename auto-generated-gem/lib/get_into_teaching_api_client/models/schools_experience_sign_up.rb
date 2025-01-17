@@ -63,6 +63,12 @@ module GetIntoTeachingApiClient
 
     attr_accessor :uk_degree_grade_id
 
+    attr_accessor :creation_channel_source_id
+
+    attr_accessor :creation_channel_service_id
+
+    attr_accessor :creation_channel_activity_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -89,7 +95,10 @@ module GetIntoTeachingApiClient
         :'degree_status_id' => :'degreeStatusId',
         :'degree_type_id' => :'degreeTypeId',
         :'degree_subject' => :'degreeSubject',
-        :'uk_degree_grade_id' => :'ukDegreeGradeId'
+        :'uk_degree_grade_id' => :'ukDegreeGradeId',
+        :'creation_channel_source_id' => :'creationChannelSourceId',
+        :'creation_channel_service_id' => :'creationChannelServiceId',
+        :'creation_channel_activity_id' => :'creationChannelActivityId'
       }
     end
 
@@ -124,7 +133,10 @@ module GetIntoTeachingApiClient
         :'degree_status_id' => :'Integer',
         :'degree_type_id' => :'Integer',
         :'degree_subject' => :'String',
-        :'uk_degree_grade_id' => :'Integer'
+        :'uk_degree_grade_id' => :'Integer',
+        :'creation_channel_source_id' => :'Integer',
+        :'creation_channel_service_id' => :'Integer',
+        :'creation_channel_activity_id' => :'Integer'
       }
     end
 
@@ -142,7 +154,10 @@ module GetIntoTeachingApiClient
         :'degree_status_id',
         :'degree_type_id',
         :'degree_subject',
-        :'uk_degree_grade_id'
+        :'uk_degree_grade_id',
+        :'creation_channel_source_id',
+        :'creation_channel_service_id',
+        :'creation_channel_activity_id'
       ])
     end
 
@@ -255,6 +270,18 @@ module GetIntoTeachingApiClient
 
       if attributes.key?(:'uk_degree_grade_id')
         self.uk_degree_grade_id = attributes[:'uk_degree_grade_id']
+      end
+
+      if attributes.key?(:'creation_channel_source_id')
+        self.creation_channel_source_id = attributes[:'creation_channel_source_id']
+      end
+
+      if attributes.key?(:'creation_channel_service_id')
+        self.creation_channel_service_id = attributes[:'creation_channel_service_id']
+      end
+
+      if attributes.key?(:'creation_channel_activity_id')
+        self.creation_channel_activity_id = attributes[:'creation_channel_activity_id']
       end
     end
 
@@ -411,7 +438,10 @@ module GetIntoTeachingApiClient
           degree_status_id == o.degree_status_id &&
           degree_type_id == o.degree_type_id &&
           degree_subject == o.degree_subject &&
-          uk_degree_grade_id == o.uk_degree_grade_id
+          uk_degree_grade_id == o.uk_degree_grade_id &&
+          creation_channel_source_id == o.creation_channel_source_id &&
+          creation_channel_service_id == o.creation_channel_service_id &&
+          creation_channel_activity_id == o.creation_channel_activity_id
     end
 
     # @see the `==` method
@@ -423,7 +453,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [candidate_id, preferred_teaching_subject_id, secondary_preferred_teaching_subject_id, accepted_policy_id, master_id, merged, full_name, email, first_name, last_name, address_line1, address_line2, address_line3, address_city, address_state_or_province, address_postcode, telephone, has_dbs_certificate, dbs_certificate_issued_at, qualification_id, degree_status_id, degree_type_id, degree_subject, uk_degree_grade_id].hash
+      [candidate_id, preferred_teaching_subject_id, secondary_preferred_teaching_subject_id, accepted_policy_id, master_id, merged, full_name, email, first_name, last_name, address_line1, address_line2, address_line3, address_city, address_state_or_province, address_postcode, telephone, has_dbs_certificate, dbs_certificate_issued_at, qualification_id, degree_status_id, degree_type_id, degree_subject, uk_degree_grade_id, creation_channel_source_id, creation_channel_service_id, creation_channel_activity_id].hash
     end
 
     # Builds the object from hash

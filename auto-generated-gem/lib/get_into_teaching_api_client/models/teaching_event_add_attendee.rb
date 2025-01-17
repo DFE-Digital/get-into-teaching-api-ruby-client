@@ -23,6 +23,12 @@ module GetIntoTeachingApiClient
 
     attr_accessor :channel_id
 
+    attr_accessor :creation_channel_source_id
+
+    attr_accessor :creation_channel_service_id
+
+    attr_accessor :creation_channel_activity_id
+
     attr_accessor :accepted_policy_id
 
     attr_accessor :preferred_teaching_subject_id
@@ -60,6 +66,9 @@ module GetIntoTeachingApiClient
         :'qualification_id' => :'qualificationId',
         :'event_id' => :'eventId',
         :'channel_id' => :'channelId',
+        :'creation_channel_source_id' => :'creationChannelSourceId',
+        :'creation_channel_service_id' => :'creationChannelServiceId',
+        :'creation_channel_activity_id' => :'creationChannelActivityId',
         :'accepted_policy_id' => :'acceptedPolicyId',
         :'preferred_teaching_subject_id' => :'preferredTeachingSubjectId',
         :'consideration_journey_stage_id' => :'considerationJourneyStageId',
@@ -90,6 +99,9 @@ module GetIntoTeachingApiClient
         :'qualification_id' => :'String',
         :'event_id' => :'String',
         :'channel_id' => :'Integer',
+        :'creation_channel_source_id' => :'Integer',
+        :'creation_channel_service_id' => :'Integer',
+        :'creation_channel_activity_id' => :'Integer',
         :'accepted_policy_id' => :'String',
         :'preferred_teaching_subject_id' => :'String',
         :'consideration_journey_stage_id' => :'Integer',
@@ -114,6 +126,9 @@ module GetIntoTeachingApiClient
         :'candidate_id',
         :'qualification_id',
         :'channel_id',
+        :'creation_channel_source_id',
+        :'creation_channel_service_id',
+        :'creation_channel_activity_id',
         :'preferred_teaching_subject_id',
         :'consideration_journey_stage_id',
         :'degree_status_id',
@@ -151,6 +166,18 @@ module GetIntoTeachingApiClient
 
       if attributes.key?(:'channel_id')
         self.channel_id = attributes[:'channel_id']
+      end
+
+      if attributes.key?(:'creation_channel_source_id')
+        self.creation_channel_source_id = attributes[:'creation_channel_source_id']
+      end
+
+      if attributes.key?(:'creation_channel_service_id')
+        self.creation_channel_service_id = attributes[:'creation_channel_service_id']
+      end
+
+      if attributes.key?(:'creation_channel_activity_id')
+        self.creation_channel_activity_id = attributes[:'creation_channel_activity_id']
       end
 
       if attributes.key?(:'accepted_policy_id')
@@ -356,6 +383,9 @@ module GetIntoTeachingApiClient
           qualification_id == o.qualification_id &&
           event_id == o.event_id &&
           channel_id == o.channel_id &&
+          creation_channel_source_id == o.creation_channel_source_id &&
+          creation_channel_service_id == o.creation_channel_service_id &&
+          creation_channel_activity_id == o.creation_channel_activity_id &&
           accepted_policy_id == o.accepted_policy_id &&
           preferred_teaching_subject_id == o.preferred_teaching_subject_id &&
           consideration_journey_stage_id == o.consideration_journey_stage_id &&
@@ -382,7 +412,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [candidate_id, qualification_id, event_id, channel_id, accepted_policy_id, preferred_teaching_subject_id, consideration_journey_stage_id, degree_status_id, email, first_name, last_name, address_postcode, address_telephone, is_verified, is_walk_in, subscribe_to_mailing_list, already_subscribed_to_events, already_subscribed_to_mailing_list, already_subscribed_to_teacher_training_adviser].hash
+      [candidate_id, qualification_id, event_id, channel_id, creation_channel_source_id, creation_channel_service_id, creation_channel_activity_id, accepted_policy_id, preferred_teaching_subject_id, consideration_journey_stage_id, degree_status_id, email, first_name, last_name, address_postcode, address_telephone, is_verified, is_walk_in, subscribe_to_mailing_list, already_subscribed_to_events, already_subscribed_to_mailing_list, already_subscribed_to_teacher_training_adviser].hash
     end
 
     # Builds the object from hash

@@ -12,6 +12,9 @@
 | **address_telephone** | **String** |  |  |
 | **phone_call_scheduled_at** | **Time** |  |  |
 | **talking_points** | **String** |  |  |
+| **creation_channel_source_id** | **Integer** |  | [optional] |
+| **creation_channel_service_id** | **Integer** |  | [optional] |
+| **creation_channel_activity_id** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -26,7 +29,10 @@ instance = GetIntoTeachingApiClient::GetIntoTeachingCallback.new(
   last_name: null,
   address_telephone: null,
   phone_call_scheduled_at: null,
-  talking_points: null
+  talking_points: null,
+  creation_channel_source_id: null,
+  creation_channel_service_id: null,
+  creation_channel_activity_id: null
 )
 ```
 
