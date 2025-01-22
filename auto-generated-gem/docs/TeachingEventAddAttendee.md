@@ -26,6 +26,7 @@
 | **already_subscribed_to_events** | **Boolean** |  | [optional][readonly] |
 | **already_subscribed_to_mailing_list** | **Boolean** |  | [optional][readonly] |
 | **already_subscribed_to_teacher_training_adviser** | **Boolean** |  | [optional][readonly] |
+| **default_contact_creation_channel** | **Integer** |  | [optional][readonly] |
 
 ## Example
 
@@ -54,7 +55,8 @@ instance = GetIntoTeachingApiClient::TeachingEventAddAttendee.new(
   subscribe_to_mailing_list: null,
   already_subscribed_to_events: null,
   already_subscribed_to_mailing_list: null,
-  already_subscribed_to_teacher_training_adviser: null
+  already_subscribed_to_teacher_training_adviser: null,
+  default_contact_creation_channel: null
 )
 ```
 

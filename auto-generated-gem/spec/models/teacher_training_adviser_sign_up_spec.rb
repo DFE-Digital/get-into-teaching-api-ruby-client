@@ -229,4 +229,10 @@ describe GetIntoTeachingApiClient::TeacherTrainingAdviserSignUp do
     end
   end
 
+  describe 'test attribute "default_contact_creation_channel"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
 end

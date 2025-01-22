@@ -37,6 +37,8 @@ module GetIntoTeachingApiClient
 
     attr_accessor :creation_channel_activity_id
 
+    attr_accessor :default_contact_creation_channel
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -50,7 +52,8 @@ module GetIntoTeachingApiClient
         :'talking_points' => :'talkingPoints',
         :'creation_channel_source_id' => :'creationChannelSourceId',
         :'creation_channel_service_id' => :'creationChannelServiceId',
-        :'creation_channel_activity_id' => :'creationChannelActivityId'
+        :'creation_channel_activity_id' => :'creationChannelActivityId',
+        :'default_contact_creation_channel' => :'defaultContactCreationChannel'
       }
     end
 
@@ -72,7 +75,8 @@ module GetIntoTeachingApiClient
         :'talking_points' => :'String',
         :'creation_channel_source_id' => :'Integer',
         :'creation_channel_service_id' => :'Integer',
-        :'creation_channel_activity_id' => :'Integer'
+        :'creation_channel_activity_id' => :'Integer',
+        :'default_contact_creation_channel' => :'Integer'
       }
     end
 
@@ -82,7 +86,8 @@ module GetIntoTeachingApiClient
         :'candidate_id',
         :'creation_channel_source_id',
         :'creation_channel_service_id',
-        :'creation_channel_activity_id'
+        :'creation_channel_activity_id',
+        :'default_contact_creation_channel'
       ])
     end
 
@@ -143,6 +148,10 @@ module GetIntoTeachingApiClient
 
       if attributes.key?(:'creation_channel_activity_id')
         self.creation_channel_activity_id = attributes[:'creation_channel_activity_id']
+      end
+
+      if attributes.key?(:'default_contact_creation_channel')
+        self.default_contact_creation_channel = attributes[:'default_contact_creation_channel']
       end
     end
 
@@ -285,7 +294,8 @@ module GetIntoTeachingApiClient
           talking_points == o.talking_points &&
           creation_channel_source_id == o.creation_channel_source_id &&
           creation_channel_service_id == o.creation_channel_service_id &&
-          creation_channel_activity_id == o.creation_channel_activity_id
+          creation_channel_activity_id == o.creation_channel_activity_id &&
+          default_contact_creation_channel == o.default_contact_creation_channel
     end
 
     # @see the `==` method
@@ -297,7 +307,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [candidate_id, accepted_policy_id, email, first_name, last_name, address_telephone, phone_call_scheduled_at, talking_points, creation_channel_source_id, creation_channel_service_id, creation_channel_activity_id].hash
+      [candidate_id, accepted_policy_id, email, first_name, last_name, address_telephone, phone_call_scheduled_at, talking_points, creation_channel_source_id, creation_channel_service_id, creation_channel_activity_id, default_contact_creation_channel].hash
     end
 
     # Builds the object from hash

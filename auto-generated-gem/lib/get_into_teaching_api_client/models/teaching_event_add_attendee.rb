@@ -59,6 +59,8 @@ module GetIntoTeachingApiClient
 
     attr_accessor :already_subscribed_to_teacher_training_adviser
 
+    attr_accessor :default_contact_creation_channel
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -83,7 +85,8 @@ module GetIntoTeachingApiClient
         :'subscribe_to_mailing_list' => :'subscribeToMailingList',
         :'already_subscribed_to_events' => :'alreadySubscribedToEvents',
         :'already_subscribed_to_mailing_list' => :'alreadySubscribedToMailingList',
-        :'already_subscribed_to_teacher_training_adviser' => :'alreadySubscribedToTeacherTrainingAdviser'
+        :'already_subscribed_to_teacher_training_adviser' => :'alreadySubscribedToTeacherTrainingAdviser',
+        :'default_contact_creation_channel' => :'defaultContactCreationChannel'
       }
     end
 
@@ -116,7 +119,8 @@ module GetIntoTeachingApiClient
         :'subscribe_to_mailing_list' => :'Boolean',
         :'already_subscribed_to_events' => :'Boolean',
         :'already_subscribed_to_mailing_list' => :'Boolean',
-        :'already_subscribed_to_teacher_training_adviser' => :'Boolean'
+        :'already_subscribed_to_teacher_training_adviser' => :'Boolean',
+        :'default_contact_creation_channel' => :'Integer'
       }
     end
 
@@ -134,6 +138,7 @@ module GetIntoTeachingApiClient
         :'degree_status_id',
         :'address_postcode',
         :'address_telephone',
+        :'default_contact_creation_channel'
       ])
     end
 
@@ -238,6 +243,10 @@ module GetIntoTeachingApiClient
 
       if attributes.key?(:'already_subscribed_to_teacher_training_adviser')
         self.already_subscribed_to_teacher_training_adviser = attributes[:'already_subscribed_to_teacher_training_adviser']
+      end
+
+      if attributes.key?(:'default_contact_creation_channel')
+        self.default_contact_creation_channel = attributes[:'default_contact_creation_channel']
       end
     end
 
@@ -400,7 +409,8 @@ module GetIntoTeachingApiClient
           subscribe_to_mailing_list == o.subscribe_to_mailing_list &&
           already_subscribed_to_events == o.already_subscribed_to_events &&
           already_subscribed_to_mailing_list == o.already_subscribed_to_mailing_list &&
-          already_subscribed_to_teacher_training_adviser == o.already_subscribed_to_teacher_training_adviser
+          already_subscribed_to_teacher_training_adviser == o.already_subscribed_to_teacher_training_adviser &&
+          default_contact_creation_channel == o.default_contact_creation_channel
     end
 
     # @see the `==` method
@@ -412,7 +422,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [candidate_id, qualification_id, event_id, channel_id, creation_channel_source_id, creation_channel_service_id, creation_channel_activity_id, accepted_policy_id, preferred_teaching_subject_id, consideration_journey_stage_id, degree_status_id, email, first_name, last_name, address_postcode, address_telephone, is_verified, is_walk_in, subscribe_to_mailing_list, already_subscribed_to_events, already_subscribed_to_mailing_list, already_subscribed_to_teacher_training_adviser].hash
+      [candidate_id, qualification_id, event_id, channel_id, creation_channel_source_id, creation_channel_service_id, creation_channel_activity_id, accepted_policy_id, preferred_teaching_subject_id, consideration_journey_stage_id, degree_status_id, email, first_name, last_name, address_postcode, address_telephone, is_verified, is_walk_in, subscribe_to_mailing_list, already_subscribed_to_events, already_subscribed_to_mailing_list, already_subscribed_to_teacher_training_adviser, default_contact_creation_channel].hash
     end
 
     # Builds the object from hash

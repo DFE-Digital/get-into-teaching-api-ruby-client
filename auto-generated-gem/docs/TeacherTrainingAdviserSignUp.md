@@ -38,6 +38,7 @@
 | **phone_call_scheduled_at** | **Time** |  | [optional] |
 | **can_subscribe_to_teacher_training_adviser** | **Boolean** |  | [optional][readonly] |
 | **assignment_status_id** | **Integer** |  | [optional][readonly] |
+| **default_contact_creation_channel** | **Integer** |  | [optional][readonly] |
 
 ## Example
 
@@ -78,7 +79,8 @@ instance = GetIntoTeachingApiClient::TeacherTrainingAdviserSignUp.new(
   address_postcode: null,
   phone_call_scheduled_at: null,
   can_subscribe_to_teacher_training_adviser: null,
-  assignment_status_id: null
+  assignment_status_id: null,
+  default_contact_creation_channel: null
 )
 ```
 

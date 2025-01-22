@@ -15,6 +15,7 @@
 | **creation_channel_source_id** | **Integer** |  | [optional] |
 | **creation_channel_service_id** | **Integer** |  | [optional] |
 | **creation_channel_activity_id** | **Integer** |  | [optional] |
+| **default_contact_creation_channel** | **Integer** |  | [optional][readonly] |
 
 ## Example
 
@@ -32,7 +33,8 @@ instance = GetIntoTeachingApiClient::GetIntoTeachingCallback.new(
   talking_points: null,
   creation_channel_source_id: null,
   creation_channel_service_id: null,
-  creation_channel_activity_id: null
+  creation_channel_activity_id: null,
+  default_contact_creation_channel: null
 )
 ```
 
