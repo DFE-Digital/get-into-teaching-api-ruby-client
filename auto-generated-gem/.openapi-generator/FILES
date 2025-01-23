@@ -12,7 +12,6 @@ docs/CandidateIdsRequest.md
 docs/CandidateMagicLinkExchangeResult.md
 docs/CandidateSchoolExperience.md
 docs/CandidatesApi.md
-docs/ContactChannelCreations.md
 docs/Country.md
 docs/ExchangeStatus.md
 docs/ExistingCandidateRequest.md
@@ -62,7 +61,6 @@ lib/get_into_teaching_api_client/models/callback_booking_quota.rb
 lib/get_into_teaching_api_client/models/candidate_ids_request.rb
 lib/get_into_teaching_api_client/models/candidate_magic_link_exchange_result.rb
 lib/get_into_teaching_api_client/models/candidate_school_experience.rb
-lib/get_into_teaching_api_client/models/contact_channel_creations.rb
 lib/get_into_teaching_api_client/models/country.rb
 lib/get_into_teaching_api_client/models/exchange_status.rb
 lib/get_into_teaching_api_client/models/existing_candidate_request.rb
@@ -99,7 +97,6 @@ spec/models/callback_booking_quota_spec.rb
 spec/models/candidate_ids_request_spec.rb
 spec/models/candidate_magic_link_exchange_result_spec.rb
 spec/models/candidate_school_experience_spec.rb
-spec/models/contact_channel_creations_spec.rb
 spec/models/country_spec.rb
 spec/models/exchange_status_spec.rb
 spec/models/existing_candidate_request_spec.rb
