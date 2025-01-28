@@ -162,6 +162,36 @@ describe 'PickListItemsApi' do
     end
   end
 
+  # unit tests for get_contact_creation_channel_activities
+  # Retrieves the list of contact creation channel activities.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<PickListItem>]
+  describe 'get_contact_creation_channel_activities test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_contact_creation_channel_services
+  # Retrieves the list of contact creation channel services.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<PickListItem>]
+  describe 'get_contact_creation_channel_services test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_contact_creation_channel_sources
+  # Retrieves the list of contact creation channel sources.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<PickListItem>]
+  describe 'get_contact_creation_channel_sources test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_past_teaching_position_education_phases
   # Retrieves the list of past teaching position education phases.
   # @param [Hash] opts the optional parameters
