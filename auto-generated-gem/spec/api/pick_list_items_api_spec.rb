@@ -1,7 +1,7 @@
 =begin
 #Get into Teaching API - V1
 
-# Provides a RESTful API for integrating with the Get into Teaching CRM. The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events). The GIT API aims to provide: * Simple, task-based RESTful APIs. * Message queueing (while the GIT CRM is offline for updates). * Validation to ensure consistency across services writing to the GIT CRM.                         
+#                              Provides a RESTful API for integrating with the Get into Teaching CRM.                              The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events).                              The GIT API aims to provide:                              * Simple, task-based RESTful APIs.                              * Message queueing (while the GIT CRM is offline for updates).                              * Validation to ensure consistency across services writing to the GIT CRM.                          
 
 The version of the OpenAPI document: v1
 
@@ -157,36 +157,6 @@ describe 'PickListItemsApi' do
   # @param [Hash] opts the optional parameters
   # @return [Array<PickListItem>]
   describe 'get_candidate_types test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for get_contact_creation_channel_activities
-  # Retrieves the list of contact creation channel activities.
-  # @param [Hash] opts the optional parameters
-  # @return [Array<PickListItem>]
-  describe 'get_contact_creation_channel_activities test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for get_contact_creation_channel_services
-  # Retrieves the list of contact creation channel services.
-  # @param [Hash] opts the optional parameters
-  # @return [Array<PickListItem>]
-  describe 'get_contact_creation_channel_services test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for get_contact_creation_channel_sources
-  # Retrieves the list of contact creation channel sources.
-  # @param [Hash] opts the optional parameters
-  # @return [Array<PickListItem>]
-  describe 'get_contact_creation_channel_sources test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

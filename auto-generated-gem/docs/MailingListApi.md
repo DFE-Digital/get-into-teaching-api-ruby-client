@@ -15,7 +15,7 @@ All URIs are relative to *http://localhost*
 
 Adds a new member to the mailing list.
 
-                 If the `CandidateId` is specified then the existing candidate will be                  added to the mailing list, otherwise a new candidate will be created.
+                  If the `CandidateId` is specified then the existing candidate will be                   added to the mailing list, otherwise a new candidate will be created.
 
 ### Examples
 
@@ -31,7 +31,7 @@ GetIntoTeachingApiClient.configure do |config|
 end
 
 api_instance = GetIntoTeachingApiClient::MailingListApi.new
-mailing_list_add_member = GetIntoTeachingApiClient::MailingListAddMember.new({preferred_teaching_subject_id: 'preferred_teaching_subject_id_example', accepted_policy_id: 'accepted_policy_id_example', consideration_journey_stage_id: 37, degree_status_id: 37, email: 'email_example', first_name: 'first_name_example', last_name: 'last_name_example'}) # MailingListAddMember | Member to add to the mailing list.
+mailing_list_add_member = GetIntoTeachingApiClient::MailingListAddMember.new({preferred_teaching_subject_id: 'preferred_teaching_subject_id_example', accepted_policy_id: 'accepted_policy_id_example', consideration_journey_stage_id: 37, email: 'email_example', first_name: 'first_name_example', last_name: 'last_name_example'}) # MailingListAddMember | Member to add to the mailing list.
 
 begin
   # Adds a new member to the mailing list.
@@ -85,7 +85,7 @@ nil (empty response body)
 
 Retrieves a pre-populated MailingListAddMember for the candidate.
 
-                 Retrieves a pre-populated MailingListAddMember for the candidate. The `accessToken` is obtained from a                  `POST /candidates/access_tokens` request (you must also ensure the `ExistingCandidateRequest` payload you                  exchanged for your token matches the request payload here).
+                  Retrieves a pre-populated MailingListAddMember for the candidate. The `accessToken` is obtained from a                   `POST /candidates/access_tokens` request (you must also ensure the `ExistingCandidateRequest` payload you                   exchanged for your token matches the request payload here).
 
 ### Examples
 
@@ -158,7 +158,7 @@ end
 
 Retrieves a pre-populated MailingListAddMember for the candidate.
 
-                 Retrieves a pre-populated MailingListAddMember for the candidate. The `magicLinkToken` is obtained from a                  `POST /candidates/magic_link_tokens` request.
+                  Retrieves a pre-populated MailingListAddMember for the candidate. The `magicLinkToken` is obtained from a                   `POST /candidates/magic_link_tokens` request.
 
 ### Examples
 

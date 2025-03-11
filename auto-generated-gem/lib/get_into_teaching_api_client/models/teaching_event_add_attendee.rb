@@ -1,7 +1,7 @@
 =begin
 #Get into Teaching API - V1
 
-# Provides a RESTful API for integrating with the Get into Teaching CRM. The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events). The GIT API aims to provide: * Simple, task-based RESTful APIs. * Message queueing (while the GIT CRM is offline for updates). * Validation to ensure consistency across services writing to the GIT CRM.                         
+#                              Provides a RESTful API for integrating with the Get into Teaching CRM.                              The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events).                              The GIT API aims to provide:                              * Simple, task-based RESTful APIs.                              * Message queueing (while the GIT CRM is offline for updates).                              * Validation to ensure consistency across services writing to the GIT CRM.                          
 
 The version of the OpenAPI document: v1
 
@@ -22,12 +22,6 @@ module GetIntoTeachingApiClient
     attr_accessor :event_id
 
     attr_accessor :channel_id
-
-    attr_accessor :creation_channel_source_id
-
-    attr_accessor :creation_channel_service_id
-
-    attr_accessor :creation_channel_activity_id
 
     attr_accessor :accepted_policy_id
 
@@ -59,8 +53,6 @@ module GetIntoTeachingApiClient
 
     attr_accessor :already_subscribed_to_teacher_training_adviser
 
-    attr_accessor :default_contact_creation_channel
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -68,9 +60,6 @@ module GetIntoTeachingApiClient
         :'qualification_id' => :'qualificationId',
         :'event_id' => :'eventId',
         :'channel_id' => :'channelId',
-        :'creation_channel_source_id' => :'creationChannelSourceId',
-        :'creation_channel_service_id' => :'creationChannelServiceId',
-        :'creation_channel_activity_id' => :'creationChannelActivityId',
         :'accepted_policy_id' => :'acceptedPolicyId',
         :'preferred_teaching_subject_id' => :'preferredTeachingSubjectId',
         :'consideration_journey_stage_id' => :'considerationJourneyStageId',
@@ -85,8 +74,7 @@ module GetIntoTeachingApiClient
         :'subscribe_to_mailing_list' => :'subscribeToMailingList',
         :'already_subscribed_to_events' => :'alreadySubscribedToEvents',
         :'already_subscribed_to_mailing_list' => :'alreadySubscribedToMailingList',
-        :'already_subscribed_to_teacher_training_adviser' => :'alreadySubscribedToTeacherTrainingAdviser',
-        :'default_contact_creation_channel' => :'defaultContactCreationChannel'
+        :'already_subscribed_to_teacher_training_adviser' => :'alreadySubscribedToTeacherTrainingAdviser'
       }
     end
 
@@ -102,9 +90,6 @@ module GetIntoTeachingApiClient
         :'qualification_id' => :'String',
         :'event_id' => :'String',
         :'channel_id' => :'Integer',
-        :'creation_channel_source_id' => :'Integer',
-        :'creation_channel_service_id' => :'Integer',
-        :'creation_channel_activity_id' => :'Integer',
         :'accepted_policy_id' => :'String',
         :'preferred_teaching_subject_id' => :'String',
         :'consideration_journey_stage_id' => :'Integer',
@@ -119,8 +104,7 @@ module GetIntoTeachingApiClient
         :'subscribe_to_mailing_list' => :'Boolean',
         :'already_subscribed_to_events' => :'Boolean',
         :'already_subscribed_to_mailing_list' => :'Boolean',
-        :'already_subscribed_to_teacher_training_adviser' => :'Boolean',
-        :'default_contact_creation_channel' => :'Integer'
+        :'already_subscribed_to_teacher_training_adviser' => :'Boolean'
       }
     end
 
@@ -130,15 +114,11 @@ module GetIntoTeachingApiClient
         :'candidate_id',
         :'qualification_id',
         :'channel_id',
-        :'creation_channel_source_id',
-        :'creation_channel_service_id',
-        :'creation_channel_activity_id',
         :'preferred_teaching_subject_id',
         :'consideration_journey_stage_id',
         :'degree_status_id',
         :'address_postcode',
         :'address_telephone',
-        :'default_contact_creation_channel'
       ])
     end
 
@@ -171,18 +151,6 @@ module GetIntoTeachingApiClient
 
       if attributes.key?(:'channel_id')
         self.channel_id = attributes[:'channel_id']
-      end
-
-      if attributes.key?(:'creation_channel_source_id')
-        self.creation_channel_source_id = attributes[:'creation_channel_source_id']
-      end
-
-      if attributes.key?(:'creation_channel_service_id')
-        self.creation_channel_service_id = attributes[:'creation_channel_service_id']
-      end
-
-      if attributes.key?(:'creation_channel_activity_id')
-        self.creation_channel_activity_id = attributes[:'creation_channel_activity_id']
       end
 
       if attributes.key?(:'accepted_policy_id')
@@ -243,10 +211,6 @@ module GetIntoTeachingApiClient
 
       if attributes.key?(:'already_subscribed_to_teacher_training_adviser')
         self.already_subscribed_to_teacher_training_adviser = attributes[:'already_subscribed_to_teacher_training_adviser']
-      end
-
-      if attributes.key?(:'default_contact_creation_channel')
-        self.default_contact_creation_channel = attributes[:'default_contact_creation_channel']
       end
     end
 
@@ -392,9 +356,6 @@ module GetIntoTeachingApiClient
           qualification_id == o.qualification_id &&
           event_id == o.event_id &&
           channel_id == o.channel_id &&
-          creation_channel_source_id == o.creation_channel_source_id &&
-          creation_channel_service_id == o.creation_channel_service_id &&
-          creation_channel_activity_id == o.creation_channel_activity_id &&
           accepted_policy_id == o.accepted_policy_id &&
           preferred_teaching_subject_id == o.preferred_teaching_subject_id &&
           consideration_journey_stage_id == o.consideration_journey_stage_id &&
@@ -409,8 +370,7 @@ module GetIntoTeachingApiClient
           subscribe_to_mailing_list == o.subscribe_to_mailing_list &&
           already_subscribed_to_events == o.already_subscribed_to_events &&
           already_subscribed_to_mailing_list == o.already_subscribed_to_mailing_list &&
-          already_subscribed_to_teacher_training_adviser == o.already_subscribed_to_teacher_training_adviser &&
-          default_contact_creation_channel == o.default_contact_creation_channel
+          already_subscribed_to_teacher_training_adviser == o.already_subscribed_to_teacher_training_adviser
     end
 
     # @see the `==` method
@@ -422,7 +382,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [candidate_id, qualification_id, event_id, channel_id, creation_channel_source_id, creation_channel_service_id, creation_channel_activity_id, accepted_policy_id, preferred_teaching_subject_id, consideration_journey_stage_id, degree_status_id, email, first_name, last_name, address_postcode, address_telephone, is_verified, is_walk_in, subscribe_to_mailing_list, already_subscribed_to_events, already_subscribed_to_mailing_list, already_subscribed_to_teacher_training_adviser, default_contact_creation_channel].hash
+      [candidate_id, qualification_id, event_id, channel_id, accepted_policy_id, preferred_teaching_subject_id, consideration_journey_stage_id, degree_status_id, email, first_name, last_name, address_postcode, address_telephone, is_verified, is_walk_in, subscribe_to_mailing_list, already_subscribed_to_events, already_subscribed_to_mailing_list, already_subscribed_to_teacher_training_adviser].hash
     end
 
     # Builds the object from hash

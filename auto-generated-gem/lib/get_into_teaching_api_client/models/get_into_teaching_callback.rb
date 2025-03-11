@@ -1,7 +1,7 @@
 =begin
 #Get into Teaching API - V1
 
-# Provides a RESTful API for integrating with the Get into Teaching CRM. The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events). The GIT API aims to provide: * Simple, task-based RESTful APIs. * Message queueing (while the GIT CRM is offline for updates). * Validation to ensure consistency across services writing to the GIT CRM.                         
+#                              Provides a RESTful API for integrating with the Get into Teaching CRM.                              The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events).                              The GIT API aims to provide:                              * Simple, task-based RESTful APIs.                              * Message queueing (while the GIT CRM is offline for updates).                              * Validation to ensure consistency across services writing to the GIT CRM.                          
 
 The version of the OpenAPI document: v1
 
@@ -31,14 +31,6 @@ module GetIntoTeachingApiClient
 
     attr_accessor :talking_points
 
-    attr_accessor :creation_channel_source_id
-
-    attr_accessor :creation_channel_service_id
-
-    attr_accessor :creation_channel_activity_id
-
-    attr_accessor :default_contact_creation_channel
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -49,11 +41,7 @@ module GetIntoTeachingApiClient
         :'last_name' => :'lastName',
         :'address_telephone' => :'addressTelephone',
         :'phone_call_scheduled_at' => :'phoneCallScheduledAt',
-        :'talking_points' => :'talkingPoints',
-        :'creation_channel_source_id' => :'creationChannelSourceId',
-        :'creation_channel_service_id' => :'creationChannelServiceId',
-        :'creation_channel_activity_id' => :'creationChannelActivityId',
-        :'default_contact_creation_channel' => :'defaultContactCreationChannel'
+        :'talking_points' => :'talkingPoints'
       }
     end
 
@@ -72,11 +60,7 @@ module GetIntoTeachingApiClient
         :'last_name' => :'String',
         :'address_telephone' => :'String',
         :'phone_call_scheduled_at' => :'Time',
-        :'talking_points' => :'String',
-        :'creation_channel_source_id' => :'Integer',
-        :'creation_channel_service_id' => :'Integer',
-        :'creation_channel_activity_id' => :'Integer',
-        :'default_contact_creation_channel' => :'Integer'
+        :'talking_points' => :'String'
       }
     end
 
@@ -84,10 +68,6 @@ module GetIntoTeachingApiClient
     def self.openapi_nullable
       Set.new([
         :'candidate_id',
-        :'creation_channel_source_id',
-        :'creation_channel_service_id',
-        :'creation_channel_activity_id',
-        :'default_contact_creation_channel'
       ])
     end
 
@@ -136,22 +116,6 @@ module GetIntoTeachingApiClient
 
       if attributes.key?(:'talking_points')
         self.talking_points = attributes[:'talking_points']
-      end
-
-      if attributes.key?(:'creation_channel_source_id')
-        self.creation_channel_source_id = attributes[:'creation_channel_source_id']
-      end
-
-      if attributes.key?(:'creation_channel_service_id')
-        self.creation_channel_service_id = attributes[:'creation_channel_service_id']
-      end
-
-      if attributes.key?(:'creation_channel_activity_id')
-        self.creation_channel_activity_id = attributes[:'creation_channel_activity_id']
-      end
-
-      if attributes.key?(:'default_contact_creation_channel')
-        self.default_contact_creation_channel = attributes[:'default_contact_creation_channel']
       end
     end
 
@@ -291,11 +255,7 @@ module GetIntoTeachingApiClient
           last_name == o.last_name &&
           address_telephone == o.address_telephone &&
           phone_call_scheduled_at == o.phone_call_scheduled_at &&
-          talking_points == o.talking_points &&
-          creation_channel_source_id == o.creation_channel_source_id &&
-          creation_channel_service_id == o.creation_channel_service_id &&
-          creation_channel_activity_id == o.creation_channel_activity_id &&
-          default_contact_creation_channel == o.default_contact_creation_channel
+          talking_points == o.talking_points
     end
 
     # @see the `==` method
@@ -307,7 +267,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [candidate_id, accepted_policy_id, email, first_name, last_name, address_telephone, phone_call_scheduled_at, talking_points, creation_channel_source_id, creation_channel_service_id, creation_channel_activity_id, default_contact_creation_channel].hash
+      [candidate_id, accepted_policy_id, email, first_name, last_name, address_telephone, phone_call_scheduled_at, talking_points].hash
     end
 
     # Builds the object from hash
