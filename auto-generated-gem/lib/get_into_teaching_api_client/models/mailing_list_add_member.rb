@@ -1,7 +1,7 @@
 =begin
 #Get into Teaching API - V1
 
-#                              Provides a RESTful API for integrating with the Get into Teaching CRM.                              The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events).                              The GIT API aims to provide:                              * Simple, task-based RESTful APIs.                              * Message queueing (while the GIT CRM is offline for updates).                              * Validation to ensure consistency across services writing to the GIT CRM.                          
+#                             Provides a RESTful API for integrating with the Get into Teaching CRM.                             The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events).                             The GIT API aims to provide:                             * Simple, task-based RESTful APIs.                             * Message queueing (while the GIT CRM is offline for updates).                             * Validation to ensure consistency across services writing to the GIT CRM.                         
 
 The version of the OpenAPI document: v1
 
@@ -49,6 +49,8 @@ module GetIntoTeachingApiClient
 
     attr_accessor :inferred_graduation_date
 
+    attr_accessor :situation
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -68,7 +70,8 @@ module GetIntoTeachingApiClient
         :'already_subscribed_to_mailing_list' => :'alreadySubscribedToMailingList',
         :'already_subscribed_to_teacher_training_adviser' => :'alreadySubscribedToTeacherTrainingAdviser',
         :'graduation_year' => :'graduationYear',
-        :'inferred_graduation_date' => :'inferredGraduationDate'
+        :'inferred_graduation_date' => :'inferredGraduationDate',
+        :'situation' => :'situation'
       }
     end
 
@@ -96,7 +99,8 @@ module GetIntoTeachingApiClient
         :'already_subscribed_to_mailing_list' => :'Boolean',
         :'already_subscribed_to_teacher_training_adviser' => :'Boolean',
         :'graduation_year' => :'Integer',
-        :'inferred_graduation_date' => :'Time'
+        :'inferred_graduation_date' => :'Time',
+        :'situation' => :'Integer'
       }
     end
 
@@ -110,7 +114,8 @@ module GetIntoTeachingApiClient
         :'address_postcode',
         :'welcome_guide_variant',
         :'graduation_year',
-        :'inferred_graduation_date'
+        :'inferred_graduation_date',
+        :'situation'
       ])
     end
 
@@ -195,6 +200,10 @@ module GetIntoTeachingApiClient
 
       if attributes.key?(:'inferred_graduation_date')
         self.inferred_graduation_date = attributes[:'inferred_graduation_date']
+      end
+
+      if attributes.key?(:'situation')
+        self.situation = attributes[:'situation']
       end
     end
 
@@ -338,7 +347,8 @@ module GetIntoTeachingApiClient
           already_subscribed_to_mailing_list == o.already_subscribed_to_mailing_list &&
           already_subscribed_to_teacher_training_adviser == o.already_subscribed_to_teacher_training_adviser &&
           graduation_year == o.graduation_year &&
-          inferred_graduation_date == o.inferred_graduation_date
+          inferred_graduation_date == o.inferred_graduation_date &&
+          situation == o.situation
     end
 
     # @see the `==` method
@@ -350,7 +360,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [candidate_id, qualification_id, preferred_teaching_subject_id, accepted_policy_id, consideration_journey_stage_id, degree_status_id, channel_id, email, first_name, last_name, address_postcode, welcome_guide_variant, already_subscribed_to_events, already_subscribed_to_mailing_list, already_subscribed_to_teacher_training_adviser, graduation_year, inferred_graduation_date].hash
+      [candidate_id, qualification_id, preferred_teaching_subject_id, accepted_policy_id, consideration_journey_stage_id, degree_status_id, channel_id, email, first_name, last_name, address_postcode, welcome_guide_variant, already_subscribed_to_events, already_subscribed_to_mailing_list, already_subscribed_to_teacher_training_adviser, graduation_year, inferred_graduation_date, situation].hash
     end
 
     # Builds the object from hash

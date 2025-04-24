@@ -15,7 +15,7 @@ All URIs are relative to *http://localhost*
 
 Adds a new member to the mailing list.
 
-                  If the `CandidateId` is specified then the existing candidate will be                   added to the mailing list, otherwise a new candidate will be created.
+                 If the `CandidateId` is specified then the existing candidate will be                  added to the mailing list, otherwise a new candidate will be created.
 
 ### Examples
 
@@ -85,7 +85,7 @@ nil (empty response body)
 
 Retrieves a pre-populated MailingListAddMember for the candidate.
 
-                  Retrieves a pre-populated MailingListAddMember for the candidate. The `accessToken` is obtained from a                   `POST /candidates/access_tokens` request (you must also ensure the `ExistingCandidateRequest` payload you                   exchanged for your token matches the request payload here).
+                 Retrieves a pre-populated MailingListAddMember for the candidate. The `accessToken` is obtained from a                  `POST /candidates/access_tokens` request (you must also ensure the `ExistingCandidateRequest` payload you                  exchanged for your token matches the request payload here).
 
 ### Examples
 
@@ -158,7 +158,7 @@ end
 
 Retrieves a pre-populated MailingListAddMember for the candidate.
 
-                  Retrieves a pre-populated MailingListAddMember for the candidate. The `magicLinkToken` is obtained from a                   `POST /candidates/magic_link_tokens` request.
+                 Retrieves a pre-populated MailingListAddMember for the candidate. The `magicLinkToken` is obtained from a                  `POST /candidates/magic_link_tokens` request.
 
 ### Examples
 

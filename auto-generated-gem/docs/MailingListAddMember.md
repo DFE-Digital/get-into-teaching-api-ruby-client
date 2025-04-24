@@ -21,6 +21,7 @@
 | **already_subscribed_to_teacher_training_adviser** | **Boolean** |  | [optional][readonly] |
 | **graduation_year** | **Integer** |  | [optional] |
 | **inferred_graduation_date** | **Time** |  | [optional] |
+| **situation** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -44,7 +45,8 @@ instance = GetIntoTeachingApiClient::MailingListAddMember.new(
   already_subscribed_to_mailing_list: null,
   already_subscribed_to_teacher_training_adviser: null,
   graduation_year: null,
-  inferred_graduation_date: null
+  inferred_graduation_date: null,
+  situation: null
 )
 ```
 
