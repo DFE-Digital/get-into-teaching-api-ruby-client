@@ -12,6 +12,7 @@ docs/CandidateMagicLinkExchangeResult.md
 docs/CandidateSchoolExperience.md
 docs/CandidatesApi.md
 docs/Country.md
+docs/DegreeStatusResponse.md
 docs/ExchangeStatus.md
 docs/ExistingCandidateRequest.md
 docs/GetIntoTeachingApi.md
@@ -61,6 +62,7 @@ lib/get_into_teaching_api_client/models/candidate_ids_request.rb
 lib/get_into_teaching_api_client/models/candidate_magic_link_exchange_result.rb
 lib/get_into_teaching_api_client/models/candidate_school_experience.rb
 lib/get_into_teaching_api_client/models/country.rb
+lib/get_into_teaching_api_client/models/degree_status_response.rb
 lib/get_into_teaching_api_client/models/exchange_status.rb
 lib/get_into_teaching_api_client/models/existing_candidate_request.rb
 lib/get_into_teaching_api_client/models/get_into_teaching_callback.rb
@@ -80,4 +82,5 @@ lib/get_into_teaching_api_client/models/teaching_subject.rb
 lib/get_into_teaching_api_client/version.rb
 spec/api_client_spec.rb
 spec/configuration_spec.rb
+spec/models/degree_status_response_spec.rb
 spec/spec_helper.rb

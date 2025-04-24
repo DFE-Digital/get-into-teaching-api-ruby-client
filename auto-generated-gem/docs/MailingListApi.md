@@ -11,11 +11,11 @@ All URIs are relative to *http://localhost*
 
 ## add_mailing_list_member
 
-> add_mailing_list_member(mailing_list_add_member)
+> <DegreeStatusResponse> add_mailing_list_member(mailing_list_add_member)
 
 Adds a new member to the mailing list.
 
-                 If the `CandidateId` is specified then the existing candidate will be                  added to the mailing list, otherwise a new candidate will be created.
+         If the `CandidateId` is specified then the existing candidate will be          added to the mailing list, otherwise a new candidate will be created.
 
 ### Examples
 
@@ -35,7 +35,8 @@ mailing_list_add_member = GetIntoTeachingApiClient::MailingListAddMember.new({pr
 
 begin
   # Adds a new member to the mailing list.
-  api_instance.add_mailing_list_member(mailing_list_add_member)
+  result = api_instance.add_mailing_list_member(mailing_list_add_member)
+  p result
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Error when calling MailingListApi->add_mailing_list_member: #{e}"
 end
@@ -43,9 +44,9 @@ end
 
 #### Using the add_mailing_list_member_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> add_mailing_list_member_with_http_info(mailing_list_add_member)
+> <Array(<DegreeStatusResponse>, Integer, Hash)> add_mailing_list_member_with_http_info(mailing_list_add_member)
 
 ```ruby
 begin
@@ -53,7 +54,7 @@ begin
   data, status_code, headers = api_instance.add_mailing_list_member_with_http_info(mailing_list_add_member)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <DegreeStatusResponse>
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Error when calling MailingListApi->add_mailing_list_member_with_http_info: #{e}"
 end
@@ -67,7 +68,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**DegreeStatusResponse**](DegreeStatusResponse.md)
 
 ### Authorization
 

@@ -20,19 +20,20 @@ module GetIntoTeachingApiClient
       @api_client = api_client
     end
     # Adds a new member to the mailing list.
-    #                  If the `CandidateId` is specified then the existing candidate will be                  added to the mailing list, otherwise a new candidate will be created.
+    #          If the `CandidateId` is specified then the existing candidate will be          added to the mailing list, otherwise a new candidate will be created.
     # @param mailing_list_add_member [MailingListAddMember] Member to add to the mailing list.
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [DegreeStatusResponse]
     def add_mailing_list_member(mailing_list_add_member, opts = {})
-      add_mailing_list_member_with_http_info(mailing_list_add_member, opts)
+      data, _status_code, _headers = add_mailing_list_member_with_http_info(mailing_list_add_member, opts)
+      data
     end
 
     # Adds a new member to the mailing list.
-    #                  If the &#x60;CandidateId&#x60; is specified then the existing candidate will be                  added to the mailing list, otherwise a new candidate will be created.
+    #          If the &#x60;CandidateId&#x60; is specified then the existing candidate will be          added to the mailing list, otherwise a new candidate will be created.
     # @param mailing_list_add_member [MailingListAddMember] Member to add to the mailing list.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(DegreeStatusResponse, Integer, Hash)>] DegreeStatusResponse data, response status code and response headers
     def add_mailing_list_member_with_http_info(mailing_list_add_member, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MailingListApi.add_mailing_list_member ...'
@@ -64,7 +65,7 @@ module GetIntoTeachingApiClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(mailing_list_add_member)
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'DegreeStatusResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['apiKey']

@@ -155,6 +155,7 @@ Class | Method | HTTP request | Description
  - [GetIntoTeachingApiClient::CandidateMagicLinkExchangeResult](docs/CandidateMagicLinkExchangeResult.md)
  - [GetIntoTeachingApiClient::CandidateSchoolExperience](docs/CandidateSchoolExperience.md)
  - [GetIntoTeachingApiClient::Country](docs/Country.md)
+ - [GetIntoTeachingApiClient::DegreeStatusResponse](docs/DegreeStatusResponse.md)
  - [GetIntoTeachingApiClient::ExchangeStatus](docs/ExchangeStatus.md)
  - [GetIntoTeachingApiClient::ExistingCandidateRequest](docs/ExistingCandidateRequest.md)
  - [GetIntoTeachingApiClient::GetIntoTeachingCallback](docs/GetIntoTeachingCallback.md)
