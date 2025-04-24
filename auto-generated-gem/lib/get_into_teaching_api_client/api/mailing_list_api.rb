@@ -26,7 +26,6 @@ module GetIntoTeachingApiClient
     # @return [nil]
     def add_mailing_list_member(mailing_list_add_member, opts = {})
       add_mailing_list_member_with_http_info(mailing_list_add_member, opts)
-      nil
     end
 
     # Adds a new member to the mailing list.
