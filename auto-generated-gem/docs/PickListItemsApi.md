@@ -15,11 +15,9 @@ All URIs are relative to *http://localhost*
 | [**get_candidate_mailing_list_subscription_channels**](PickListItemsApi.md#get_candidate_mailing_list_subscription_channels) | **GET** /api/pick_list_items/candidate/mailing_list_subscription_channels | Retrieves the list of candidate mailing list subscription channels. |
 | [**get_candidate_preferred_education_phases**](PickListItemsApi.md#get_candidate_preferred_education_phases) | **GET** /api/pick_list_items/candidate/preferred_education_phases | Retrieves the list of candidate preferred education phases. |
 | [**get_candidate_retake_gcse_status**](PickListItemsApi.md#get_candidate_retake_gcse_status) | **GET** /api/pick_list_items/candidate/retake_gcse_status | Retrieves the list of candidate retake GCSE status. |
+| [**get_candidate_situations**](PickListItemsApi.md#get_candidate_situations) | **GET** /api/pick_list_items/candidate/situations | Retrieves the list of situations. |
 | [**get_candidate_teacher_training_adviser_subscription_channels**](PickListItemsApi.md#get_candidate_teacher_training_adviser_subscription_channels) | **GET** /api/pick_list_items/candidate/teacher_training_adviser_subscription_channels | Retrieves the list of candidate teacher training adviser subscription channels. |
 | [**get_candidate_types**](PickListItemsApi.md#get_candidate_types) | **GET** /api/pick_list_items/candidate/types | Retrieves the list of candidate types. |
-| [**get_contact_creation_channel_activities**](PickListItemsApi.md#get_contact_creation_channel_activities) | **GET** /api/pick_list_items/contact_creation_channel/activities | Retrieves the list of contact creation channel activities. |
-| [**get_contact_creation_channel_services**](PickListItemsApi.md#get_contact_creation_channel_services) | **GET** /api/pick_list_items/contact_creation_channel/services | Retrieves the list of contact creation channel services. |
-| [**get_contact_creation_channel_sources**](PickListItemsApi.md#get_contact_creation_channel_sources) | **GET** /api/pick_list_items/contact_creation_channel/sources | Retrieves the list of contact creation channel sources. |
 | [**get_past_teaching_position_education_phases**](PickListItemsApi.md#get_past_teaching_position_education_phases) | **GET** /api/pick_list_items/past_teaching_position/education_phases | Retrieves the list of past teaching position education phases. |
 | [**get_phone_call_channels**](PickListItemsApi.md#get_phone_call_channels) | **GET** /api/pick_list_items/phone_call/channels | Retrieves the list of phone call channels. |
 | [**get_qualification_degree_status**](PickListItemsApi.md#get_qualification_degree_status) | **GET** /api/pick_list_items/qualification/degree_status | Retrieves the list of qualification degree status. |
@@ -758,6 +756,72 @@ This endpoint does not need any parameter.
 - **Accept**: text/plain, application/json, text/json
 
 
+## get_candidate_situations
+
+> <Array<PickListItem>> get_candidate_situations
+
+Retrieves the list of situations.
+
+### Examples
+
+```ruby
+require 'time'
+require 'get_into_teaching_api_client'
+# setup authorization
+GetIntoTeachingApiClient.configure do |config|
+  # Configure API key authorization: apiKey
+  config.api_key['apiKey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['apiKey'] = 'Bearer'
+end
+
+api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
+
+begin
+  # Retrieves the list of situations.
+  result = api_instance.get_candidate_situations
+  p result
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Error when calling PickListItemsApi->get_candidate_situations: #{e}"
+end
+```
+
+#### Using the get_candidate_situations_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<PickListItem>>, Integer, Hash)> get_candidate_situations_with_http_info
+
+```ruby
+begin
+  # Retrieves the list of situations.
+  data, status_code, headers = api_instance.get_candidate_situations_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<PickListItem>>
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Error when calling PickListItemsApi->get_candidate_situations_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Array&lt;PickListItem&gt;**](PickListItem.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+
 ## get_candidate_teacher_training_adviser_subscription_channels
 
 > <Array<PickListItem>> get_candidate_teacher_training_adviser_subscription_channels
@@ -869,204 +933,6 @@ begin
   p data # => <Array<PickListItem>>
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Error when calling PickListItemsApi->get_candidate_types_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**Array&lt;PickListItem&gt;**](PickListItem.md)
-
-### Authorization
-
-[apiKey](../README.md#apiKey)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
-
-
-## get_contact_creation_channel_activities
-
-> <Array<PickListItem>> get_contact_creation_channel_activities
-
-Retrieves the list of contact creation channel activities.
-
-### Examples
-
-```ruby
-require 'time'
-require 'get_into_teaching_api_client'
-# setup authorization
-GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
-end
-
-api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
-
-begin
-  # Retrieves the list of contact creation channel activities.
-  result = api_instance.get_contact_creation_channel_activities
-  p result
-rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling PickListItemsApi->get_contact_creation_channel_activities: #{e}"
-end
-```
-
-#### Using the get_contact_creation_channel_activities_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<Array<PickListItem>>, Integer, Hash)> get_contact_creation_channel_activities_with_http_info
-
-```ruby
-begin
-  # Retrieves the list of contact creation channel activities.
-  data, status_code, headers = api_instance.get_contact_creation_channel_activities_with_http_info
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <Array<PickListItem>>
-rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling PickListItemsApi->get_contact_creation_channel_activities_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**Array&lt;PickListItem&gt;**](PickListItem.md)
-
-### Authorization
-
-[apiKey](../README.md#apiKey)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
-
-
-## get_contact_creation_channel_services
-
-> <Array<PickListItem>> get_contact_creation_channel_services
-
-Retrieves the list of contact creation channel services.
-
-### Examples
-
-```ruby
-require 'time'
-require 'get_into_teaching_api_client'
-# setup authorization
-GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
-end
-
-api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
-
-begin
-  # Retrieves the list of contact creation channel services.
-  result = api_instance.get_contact_creation_channel_services
-  p result
-rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling PickListItemsApi->get_contact_creation_channel_services: #{e}"
-end
-```
-
-#### Using the get_contact_creation_channel_services_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<Array<PickListItem>>, Integer, Hash)> get_contact_creation_channel_services_with_http_info
-
-```ruby
-begin
-  # Retrieves the list of contact creation channel services.
-  data, status_code, headers = api_instance.get_contact_creation_channel_services_with_http_info
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <Array<PickListItem>>
-rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling PickListItemsApi->get_contact_creation_channel_services_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**Array&lt;PickListItem&gt;**](PickListItem.md)
-
-### Authorization
-
-[apiKey](../README.md#apiKey)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
-
-
-## get_contact_creation_channel_sources
-
-> <Array<PickListItem>> get_contact_creation_channel_sources
-
-Retrieves the list of contact creation channel sources.
-
-### Examples
-
-```ruby
-require 'time'
-require 'get_into_teaching_api_client'
-# setup authorization
-GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
-end
-
-api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
-
-begin
-  # Retrieves the list of contact creation channel sources.
-  result = api_instance.get_contact_creation_channel_sources
-  p result
-rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling PickListItemsApi->get_contact_creation_channel_sources: #{e}"
-end
-```
-
-#### Using the get_contact_creation_channel_sources_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<Array<PickListItem>>, Integer, Hash)> get_contact_creation_channel_sources_with_http_info
-
-```ruby
-begin
-  # Retrieves the list of contact creation channel sources.
-  data, status_code, headers = api_instance.get_contact_creation_channel_sources_with_http_info
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <Array<PickListItem>>
-rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling PickListItemsApi->get_contact_creation_channel_sources_with_http_info: #{e}"
 end
 ```
 

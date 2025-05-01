@@ -14,16 +14,13 @@ require 'date'
 require 'time'
 
 module GetIntoTeachingApiClient
-  class TeachingSubject
-    attr_accessor :id
-
-    attr_accessor :value
+  class DegreeStatusResponse
+    attr_accessor :degree_status_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'value' => :'value'
+        :'degree_status_id' => :'degreeStatusId'
       }
     end
 
@@ -35,16 +32,14 @@ module GetIntoTeachingApiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'value' => :'String'
+        :'degree_status_id' => :'Integer'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'id',
-        :'value'
+        :'degree_status_id'
       ])
     end
 
@@ -52,23 +47,19 @@ module GetIntoTeachingApiClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `GetIntoTeachingApiClient::TeachingSubject` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `GetIntoTeachingApiClient::DegreeStatusResponse` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `GetIntoTeachingApiClient::TeachingSubject`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `GetIntoTeachingApiClient::DegreeStatusResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'value')
-        self.value = attributes[:'value']
+      if attributes.key?(:'degree_status_id')
+        self.degree_status_id = attributes[:'degree_status_id']
       end
     end
 
@@ -90,8 +81,7 @@ module GetIntoTeachingApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          value == o.value
+          degree_status_id == o.degree_status_id
     end
 
     # @see the `==` method
@@ -103,7 +93,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, value].hash
+      [degree_status_id].hash
     end
 
     # Builds the object from hash
