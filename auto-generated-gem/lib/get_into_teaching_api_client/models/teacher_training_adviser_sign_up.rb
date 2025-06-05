@@ -1,7 +1,7 @@
 =begin
 #Get into Teaching API - V1
 
-#                             Provides a RESTful API for integrating with the Get into Teaching CRM.                             The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events).                             The GIT API aims to provide:                             * Simple, task-based RESTful APIs.                             * Message queueing (while the GIT CRM is offline for updates).                             * Validation to ensure consistency across services writing to the GIT CRM.                         
+#                              Provides a RESTful API for integrating with the Get into Teaching CRM.                              The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events).                              The GIT API aims to provide:                              * Simple, task-based RESTful APIs.                              * Message queueing (while the GIT CRM is offline for updates).                              * Validation to ensure consistency across services writing to the GIT CRM.                          
 
 The version of the OpenAPI document: v1
 
@@ -55,6 +55,12 @@ module GetIntoTeachingApiClient
 
     attr_accessor :channel_id
 
+    attr_accessor :creation_channel_source_id
+
+    attr_accessor :creation_channel_service_id
+
+    attr_accessor :creation_channel_activity_id
+
     attr_accessor :email
 
     attr_accessor :first_name
@@ -76,6 +82,14 @@ module GetIntoTeachingApiClient
     attr_accessor :can_subscribe_to_teacher_training_adviser
 
     attr_accessor :assignment_status_id
+
+    attr_accessor :default_contact_creation_channel
+
+    attr_accessor :default_creation_channel_source_id
+
+    attr_accessor :default_creation_channel_service_id
+
+    attr_accessor :default_creation_channel_activity_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -100,6 +114,9 @@ module GetIntoTeachingApiClient
         :'planning_to_retake_gcse_science_id' => :'planningToRetakeGcseScienceId',
         :'adviser_status_id' => :'adviserStatusId',
         :'channel_id' => :'channelId',
+        :'creation_channel_source_id' => :'creationChannelSourceId',
+        :'creation_channel_service_id' => :'creationChannelServiceId',
+        :'creation_channel_activity_id' => :'creationChannelActivityId',
         :'email' => :'email',
         :'first_name' => :'firstName',
         :'last_name' => :'lastName',
@@ -110,7 +127,11 @@ module GetIntoTeachingApiClient
         :'address_postcode' => :'addressPostcode',
         :'phone_call_scheduled_at' => :'phoneCallScheduledAt',
         :'can_subscribe_to_teacher_training_adviser' => :'canSubscribeToTeacherTrainingAdviser',
-        :'assignment_status_id' => :'assignmentStatusId'
+        :'assignment_status_id' => :'assignmentStatusId',
+        :'default_contact_creation_channel' => :'defaultContactCreationChannel',
+        :'default_creation_channel_source_id' => :'defaultCreationChannelSourceId',
+        :'default_creation_channel_service_id' => :'defaultCreationChannelServiceId',
+        :'default_creation_channel_activity_id' => :'defaultCreationChannelActivityId'
       }
     end
 
@@ -142,6 +163,9 @@ module GetIntoTeachingApiClient
         :'planning_to_retake_gcse_science_id' => :'Integer',
         :'adviser_status_id' => :'Integer',
         :'channel_id' => :'Integer',
+        :'creation_channel_source_id' => :'Integer',
+        :'creation_channel_service_id' => :'Integer',
+        :'creation_channel_activity_id' => :'Integer',
         :'email' => :'String',
         :'first_name' => :'String',
         :'last_name' => :'String',
@@ -152,7 +176,11 @@ module GetIntoTeachingApiClient
         :'address_postcode' => :'String',
         :'phone_call_scheduled_at' => :'Time',
         :'can_subscribe_to_teacher_training_adviser' => :'Boolean',
-        :'assignment_status_id' => :'Integer'
+        :'assignment_status_id' => :'Integer',
+        :'default_contact_creation_channel' => :'Integer',
+        :'default_creation_channel_source_id' => :'Integer',
+        :'default_creation_channel_service_id' => :'Integer',
+        :'default_creation_channel_activity_id' => :'Integer'
       }
     end
 
@@ -176,12 +204,19 @@ module GetIntoTeachingApiClient
         :'planning_to_retake_gcse_science_id',
         :'adviser_status_id',
         :'channel_id',
+        :'creation_channel_source_id',
+        :'creation_channel_service_id',
+        :'creation_channel_activity_id',
         :'teacher_id',
         :'degree_subject',
         :'address_telephone',
         :'address_postcode',
         :'phone_call_scheduled_at',
-        :'assignment_status_id'
+        :'assignment_status_id',
+        :'default_contact_creation_channel',
+        :'default_creation_channel_source_id',
+        :'default_creation_channel_service_id',
+        :'default_creation_channel_activity_id'
       ])
     end
 
@@ -280,6 +315,18 @@ module GetIntoTeachingApiClient
         self.channel_id = attributes[:'channel_id']
       end
 
+      if attributes.key?(:'creation_channel_source_id')
+        self.creation_channel_source_id = attributes[:'creation_channel_source_id']
+      end
+
+      if attributes.key?(:'creation_channel_service_id')
+        self.creation_channel_service_id = attributes[:'creation_channel_service_id']
+      end
+
+      if attributes.key?(:'creation_channel_activity_id')
+        self.creation_channel_activity_id = attributes[:'creation_channel_activity_id']
+      end
+
       if attributes.key?(:'email')
         self.email = attributes[:'email']
       end
@@ -322,6 +369,22 @@ module GetIntoTeachingApiClient
 
       if attributes.key?(:'assignment_status_id')
         self.assignment_status_id = attributes[:'assignment_status_id']
+      end
+
+      if attributes.key?(:'default_contact_creation_channel')
+        self.default_contact_creation_channel = attributes[:'default_contact_creation_channel']
+      end
+
+      if attributes.key?(:'default_creation_channel_source_id')
+        self.default_creation_channel_source_id = attributes[:'default_creation_channel_source_id']
+      end
+
+      if attributes.key?(:'default_creation_channel_service_id')
+        self.default_creation_channel_service_id = attributes[:'default_creation_channel_service_id']
+      end
+
+      if attributes.key?(:'default_creation_channel_activity_id')
+        self.default_creation_channel_activity_id = attributes[:'default_creation_channel_activity_id']
       end
     end
 
@@ -398,6 +461,9 @@ module GetIntoTeachingApiClient
           planning_to_retake_gcse_science_id == o.planning_to_retake_gcse_science_id &&
           adviser_status_id == o.adviser_status_id &&
           channel_id == o.channel_id &&
+          creation_channel_source_id == o.creation_channel_source_id &&
+          creation_channel_service_id == o.creation_channel_service_id &&
+          creation_channel_activity_id == o.creation_channel_activity_id &&
           email == o.email &&
           first_name == o.first_name &&
           last_name == o.last_name &&
@@ -408,7 +474,11 @@ module GetIntoTeachingApiClient
           address_postcode == o.address_postcode &&
           phone_call_scheduled_at == o.phone_call_scheduled_at &&
           can_subscribe_to_teacher_training_adviser == o.can_subscribe_to_teacher_training_adviser &&
-          assignment_status_id == o.assignment_status_id
+          assignment_status_id == o.assignment_status_id &&
+          default_contact_creation_channel == o.default_contact_creation_channel &&
+          default_creation_channel_source_id == o.default_creation_channel_source_id &&
+          default_creation_channel_service_id == o.default_creation_channel_service_id &&
+          default_creation_channel_activity_id == o.default_creation_channel_activity_id
     end
 
     # @see the `==` method
@@ -420,7 +490,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [candidate_id, qualification_id, subject_taught_id, past_teaching_position_id, preferred_teaching_subject_id, country_id, accepted_policy_id, type_id, uk_degree_grade_id, degree_status_id, degree_type_id, initial_teacher_training_year_id, stage_taught_id, preferred_education_phase_id, has_gcse_maths_and_english_id, has_gcse_science_id, planning_to_retake_gcse_maths_and_english_id, planning_to_retake_gcse_science_id, adviser_status_id, channel_id, email, first_name, last_name, date_of_birth, teacher_id, degree_subject, address_telephone, address_postcode, phone_call_scheduled_at, can_subscribe_to_teacher_training_adviser, assignment_status_id].hash
+      [candidate_id, qualification_id, subject_taught_id, past_teaching_position_id, preferred_teaching_subject_id, country_id, accepted_policy_id, type_id, uk_degree_grade_id, degree_status_id, degree_type_id, initial_teacher_training_year_id, stage_taught_id, preferred_education_phase_id, has_gcse_maths_and_english_id, has_gcse_science_id, planning_to_retake_gcse_maths_and_english_id, planning_to_retake_gcse_science_id, adviser_status_id, channel_id, creation_channel_source_id, creation_channel_service_id, creation_channel_activity_id, email, first_name, last_name, date_of_birth, teacher_id, degree_subject, address_telephone, address_postcode, phone_call_scheduled_at, can_subscribe_to_teacher_training_adviser, assignment_status_id, default_contact_creation_channel, default_creation_channel_source_id, default_creation_channel_service_id, default_creation_channel_activity_id].hash
     end
 
     # Builds the object from hash

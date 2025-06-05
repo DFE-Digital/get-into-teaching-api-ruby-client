@@ -142,6 +142,16 @@ describe 'PickListItemsApi' do
     end
   end
 
+  # unit tests for get_candidate_situations
+  # Retrieves the list of situations.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<PickListItem>]
+  describe 'get_candidate_situations test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_candidate_teacher_training_adviser_subscription_channels
   # Retrieves the list of candidate teacher training adviser subscription channels.
   # @param [Hash] opts the optional parameters
@@ -157,6 +167,36 @@ describe 'PickListItemsApi' do
   # @param [Hash] opts the optional parameters
   # @return [Array<PickListItem>]
   describe 'get_candidate_types test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_contact_creation_channel_activities
+  # Retrieves the list of contact creation channel activities.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<PickListItem>]
+  describe 'get_contact_creation_channel_activities test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_contact_creation_channel_services
+  # Retrieves the list of contact creation channel services.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<PickListItem>]
+  describe 'get_contact_creation_channel_services test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_contact_creation_channel_sources
+  # Retrieves the list of contact creation channel sources.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<PickListItem>]
+  describe 'get_contact_creation_channel_sources test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
