@@ -34,10 +34,10 @@ describe 'MailingListApi' do
 
   # unit tests for add_mailing_list_member
   # Adds a new member to the mailing list.
-  #                   If the &#x60;CandidateId&#x60; is specified then the existing candidate will be                   added to the mailing list, otherwise a new candidate will be created.
+  #           If the &#x60;CandidateId&#x60; is specified then the existing candidate will be           added to the mailing list, otherwise a new candidate will be created.
   # @param mailing_list_add_member Member to add to the mailing list.
   # @param [Hash] opts the optional parameters
-  # @return [nil]
+  # @return [DegreeStatusResponse]
   describe 'add_mailing_list_member test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
