@@ -15,6 +15,8 @@ require 'time'
 
 module GetIntoTeachingApiClient
   class TeacherTrainingAdviserSignUp
+    attr_accessor :degree_status_id
+
     attr_accessor :candidate_id
 
     attr_accessor :qualification_id
@@ -32,8 +34,6 @@ module GetIntoTeachingApiClient
     attr_accessor :type_id
 
     attr_accessor :uk_degree_grade_id
-
-    attr_accessor :degree_status_id
 
     attr_accessor :degree_type_id
 
@@ -77,9 +77,14 @@ module GetIntoTeachingApiClient
 
     attr_accessor :assignment_status_id
 
+    attr_accessor :graduation_year
+
+    attr_accessor :inferred_graduation_date
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'degree_status_id' => :'degreeStatusId',
         :'candidate_id' => :'candidateId',
         :'qualification_id' => :'qualificationId',
         :'subject_taught_id' => :'subjectTaughtId',
@@ -89,7 +94,6 @@ module GetIntoTeachingApiClient
         :'accepted_policy_id' => :'acceptedPolicyId',
         :'type_id' => :'typeId',
         :'uk_degree_grade_id' => :'ukDegreeGradeId',
-        :'degree_status_id' => :'degreeStatusId',
         :'degree_type_id' => :'degreeTypeId',
         :'initial_teacher_training_year_id' => :'initialTeacherTrainingYearId',
         :'stage_taught_id' => :'stageTaughtId',
@@ -110,7 +114,9 @@ module GetIntoTeachingApiClient
         :'address_postcode' => :'addressPostcode',
         :'phone_call_scheduled_at' => :'phoneCallScheduledAt',
         :'can_subscribe_to_teacher_training_adviser' => :'canSubscribeToTeacherTrainingAdviser',
-        :'assignment_status_id' => :'assignmentStatusId'
+        :'assignment_status_id' => :'assignmentStatusId',
+        :'graduation_year' => :'graduationYear',
+        :'inferred_graduation_date' => :'inferredGraduationDate'
       }
     end
 
@@ -122,6 +128,7 @@ module GetIntoTeachingApiClient
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'degree_status_id' => :'Integer',
         :'candidate_id' => :'String',
         :'qualification_id' => :'String',
         :'subject_taught_id' => :'String',
@@ -131,7 +138,6 @@ module GetIntoTeachingApiClient
         :'accepted_policy_id' => :'String',
         :'type_id' => :'Integer',
         :'uk_degree_grade_id' => :'Integer',
-        :'degree_status_id' => :'Integer',
         :'degree_type_id' => :'Integer',
         :'initial_teacher_training_year_id' => :'Integer',
         :'stage_taught_id' => :'Integer',
@@ -152,20 +158,22 @@ module GetIntoTeachingApiClient
         :'address_postcode' => :'String',
         :'phone_call_scheduled_at' => :'Time',
         :'can_subscribe_to_teacher_training_adviser' => :'Boolean',
-        :'assignment_status_id' => :'Integer'
+        :'assignment_status_id' => :'Integer',
+        :'graduation_year' => :'Integer',
+        :'inferred_graduation_date' => :'Time'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'degree_status_id',
         :'candidate_id',
         :'qualification_id',
         :'subject_taught_id',
         :'past_teaching_position_id',
         :'preferred_teaching_subject_id',
         :'uk_degree_grade_id',
-        :'degree_status_id',
         :'degree_type_id',
         :'initial_teacher_training_year_id',
         :'stage_taught_id',
@@ -181,7 +189,9 @@ module GetIntoTeachingApiClient
         :'address_telephone',
         :'address_postcode',
         :'phone_call_scheduled_at',
-        :'assignment_status_id'
+        :'assignment_status_id',
+        :'graduation_year',
+        :'inferred_graduation_date'
       ])
     end
 
@@ -199,6 +209,10 @@ module GetIntoTeachingApiClient
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'degree_status_id')
+        self.degree_status_id = attributes[:'degree_status_id']
+      end
 
       if attributes.key?(:'candidate_id')
         self.candidate_id = attributes[:'candidate_id']
@@ -234,10 +248,6 @@ module GetIntoTeachingApiClient
 
       if attributes.key?(:'uk_degree_grade_id')
         self.uk_degree_grade_id = attributes[:'uk_degree_grade_id']
-      end
-
-      if attributes.key?(:'degree_status_id')
-        self.degree_status_id = attributes[:'degree_status_id']
       end
 
       if attributes.key?(:'degree_type_id')
@@ -323,6 +333,14 @@ module GetIntoTeachingApiClient
       if attributes.key?(:'assignment_status_id')
         self.assignment_status_id = attributes[:'assignment_status_id']
       end
+
+      if attributes.key?(:'graduation_year')
+        self.graduation_year = attributes[:'graduation_year']
+      end
+
+      if attributes.key?(:'inferred_graduation_date')
+        self.inferred_graduation_date = attributes[:'inferred_graduation_date']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -378,6 +396,7 @@ module GetIntoTeachingApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          degree_status_id == o.degree_status_id &&
           candidate_id == o.candidate_id &&
           qualification_id == o.qualification_id &&
           subject_taught_id == o.subject_taught_id &&
@@ -387,7 +406,6 @@ module GetIntoTeachingApiClient
           accepted_policy_id == o.accepted_policy_id &&
           type_id == o.type_id &&
           uk_degree_grade_id == o.uk_degree_grade_id &&
-          degree_status_id == o.degree_status_id &&
           degree_type_id == o.degree_type_id &&
           initial_teacher_training_year_id == o.initial_teacher_training_year_id &&
           stage_taught_id == o.stage_taught_id &&
@@ -408,7 +426,9 @@ module GetIntoTeachingApiClient
           address_postcode == o.address_postcode &&
           phone_call_scheduled_at == o.phone_call_scheduled_at &&
           can_subscribe_to_teacher_training_adviser == o.can_subscribe_to_teacher_training_adviser &&
-          assignment_status_id == o.assignment_status_id
+          assignment_status_id == o.assignment_status_id &&
+          graduation_year == o.graduation_year &&
+          inferred_graduation_date == o.inferred_graduation_date
     end
 
     # @see the `==` method
@@ -420,7 +440,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [candidate_id, qualification_id, subject_taught_id, past_teaching_position_id, preferred_teaching_subject_id, country_id, accepted_policy_id, type_id, uk_degree_grade_id, degree_status_id, degree_type_id, initial_teacher_training_year_id, stage_taught_id, preferred_education_phase_id, has_gcse_maths_and_english_id, has_gcse_science_id, planning_to_retake_gcse_maths_and_english_id, planning_to_retake_gcse_science_id, adviser_status_id, channel_id, email, first_name, last_name, date_of_birth, teacher_id, degree_subject, address_telephone, address_postcode, phone_call_scheduled_at, can_subscribe_to_teacher_training_adviser, assignment_status_id].hash
+      [degree_status_id, candidate_id, qualification_id, subject_taught_id, past_teaching_position_id, preferred_teaching_subject_id, country_id, accepted_policy_id, type_id, uk_degree_grade_id, degree_type_id, initial_teacher_training_year_id, stage_taught_id, preferred_education_phase_id, has_gcse_maths_and_english_id, has_gcse_science_id, planning_to_retake_gcse_maths_and_english_id, planning_to_retake_gcse_science_id, adviser_status_id, channel_id, email, first_name, last_name, date_of_birth, teacher_id, degree_subject, address_telephone, address_postcode, phone_call_scheduled_at, can_subscribe_to_teacher_training_adviser, assignment_status_id, graduation_year, inferred_graduation_date].hash
     end
 
     # Builds the object from hash

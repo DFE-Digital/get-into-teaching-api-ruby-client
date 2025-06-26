@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **degree_status_id** | **Integer** |  | [optional] |
 | **candidate_id** | **String** |  | [optional] |
 | **qualification_id** | **String** |  | [optional] |
 | **subject_taught_id** | **String** |  | [optional] |
@@ -13,7 +14,6 @@
 | **accepted_policy_id** | **String** |  |  |
 | **type_id** | **Integer** |  |  |
 | **uk_degree_grade_id** | **Integer** |  | [optional] |
-| **degree_status_id** | **Integer** |  | [optional] |
 | **degree_type_id** | **Integer** |  | [optional] |
 | **initial_teacher_training_year_id** | **Integer** |  | [optional] |
 | **stage_taught_id** | **Integer** |  | [optional] |
@@ -35,6 +35,8 @@
 | **phone_call_scheduled_at** | **Time** |  | [optional] |
 | **can_subscribe_to_teacher_training_adviser** | **Boolean** |  | [optional][readonly] |
 | **assignment_status_id** | **Integer** |  | [optional][readonly] |
+| **graduation_year** | **Integer** |  | [optional] |
+| **inferred_graduation_date** | **Time** |  | [optional] |
 
 ## Example
 
@@ -42,6 +44,7 @@
 require 'get_into_teaching_api_client'
 
 instance = GetIntoTeachingApiClient::TeacherTrainingAdviserSignUp.new(
+  degree_status_id: null,
   candidate_id: null,
   qualification_id: null,
   subject_taught_id: null,
@@ -51,7 +54,6 @@ instance = GetIntoTeachingApiClient::TeacherTrainingAdviserSignUp.new(
   accepted_policy_id: null,
   type_id: null,
   uk_degree_grade_id: null,
-  degree_status_id: null,
   degree_type_id: null,
   initial_teacher_training_year_id: null,
   stage_taught_id: null,
@@ -72,7 +74,9 @@ instance = GetIntoTeachingApiClient::TeacherTrainingAdviserSignUp.new(
   address_postcode: null,
   phone_call_scheduled_at: null,
   can_subscribe_to_teacher_training_adviser: null,
-  assignment_status_id: null
+  assignment_status_id: null,
+  graduation_year: null,
+  inferred_graduation_date: null
 )
 ```
 

@@ -36,6 +36,9 @@ module GetIntoTeachingApiClient
     # Set to filter results by event status.
     attr_accessor :status_ids
 
+    # Set to filter results by accessibility options.
+    attr_accessor :accessibility_options
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -45,7 +48,8 @@ module GetIntoTeachingApiClient
         :'online' => :'online',
         :'start_after' => :'startAfter',
         :'start_before' => :'startBefore',
-        :'status_ids' => :'statusIds'
+        :'status_ids' => :'statusIds',
+        :'accessibility_options' => :'accessibilityOptions'
       }
     end
 
@@ -63,7 +67,8 @@ module GetIntoTeachingApiClient
         :'online' => :'Boolean',
         :'start_after' => :'Time',
         :'start_before' => :'Time',
-        :'status_ids' => :'Array<Integer>'
+        :'status_ids' => :'Array<Integer>',
+        :'accessibility_options' => :'Array<Integer>'
       }
     end
 
@@ -76,7 +81,8 @@ module GetIntoTeachingApiClient
         :'online',
         :'start_after',
         :'start_before',
-        :'status_ids'
+        :'status_ids',
+        :'accessibility_options'
       ])
     end
 
@@ -126,6 +132,12 @@ module GetIntoTeachingApiClient
           self.status_ids = value
         end
       end
+
+      if attributes.key?(:'accessibility_options')
+        if (value = attributes[:'accessibility_options']).is_a?(Array)
+          self.accessibility_options = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -167,7 +179,8 @@ module GetIntoTeachingApiClient
           online == o.online &&
           start_after == o.start_after &&
           start_before == o.start_before &&
-          status_ids == o.status_ids
+          status_ids == o.status_ids &&
+          accessibility_options == o.accessibility_options
     end
 
     # @see the `==` method
@@ -179,7 +192,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [postcode, radius, type_ids, online, start_after, start_before, status_ids].hash
+      [postcode, radius, type_ids, online, start_after, start_before, status_ids, accessibility_options].hash
     end
 
     # Builds the object from hash

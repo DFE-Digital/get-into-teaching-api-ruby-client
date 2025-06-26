@@ -300,6 +300,7 @@ module GetIntoTeachingApiClient
     # @option opts [Time] :start_after Set to filter results to those that start after a given date.
     # @option opts [Time] :start_before Set to filter results to those that start before a given date.
     # @option opts [Array<Integer>] :status_ids Set to filter results by event status.
+    # @option opts [Array<Integer>] :accessibility_options Set to filter results by accessibility options.
     # @option opts [Integer] :quantity Quantity to return. (default to 10)
     # @return [Array<TeachingEvent>]
     def search_teaching_events(opts = {})
@@ -317,6 +318,7 @@ module GetIntoTeachingApiClient
     # @option opts [Time] :start_after Set to filter results to those that start after a given date.
     # @option opts [Time] :start_before Set to filter results to those that start before a given date.
     # @option opts [Array<Integer>] :status_ids Set to filter results by event status.
+    # @option opts [Array<Integer>] :accessibility_options Set to filter results by accessibility options.
     # @option opts [Integer] :quantity Quantity to return.
     # @return [Array<(Array<TeachingEvent>, Integer, Hash)>] Array<TeachingEvent> data, response status code and response headers
     def search_teaching_events_with_http_info(opts = {})
@@ -339,6 +341,7 @@ module GetIntoTeachingApiClient
       query_params[:'StartAfter'] = opts[:'start_after'] if !opts[:'start_after'].nil?
       query_params[:'StartBefore'] = opts[:'start_before'] if !opts[:'start_before'].nil?
       query_params[:'StatusIds'] = @api_client.build_collection_param(opts[:'status_ids'], :multi) if !opts[:'status_ids'].nil?
+      query_params[:'AccessibilityOptions'] = @api_client.build_collection_param(opts[:'accessibility_options'], :multi) if !opts[:'accessibility_options'].nil?
       query_params[:'quantity'] = opts[:'quantity'] if !opts[:'quantity'].nil?
 
       # header parameters
