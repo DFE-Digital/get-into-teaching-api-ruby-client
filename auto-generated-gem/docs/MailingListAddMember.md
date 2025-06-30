@@ -4,12 +4,12 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **degree_status_id** | **Integer** |  | [optional] |
 | **candidate_id** | **String** |  | [optional] |
 | **qualification_id** | **String** |  | [optional] |
 | **preferred_teaching_subject_id** | **String** |  |  |
 | **accepted_policy_id** | **String** |  |  |
 | **consideration_journey_stage_id** | **Integer** |  |  |
-| **degree_status_id** | **Integer** |  | [optional] |
 | **channel_id** | **Integer** |  | [optional] |
 | **email** | **String** |  |  |
 | **first_name** | **String** |  |  |
@@ -19,9 +19,9 @@
 | **already_subscribed_to_events** | **Boolean** |  | [optional][readonly] |
 | **already_subscribed_to_mailing_list** | **Boolean** |  | [optional][readonly] |
 | **already_subscribed_to_teacher_training_adviser** | **Boolean** |  | [optional][readonly] |
+| **situation** | **Integer** |  | [optional] |
 | **graduation_year** | **Integer** |  | [optional] |
 | **inferred_graduation_date** | **Time** |  | [optional] |
-| **situation** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -29,12 +29,12 @@
 require 'get_into_teaching_api_client'
 
 instance = GetIntoTeachingApiClient::MailingListAddMember.new(
+  degree_status_id: null,
   candidate_id: null,
   qualification_id: null,
   preferred_teaching_subject_id: null,
   accepted_policy_id: null,
   consideration_journey_stage_id: null,
-  degree_status_id: null,
   channel_id: null,
   email: null,
   first_name: null,
@@ -44,9 +44,9 @@ instance = GetIntoTeachingApiClient::MailingListAddMember.new(
   already_subscribed_to_events: null,
   already_subscribed_to_mailing_list: null,
   already_subscribed_to_teacher_training_adviser: null,
+  situation: null,
   graduation_year: null,
-  inferred_graduation_date: null,
-  situation: null
+  inferred_graduation_date: null
 )
 ```
 

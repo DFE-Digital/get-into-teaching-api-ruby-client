@@ -26,6 +26,7 @@
 | **providers_list** | **String** |  | [optional] |
 | **building** | [**TeachingEventBuilding**](TeachingEventBuilding.md) |  | [optional] |
 | **is_virtual** | **Boolean** |  | [optional][readonly] |
+| **accessibility_options** | **Array&lt;Integer&gt;** |  | [optional] |
 | **is_in_person** | **Boolean** |  | [optional][readonly] |
 
 ## Example
@@ -56,6 +57,7 @@ instance = GetIntoTeachingApiClient::TeachingEvent.new(
   providers_list: null,
   building: null,
   is_virtual: null,
+  accessibility_options: null,
   is_in_person: null
 )
 ```

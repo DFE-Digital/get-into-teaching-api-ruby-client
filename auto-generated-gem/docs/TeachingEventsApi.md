@@ -325,6 +325,7 @@ opts = {
   start_after: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Set to filter results to those that start after a given date.
   start_before: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Set to filter results to those that start before a given date.
   status_ids: [37], # Array<Integer> | Set to filter results by event status.
+  accessibility_options: [37], # Array<Integer> | Set to filter results by accessibility options.
   quantity: 56 # Integer | Quantity to return.
 }
 
@@ -366,6 +367,7 @@ end
 | **start_after** | **Time** | Set to filter results to those that start after a given date. | [optional] |
 | **start_before** | **Time** | Set to filter results to those that start before a given date. | [optional] |
 | **status_ids** | [**Array&lt;Integer&gt;**](Integer.md) | Set to filter results by event status. | [optional] |
+| **accessibility_options** | [**Array&lt;Integer&gt;**](Integer.md) | Set to filter results by accessibility options. | [optional] |
 | **quantity** | **Integer** | Quantity to return. | [optional][default to 10] |
 
 ### Return type

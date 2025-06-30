@@ -15,6 +15,8 @@ require 'time'
 
 module GetIntoTeachingApiClient
   class MailingListAddMember
+    attr_accessor :degree_status_id
+
     attr_accessor :candidate_id
 
     attr_accessor :qualification_id
@@ -24,8 +26,6 @@ module GetIntoTeachingApiClient
     attr_accessor :accepted_policy_id
 
     attr_accessor :consideration_journey_stage_id
-
-    attr_accessor :degree_status_id
 
     attr_accessor :channel_id
 
@@ -45,21 +45,21 @@ module GetIntoTeachingApiClient
 
     attr_accessor :already_subscribed_to_teacher_training_adviser
 
+    attr_accessor :situation
+
     attr_accessor :graduation_year
 
     attr_accessor :inferred_graduation_date
 
-    attr_accessor :situation
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'degree_status_id' => :'degreeStatusId',
         :'candidate_id' => :'candidateId',
         :'qualification_id' => :'qualificationId',
         :'preferred_teaching_subject_id' => :'preferredTeachingSubjectId',
         :'accepted_policy_id' => :'acceptedPolicyId',
         :'consideration_journey_stage_id' => :'considerationJourneyStageId',
-        :'degree_status_id' => :'degreeStatusId',
         :'channel_id' => :'channelId',
         :'email' => :'email',
         :'first_name' => :'firstName',
@@ -69,9 +69,9 @@ module GetIntoTeachingApiClient
         :'already_subscribed_to_events' => :'alreadySubscribedToEvents',
         :'already_subscribed_to_mailing_list' => :'alreadySubscribedToMailingList',
         :'already_subscribed_to_teacher_training_adviser' => :'alreadySubscribedToTeacherTrainingAdviser',
+        :'situation' => :'situation',
         :'graduation_year' => :'graduationYear',
-        :'inferred_graduation_date' => :'inferredGraduationDate',
-        :'situation' => :'situation'
+        :'inferred_graduation_date' => :'inferredGraduationDate'
       }
     end
 
@@ -83,12 +83,12 @@ module GetIntoTeachingApiClient
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'degree_status_id' => :'Integer',
         :'candidate_id' => :'String',
         :'qualification_id' => :'String',
         :'preferred_teaching_subject_id' => :'String',
         :'accepted_policy_id' => :'String',
         :'consideration_journey_stage_id' => :'Integer',
-        :'degree_status_id' => :'Integer',
         :'channel_id' => :'Integer',
         :'email' => :'String',
         :'first_name' => :'String',
@@ -98,24 +98,24 @@ module GetIntoTeachingApiClient
         :'already_subscribed_to_events' => :'Boolean',
         :'already_subscribed_to_mailing_list' => :'Boolean',
         :'already_subscribed_to_teacher_training_adviser' => :'Boolean',
+        :'situation' => :'Integer',
         :'graduation_year' => :'Integer',
-        :'inferred_graduation_date' => :'Time',
-        :'situation' => :'Integer'
+        :'inferred_graduation_date' => :'Time'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'degree_status_id',
         :'candidate_id',
         :'qualification_id',
-        :'degree_status_id',
         :'channel_id',
         :'address_postcode',
         :'welcome_guide_variant',
+        :'situation',
         :'graduation_year',
-        :'inferred_graduation_date',
-        :'situation'
+        :'inferred_graduation_date'
       ])
     end
 
@@ -133,6 +133,10 @@ module GetIntoTeachingApiClient
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'degree_status_id')
+        self.degree_status_id = attributes[:'degree_status_id']
+      end
 
       if attributes.key?(:'candidate_id')
         self.candidate_id = attributes[:'candidate_id']
@@ -152,10 +156,6 @@ module GetIntoTeachingApiClient
 
       if attributes.key?(:'consideration_journey_stage_id')
         self.consideration_journey_stage_id = attributes[:'consideration_journey_stage_id']
-      end
-
-      if attributes.key?(:'degree_status_id')
-        self.degree_status_id = attributes[:'degree_status_id']
       end
 
       if attributes.key?(:'channel_id')
@@ -194,16 +194,16 @@ module GetIntoTeachingApiClient
         self.already_subscribed_to_teacher_training_adviser = attributes[:'already_subscribed_to_teacher_training_adviser']
       end
 
+      if attributes.key?(:'situation')
+        self.situation = attributes[:'situation']
+      end
+
       if attributes.key?(:'graduation_year')
         self.graduation_year = attributes[:'graduation_year']
       end
 
       if attributes.key?(:'inferred_graduation_date')
         self.inferred_graduation_date = attributes[:'inferred_graduation_date']
-      end
-
-      if attributes.key?(:'situation')
-        self.situation = attributes[:'situation']
       end
     end
 
@@ -331,12 +331,12 @@ module GetIntoTeachingApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          degree_status_id == o.degree_status_id &&
           candidate_id == o.candidate_id &&
           qualification_id == o.qualification_id &&
           preferred_teaching_subject_id == o.preferred_teaching_subject_id &&
           accepted_policy_id == o.accepted_policy_id &&
           consideration_journey_stage_id == o.consideration_journey_stage_id &&
-          degree_status_id == o.degree_status_id &&
           channel_id == o.channel_id &&
           email == o.email &&
           first_name == o.first_name &&
@@ -346,9 +346,9 @@ module GetIntoTeachingApiClient
           already_subscribed_to_events == o.already_subscribed_to_events &&
           already_subscribed_to_mailing_list == o.already_subscribed_to_mailing_list &&
           already_subscribed_to_teacher_training_adviser == o.already_subscribed_to_teacher_training_adviser &&
+          situation == o.situation &&
           graduation_year == o.graduation_year &&
-          inferred_graduation_date == o.inferred_graduation_date &&
-          situation == o.situation
+          inferred_graduation_date == o.inferred_graduation_date
     end
 
     # @see the `==` method
@@ -360,7 +360,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [candidate_id, qualification_id, preferred_teaching_subject_id, accepted_policy_id, consideration_journey_stage_id, degree_status_id, channel_id, email, first_name, last_name, address_postcode, welcome_guide_variant, already_subscribed_to_events, already_subscribed_to_mailing_list, already_subscribed_to_teacher_training_adviser, graduation_year, inferred_graduation_date, situation].hash
+      [degree_status_id, candidate_id, qualification_id, preferred_teaching_subject_id, accepted_policy_id, consideration_journey_stage_id, channel_id, email, first_name, last_name, address_postcode, welcome_guide_variant, already_subscribed_to_events, already_subscribed_to_mailing_list, already_subscribed_to_teacher_training_adviser, situation, graduation_year, inferred_graduation_date].hash
     end
 
     # Builds the object from hash

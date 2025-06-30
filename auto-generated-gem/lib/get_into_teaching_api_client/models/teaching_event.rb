@@ -61,6 +61,8 @@ module GetIntoTeachingApiClient
 
     attr_accessor :is_virtual
 
+    attr_accessor :accessibility_options
+
     attr_accessor :is_in_person
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -88,6 +90,7 @@ module GetIntoTeachingApiClient
         :'providers_list' => :'providersList',
         :'building' => :'building',
         :'is_virtual' => :'isVirtual',
+        :'accessibility_options' => :'accessibilityOptions',
         :'is_in_person' => :'isInPerson'
       }
     end
@@ -122,6 +125,7 @@ module GetIntoTeachingApiClient
         :'providers_list' => :'String',
         :'building' => :'TeachingEventBuilding',
         :'is_virtual' => :'Boolean',
+        :'accessibility_options' => :'Array<Integer>',
         :'is_in_person' => :'Boolean'
       }
     end
@@ -142,6 +146,7 @@ module GetIntoTeachingApiClient
         :'provider_organiser',
         :'provider_contact_email',
         :'providers_list',
+        :'accessibility_options',
       ])
     end
 
@@ -246,6 +251,12 @@ module GetIntoTeachingApiClient
 
       if attributes.key?(:'is_virtual')
         self.is_virtual = attributes[:'is_virtual']
+      end
+
+      if attributes.key?(:'accessibility_options')
+        if (value = attributes[:'accessibility_options']).is_a?(Array)
+          self.accessibility_options = value
+        end
       end
 
       if attributes.key?(:'is_in_person')
@@ -356,6 +367,7 @@ module GetIntoTeachingApiClient
           providers_list == o.providers_list &&
           building == o.building &&
           is_virtual == o.is_virtual &&
+          accessibility_options == o.accessibility_options &&
           is_in_person == o.is_in_person
     end
 
@@ -368,7 +380,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, type_id, status_id, region_id, readable_id, web_feed_id, is_online, name, summary, message, description, video_url, scribble_id, provider_website_url, provider_target_audience, provider_organiser, provider_contact_email, start_at, end_at, providers_list, building, is_virtual, is_in_person].hash
+      [id, type_id, status_id, region_id, readable_id, web_feed_id, is_online, name, summary, message, description, video_url, scribble_id, provider_website_url, provider_target_audience, provider_organiser, provider_contact_email, start_at, end_at, providers_list, building, is_virtual, accessibility_options, is_in_person].hash
     end
 
     # Builds the object from hash
