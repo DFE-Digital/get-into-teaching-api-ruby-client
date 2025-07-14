@@ -24,6 +24,9 @@
 | **planning_to_retake_gcse_science_id** | **Integer** |  | [optional] |
 | **adviser_status_id** | **Integer** |  | [optional] |
 | **channel_id** | **Integer** |  | [optional] |
+| **creation_channel_source_id** | **Integer** |  | [optional] |
+| **creation_channel_service_id** | **Integer** |  | [optional] |
+| **creation_channel_activity_id** | **Integer** |  | [optional] |
 | **email** | **String** |  |  |
 | **first_name** | **String** |  |  |
 | **last_name** | **String** |  |  |
@@ -35,6 +38,10 @@
 | **phone_call_scheduled_at** | **Time** |  | [optional] |
 | **can_subscribe_to_teacher_training_adviser** | **Boolean** |  | [optional][readonly] |
 | **assignment_status_id** | **Integer** |  | [optional][readonly] |
+| **default_contact_creation_channel** | **Integer** |  | [optional][readonly] |
+| **default_creation_channel_source_id** | **Integer** |  | [optional][readonly] |
+| **default_creation_channel_service_id** | **Integer** |  | [optional][readonly] |
+| **default_creation_channel_activity_id** | **Integer** |  | [optional][readonly] |
 | **graduation_year** | **Integer** |  | [optional] |
 | **inferred_graduation_date** | **Time** |  | [optional] |
 
@@ -64,6 +71,9 @@ instance = GetIntoTeachingApiClient::TeacherTrainingAdviserSignUp.new(
   planning_to_retake_gcse_science_id: null,
   adviser_status_id: null,
   channel_id: null,
+  creation_channel_source_id: null,
+  creation_channel_service_id: null,
+  creation_channel_activity_id: null,
   email: null,
   first_name: null,
   last_name: null,
@@ -75,6 +85,10 @@ instance = GetIntoTeachingApiClient::TeacherTrainingAdviserSignUp.new(
   phone_call_scheduled_at: null,
   can_subscribe_to_teacher_training_adviser: null,
   assignment_status_id: null,
+  default_contact_creation_channel: null,
+  default_creation_channel_source_id: null,
+  default_creation_channel_service_id: null,
+  default_creation_channel_activity_id: null,
   graduation_year: null,
   inferred_graduation_date: null
 )
