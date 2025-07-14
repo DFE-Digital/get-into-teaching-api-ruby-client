@@ -1,7 +1,7 @@
 =begin
 #Get into Teaching API - V1
 
-#                             Provides a RESTful API for integrating with the Get into Teaching CRM.                             The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events).                             The GIT API aims to provide:                             * Simple, task-based RESTful APIs.                             * Message queueing (while the GIT CRM is offline for updates).                             * Validation to ensure consistency across services writing to the GIT CRM.                         
+#                              Provides a RESTful API for integrating with the Get into Teaching CRM.                              The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events).                              The GIT API aims to provide:                              * Simple, task-based RESTful APIs.                              * Message queueing (while the GIT CRM is offline for updates).                              * Validation to ensure consistency across services writing to the GIT CRM.                          
 
 The version of the OpenAPI document: v1
 
@@ -63,6 +63,20 @@ module GetIntoTeachingApiClient
 
     attr_accessor :uk_degree_grade_id
 
+    attr_accessor :creation_channel_source_id
+
+    attr_accessor :creation_channel_service_id
+
+    attr_accessor :creation_channel_activity_id
+
+    attr_accessor :default_contact_creation_channel
+
+    attr_accessor :default_creation_channel_source_id
+
+    attr_accessor :default_creation_channel_service_id
+
+    attr_accessor :default_creation_channel_activity_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -89,7 +103,14 @@ module GetIntoTeachingApiClient
         :'degree_status_id' => :'degreeStatusId',
         :'degree_type_id' => :'degreeTypeId',
         :'degree_subject' => :'degreeSubject',
-        :'uk_degree_grade_id' => :'ukDegreeGradeId'
+        :'uk_degree_grade_id' => :'ukDegreeGradeId',
+        :'creation_channel_source_id' => :'creationChannelSourceId',
+        :'creation_channel_service_id' => :'creationChannelServiceId',
+        :'creation_channel_activity_id' => :'creationChannelActivityId',
+        :'default_contact_creation_channel' => :'defaultContactCreationChannel',
+        :'default_creation_channel_source_id' => :'defaultCreationChannelSourceId',
+        :'default_creation_channel_service_id' => :'defaultCreationChannelServiceId',
+        :'default_creation_channel_activity_id' => :'defaultCreationChannelActivityId'
       }
     end
 
@@ -124,7 +145,14 @@ module GetIntoTeachingApiClient
         :'degree_status_id' => :'Integer',
         :'degree_type_id' => :'Integer',
         :'degree_subject' => :'String',
-        :'uk_degree_grade_id' => :'Integer'
+        :'uk_degree_grade_id' => :'Integer',
+        :'creation_channel_source_id' => :'Integer',
+        :'creation_channel_service_id' => :'Integer',
+        :'creation_channel_activity_id' => :'Integer',
+        :'default_contact_creation_channel' => :'Integer',
+        :'default_creation_channel_source_id' => :'Integer',
+        :'default_creation_channel_service_id' => :'Integer',
+        :'default_creation_channel_activity_id' => :'Integer'
       }
     end
 
@@ -142,7 +170,14 @@ module GetIntoTeachingApiClient
         :'degree_status_id',
         :'degree_type_id',
         :'degree_subject',
-        :'uk_degree_grade_id'
+        :'uk_degree_grade_id',
+        :'creation_channel_source_id',
+        :'creation_channel_service_id',
+        :'creation_channel_activity_id',
+        :'default_contact_creation_channel',
+        :'default_creation_channel_source_id',
+        :'default_creation_channel_service_id',
+        :'default_creation_channel_activity_id'
       ])
     end
 
@@ -255,6 +290,34 @@ module GetIntoTeachingApiClient
 
       if attributes.key?(:'uk_degree_grade_id')
         self.uk_degree_grade_id = attributes[:'uk_degree_grade_id']
+      end
+
+      if attributes.key?(:'creation_channel_source_id')
+        self.creation_channel_source_id = attributes[:'creation_channel_source_id']
+      end
+
+      if attributes.key?(:'creation_channel_service_id')
+        self.creation_channel_service_id = attributes[:'creation_channel_service_id']
+      end
+
+      if attributes.key?(:'creation_channel_activity_id')
+        self.creation_channel_activity_id = attributes[:'creation_channel_activity_id']
+      end
+
+      if attributes.key?(:'default_contact_creation_channel')
+        self.default_contact_creation_channel = attributes[:'default_contact_creation_channel']
+      end
+
+      if attributes.key?(:'default_creation_channel_source_id')
+        self.default_creation_channel_source_id = attributes[:'default_creation_channel_source_id']
+      end
+
+      if attributes.key?(:'default_creation_channel_service_id')
+        self.default_creation_channel_service_id = attributes[:'default_creation_channel_service_id']
+      end
+
+      if attributes.key?(:'default_creation_channel_activity_id')
+        self.default_creation_channel_activity_id = attributes[:'default_creation_channel_activity_id']
       end
     end
 
@@ -411,7 +474,14 @@ module GetIntoTeachingApiClient
           degree_status_id == o.degree_status_id &&
           degree_type_id == o.degree_type_id &&
           degree_subject == o.degree_subject &&
-          uk_degree_grade_id == o.uk_degree_grade_id
+          uk_degree_grade_id == o.uk_degree_grade_id &&
+          creation_channel_source_id == o.creation_channel_source_id &&
+          creation_channel_service_id == o.creation_channel_service_id &&
+          creation_channel_activity_id == o.creation_channel_activity_id &&
+          default_contact_creation_channel == o.default_contact_creation_channel &&
+          default_creation_channel_source_id == o.default_creation_channel_source_id &&
+          default_creation_channel_service_id == o.default_creation_channel_service_id &&
+          default_creation_channel_activity_id == o.default_creation_channel_activity_id
     end
 
     # @see the `==` method
@@ -423,7 +493,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [candidate_id, preferred_teaching_subject_id, secondary_preferred_teaching_subject_id, accepted_policy_id, master_id, merged, full_name, email, first_name, last_name, address_line1, address_line2, address_line3, address_city, address_state_or_province, address_postcode, telephone, has_dbs_certificate, dbs_certificate_issued_at, qualification_id, degree_status_id, degree_type_id, degree_subject, uk_degree_grade_id].hash
+      [candidate_id, preferred_teaching_subject_id, secondary_preferred_teaching_subject_id, accepted_policy_id, master_id, merged, full_name, email, first_name, last_name, address_line1, address_line2, address_line3, address_city, address_state_or_province, address_postcode, telephone, has_dbs_certificate, dbs_certificate_issued_at, qualification_id, degree_status_id, degree_type_id, degree_subject, uk_degree_grade_id, creation_channel_source_id, creation_channel_service_id, creation_channel_activity_id, default_contact_creation_channel, default_creation_channel_source_id, default_creation_channel_service_id, default_creation_channel_activity_id].hash
     end
 
     # Builds the object from hash
