@@ -8,16 +8,19 @@ All URIs are relative to *http://localhost*
 | [**get_candidate_adviser_requirements**](PickListItemsApi.md#get_candidate_adviser_requirements) | **GET** /api/pick_list_items/candidate/adviser_requirements | Retrieves the list of candidate adviser requirements. |
 | [**get_candidate_assignment_status**](PickListItemsApi.md#get_candidate_assignment_status) | **GET** /api/pick_list_items/candidate/assignment_status | Retrieves the list of candidate assignment status. |
 | [**get_candidate_channels**](PickListItemsApi.md#get_candidate_channels) | **GET** /api/pick_list_items/candidate/channels | Retrieves the list of candidate channels. |
+| [**get_candidate_citizenship**](PickListItemsApi.md#get_candidate_citizenship) | **GET** /api/pick_list_items/candidate/citizenships | Retrieves the list of citizenship options. |
 | [**get_candidate_event_subscription_channels**](PickListItemsApi.md#get_candidate_event_subscription_channels) | **GET** /api/pick_list_items/candidate/event_subscription_channels | Retrieves the list of candidate event subscription channels. |
 | [**get_candidate_gcse_status**](PickListItemsApi.md#get_candidate_gcse_status) | **GET** /api/pick_list_items/candidate/gcse_status | Retrieves the list of candidate GCSE status. |
 | [**get_candidate_initial_teacher_training_years**](PickListItemsApi.md#get_candidate_initial_teacher_training_years) | **GET** /api/pick_list_items/candidate/initial_teacher_training_years | Retrieves the list of candidate initial teacher training years. |
 | [**get_candidate_journey_stages**](PickListItemsApi.md#get_candidate_journey_stages) | **GET** /api/pick_list_items/candidate/consideration_journey_stages | Retrieves the list of candidate consideration journey stages. |
+| [**get_candidate_location**](PickListItemsApi.md#get_candidate_location) | **GET** /api/pick_list_items/candidate/locations | Retrieves the list of location options. |
 | [**get_candidate_mailing_list_subscription_channels**](PickListItemsApi.md#get_candidate_mailing_list_subscription_channels) | **GET** /api/pick_list_items/candidate/mailing_list_subscription_channels | Retrieves the list of candidate mailing list subscription channels. |
 | [**get_candidate_preferred_education_phases**](PickListItemsApi.md#get_candidate_preferred_education_phases) | **GET** /api/pick_list_items/candidate/preferred_education_phases | Retrieves the list of candidate preferred education phases. |
 | [**get_candidate_retake_gcse_status**](PickListItemsApi.md#get_candidate_retake_gcse_status) | **GET** /api/pick_list_items/candidate/retake_gcse_status | Retrieves the list of candidate retake GCSE status. |
 | [**get_candidate_situations**](PickListItemsApi.md#get_candidate_situations) | **GET** /api/pick_list_items/candidate/situations | Retrieves the list of situations. |
 | [**get_candidate_teacher_training_adviser_subscription_channels**](PickListItemsApi.md#get_candidate_teacher_training_adviser_subscription_channels) | **GET** /api/pick_list_items/candidate/teacher_training_adviser_subscription_channels | Retrieves the list of candidate teacher training adviser subscription channels. |
 | [**get_candidate_types**](PickListItemsApi.md#get_candidate_types) | **GET** /api/pick_list_items/candidate/types | Retrieves the list of candidate types. |
+| [**get_candidate_visa_status**](PickListItemsApi.md#get_candidate_visa_status) | **GET** /api/pick_list_items/candidate/visa_statuses | Retrieves the list of visa status options. |
 | [**get_contact_creation_channel_activities**](PickListItemsApi.md#get_contact_creation_channel_activities) | **GET** /api/pick_list_items/contact_creation_channel/activities | Retrieves the list of contact creation channel activities. |
 | [**get_contact_creation_channel_services**](PickListItemsApi.md#get_contact_creation_channel_services) | **GET** /api/pick_list_items/contact_creation_channel/services | Retrieves the list of contact creation channel services. |
 | [**get_contact_creation_channel_sources**](PickListItemsApi.md#get_contact_creation_channel_sources) | **GET** /api/pick_list_items/contact_creation_channel/sources | Retrieves the list of contact creation channel sources. |
@@ -298,6 +301,72 @@ This endpoint does not need any parameter.
 - **Accept**: text/plain, application/json, text/json
 
 
+## get_candidate_citizenship
+
+> <Array<PickListItem>> get_candidate_citizenship
+
+Retrieves the list of citizenship options.
+
+### Examples
+
+```ruby
+require 'time'
+require 'get_into_teaching_api_client'
+# setup authorization
+GetIntoTeachingApiClient.configure do |config|
+  # Configure API key authorization: apiKey
+  config.api_key['apiKey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['apiKey'] = 'Bearer'
+end
+
+api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
+
+begin
+  # Retrieves the list of citizenship options.
+  result = api_instance.get_candidate_citizenship
+  p result
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Error when calling PickListItemsApi->get_candidate_citizenship: #{e}"
+end
+```
+
+#### Using the get_candidate_citizenship_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<PickListItem>>, Integer, Hash)> get_candidate_citizenship_with_http_info
+
+```ruby
+begin
+  # Retrieves the list of citizenship options.
+  data, status_code, headers = api_instance.get_candidate_citizenship_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<PickListItem>>
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Error when calling PickListItemsApi->get_candidate_citizenship_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Array&lt;PickListItem&gt;**](PickListItem.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+
 ## get_candidate_event_subscription_channels
 
 > <Array<PickListItem>> get_candidate_event_subscription_channels
@@ -541,6 +610,72 @@ begin
   p data # => <Array<PickListItem>>
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Error when calling PickListItemsApi->get_candidate_journey_stages_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Array&lt;PickListItem&gt;**](PickListItem.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+
+## get_candidate_location
+
+> <Array<PickListItem>> get_candidate_location
+
+Retrieves the list of location options.
+
+### Examples
+
+```ruby
+require 'time'
+require 'get_into_teaching_api_client'
+# setup authorization
+GetIntoTeachingApiClient.configure do |config|
+  # Configure API key authorization: apiKey
+  config.api_key['apiKey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['apiKey'] = 'Bearer'
+end
+
+api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
+
+begin
+  # Retrieves the list of location options.
+  result = api_instance.get_candidate_location
+  p result
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Error when calling PickListItemsApi->get_candidate_location: #{e}"
+end
+```
+
+#### Using the get_candidate_location_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<PickListItem>>, Integer, Hash)> get_candidate_location_with_http_info
+
+```ruby
+begin
+  # Retrieves the list of location options.
+  data, status_code, headers = api_instance.get_candidate_location_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<PickListItem>>
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Error when calling PickListItemsApi->get_candidate_location_with_http_info: #{e}"
 end
 ```
 
@@ -937,6 +1072,72 @@ begin
   p data # => <Array<PickListItem>>
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Error when calling PickListItemsApi->get_candidate_types_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Array&lt;PickListItem&gt;**](PickListItem.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+
+## get_candidate_visa_status
+
+> <Array<PickListItem>> get_candidate_visa_status
+
+Retrieves the list of visa status options.
+
+### Examples
+
+```ruby
+require 'time'
+require 'get_into_teaching_api_client'
+# setup authorization
+GetIntoTeachingApiClient.configure do |config|
+  # Configure API key authorization: apiKey
+  config.api_key['apiKey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['apiKey'] = 'Bearer'
+end
+
+api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
+
+begin
+  # Retrieves the list of visa status options.
+  result = api_instance.get_candidate_visa_status
+  p result
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Error when calling PickListItemsApi->get_candidate_visa_status: #{e}"
+end
+```
+
+#### Using the get_candidate_visa_status_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<PickListItem>>, Integer, Hash)> get_candidate_visa_status_with_http_info
+
+```ruby
+begin
+  # Retrieves the list of visa status options.
+  data, status_code, headers = api_instance.get_candidate_visa_status_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<PickListItem>>
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Error when calling PickListItemsApi->get_candidate_visa_status_with_http_info: #{e}"
 end
 ```
 

@@ -1,7 +1,7 @@
 =begin
 #Get into Teaching API - V1
 
-#                              Provides a RESTful API for integrating with the Get into Teaching CRM.                              The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events).                              The GIT API aims to provide:                              * Simple, task-based RESTful APIs.                              * Message queueing (while the GIT CRM is offline for updates).                              * Validation to ensure consistency across services writing to the GIT CRM.                          
+#                             Provides a RESTful API for integrating with the Get into Teaching CRM.                             The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events).                             The GIT API aims to provide:                             * Simple, task-based RESTful APIs.                             * Message queueing (while the GIT CRM is offline for updates).                             * Validation to ensure consistency across services writing to the GIT CRM.                         
 
 The version of the OpenAPI document: v1
 
@@ -61,6 +61,12 @@ module GetIntoTeachingApiClient
 
     attr_accessor :situation
 
+    attr_accessor :citizenship
+
+    attr_accessor :visa_status
+
+    attr_accessor :location
+
     attr_accessor :graduation_year
 
     attr_accessor :inferred_graduation_date
@@ -91,6 +97,9 @@ module GetIntoTeachingApiClient
         :'default_creation_channel_service_id' => :'defaultCreationChannelServiceId',
         :'default_creation_channel_activity_id' => :'defaultCreationChannelActivityId',
         :'situation' => :'situation',
+        :'citizenship' => :'citizenship',
+        :'visa_status' => :'visaStatus',
+        :'location' => :'location',
         :'graduation_year' => :'graduationYear',
         :'inferred_graduation_date' => :'inferredGraduationDate'
       }
@@ -127,6 +136,9 @@ module GetIntoTeachingApiClient
         :'default_creation_channel_service_id' => :'Integer',
         :'default_creation_channel_activity_id' => :'Integer',
         :'situation' => :'Integer',
+        :'citizenship' => :'Integer',
+        :'visa_status' => :'Integer',
+        :'location' => :'Integer',
         :'graduation_year' => :'Integer',
         :'inferred_graduation_date' => :'Time'
       }
@@ -149,6 +161,9 @@ module GetIntoTeachingApiClient
         :'default_creation_channel_service_id',
         :'default_creation_channel_activity_id',
         :'situation',
+        :'citizenship',
+        :'visa_status',
+        :'location',
         :'graduation_year',
         :'inferred_graduation_date'
       ])
@@ -259,6 +274,18 @@ module GetIntoTeachingApiClient
 
       if attributes.key?(:'situation')
         self.situation = attributes[:'situation']
+      end
+
+      if attributes.key?(:'citizenship')
+        self.citizenship = attributes[:'citizenship']
+      end
+
+      if attributes.key?(:'visa_status')
+        self.visa_status = attributes[:'visa_status']
+      end
+
+      if attributes.key?(:'location')
+        self.location = attributes[:'location']
       end
 
       if attributes.key?(:'graduation_year')
@@ -417,6 +444,9 @@ module GetIntoTeachingApiClient
           default_creation_channel_service_id == o.default_creation_channel_service_id &&
           default_creation_channel_activity_id == o.default_creation_channel_activity_id &&
           situation == o.situation &&
+          citizenship == o.citizenship &&
+          visa_status == o.visa_status &&
+          location == o.location &&
           graduation_year == o.graduation_year &&
           inferred_graduation_date == o.inferred_graduation_date
     end
@@ -430,7 +460,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [degree_status_id, candidate_id, qualification_id, preferred_teaching_subject_id, accepted_policy_id, consideration_journey_stage_id, channel_id, creation_channel_source_id, creation_channel_service_id, creation_channel_activity_id, email, first_name, last_name, address_postcode, welcome_guide_variant, already_subscribed_to_events, already_subscribed_to_mailing_list, already_subscribed_to_teacher_training_adviser, default_contact_creation_channel, default_creation_channel_source_id, default_creation_channel_service_id, default_creation_channel_activity_id, situation, graduation_year, inferred_graduation_date].hash
+      [degree_status_id, candidate_id, qualification_id, preferred_teaching_subject_id, accepted_policy_id, consideration_journey_stage_id, channel_id, creation_channel_source_id, creation_channel_service_id, creation_channel_activity_id, email, first_name, last_name, address_postcode, welcome_guide_variant, already_subscribed_to_events, already_subscribed_to_mailing_list, already_subscribed_to_teacher_training_adviser, default_contact_creation_channel, default_creation_channel_source_id, default_creation_channel_service_id, default_creation_channel_activity_id, situation, citizenship, visa_status, location, graduation_year, inferred_graduation_date].hash
     end
 
     # Builds the object from hash

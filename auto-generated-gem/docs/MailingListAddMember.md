@@ -27,6 +27,9 @@
 | **default_creation_channel_service_id** | **Integer** |  | [optional][readonly] |
 | **default_creation_channel_activity_id** | **Integer** |  | [optional][readonly] |
 | **situation** | **Integer** |  | [optional] |
+| **citizenship** | **Integer** |  | [optional] |
+| **visa_status** | **Integer** |  | [optional] |
+| **location** | **Integer** |  | [optional] |
 | **graduation_year** | **Integer** |  | [optional] |
 | **inferred_graduation_date** | **Time** |  | [optional] |
 
@@ -59,6 +62,9 @@ instance = GetIntoTeachingApiClient::MailingListAddMember.new(
   default_creation_channel_service_id: null,
   default_creation_channel_activity_id: null,
   situation: null,
+  citizenship: null,
+  visa_status: null,
+  location: null,
   graduation_year: null,
   inferred_graduation_date: null
 )
