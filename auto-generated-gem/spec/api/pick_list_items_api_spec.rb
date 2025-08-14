@@ -1,7 +1,7 @@
 =begin
 #Get into Teaching API - V1
 
-#                              Provides a RESTful API for integrating with the Get into Teaching CRM.                              The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events).                              The GIT API aims to provide:                              * Simple, task-based RESTful APIs.                              * Message queueing (while the GIT CRM is offline for updates).                              * Validation to ensure consistency across services writing to the GIT CRM.                          
+#                             Provides a RESTful API for integrating with the Get into Teaching CRM.                             The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events).                             The GIT API aims to provide:                             * Simple, task-based RESTful APIs.                             * Message queueing (while the GIT CRM is offline for updates).                             * Validation to ensure consistency across services writing to the GIT CRM.                         
 
 The version of the OpenAPI document: v1
 
@@ -72,6 +72,16 @@ describe 'PickListItemsApi' do
     end
   end
 
+  # unit tests for get_candidate_citizenship
+  # Retrieves the list of citizenship options.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<PickListItem>]
+  describe 'get_candidate_citizenship test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_candidate_event_subscription_channels
   # Retrieves the list of candidate event subscription channels.
   # @param [Hash] opts the optional parameters
@@ -107,6 +117,16 @@ describe 'PickListItemsApi' do
   # @param [Hash] opts the optional parameters
   # @return [Array<PickListItem>]
   describe 'get_candidate_journey_stages test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_candidate_location
+  # Retrieves the list of location options.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<PickListItem>]
+  describe 'get_candidate_location test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -167,6 +187,16 @@ describe 'PickListItemsApi' do
   # @param [Hash] opts the optional parameters
   # @return [Array<PickListItem>]
   describe 'get_candidate_types test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_candidate_visa_status
+  # Retrieves the list of visa status options.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<PickListItem>]
+  describe 'get_candidate_visa_status test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
