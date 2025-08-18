@@ -16,6 +16,7 @@ require 'logger'
 require 'tempfile'
 require 'time'
 require 'faraday'
+require "ostruct"
 
 module GetIntoTeachingApiClient
   class ApiClient
@@ -56,7 +57,7 @@ module GetIntoTeachingApiClient
       }
 
       connection = Faraday.new(:url => config.base_url, :ssl => ssl_options) do |conn|
-        conn.request(:basic_auth, config.username, config.password)
+        conn.request :authorization, :basic, config.username, config.password
         @config.configure_middleware(conn)
         if opts[:header_params]["Content-Type"] == "multipart/form-data"
           conn.request :multipart
