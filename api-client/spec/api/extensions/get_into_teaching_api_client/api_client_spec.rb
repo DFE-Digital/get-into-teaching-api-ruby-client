@@ -213,7 +213,7 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
       .then
       .to_return(status: 200, body: data.to_json)
 
-    expect { perform_get_request }.to raise_error(Faraday::ConnectionFailed)
+    expect { perform_get_request }.to raise_error(GetIntoTeachingApiClient::ApiError)
   end
 
   it "re-raises FaradayError when there is no response" do
@@ -226,13 +226,11 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
     let(:threshold) { 3 }
     let(:timeout) { 5.minutes }
 
-    context "when enabled" do
-      before(:each) do
-        Stoplight::Light.default_data_store = Stoplight::DataStore::Memory.new
+    before(:each) do
+      Stoplight::Light.default_data_store = Stoplight::DataStore::Memory.new
 
-        GetIntoTeachingApiClient.configure do |config|
-          config.circuit_breaker = { enabled: true, threshold: threshold, timeout: timeout }
-        end
+      GetIntoTeachingApiClient.configure do |config|
+        config.circuit_breaker = { enabled: true, threshold: threshold, timeout: timeout }
       end
 
       context "when the API returns a number of errors below the threshold that can cause a broken circuit" do
