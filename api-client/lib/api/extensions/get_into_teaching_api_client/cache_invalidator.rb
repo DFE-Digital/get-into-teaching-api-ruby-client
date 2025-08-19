@@ -19,4 +19,4 @@ class CacheInvalidator < Faraday::Middleware
   end
 end
 
-Faraday::Request.register_middleware invalidate_cache: -> { CacheInvalidator }
+Faraday::Request.register_middleware(invalidate_cache: CacheInvalidator)
