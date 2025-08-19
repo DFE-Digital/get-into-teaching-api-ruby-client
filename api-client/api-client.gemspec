@@ -32,9 +32,9 @@ Gem::Specification.new do |spec|
   spec.add_dependency("faraday")
   spec.add_dependency("faraday-encoding")
   spec.add_dependency("faraday-http-cache")
-  spec.add_dependency("faraday_middleware")
   spec.add_dependency("activesupport")
   spec.add_dependency("faraday_middleware-circuit_breaker")
+  spec.add_dependency("faraday-retry")
 
   spec.add_runtime_dependency("get_into_teaching_api_client")
 end
