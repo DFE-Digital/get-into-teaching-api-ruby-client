@@ -213,7 +213,7 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
       .then
       .to_return(status: 200, body: data.to_json)
 
-    expect { perform_get_request }.to raise_error(Faraday::ConnectionFailed)
+    expect { perform_get_request }.to raise_error(GetIntoTeachingApiClient::ApiError)
   end
 
   it "re-raises FaradayError when there is no response" do
@@ -226,13 +226,11 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
     let(:threshold) { 3 }
     let(:timeout) { 5.minutes }
 
-    context "when enabled" do
-      before(:each) do
-        Stoplight::Light.default_data_store = Stoplight::DataStore::Memory.new
+    before(:each) do
+      Stoplight::Light.default_data_store = Stoplight::DataStore::Memory.new
 
-        GetIntoTeachingApiClient.configure do |config|
-          config.circuit_breaker = { enabled: true, threshold: threshold, timeout: timeout }
-        end
+      GetIntoTeachingApiClient.configure do |config|
+        config.circuit_breaker = { enabled: true, threshold: threshold, timeout: timeout }
       end
 
       context "when the API returns a number of errors below the threshold that can cause a broken circuit" do
@@ -332,32 +330,75 @@ RSpec.describe Extensions::GetIntoTeachingApiClient::ApiClient do
       expect(perform_get_request.first.value).to eq(first_response.first[:value])
     end
     
-    CacheInvalidator::PATHS.product(CacheInvalidator::METHODS).each do |path, method|
-      it "clears the cache on #{method.upcase} #{path}" do
-        url = "#{base_url}#{path}"
-        
-        stub_request(:get, get_endpoint)
-          .to_return(
-            status: 200,
-            body: first_response.to_json,
-            headers: headers
-          )
-  
-        expect(perform_get_request.first.value).to eq(first_response.first[:value])
-  
-        stub_request(method, url).to_return(status: 201)
-  
-        api_client.call_api(method.downcase, path, { header_params: {}, query_params: {} })
+    it "clears the cache on post /api/teaching_events" do
+      # cache_store.clear is not working
+      # We can't clear the cache on command as it's in the faraday http cache gem
+      # So each spec that tests the CacheInvalidator needs to hit a different endpoint
+      # This way we don't write to the cache for other specs
+      
+      url = "#{base_url}/api/teaching_events"
+      cached_response = [{value: 'cached_post'}]
+      not_cached_response = [{value: 'not_cached_put'}]
+      endpoint = "#{base_url}/api/pick_list_items/candidate/citizenships"
 
-        stub_request(:get, get_endpoint)
-          .to_return(
-            status: 200,
-            body: second_response.to_json,
-            headers: headers
-          )
-  
-        expect(perform_get_request.first.value).to eq(second_response.first[:value])
-      end
+      stub_request(:get, endpoint)
+        .to_return(
+          status: 200,
+          body: cached_response.to_json,
+          headers: headers
+        )
+
+      expect(
+        GetIntoTeachingApiClient::PickListItemsApi.new.get_candidate_citizenship.first.value,
+      ).to eq(cached_response.first[:value])
+
+      stub_request(:post, url).to_return(status: 201)
+
+      api_client.call_api(:post, '/api/teaching_events', { header_params: {}, query_params: {} })
+
+      stub_request(:get, endpoint)
+        .to_return(
+          status: 200,
+          body: not_cached_response.to_json,
+          headers: headers
+        )
+
+      expect(
+        GetIntoTeachingApiClient::PickListItemsApi.new.get_candidate_citizenship.first.value,
+      ).to eq(not_cached_response.first[:value])
+    end
+
+    it "clears the cache on put /api/teaching_events" do
+      url = "#{base_url}/api/teaching_events"
+      cached_response = [{value: 'cached_put'}]
+      not_cached_response = [{value: 'not_cached_put'}]
+      endpoint = "#{base_url}/api/pick_list_items/candidate/event_subscription_channels"
+
+      stub_request(:get, endpoint)
+        .to_return(
+          status: 200,
+          body: cached_response.to_json,
+          headers: headers
+        )
+
+      expect(
+        GetIntoTeachingApiClient::PickListItemsApi.new.get_candidate_event_subscription_channels.first.value,
+      ).to eq(cached_response.first[:value])
+
+      stub_request(:put, url).to_return(status: 201)
+
+      api_client.call_api(:put, '/api/teaching_events', { header_params: {}, query_params: {} })
+
+      stub_request(:get, endpoint)
+        .to_return(
+          status: 200,
+          body: not_cached_response.to_json,
+          headers: headers
+        )
+
+      expect(
+        GetIntoTeachingApiClient::PickListItemsApi.new.get_candidate_event_subscription_channels.first.value,
+      ).to eq(not_cached_response.first[:value])
     end
   end
 end

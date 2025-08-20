@@ -4,8 +4,7 @@ module Extensions
       RETRY_OPTIONS = {
         max: 2,
         methods: %i[get],
-        exceptions:
-          ::Faraday::Request::Retry::DEFAULT_EXCEPTIONS + [::Faraday::ConnectionFailed],
+        exceptions: Faraday::Retry::Middleware::DEFAULT_EXCEPTIONS + [Faraday::ConnectionFailed],
       }.freeze
       REQUEST_TIMEOUT = 10.seconds
 
