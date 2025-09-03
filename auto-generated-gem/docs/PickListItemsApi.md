@@ -11,6 +11,7 @@ All URIs are relative to *http://localhost*
 | [**get_candidate_citizenship**](PickListItemsApi.md#get_candidate_citizenship) | **GET** /api/pick_list_items/candidate/citizenships | Retrieves the list of citizenship options. |
 | [**get_candidate_event_subscription_channels**](PickListItemsApi.md#get_candidate_event_subscription_channels) | **GET** /api/pick_list_items/candidate/event_subscription_channels | Retrieves the list of candidate event subscription channels. |
 | [**get_candidate_gcse_status**](PickListItemsApi.md#get_candidate_gcse_status) | **GET** /api/pick_list_items/candidate/gcse_status | Retrieves the list of candidate GCSE status. |
+| [**get_candidate_has_qualified_teacher_statuses**](PickListItemsApi.md#get_candidate_has_qualified_teacher_statuses) | **GET** /api/pick_list_items/candidate/has_qualified_teacher_statuses | Retrieves the list of has qualified teacher statuses (QTS) options. |
 | [**get_candidate_initial_teacher_training_years**](PickListItemsApi.md#get_candidate_initial_teacher_training_years) | **GET** /api/pick_list_items/candidate/initial_teacher_training_years | Retrieves the list of candidate initial teacher training years. |
 | [**get_candidate_journey_stages**](PickListItemsApi.md#get_candidate_journey_stages) | **GET** /api/pick_list_items/candidate/consideration_journey_stages | Retrieves the list of candidate consideration journey stages. |
 | [**get_candidate_location**](PickListItemsApi.md#get_candidate_location) | **GET** /api/pick_list_items/candidate/locations | Retrieves the list of location options. |
@@ -478,6 +479,72 @@ begin
   p data # => <Array<PickListItem>>
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Error when calling PickListItemsApi->get_candidate_gcse_status_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Array&lt;PickListItem&gt;**](PickListItem.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+
+## get_candidate_has_qualified_teacher_statuses
+
+> <Array<PickListItem>> get_candidate_has_qualified_teacher_statuses
+
+Retrieves the list of has qualified teacher statuses (QTS) options.
+
+### Examples
+
+```ruby
+require 'time'
+require 'get_into_teaching_api_client'
+# setup authorization
+GetIntoTeachingApiClient.configure do |config|
+  # Configure API key authorization: apiKey
+  config.api_key['apiKey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['apiKey'] = 'Bearer'
+end
+
+api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
+
+begin
+  # Retrieves the list of has qualified teacher statuses (QTS) options.
+  result = api_instance.get_candidate_has_qualified_teacher_statuses
+  p result
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Error when calling PickListItemsApi->get_candidate_has_qualified_teacher_statuses: #{e}"
+end
+```
+
+#### Using the get_candidate_has_qualified_teacher_statuses_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<PickListItem>>, Integer, Hash)> get_candidate_has_qualified_teacher_statuses_with_http_info
+
+```ruby
+begin
+  # Retrieves the list of has qualified teacher statuses (QTS) options.
+  data, status_code, headers = api_instance.get_candidate_has_qualified_teacher_statuses_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<PickListItem>>
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Error when calling PickListItemsApi->get_candidate_has_qualified_teacher_statuses_with_http_info: #{e}"
 end
 ```
 
