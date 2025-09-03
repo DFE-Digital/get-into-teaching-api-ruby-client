@@ -181,4 +181,10 @@ describe GetIntoTeachingApiClient::TeachingEventAddAttendee do
     end
   end
 
+  describe 'test attribute "accessibility_needs_for_event"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
 end

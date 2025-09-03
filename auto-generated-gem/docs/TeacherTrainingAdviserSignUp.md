@@ -44,6 +44,10 @@
 | **default_creation_channel_activity_id** | **Integer** |  | [optional][readonly] |
 | **graduation_year** | **Integer** |  | [optional] |
 | **inferred_graduation_date** | **Time** |  | [optional] |
+| **situation** | **Integer** |  | [optional] |
+| **citizenship** | **Integer** |  | [optional] |
+| **visa_status** | **Integer** |  | [optional] |
+| **location** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -90,7 +94,11 @@ instance = GetIntoTeachingApiClient::TeacherTrainingAdviserSignUp.new(
   default_creation_channel_service_id: null,
   default_creation_channel_activity_id: null,
   graduation_year: null,
-  inferred_graduation_date: null
+  inferred_graduation_date: null,
+  situation: null,
+  citizenship: null,
+  visa_status: null,
+  location: null
 )
 ```
 

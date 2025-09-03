@@ -95,6 +95,14 @@ module GetIntoTeachingApiClient
 
     attr_accessor :inferred_graduation_date
 
+    attr_accessor :situation
+
+    attr_accessor :citizenship
+
+    attr_accessor :visa_status
+
+    attr_accessor :location
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -137,7 +145,11 @@ module GetIntoTeachingApiClient
         :'default_creation_channel_service_id' => :'defaultCreationChannelServiceId',
         :'default_creation_channel_activity_id' => :'defaultCreationChannelActivityId',
         :'graduation_year' => :'graduationYear',
-        :'inferred_graduation_date' => :'inferredGraduationDate'
+        :'inferred_graduation_date' => :'inferredGraduationDate',
+        :'situation' => :'situation',
+        :'citizenship' => :'citizenship',
+        :'visa_status' => :'visaStatus',
+        :'location' => :'location'
       }
     end
 
@@ -188,7 +200,11 @@ module GetIntoTeachingApiClient
         :'default_creation_channel_service_id' => :'Integer',
         :'default_creation_channel_activity_id' => :'Integer',
         :'graduation_year' => :'Integer',
-        :'inferred_graduation_date' => :'Time'
+        :'inferred_graduation_date' => :'Time',
+        :'situation' => :'Integer',
+        :'citizenship' => :'Integer',
+        :'visa_status' => :'Integer',
+        :'location' => :'Integer'
       }
     end
 
@@ -226,7 +242,11 @@ module GetIntoTeachingApiClient
         :'default_creation_channel_service_id',
         :'default_creation_channel_activity_id',
         :'graduation_year',
-        :'inferred_graduation_date'
+        :'inferred_graduation_date',
+        :'situation',
+        :'citizenship',
+        :'visa_status',
+        :'location'
       ])
     end
 
@@ -404,6 +424,22 @@ module GetIntoTeachingApiClient
       if attributes.key?(:'inferred_graduation_date')
         self.inferred_graduation_date = attributes[:'inferred_graduation_date']
       end
+
+      if attributes.key?(:'situation')
+        self.situation = attributes[:'situation']
+      end
+
+      if attributes.key?(:'citizenship')
+        self.citizenship = attributes[:'citizenship']
+      end
+
+      if attributes.key?(:'visa_status')
+        self.visa_status = attributes[:'visa_status']
+      end
+
+      if attributes.key?(:'location')
+        self.location = attributes[:'location']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -498,7 +534,11 @@ module GetIntoTeachingApiClient
           default_creation_channel_service_id == o.default_creation_channel_service_id &&
           default_creation_channel_activity_id == o.default_creation_channel_activity_id &&
           graduation_year == o.graduation_year &&
-          inferred_graduation_date == o.inferred_graduation_date
+          inferred_graduation_date == o.inferred_graduation_date &&
+          situation == o.situation &&
+          citizenship == o.citizenship &&
+          visa_status == o.visa_status &&
+          location == o.location
     end
 
     # @see the `==` method
@@ -510,7 +550,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [degree_status_id, candidate_id, qualification_id, subject_taught_id, past_teaching_position_id, preferred_teaching_subject_id, country_id, accepted_policy_id, type_id, uk_degree_grade_id, degree_type_id, initial_teacher_training_year_id, stage_taught_id, preferred_education_phase_id, has_gcse_maths_and_english_id, has_gcse_science_id, planning_to_retake_gcse_maths_and_english_id, planning_to_retake_gcse_science_id, adviser_status_id, channel_id, creation_channel_source_id, creation_channel_service_id, creation_channel_activity_id, email, first_name, last_name, date_of_birth, teacher_id, degree_subject, address_telephone, address_postcode, phone_call_scheduled_at, can_subscribe_to_teacher_training_adviser, assignment_status_id, default_contact_creation_channel, default_creation_channel_source_id, default_creation_channel_service_id, default_creation_channel_activity_id, graduation_year, inferred_graduation_date].hash
+      [degree_status_id, candidate_id, qualification_id, subject_taught_id, past_teaching_position_id, preferred_teaching_subject_id, country_id, accepted_policy_id, type_id, uk_degree_grade_id, degree_type_id, initial_teacher_training_year_id, stage_taught_id, preferred_education_phase_id, has_gcse_maths_and_english_id, has_gcse_science_id, planning_to_retake_gcse_maths_and_english_id, planning_to_retake_gcse_science_id, adviser_status_id, channel_id, creation_channel_source_id, creation_channel_service_id, creation_channel_activity_id, email, first_name, last_name, date_of_birth, teacher_id, degree_subject, address_telephone, address_postcode, phone_call_scheduled_at, can_subscribe_to_teacher_training_adviser, assignment_status_id, default_contact_creation_channel, default_creation_channel_source_id, default_creation_channel_service_id, default_creation_channel_activity_id, graduation_year, inferred_graduation_date, situation, citizenship, visa_status, location].hash
     end
 
     # Builds the object from hash

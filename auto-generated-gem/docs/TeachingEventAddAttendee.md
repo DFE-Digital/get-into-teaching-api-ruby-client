@@ -30,6 +30,7 @@
 | **default_creation_channel_source_id** | **Integer** |  | [optional][readonly] |
 | **default_creation_channel_service_id** | **Integer** |  | [optional][readonly] |
 | **default_creation_channel_activity_id** | **Integer** |  | [optional][readonly] |
+| **accessibility_needs_for_event** | **String** |  | [optional] |
 
 ## Example
 
@@ -62,7 +63,8 @@ instance = GetIntoTeachingApiClient::TeachingEventAddAttendee.new(
   default_contact_creation_channel: null,
   default_creation_channel_source_id: null,
   default_creation_channel_service_id: null,
-  default_creation_channel_activity_id: null
+  default_creation_channel_activity_id: null,
+  accessibility_needs_for_event: null
 )
 ```
 

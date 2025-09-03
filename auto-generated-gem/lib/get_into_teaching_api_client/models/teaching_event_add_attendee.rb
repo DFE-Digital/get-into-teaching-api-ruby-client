@@ -67,6 +67,8 @@ module GetIntoTeachingApiClient
 
     attr_accessor :default_creation_channel_activity_id
 
+    attr_accessor :accessibility_needs_for_event
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -95,7 +97,8 @@ module GetIntoTeachingApiClient
         :'default_contact_creation_channel' => :'defaultContactCreationChannel',
         :'default_creation_channel_source_id' => :'defaultCreationChannelSourceId',
         :'default_creation_channel_service_id' => :'defaultCreationChannelServiceId',
-        :'default_creation_channel_activity_id' => :'defaultCreationChannelActivityId'
+        :'default_creation_channel_activity_id' => :'defaultCreationChannelActivityId',
+        :'accessibility_needs_for_event' => :'accessibilityNeedsForEvent'
       }
     end
 
@@ -132,7 +135,8 @@ module GetIntoTeachingApiClient
         :'default_contact_creation_channel' => :'Integer',
         :'default_creation_channel_source_id' => :'Integer',
         :'default_creation_channel_service_id' => :'Integer',
-        :'default_creation_channel_activity_id' => :'Integer'
+        :'default_creation_channel_activity_id' => :'Integer',
+        :'accessibility_needs_for_event' => :'String'
       }
     end
 
@@ -153,7 +157,8 @@ module GetIntoTeachingApiClient
         :'default_contact_creation_channel',
         :'default_creation_channel_source_id',
         :'default_creation_channel_service_id',
-        :'default_creation_channel_activity_id'
+        :'default_creation_channel_activity_id',
+        :'accessibility_needs_for_event'
       ])
     end
 
@@ -274,6 +279,10 @@ module GetIntoTeachingApiClient
 
       if attributes.key?(:'default_creation_channel_activity_id')
         self.default_creation_channel_activity_id = attributes[:'default_creation_channel_activity_id']
+      end
+
+      if attributes.key?(:'accessibility_needs_for_event')
+        self.accessibility_needs_for_event = attributes[:'accessibility_needs_for_event']
       end
     end
 
@@ -440,7 +449,8 @@ module GetIntoTeachingApiClient
           default_contact_creation_channel == o.default_contact_creation_channel &&
           default_creation_channel_source_id == o.default_creation_channel_source_id &&
           default_creation_channel_service_id == o.default_creation_channel_service_id &&
-          default_creation_channel_activity_id == o.default_creation_channel_activity_id
+          default_creation_channel_activity_id == o.default_creation_channel_activity_id &&
+          accessibility_needs_for_event == o.accessibility_needs_for_event
     end
 
     # @see the `==` method
@@ -452,7 +462,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [candidate_id, qualification_id, event_id, channel_id, creation_channel_source_id, creation_channel_service_id, creation_channel_activity_id, accepted_policy_id, preferred_teaching_subject_id, consideration_journey_stage_id, degree_status_id, email, first_name, last_name, address_postcode, address_telephone, is_verified, is_walk_in, subscribe_to_mailing_list, already_subscribed_to_events, already_subscribed_to_mailing_list, already_subscribed_to_teacher_training_adviser, default_contact_creation_channel, default_creation_channel_source_id, default_creation_channel_service_id, default_creation_channel_activity_id].hash
+      [candidate_id, qualification_id, event_id, channel_id, creation_channel_source_id, creation_channel_service_id, creation_channel_activity_id, accepted_policy_id, preferred_teaching_subject_id, consideration_journey_stage_id, degree_status_id, email, first_name, last_name, address_postcode, address_telephone, is_verified, is_walk_in, subscribe_to_mailing_list, already_subscribed_to_events, already_subscribed_to_mailing_list, already_subscribed_to_teacher_training_adviser, default_contact_creation_channel, default_creation_channel_source_id, default_creation_channel_service_id, default_creation_channel_activity_id, accessibility_needs_for_event].hash
     end
 
     # Builds the object from hash
