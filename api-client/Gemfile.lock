@@ -1,13 +1,13 @@
 PATH
   remote: ../auto-generated-gem
   specs:
-    get_into_teaching_api_client (3.7.0)
+    get_into_teaching_api_client (3.7.1)
       faraday (~> 1.0, >= 1.0.1)
 
 PATH
   remote: .
   specs:
-    get_into_teaching_api_client_faraday (3.7.0)
+    get_into_teaching_api_client_faraday (3.7.1)
       activesupport
       faraday
       faraday-encoding
