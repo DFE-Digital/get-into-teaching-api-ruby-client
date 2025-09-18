@@ -42,6 +42,16 @@ describe 'LookupItemsApi' do
     end
   end
 
+  # unit tests for get_degree_countries
+  # Retrieves the list of degree countries.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<Country>]
+  describe 'get_degree_countries test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_teaching_subjects
   # Retrieves the list of teaching subjects.
   # @param [Hash] opts the optional parameters
