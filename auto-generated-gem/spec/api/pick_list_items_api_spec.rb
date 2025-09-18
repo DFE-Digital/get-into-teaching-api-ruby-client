@@ -112,6 +112,16 @@ describe 'PickListItemsApi' do
     end
   end
 
+  # unit tests for get_candidate_has_qualified_teacher_statuses
+  # Retrieves the list of has qualified teacher statuses (QTS) options.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<PickListItem>]
+  describe 'get_candidate_has_qualified_teacher_statuses test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_candidate_initial_teacher_training_years
   # Retrieves the list of candidate initial teacher training years.
   # @param [Hash] opts the optional parameters
