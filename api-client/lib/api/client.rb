@@ -1,5 +1,5 @@
 require "faraday"
-require "faraday_middleware"
+require 'faraday/retry'
 require "faraday/http_cache"
 require "faraday/encoding"
 require "active_support/cache"
