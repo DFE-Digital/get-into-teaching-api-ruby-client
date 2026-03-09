@@ -1,7 +1,7 @@
 =begin
 #Get into Teaching API - V1
 
-#                             Provides a RESTful API for integrating with the Get into Teaching CRM.                             The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events).                             The GIT API aims to provide:                             * Simple, task-based RESTful APIs.                             * Message queueing (while the GIT CRM is offline for updates).                             * Validation to ensure consistency across services writing to the GIT CRM.                         
+#                              Provides a RESTful API for integrating with the Get into Teaching CRM.                              The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events).                              The GIT API aims to provide:                              * Simple, task-based RESTful APIs.                              * Message queueing (while the GIT CRM is offline for updates).                              * Validation to ensure consistency across services writing to the GIT CRM.                          
 
 The version of the OpenAPI document: v1
 
@@ -165,17 +165,17 @@ module GetIntoTeachingApiClient
     # Queue a candidate upsert job.
     # @param teacher_training_adviser_sign_up [TeacherTrainingAdviserSignUp] Candidate to sign up for the Teacher Training Adviser service.
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [DegreeStatusResponse]
     def sign_up_teacher_training_adviser_candidate(teacher_training_adviser_sign_up, opts = {})
-      sign_up_teacher_training_adviser_candidate_with_http_info(teacher_training_adviser_sign_up, opts)
-      nil
+      data, _status_code, _headers = sign_up_teacher_training_adviser_candidate_with_http_info(teacher_training_adviser_sign_up, opts)
+      data
     end
 
     # Sign up a candidate for the Teacher Training Adviser service.
     # Queue a candidate upsert job.
     # @param teacher_training_adviser_sign_up [TeacherTrainingAdviserSignUp] Candidate to sign up for the Teacher Training Adviser service.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(DegreeStatusResponse, Integer, Hash)>] DegreeStatusResponse data, response status code and response headers
     def sign_up_teacher_training_adviser_candidate_with_http_info(teacher_training_adviser_sign_up, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TeacherTrainingAdviserApi.sign_up_teacher_training_adviser_candidate ...'
@@ -207,7 +207,7 @@ module GetIntoTeachingApiClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(teacher_training_adviser_sign_up)
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'DegreeStatusResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['apiKey']

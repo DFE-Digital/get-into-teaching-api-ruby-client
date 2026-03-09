@@ -89,7 +89,7 @@ nil (empty response body)
 
 Retrieves a pre-populated SchoolsExperienceSignUp for the candidate.
 
-                 Retrieves a pre-populated SchoolsExperienceSignUp for the candidate. The `accessToken` is obtained from a                  `POST /candidates/access_tokens` request (you must also ensure the `ExistingCandidateRequest` payload you                  exchanged for your token matches the request payload here).
+                  Retrieves a pre-populated SchoolsExperienceSignUp for the candidate. The `accessToken` is obtained from a                   `POST /candidates/access_tokens` request (you must also ensure the `ExistingCandidateRequest` payload you                   exchanged for your token matches the request payload here).
 
 ### Examples
 
@@ -300,7 +300,7 @@ end
 
 Sign up a candidate for the Schools Experience service.
 
-                 Upsert a candidate. Returns the updated candidate information in the body of the response along                  with a Location header which specifies the location of the candidate
+                  Upsert a candidate. Returns the updated candidate information in the body of the response along                   with a Location header which specifies the location of the candidate
 
 ### Examples
 

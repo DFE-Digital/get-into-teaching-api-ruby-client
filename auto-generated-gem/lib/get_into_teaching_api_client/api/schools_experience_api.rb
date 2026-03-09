@@ -1,7 +1,7 @@
 =begin
 #Get into Teaching API - V1
 
-#                             Provides a RESTful API for integrating with the Get into Teaching CRM.                             The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events).                             The GIT API aims to provide:                             * Simple, task-based RESTful APIs.                             * Message queueing (while the GIT CRM is offline for updates).                             * Validation to ensure consistency across services writing to the GIT CRM.                         
+#                              Provides a RESTful API for integrating with the Get into Teaching CRM.                              The Get into Teaching (GIT) API sits in front of the GIT CRM, which uses the [Microsoft Dynamics365](https://docs.microsoft.com/en-us/dynamics365/) platform (the [Customer Engagement](https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/overview) module is used for storing Candidate information and the [Marketing](https://docs.microsoft.com/en-us/dynamics365/marketing/developer/using-events-api) module for managing Events).                              The GIT API aims to provide:                              * Simple, task-based RESTful APIs.                              * Message queueing (while the GIT CRM is offline for updates).                              * Validation to ensure consistency across services writing to the GIT CRM.                          
 
 The version of the OpenAPI document: v1
 
@@ -94,7 +94,7 @@ module GetIntoTeachingApiClient
     end
 
     # Retrieves a pre-populated SchoolsExperienceSignUp for the candidate.
-    #                  Retrieves a pre-populated SchoolsExperienceSignUp for the candidate. The `accessToken` is obtained from a                  `POST /candidates/access_tokens` request (you must also ensure the `ExistingCandidateRequest` payload you                  exchanged for your token matches the request payload here).
+    #                   Retrieves a pre-populated SchoolsExperienceSignUp for the candidate. The `accessToken` is obtained from a                   `POST /candidates/access_tokens` request (you must also ensure the `ExistingCandidateRequest` payload you                   exchanged for your token matches the request payload here).
     # @param access_token [String] Access token (PIN code).
     # @param existing_candidate_request [ExistingCandidateRequest] Candidate access token request (must match an existing candidate).
     # @param [Hash] opts the optional parameters
@@ -105,7 +105,7 @@ module GetIntoTeachingApiClient
     end
 
     # Retrieves a pre-populated SchoolsExperienceSignUp for the candidate.
-    #                  Retrieves a pre-populated SchoolsExperienceSignUp for the candidate. The &#x60;accessToken&#x60; is obtained from a                  &#x60;POST /candidates/access_tokens&#x60; request (you must also ensure the &#x60;ExistingCandidateRequest&#x60; payload you                  exchanged for your token matches the request payload here).
+    #                   Retrieves a pre-populated SchoolsExperienceSignUp for the candidate. The &#x60;accessToken&#x60; is obtained from a                   &#x60;POST /candidates/access_tokens&#x60; request (you must also ensure the &#x60;ExistingCandidateRequest&#x60; payload you                   exchanged for your token matches the request payload here).
     # @param access_token [String] Access token (PIN code).
     # @param existing_candidate_request [ExistingCandidateRequest] Candidate access token request (must match an existing candidate).
     # @param [Hash] opts the optional parameters
@@ -291,7 +291,7 @@ module GetIntoTeachingApiClient
     end
 
     # Sign up a candidate for the Schools Experience service.
-    #                  Upsert a candidate. Returns the updated candidate information in the body of the response along                  with a Location header which specifies the location of the candidate
+    #                   Upsert a candidate. Returns the updated candidate information in the body of the response along                   with a Location header which specifies the location of the candidate
     # @param schools_experience_sign_up [SchoolsExperienceSignUp] Candidate to sign up for the Schools Experience service.
     # @param [Hash] opts the optional parameters
     # @return [SchoolsExperienceSignUp]
@@ -301,7 +301,7 @@ module GetIntoTeachingApiClient
     end
 
     # Sign up a candidate for the Schools Experience service.
-    #                  Upsert a candidate. Returns the updated candidate information in the body of the response along                  with a Location header which specifies the location of the candidate
+    #                   Upsert a candidate. Returns the updated candidate information in the body of the response along                   with a Location header which specifies the location of the candidate
     # @param schools_experience_sign_up [SchoolsExperienceSignUp] Candidate to sign up for the Schools Experience service.
     # @param [Hash] opts the optional parameters
     # @return [Array<(SchoolsExperienceSignUp, Integer, Hash)>] SchoolsExperienceSignUp data, response status code and response headers
