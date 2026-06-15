@@ -4,9 +4,9 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **email** | **String** |  |  |
 | **first_name** | **String** |  | [optional] |
 | **last_name** | **String** |  | [optional] |
-| **email** | **String** |  |  |
 | **date_of_birth** | **Time** |  | [optional] |
 | **reference** | **String** |  | [optional] |
 
@@ -16,11 +16,11 @@
 require 'get_into_teaching_api_client'
 
 instance = GetIntoTeachingApiClient::ExistingCandidateRequest.new(
-  first_name: null,
-  last_name: null,
-  email: null,
+  email: johndoe@example.com,
+  first_name: John,
+  last_name: Doe,
   date_of_birth: null,
-  reference: null
+  reference: ABC123
 )
 ```
 

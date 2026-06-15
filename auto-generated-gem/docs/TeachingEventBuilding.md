@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **String** |  | [optional] |
+| **id** | **String** |  |  |
 | **venue** | **String** |  |  |
 | **address_line1** | **String** |  | [optional] |
 | **address_line2** | **String** |  | [optional] |
@@ -19,13 +19,13 @@
 require 'get_into_teaching_api_client'
 
 instance = GetIntoTeachingApiClient::TeachingEventBuilding.new(
-  id: null,
-  venue: null,
-  address_line1: null,
+  id: 3290fb7f-93b4-eb11-8236-000d3a26ba1b,
+  venue: The Open University in Wales,
+  address_line1: Custom House Street,
   address_line2: null,
   address_line3: null,
-  address_city: null,
-  address_postcode: null,
+  address_city: Cardiff,
+  address_postcode: CF10 1AP,
   image_url: null
 )
 ```

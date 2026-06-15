@@ -1,11 +1,11 @@
 # GetIntoTeachingApiClient::TeacherTrainingAdviserApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *http://localhost:3000*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**exchange_access_token_for_teacher_training_adviser_sign_up**](TeacherTrainingAdviserApi.md#exchange_access_token_for_teacher_training_adviser_sign_up) | **POST** /api/teacher_training_adviser/candidates/exchange_access_token/{accessToken} | Retrieves a pre-populated TeacherTrainingAdviserSignUp for the candidate. |
-| [**matchback_candidate**](TeacherTrainingAdviserApi.md#matchback_candidate) | **POST** /api/teacher_training_adviser/candidates/matchback | Perform a matchback operation to retrieve a pre-populated TeacherTrainingAdviserSignUp for the candidate. |
+| [**exchange_access_token_for_teacher_training_adviser_sign_up**](TeacherTrainingAdviserApi.md#exchange_access_token_for_teacher_training_adviser_sign_up) | **POST** /api/teacher_training_adviser/candidates/exchange_access_token/{accessToken} | Exchange an access token for a full candidate sign-up. |
+| [**matchback_candidate**](TeacherTrainingAdviserApi.md#matchback_candidate) | **POST** /api/teacher_training_adviser/matchbacks | Perform a matchback operation to retrieve a pre-populated sign up for the candidate. |
 | [**sign_up_teacher_training_adviser_candidate**](TeacherTrainingAdviserApi.md#sign_up_teacher_training_adviser_candidate) | **POST** /api/teacher_training_adviser/candidates | Sign up a candidate for the Teacher Training Adviser service. |
 
 
@@ -13,9 +13,7 @@ All URIs are relative to *http://localhost*
 
 > <TeacherTrainingAdviserSignUp> exchange_access_token_for_teacher_training_adviser_sign_up(access_token, existing_candidate_request)
 
-Retrieves a pre-populated TeacherTrainingAdviserSignUp for the candidate.
-
-                  Retrieves a pre-populated TeacherTrainingAdviserSignUp for the candidate. The `accessToken` is obtained from a                   `POST /candidates/access_tokens` request (you must also ensure the `ExistingCandidateRequest` payload you                   exchanged for your token matches the request payload here).
+Exchange an access token for a full candidate sign-up.
 
 ### Examples
 
@@ -24,18 +22,16 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::TeacherTrainingAdviserApi.new
-access_token = 'access_token_example' # String | Access token (PIN code).
-existing_candidate_request = GetIntoTeachingApiClient::ExistingCandidateRequest.new({email: 'email_example'}) # ExistingCandidateRequest | Candidate access token request (must match an existing candidate).
+access_token = 'access_token_example' # String | The access token to exchange.
+existing_candidate_request = GetIntoTeachingApiClient::ExistingCandidateRequest.new({email: 'johndoe@example.com'}) # ExistingCandidateRequest | Candidate details to exchange.
 
 begin
-  # Retrieves a pre-populated TeacherTrainingAdviserSignUp for the candidate.
+  # Exchange an access token for a full candidate sign-up.
   result = api_instance.exchange_access_token_for_teacher_training_adviser_sign_up(access_token, existing_candidate_request)
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
@@ -51,7 +47,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieves a pre-populated TeacherTrainingAdviserSignUp for the candidate.
+  # Exchange an access token for a full candidate sign-up.
   data, status_code, headers = api_instance.exchange_access_token_for_teacher_training_adviser_sign_up_with_http_info(access_token, existing_candidate_request)
   p status_code # => 2xx
   p headers # => { ... }
@@ -65,8 +61,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **access_token** | **String** | Access token (PIN code). |  |
-| **existing_candidate_request** | [**ExistingCandidateRequest**](ExistingCandidateRequest.md) | Candidate access token request (must match an existing candidate). |  |
+| **access_token** | **String** | The access token to exchange. |  |
+| **existing_candidate_request** | [**ExistingCandidateRequest**](ExistingCandidateRequest.md) | Candidate details to exchange. |  |
 
 ### Return type
 
@@ -74,21 +70,19 @@ end
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, text/json, application/*+json
-- **Accept**: text/plain, application/json, text/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
 ## matchback_candidate
 
 > <TeacherTrainingAdviserSignUp> matchback_candidate(existing_candidate_request)
 
-Perform a matchback operation to retrieve a pre-populated TeacherTrainingAdviserSignUp for the candidate.
-
-Attempts to matchback against a known candidate and returns a pre-populated TeacherTrainingAdviser sign up if a match is found.
+Perform a matchback operation to retrieve a pre-populated sign up for the candidate.
 
 ### Examples
 
@@ -97,17 +91,15 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::TeacherTrainingAdviserApi.new
-existing_candidate_request = GetIntoTeachingApiClient::ExistingCandidateRequest.new({email: 'email_example'}) # ExistingCandidateRequest | Candidate details to matchback.
+existing_candidate_request = GetIntoTeachingApiClient::ExistingCandidateRequest.new({email: 'johndoe@example.com'}) # ExistingCandidateRequest | Candidate details to matchback.
 
 begin
-  # Perform a matchback operation to retrieve a pre-populated TeacherTrainingAdviserSignUp for the candidate.
+  # Perform a matchback operation to retrieve a pre-populated sign up for the candidate.
   result = api_instance.matchback_candidate(existing_candidate_request)
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
@@ -123,7 +115,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Perform a matchback operation to retrieve a pre-populated TeacherTrainingAdviserSignUp for the candidate.
+  # Perform a matchback operation to retrieve a pre-populated sign up for the candidate.
   data, status_code, headers = api_instance.matchback_candidate_with_http_info(existing_candidate_request)
   p status_code # => 2xx
   p headers # => { ... }
@@ -145,12 +137,12 @@ end
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, text/json, application/*+json
-- **Accept**: text/plain, application/json, text/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
 ## sign_up_teacher_training_adviser_candidate
@@ -159,8 +151,6 @@ end
 
 Sign up a candidate for the Teacher Training Adviser service.
 
-Queue a candidate upsert job.
-
 ### Examples
 
 ```ruby
@@ -168,14 +158,12 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::TeacherTrainingAdviserApi.new
-teacher_training_adviser_sign_up = GetIntoTeachingApiClient::TeacherTrainingAdviserSignUp.new({country_id: 'country_id_example', accepted_policy_id: 'accepted_policy_id_example', type_id: 37, email: 'email_example', first_name: 'first_name_example', last_name: 'last_name_example', date_of_birth: Date.today}) # TeacherTrainingAdviserSignUp | Candidate to sign up for the Teacher Training Adviser service.
+teacher_training_adviser_sign_up = GetIntoTeachingApiClient::TeacherTrainingAdviserSignUp.new({email: 'johndoe@example.com', first_name: 'John', last_name: 'Doe', date_of_birth: Date.parse('Sat Jan 01 00:00:00 GMT 2000'), country_id: '38ce2d0f-0b1f-ee11-9967-6045bd8c5762', accepted_policy_id: '4872c8ed-0229-f111-8342-7c1e5285e3ab', type_id: 222750000}) # TeacherTrainingAdviserSignUp | Candidate to sign up for the Teacher Training Adviser service.
 
 begin
   # Sign up a candidate for the Teacher Training Adviser service.
@@ -216,10 +204,10 @@ end
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, text/json, application/*+json
-- **Accept**: text/plain, application/json, text/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 

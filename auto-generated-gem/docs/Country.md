@@ -4,9 +4,9 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **String** |  | [optional] |
-| **value** | **String** |  | [optional] |
-| **iso_code** | **String** |  | [optional] |
+| **id** | **String** |  |  |
+| **value** | **String** |  |  |
+| **iso_code** | **String** |  |  |
 
 ## Example
 
@@ -14,9 +14,9 @@
 require 'get_into_teaching_api_client'
 
 instance = GetIntoTeachingApiClient::Country.new(
-  id: null,
-  value: null,
-  iso_code: null
+  id: 123e4567-e89b-12d3-a456-426614174000,
+  value: United Kingdom,
+  iso_code: GB
 )
 ```
 

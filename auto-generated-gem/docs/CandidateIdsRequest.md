@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **candidate_ids** | **Array&lt;Integer&gt;** |  | [optional] |
+| **candidate_ids** | **Array&lt;Integer&gt;** | The candidate IDs to backfill. | [optional] |
 
 ## Example
 
@@ -12,7 +12,7 @@
 require 'get_into_teaching_api_client'
 
 instance = GetIntoTeachingApiClient::CandidateIdsRequest.new(
-  candidate_ids: null
+  candidate_ids: [123,456,789]
 )
 ```
 

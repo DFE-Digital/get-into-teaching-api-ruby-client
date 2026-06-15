@@ -1,11 +1,11 @@
 # GetIntoTeachingApiClient::OperationsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *http://localhost:3000*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**backfill_apply_candidates**](OperationsApi.md#backfill_apply_candidates) | **POST** /api/operations/backfill_apply_candidates | Triggers a backfill job to sync the CRM with the Apply candidates. |
-| [**backfill_apply_candidates_from_ids**](OperationsApi.md#backfill_apply_candidates_from_ids) | **POST** /api/operations/backfill_apply_candidates_from_ids | Triggers a backfill job to sync the CRM with the Apply candidates for specified candidate Ids. |
+| [**backfill_apply_candidates_from_ids**](OperationsApi.md#backfill_apply_candidates_from_ids) | **POST** /api/operations/backfill_apply_candidates_from_ids | Triggers a backfill job to sync the CRM with the Apply candidates for specified candidate IDs. |
 | [**generate_mapping_info**](OperationsApi.md#generate_mapping_info) | **GET** /api/operations/generate_mapping_info | Generates the mapping information. |
 | [**health_check**](OperationsApi.md#health_check) | **GET** /api/operations/health_check | Performs a health check. |
 | [**pause_crm_integration**](OperationsApi.md#pause_crm_integration) | **PUT** /api/operations/pause_crm_integration | Temporarily pauses the integration with the CRM. |
@@ -14,7 +14,7 @@ All URIs are relative to *http://localhost*
 
 ## backfill_apply_candidates
 
-> backfill_apply_candidates(opts)
+> backfill_apply_candidates(updated_since)
 
 Triggers a backfill job to sync the CRM with the Apply candidates.
 
@@ -27,20 +27,16 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::OperationsApi.new
-opts = {
-  updated_since: Time.parse('2013-10-20T19:20:30+01:00') # Time | 
-}
+updated_since = Time.parse('2026-06-22T00:00:00Z') # Time | Only candidates updated since this date will be backfilled.
 
 begin
   # Triggers a backfill job to sync the CRM with the Apply candidates.
-  api_instance.backfill_apply_candidates(opts)
+  api_instance.backfill_apply_candidates(updated_since)
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Error when calling OperationsApi->backfill_apply_candidates: #{e}"
 end
@@ -50,12 +46,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> backfill_apply_candidates_with_http_info(opts)
+> <Array(nil, Integer, Hash)> backfill_apply_candidates_with_http_info(updated_since)
 
 ```ruby
 begin
   # Triggers a backfill job to sync the CRM with the Apply candidates.
-  data, status_code, headers = api_instance.backfill_apply_candidates_with_http_info(opts)
+  data, status_code, headers = api_instance.backfill_apply_candidates_with_http_info(updated_since)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -68,7 +64,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **updated_since** | **Time** |  | [optional] |
+| **updated_since** | **Time** | Only candidates updated since this date will be backfilled. |  |
 
 ### Return type
 
@@ -76,21 +72,21 @@ nil (empty response body)
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## backfill_apply_candidates_from_ids
 
 > backfill_apply_candidates_from_ids(candidate_ids_request)
 
-Triggers a backfill job to sync the CRM with the Apply candidates for specified candidate Ids.
+Triggers a backfill job to sync the CRM with the Apply candidates for specified candidate IDs.
 
-The backfill will query all candidate information from the Apply API and queue jobs to sync the data with the CRM.
+The backfill will query all candidate information from the Apply API and queue jobs to sync the data with the CRM for the specified candidate IDs.
 
 ### Examples
 
@@ -99,17 +95,15 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::OperationsApi.new
-candidate_ids_request = GetIntoTeachingApiClient::CandidateIdsRequest.new # CandidateIdsRequest | Candidate IDs to backfill
+candidate_ids_request = GetIntoTeachingApiClient::CandidateIdsRequest.new # CandidateIdsRequest | Candidate IDs to backfill.
 
 begin
-  # Triggers a backfill job to sync the CRM with the Apply candidates for specified candidate Ids.
+  # Triggers a backfill job to sync the CRM with the Apply candidates for specified candidate IDs.
   api_instance.backfill_apply_candidates_from_ids(candidate_ids_request)
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Error when calling OperationsApi->backfill_apply_candidates_from_ids: #{e}"
@@ -124,7 +118,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # Triggers a backfill job to sync the CRM with the Apply candidates for specified candidate Ids.
+  # Triggers a backfill job to sync the CRM with the Apply candidates for specified candidate IDs.
   data, status_code, headers = api_instance.backfill_apply_candidates_from_ids_with_http_info(candidate_ids_request)
   p status_code # => 2xx
   p headers # => { ... }
@@ -138,7 +132,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **candidate_ids_request** | [**CandidateIdsRequest**](CandidateIdsRequest.md) | Candidate IDs to backfill |  |
+| **candidate_ids_request** | [**CandidateIdsRequest**](CandidateIdsRequest.md) | Candidate IDs to backfill. |  |
 
 ### Return type
 
@@ -146,12 +140,12 @@ nil (empty response body)
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, text/json, application/*+json
-- **Accept**: text/plain, application/json, text/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
 ## generate_mapping_info
@@ -167,6 +161,11 @@ Generates the mapping information describing how the models in the API map to th
 ```ruby
 require 'time'
 require 'get_into_teaching_api_client'
+# setup authorization
+GetIntoTeachingApiClient.configure do |config|
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
 
 api_instance = GetIntoTeachingApiClient::OperationsApi.new
 
@@ -207,12 +206,12 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## health_check
@@ -221,11 +220,18 @@ No authorization required
 
 Performs a health check.
 
+Checks the health of the API and its dependencies.
+
 ### Examples
 
 ```ruby
 require 'time'
 require 'get_into_teaching_api_client'
+# setup authorization
+GetIntoTeachingApiClient.configure do |config|
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
 
 api_instance = GetIntoTeachingApiClient::OperationsApi.new
 
@@ -266,17 +272,17 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## pause_crm_integration
 
-> <HealthCheckResponse> pause_crm_integration
+> pause_crm_integration
 
 Temporarily pauses the integration with the CRM.
 
@@ -289,18 +295,15 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::OperationsApi.new
 
 begin
   # Temporarily pauses the integration with the CRM.
-  result = api_instance.pause_crm_integration
-  p result
+  api_instance.pause_crm_integration
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Error when calling OperationsApi->pause_crm_integration: #{e}"
 end
@@ -308,9 +311,9 @@ end
 
 #### Using the pause_crm_integration_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(<HealthCheckResponse>, Integer, Hash)> pause_crm_integration_with_http_info
+> <Array(nil, Integer, Hash)> pause_crm_integration_with_http_info
 
 ```ruby
 begin
@@ -318,7 +321,7 @@ begin
   data, status_code, headers = api_instance.pause_crm_integration_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <HealthCheckResponse>
+  p data # => nil
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Error when calling OperationsApi->pause_crm_integration_with_http_info: #{e}"
 end
@@ -330,23 +333,25 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**HealthCheckResponse**](HealthCheckResponse.md)
+nil (empty response body)
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## resume_crm_integration
 
-> <HealthCheckResponse> resume_crm_integration
+> resume_crm_integration
 
 Resumes the integration with the CRM (after being paused).
+
+Resumes the API -> CRM integration after it has been paused.
 
 ### Examples
 
@@ -355,18 +360,15 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::OperationsApi.new
 
 begin
   # Resumes the integration with the CRM (after being paused).
-  result = api_instance.resume_crm_integration
-  p result
+  api_instance.resume_crm_integration
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Error when calling OperationsApi->resume_crm_integration: #{e}"
 end
@@ -374,9 +376,9 @@ end
 
 #### Using the resume_crm_integration_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(<HealthCheckResponse>, Integer, Hash)> resume_crm_integration_with_http_info
+> <Array(nil, Integer, Hash)> resume_crm_integration_with_http_info
 
 ```ruby
 begin
@@ -384,7 +386,7 @@ begin
   data, status_code, headers = api_instance.resume_crm_integration_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <HealthCheckResponse>
+  p data # => nil
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Error when calling OperationsApi->resume_crm_integration_with_http_info: #{e}"
 end
@@ -396,14 +398,14 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**HealthCheckResponse**](HealthCheckResponse.md)
+nil (empty response body)
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 

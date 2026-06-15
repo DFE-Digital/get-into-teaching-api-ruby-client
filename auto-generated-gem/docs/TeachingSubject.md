@@ -13,8 +13,8 @@
 require 'get_into_teaching_api_client'
 
 instance = GetIntoTeachingApiClient::TeachingSubject.new(
-  id: null,
-  value: null
+  id: 123e4567-e89b-12d3-a456-426614174000,
+  value: Chemistry
 )
 ```
 

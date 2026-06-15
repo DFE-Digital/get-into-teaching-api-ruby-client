@@ -4,14 +4,14 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **String** |  | [optional] |
-| **time_slot** | **String** |  | [optional] |
-| **day** | **String** |  | [optional] |
-| **start_at** | **Time** |  | [optional] |
-| **end_at** | **Time** |  | [optional] |
-| **number_of_bookings** | **Integer** |  | [optional] |
-| **quota** | **Integer** |  | [optional] |
-| **is_available** | **Boolean** |  | [optional][readonly] |
+| **id** | **String** |  |  |
+| **time_slot** | **String** |  |  |
+| **day** | **String** |  |  |
+| **start_at** | **Time** |  |  |
+| **end_at** | **Time** |  |  |
+| **number_of_bookings** | **Integer** |  |  |
+| **quota** | **Integer** |  |  |
+| **is_available** | **Boolean** |  |  |
 
 ## Example
 
@@ -19,14 +19,14 @@
 require 'get_into_teaching_api_client'
 
 instance = GetIntoTeachingApiClient::CallbackBookingQuota.new(
-  id: null,
-  time_slot: null,
-  day: null,
-  start_at: null,
-  end_at: null,
-  number_of_bookings: null,
-  quota: null,
-  is_available: null
+  id: 27d74cc7-7fa3-f011-bbd3-000d3a384b51,
+  time_slot: 9:30am - 10am,
+  day: Thursday 30 April,
+  start_at: 2026-04-30T08:30Z,
+  end_at: 2026-04-30T09:00Z,
+  number_of_bookings: 0,
+  quota: 20,
+  is_available: true
 )
 ```
 

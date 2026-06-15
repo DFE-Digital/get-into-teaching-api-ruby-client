@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Integer** |  | [optional] |
-| **value** | **String** |  | [optional] |
+| **id** | **Integer** |  |  |
+| **value** | **String** |  |  |
 
 ## Example
 
@@ -13,8 +13,8 @@
 require 'get_into_teaching_api_client'
 
 instance = GetIntoTeachingApiClient::PickListItem.new(
-  id: null,
-  value: null
+  id: 222750000,
+  value: Example value
 )
 ```
 

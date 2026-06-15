@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **success** | **Boolean** |  | [optional][readonly] |
+| **success** | **Boolean** | Whether the magic link token exchange was successful. | [optional] |
 | **status** | [**ExchangeStatus**](ExchangeStatus.md) |  | [optional] |
 
 ## Example
@@ -13,7 +13,7 @@
 require 'get_into_teaching_api_client'
 
 instance = GetIntoTeachingApiClient::CandidateMagicLinkExchangeResult.new(
-  success: null,
+  success: false,
   status: null
 )
 ```
