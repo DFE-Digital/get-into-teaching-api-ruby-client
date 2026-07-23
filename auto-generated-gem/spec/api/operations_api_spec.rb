@@ -32,69 +32,12 @@ describe 'OperationsApi' do
     end
   end
 
-  # unit tests for backfill_apply_candidates
-  # Triggers a backfill job to sync the CRM with the Apply candidates.
-  # The backfill will query all candidate information from the Apply API and queue jobs to sync the data with the CRM.
-  # @param updated_since Only candidates updated since this date will be backfilled.
-  # @param [Hash] opts the optional parameters
-  # @return [nil]
-  describe 'backfill_apply_candidates test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
-  # unit tests for backfill_apply_candidates_from_ids
-  # Triggers a backfill job to sync the CRM with the Apply candidates for specified candidate IDs.
-  # The backfill will query all candidate information from the Apply API and queue jobs to sync the data with the CRM for the specified candidate IDs.
-  # @param candidate_ids_request Candidate IDs to backfill.
-  # @param [Hash] opts the optional parameters
-  # @return [nil]
-  describe 'backfill_apply_candidates_from_ids test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
-  # unit tests for generate_mapping_info
-  # Generates the mapping information.
-  # Generates the mapping information describing how the models in the API map to the corresponding entities in Dynamics 365.
-  # @param [Hash] opts the optional parameters
-  # @return [Array<MappingInfo>]
-  describe 'generate_mapping_info test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   # unit tests for health_check
   # Performs a health check.
   # Checks the health of the API and its dependencies.
   # @param [Hash] opts the optional parameters
   # @return [HealthCheckResponse]
   describe 'health_check test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
-  # unit tests for pause_crm_integration
-  # Temporarily pauses the integration with the CRM.
-  # The CRM is taken offline for updates occasionally; this can result in errors when the API attempts to call out to the CRM. The CRM can call this endpoint to pause the API -&gt; CRM integration (if not manually resumed it will auto-resume in 6 hours).
-  # @param [Hash] opts the optional parameters
-  # @return [nil]
-  describe 'pause_crm_integration test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
-  # unit tests for resume_crm_integration
-  # Resumes the integration with the CRM (after being paused).
-  # Resumes the API -&gt; CRM integration after it has been paused.
-  # @param [Hash] opts the optional parameters
-  # @return [nil]
-  describe 'resume_crm_integration test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

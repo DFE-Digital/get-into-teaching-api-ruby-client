@@ -32,43 +32,6 @@ describe 'TeachingEventsApi' do
     end
   end
 
-  # unit tests for add_teaching_event_attendee
-  # Adds an attendee to a teaching event.
-  # Adds an attendee to a teaching event. The event must have a &#x60;web_feed_id&#x60; to accept external attendees. 
-  # @param teaching_event_add_attendee Attendee details to add.
-  # @param [Hash] opts the optional parameters
-  # @return [nil]
-  describe 'add_teaching_event_attendee test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
-  # unit tests for exchange_access_token_for_teaching_event_add_attendee
-  # Retrieves a pre-populated attendee for the candidate.
-  # Retrieves a pre-populated TeachingEventAddAttendee for the candidate. The access token is obtained from a &#x60;POST /api/candidates/access_tokens&#x60; request. 
-  # @param access_token The access token to exchange.
-  # @param existing_candidate_request Candidate details to exchange.
-  # @param [Hash] opts the optional parameters
-  # @return [TeachingEventAddAttendee]
-  describe 'exchange_access_token_for_teaching_event_add_attendee test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
-  # unit tests for exchange_unverified_request_for_teaching_event_add_attendee
-  # Retrieves a pre-populated attendee for the candidate without requiring verification.
-  # Retrieves a pre-populated attendee for the candidate. This mechanism should be used with caution and the candidate should be treated as \&quot;unverified\&quot; by the client. 
-  # @param existing_candidate_request Candidate details to exchange.
-  # @param [Hash] opts the optional parameters
-  # @return [TeachingEventAddAttendee]
-  describe 'exchange_unverified_request_for_teaching_event_add_attendee test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   # unit tests for get_teaching_event
   # Retrieves a teaching event.
   # @param readable_id The readable ID of the teaching event.

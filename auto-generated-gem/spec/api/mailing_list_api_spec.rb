@@ -56,16 +56,4 @@ describe 'MailingListApi' do
     end
   end
 
-  # unit tests for exchange_magic_link_token_for_mailing_list_add_member
-  # Exchange a magic link token for a mailing list member sign-up.
-  # Retrieves a pre-populated MailingListAddMember for the candidate. The &#x60;magicLinkToken&#x60; is obtained from a &#x60;POST /api/candidates/magic_link_tokens&#x60; request. 
-  # @param magic_link_token The magic link token to exchange.
-  # @param [Hash] opts the optional parameters
-  # @return [MailingListAddMember]
-  describe 'exchange_magic_link_token_for_mailing_list_add_member test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
 end

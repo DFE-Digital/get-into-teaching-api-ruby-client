@@ -94,13 +94,7 @@ Class | Method | HTTP request | Description
 *GetIntoTeachingApiClient::LookupItemsApi* | [**get_teaching_subjects**](docs/LookupItemsApi.md#get_teaching_subjects) | **GET** /api/lookup_items/teaching_subjects | list teaching subjects
 *GetIntoTeachingApiClient::MailingListApi* | [**add_mailing_list_member**](docs/MailingListApi.md#add_mailing_list_member) | **POST** /api/mailing_list/members | Adds a new member to the mailing list.
 *GetIntoTeachingApiClient::MailingListApi* | [**exchange_access_token_for_mailing_list_add_member**](docs/MailingListApi.md#exchange_access_token_for_mailing_list_add_member) | **POST** /api/mailing_list/members/exchange_access_token/{accessToken} | Exchange an access token for a mailing list member sign-up.
-*GetIntoTeachingApiClient::MailingListApi* | [**exchange_magic_link_token_for_mailing_list_add_member**](docs/MailingListApi.md#exchange_magic_link_token_for_mailing_list_add_member) | **GET** /api/mailing_list/members/exchange_magic_link_token/{magicLinkToken} | Exchange a magic link token for a mailing list member sign-up.
-*GetIntoTeachingApiClient::OperationsApi* | [**backfill_apply_candidates**](docs/OperationsApi.md#backfill_apply_candidates) | **POST** /api/operations/backfill_apply_candidates | Triggers a backfill job to sync the CRM with the Apply candidates.
-*GetIntoTeachingApiClient::OperationsApi* | [**backfill_apply_candidates_from_ids**](docs/OperationsApi.md#backfill_apply_candidates_from_ids) | **POST** /api/operations/backfill_apply_candidates_from_ids | Triggers a backfill job to sync the CRM with the Apply candidates for specified candidate IDs.
-*GetIntoTeachingApiClient::OperationsApi* | [**generate_mapping_info**](docs/OperationsApi.md#generate_mapping_info) | **GET** /api/operations/generate_mapping_info | Generates the mapping information.
 *GetIntoTeachingApiClient::OperationsApi* | [**health_check**](docs/OperationsApi.md#health_check) | **GET** /api/operations/health_check | Performs a health check.
-*GetIntoTeachingApiClient::OperationsApi* | [**pause_crm_integration**](docs/OperationsApi.md#pause_crm_integration) | **PUT** /api/operations/pause_crm_integration | Temporarily pauses the integration with the CRM.
-*GetIntoTeachingApiClient::OperationsApi* | [**resume_crm_integration**](docs/OperationsApi.md#resume_crm_integration) | **PUT** /api/operations/resume_crm_integration | Resumes the integration with the CRM (after being paused).
 *GetIntoTeachingApiClient::PickListItemsApi* | [**get_candidate_adviser_eligibilities**](docs/PickListItemsApi.md#get_candidate_adviser_eligibilities) | **GET** /api/pick_list_items/candidate/adviser_eligibilities | Retrieves the list of candidate adviser eligibilities.
 *GetIntoTeachingApiClient::PickListItemsApi* | [**get_candidate_adviser_requirements**](docs/PickListItemsApi.md#get_candidate_adviser_requirements) | **GET** /api/pick_list_items/candidate/adviser_requirements | Retrieves the list of candidate adviser requirements.
 *GetIntoTeachingApiClient::PickListItemsApi* | [**get_candidate_assignment_statuses**](docs/PickListItemsApi.md#get_candidate_assignment_statuses) | **GET** /api/pick_list_items/candidate/assignment_statuses | Retrieves the list of candidate assignment statuses.
@@ -144,9 +138,6 @@ Class | Method | HTTP request | Description
 *GetIntoTeachingApiClient::TeacherTrainingAdviserApi* | [**matchback_candidate**](docs/TeacherTrainingAdviserApi.md#matchback_candidate) | **POST** /api/teacher_training_adviser/matchbacks | Perform a matchback operation to retrieve a pre-populated sign up for the candidate.
 *GetIntoTeachingApiClient::TeacherTrainingAdviserApi* | [**sign_up_teacher_training_adviser_candidate**](docs/TeacherTrainingAdviserApi.md#sign_up_teacher_training_adviser_candidate) | **POST** /api/teacher_training_adviser/candidates | Sign up a candidate for the Teacher Training Adviser service.
 *GetIntoTeachingApiClient::TeachingEventBuildingsApi* | [**get_teaching_event_buildings**](docs/TeachingEventBuildingsApi.md#get_teaching_event_buildings) | **GET** /api/teaching_event_buildings | Retrieves all event buildings.
-*GetIntoTeachingApiClient::TeachingEventsApi* | [**add_teaching_event_attendee**](docs/TeachingEventsApi.md#add_teaching_event_attendee) | **POST** /api/teaching_events/attendees | Adds an attendee to a teaching event.
-*GetIntoTeachingApiClient::TeachingEventsApi* | [**exchange_access_token_for_teaching_event_add_attendee**](docs/TeachingEventsApi.md#exchange_access_token_for_teaching_event_add_attendee) | **POST** /api/teaching_events/attendees/exchange_access_token/{access_token} | Retrieves a pre-populated attendee for the candidate.
-*GetIntoTeachingApiClient::TeachingEventsApi* | [**exchange_unverified_request_for_teaching_event_add_attendee**](docs/TeachingEventsApi.md#exchange_unverified_request_for_teaching_event_add_attendee) | **POST** /api/teaching_events/attendees/exchange_unverified_request | Retrieves a pre-populated attendee for the candidate without requiring verification.
 *GetIntoTeachingApiClient::TeachingEventsApi* | [**get_teaching_event**](docs/TeachingEventsApi.md#get_teaching_event) | **GET** /api/teaching_events/{readable_id} | Retrieves a teaching event.
 *GetIntoTeachingApiClient::TeachingEventsApi* | [**search_teaching_events**](docs/TeachingEventsApi.md#search_teaching_events) | **GET** /api/teaching_events/search | Searches for teaching events.
 *GetIntoTeachingApiClient::TeachingEventsApi* | [**upsert_teaching_event**](docs/TeachingEventsApi.md#upsert_teaching_event) | **POST** /api/teaching_events | Adds or updates a teaching event.
@@ -155,8 +146,6 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [GetIntoTeachingApiClient::CallbackBookingQuota](docs/CallbackBookingQuota.md)
- - [GetIntoTeachingApiClient::CandidateIdsRequest](docs/CandidateIdsRequest.md)
- - [GetIntoTeachingApiClient::CandidateMagicLinkExchangeResult](docs/CandidateMagicLinkExchangeResult.md)
  - [GetIntoTeachingApiClient::CandidateSchoolExperience](docs/CandidateSchoolExperience.md)
  - [GetIntoTeachingApiClient::Country](docs/Country.md)
  - [GetIntoTeachingApiClient::DegreeStatusResponse](docs/DegreeStatusResponse.md)
@@ -172,7 +161,6 @@ Class | Method | HTTP request | Description
  - [GetIntoTeachingApiClient::SchoolsExperienceSignUp](docs/SchoolsExperienceSignUp.md)
  - [GetIntoTeachingApiClient::TeacherTrainingAdviserSignUp](docs/TeacherTrainingAdviserSignUp.md)
  - [GetIntoTeachingApiClient::TeachingEvent](docs/TeachingEvent.md)
- - [GetIntoTeachingApiClient::TeachingEventAddAttendee](docs/TeachingEventAddAttendee.md)
  - [GetIntoTeachingApiClient::TeachingEventBuilding](docs/TeachingEventBuilding.md)
  - [GetIntoTeachingApiClient::TeachingEventSearchRequest](docs/TeachingEventSearchRequest.md)
  - [GetIntoTeachingApiClient::TeachingSubject](docs/TeachingSubject.md)

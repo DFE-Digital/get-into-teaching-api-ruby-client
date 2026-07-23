@@ -6,7 +6,6 @@ All URIs are relative to *http://localhost:3000*
 | ------ | ------------ | ----------- |
 | [**add_mailing_list_member**](MailingListApi.md#add_mailing_list_member) | **POST** /api/mailing_list/members | Adds a new member to the mailing list. |
 | [**exchange_access_token_for_mailing_list_add_member**](MailingListApi.md#exchange_access_token_for_mailing_list_add_member) | **POST** /api/mailing_list/members/exchange_access_token/{accessToken} | Exchange an access token for a mailing list member sign-up. |
-| [**exchange_magic_link_token_for_mailing_list_add_member**](MailingListApi.md#exchange_magic_link_token_for_mailing_list_add_member) | **GET** /api/mailing_list/members/exchange_magic_link_token/{magicLinkToken} | Exchange a magic link token for a mailing list member sign-up. |
 
 
 ## add_mailing_list_member
@@ -144,74 +143,5 @@ end
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## exchange_magic_link_token_for_mailing_list_add_member
-
-> <MailingListAddMember> exchange_magic_link_token_for_mailing_list_add_member(magic_link_token)
-
-Exchange a magic link token for a mailing list member sign-up.
-
-Retrieves a pre-populated MailingListAddMember for the candidate. The `magicLinkToken` is obtained from a `POST /api/candidates/magic_link_tokens` request. 
-
-### Examples
-
-```ruby
-require 'time'
-require 'get_into_teaching_api_client'
-# setup authorization
-GetIntoTeachingApiClient.configure do |config|
-  # Configure Bearer authorization: bearerAuth
-  config.access_token = 'YOUR_BEARER_TOKEN'
-end
-
-api_instance = GetIntoTeachingApiClient::MailingListApi.new
-magic_link_token = 'magic_link_token_example' # String | The magic link token to exchange.
-
-begin
-  # Exchange a magic link token for a mailing list member sign-up.
-  result = api_instance.exchange_magic_link_token_for_mailing_list_add_member(magic_link_token)
-  p result
-rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling MailingListApi->exchange_magic_link_token_for_mailing_list_add_member: #{e}"
-end
-```
-
-#### Using the exchange_magic_link_token_for_mailing_list_add_member_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<MailingListAddMember>, Integer, Hash)> exchange_magic_link_token_for_mailing_list_add_member_with_http_info(magic_link_token)
-
-```ruby
-begin
-  # Exchange a magic link token for a mailing list member sign-up.
-  data, status_code, headers = api_instance.exchange_magic_link_token_for_mailing_list_add_member_with_http_info(magic_link_token)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <MailingListAddMember>
-rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling MailingListApi->exchange_magic_link_token_for_mailing_list_add_member_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **magic_link_token** | **String** | The magic link token to exchange. |  |
-
-### Return type
-
-[**MailingListAddMember**](MailingListAddMember.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: application/json
 
