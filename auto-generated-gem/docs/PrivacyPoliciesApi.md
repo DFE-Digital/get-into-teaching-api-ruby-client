@@ -1,6 +1,6 @@
 # GetIntoTeachingApiClient::PrivacyPoliciesApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *http://localhost:3000*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -21,10 +21,8 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PrivacyPoliciesApi.new
@@ -66,12 +64,12 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## get_privacy_policy
@@ -87,14 +85,12 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PrivacyPoliciesApi.new
-id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | The `id` of the `PrivacyPolicy`.
+id = 'id_example' # String | The id of the privacy policy.
 
 begin
   # Retrieves a privacy policy.
@@ -127,7 +123,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **String** | The &#x60;id&#x60; of the &#x60;PrivacyPolicy&#x60;. |  |
+| **id** | **String** | The id of the privacy policy. |  |
 
 ### Return type
 
@@ -135,10 +131,10 @@ end
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 

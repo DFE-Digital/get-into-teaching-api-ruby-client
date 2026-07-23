@@ -1,40 +1,40 @@
 # GetIntoTeachingApiClient::PickListItemsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *http://localhost:3000*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**get_candidate_adviser_eligibilities**](PickListItemsApi.md#get_candidate_adviser_eligibilities) | **GET** /api/pick_list_items/candidate/adviser_eligibilities | Retrieves the list of candidate adviser eligibilities. |
 | [**get_candidate_adviser_requirements**](PickListItemsApi.md#get_candidate_adviser_requirements) | **GET** /api/pick_list_items/candidate/adviser_requirements | Retrieves the list of candidate adviser requirements. |
-| [**get_candidate_assignment_status**](PickListItemsApi.md#get_candidate_assignment_status) | **GET** /api/pick_list_items/candidate/assignment_status | Retrieves the list of candidate assignment status. |
+| [**get_candidate_assignment_statuses**](PickListItemsApi.md#get_candidate_assignment_statuses) | **GET** /api/pick_list_items/candidate/assignment_statuses | Retrieves the list of candidate assignment statuses. |
 | [**get_candidate_channels**](PickListItemsApi.md#get_candidate_channels) | **GET** /api/pick_list_items/candidate/channels | Retrieves the list of candidate channels. |
-| [**get_candidate_citizenship**](PickListItemsApi.md#get_candidate_citizenship) | **GET** /api/pick_list_items/candidate/citizenships | Retrieves the list of citizenship options. |
+| [**get_candidate_citizenships**](PickListItemsApi.md#get_candidate_citizenships) | **GET** /api/pick_list_items/candidate/citizenships | Retrieves the list of candidate citizenships. |
 | [**get_candidate_event_subscription_channels**](PickListItemsApi.md#get_candidate_event_subscription_channels) | **GET** /api/pick_list_items/candidate/event_subscription_channels | Retrieves the list of candidate event subscription channels. |
-| [**get_candidate_gcse_status**](PickListItemsApi.md#get_candidate_gcse_status) | **GET** /api/pick_list_items/candidate/gcse_status | Retrieves the list of candidate GCSE status. |
-| [**get_candidate_has_qualified_teacher_statuses**](PickListItemsApi.md#get_candidate_has_qualified_teacher_statuses) | **GET** /api/pick_list_items/candidate/has_qualified_teacher_statuses | Retrieves the list of has qualified teacher statuses (QTS) options. |
+| [**get_candidate_gcse_statuses**](PickListItemsApi.md#get_candidate_gcse_statuses) | **GET** /api/pick_list_items/candidate/gcse_statuses | Retrieves the list of candidate GCSE statuses. |
+| [**get_candidate_has_qualified_teacher_statuses**](PickListItemsApi.md#get_candidate_has_qualified_teacher_statuses) | **GET** /api/pick_list_items/candidate/has_qualified_teacher_statuses | Retrieves the list of candidate has qualified teacher statuses. |
 | [**get_candidate_initial_teacher_training_years**](PickListItemsApi.md#get_candidate_initial_teacher_training_years) | **GET** /api/pick_list_items/candidate/initial_teacher_training_years | Retrieves the list of candidate initial teacher training years. |
 | [**get_candidate_journey_stages**](PickListItemsApi.md#get_candidate_journey_stages) | **GET** /api/pick_list_items/candidate/consideration_journey_stages | Retrieves the list of candidate consideration journey stages. |
-| [**get_candidate_location**](PickListItemsApi.md#get_candidate_location) | **GET** /api/pick_list_items/candidate/locations | Retrieves the list of location options. |
+| [**get_candidate_locations**](PickListItemsApi.md#get_candidate_locations) | **GET** /api/pick_list_items/candidate/locations | Retrieves the list of candidate locations. |
 | [**get_candidate_mailing_list_subscription_channels**](PickListItemsApi.md#get_candidate_mailing_list_subscription_channels) | **GET** /api/pick_list_items/candidate/mailing_list_subscription_channels | Retrieves the list of candidate mailing list subscription channels. |
 | [**get_candidate_preferred_education_phases**](PickListItemsApi.md#get_candidate_preferred_education_phases) | **GET** /api/pick_list_items/candidate/preferred_education_phases | Retrieves the list of candidate preferred education phases. |
-| [**get_candidate_retake_gcse_status**](PickListItemsApi.md#get_candidate_retake_gcse_status) | **GET** /api/pick_list_items/candidate/retake_gcse_status | Retrieves the list of candidate retake GCSE status. |
-| [**get_candidate_situations**](PickListItemsApi.md#get_candidate_situations) | **GET** /api/pick_list_items/candidate/situations | Retrieves the list of situations. |
+| [**get_candidate_retake_gcse_statuses**](PickListItemsApi.md#get_candidate_retake_gcse_statuses) | **GET** /api/pick_list_items/candidate/retake_gcse_statuses | Retrieves the list of candidate retake GCSE statuses. |
+| [**get_candidate_situations**](PickListItemsApi.md#get_candidate_situations) | **GET** /api/pick_list_items/candidate/situations | Retrieves the list of candidate situations. |
 | [**get_candidate_teacher_training_adviser_subscription_channels**](PickListItemsApi.md#get_candidate_teacher_training_adviser_subscription_channels) | **GET** /api/pick_list_items/candidate/teacher_training_adviser_subscription_channels | Retrieves the list of candidate teacher training adviser subscription channels. |
 | [**get_candidate_types**](PickListItemsApi.md#get_candidate_types) | **GET** /api/pick_list_items/candidate/types | Retrieves the list of candidate types. |
-| [**get_candidate_visa_status**](PickListItemsApi.md#get_candidate_visa_status) | **GET** /api/pick_list_items/candidate/visa_statuses | Retrieves the list of visa status options. |
+| [**get_candidate_visa_statuses**](PickListItemsApi.md#get_candidate_visa_statuses) | **GET** /api/pick_list_items/candidate/visa_statuses | Retrieves the list of candidate visa statuses. |
 | [**get_contact_creation_channel_activities**](PickListItemsApi.md#get_contact_creation_channel_activities) | **GET** /api/pick_list_items/contact_creation_channel/activities | Retrieves the list of contact creation channel activities. |
 | [**get_contact_creation_channel_services**](PickListItemsApi.md#get_contact_creation_channel_services) | **GET** /api/pick_list_items/contact_creation_channel/services | Retrieves the list of contact creation channel services. |
 | [**get_contact_creation_channel_sources**](PickListItemsApi.md#get_contact_creation_channel_sources) | **GET** /api/pick_list_items/contact_creation_channel/sources | Retrieves the list of contact creation channel sources. |
 | [**get_past_teaching_position_education_phases**](PickListItemsApi.md#get_past_teaching_position_education_phases) | **GET** /api/pick_list_items/past_teaching_position/education_phases | Retrieves the list of past teaching position education phases. |
 | [**get_phone_call_channels**](PickListItemsApi.md#get_phone_call_channels) | **GET** /api/pick_list_items/phone_call/channels | Retrieves the list of phone call channels. |
-| [**get_qualification_degree_status**](PickListItemsApi.md#get_qualification_degree_status) | **GET** /api/pick_list_items/qualification/degree_status | Retrieves the list of qualification degree status. |
+| [**get_qualification_degree_statuses**](PickListItemsApi.md#get_qualification_degree_statuses) | **GET** /api/pick_list_items/qualification/degree_statuses | Retrieves the list of qualification degree statuses. |
 | [**get_qualification_types**](PickListItemsApi.md#get_qualification_types) | **GET** /api/pick_list_items/qualification/types | Retrieves the list of qualification types. |
 | [**get_qualification_uk_degree_grades**](PickListItemsApi.md#get_qualification_uk_degree_grades) | **GET** /api/pick_list_items/qualification/uk_degree_grades | Retrieves the list of qualification UK degree grades. |
 | [**get_subscription_types**](PickListItemsApi.md#get_subscription_types) | **GET** /api/pick_list_items/service_subscription/types | Retrieves the list of subscription types. |
-| [**get_teaching_event_accessibilty**](PickListItemsApi.md#get_teaching_event_accessibilty) | **GET** /api/pick_list_items/teaching_event/accessibility_items | Retrieves the list of teaching event accessibility statuses. |
+| [**get_teaching_event_accessibilty**](PickListItemsApi.md#get_teaching_event_accessibilty) | **GET** /api/pick_list_items/teaching_event/accessibility_items | Retrieves the list of teaching event accessibility items. |
 | [**get_teaching_event_regions**](PickListItemsApi.md#get_teaching_event_regions) | **GET** /api/pick_list_items/teaching_event/regions | Retrieves the list of teaching event regions. |
-| [**get_teaching_event_registration_channels**](PickListItemsApi.md#get_teaching_event_registration_channels) | **GET** /api/pick_list_items/teaching_event_registration/channels | Retrieves the list of teaching event registration channels. |
-| [**get_teaching_event_status**](PickListItemsApi.md#get_teaching_event_status) | **GET** /api/pick_list_items/teaching_event/status | Retrieves the list of teaching event status. |
+| [**get_teaching_event_registration_channels**](PickListItemsApi.md#get_teaching_event_registration_channels) | **GET** /api/pick_list_items/teaching_event/registration_channels | Retrieves the list of teaching event registration channels. |
+| [**get_teaching_event_statuses**](PickListItemsApi.md#get_teaching_event_statuses) | **GET** /api/pick_list_items/teaching_event/statuses | Retrieves the list of teaching event statuses. |
 | [**get_teaching_event_types**](PickListItemsApi.md#get_teaching_event_types) | **GET** /api/pick_list_items/teaching_event/types | Retrieves the list of teaching event types. |
 
 
@@ -51,10 +51,8 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
@@ -96,12 +94,12 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## get_candidate_adviser_requirements
@@ -117,10 +115,8 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
@@ -162,19 +158,19 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
-## get_candidate_assignment_status
+## get_candidate_assignment_statuses
 
-> <Array<PickListItem>> get_candidate_assignment_status
+> <Array<PickListItem>> get_candidate_assignment_statuses
 
-Retrieves the list of candidate assignment status.
+Retrieves the list of candidate assignment statuses.
 
 ### Examples
 
@@ -183,38 +179,36 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
 
 begin
-  # Retrieves the list of candidate assignment status.
-  result = api_instance.get_candidate_assignment_status
+  # Retrieves the list of candidate assignment statuses.
+  result = api_instance.get_candidate_assignment_statuses
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling PickListItemsApi->get_candidate_assignment_status: #{e}"
+  puts "Error when calling PickListItemsApi->get_candidate_assignment_statuses: #{e}"
 end
 ```
 
-#### Using the get_candidate_assignment_status_with_http_info variant
+#### Using the get_candidate_assignment_statuses_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<PickListItem>>, Integer, Hash)> get_candidate_assignment_status_with_http_info
+> <Array(<Array<PickListItem>>, Integer, Hash)> get_candidate_assignment_statuses_with_http_info
 
 ```ruby
 begin
-  # Retrieves the list of candidate assignment status.
-  data, status_code, headers = api_instance.get_candidate_assignment_status_with_http_info
+  # Retrieves the list of candidate assignment statuses.
+  data, status_code, headers = api_instance.get_candidate_assignment_statuses_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<PickListItem>>
 rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling PickListItemsApi->get_candidate_assignment_status_with_http_info: #{e}"
+  puts "Error when calling PickListItemsApi->get_candidate_assignment_statuses_with_http_info: #{e}"
 end
 ```
 
@@ -228,12 +222,12 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## get_candidate_channels
@@ -249,10 +243,8 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
@@ -294,19 +286,19 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
-## get_candidate_citizenship
+## get_candidate_citizenships
 
-> <Array<PickListItem>> get_candidate_citizenship
+> <Array<PickListItem>> get_candidate_citizenships
 
-Retrieves the list of citizenship options.
+Retrieves the list of candidate citizenships.
 
 ### Examples
 
@@ -315,38 +307,36 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
 
 begin
-  # Retrieves the list of citizenship options.
-  result = api_instance.get_candidate_citizenship
+  # Retrieves the list of candidate citizenships.
+  result = api_instance.get_candidate_citizenships
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling PickListItemsApi->get_candidate_citizenship: #{e}"
+  puts "Error when calling PickListItemsApi->get_candidate_citizenships: #{e}"
 end
 ```
 
-#### Using the get_candidate_citizenship_with_http_info variant
+#### Using the get_candidate_citizenships_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<PickListItem>>, Integer, Hash)> get_candidate_citizenship_with_http_info
+> <Array(<Array<PickListItem>>, Integer, Hash)> get_candidate_citizenships_with_http_info
 
 ```ruby
 begin
-  # Retrieves the list of citizenship options.
-  data, status_code, headers = api_instance.get_candidate_citizenship_with_http_info
+  # Retrieves the list of candidate citizenships.
+  data, status_code, headers = api_instance.get_candidate_citizenships_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<PickListItem>>
 rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling PickListItemsApi->get_candidate_citizenship_with_http_info: #{e}"
+  puts "Error when calling PickListItemsApi->get_candidate_citizenships_with_http_info: #{e}"
 end
 ```
 
@@ -360,12 +350,12 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## get_candidate_event_subscription_channels
@@ -381,10 +371,8 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
@@ -426,19 +414,19 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
-## get_candidate_gcse_status
+## get_candidate_gcse_statuses
 
-> <Array<PickListItem>> get_candidate_gcse_status
+> <Array<PickListItem>> get_candidate_gcse_statuses
 
-Retrieves the list of candidate GCSE status.
+Retrieves the list of candidate GCSE statuses.
 
 ### Examples
 
@@ -447,38 +435,36 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
 
 begin
-  # Retrieves the list of candidate GCSE status.
-  result = api_instance.get_candidate_gcse_status
+  # Retrieves the list of candidate GCSE statuses.
+  result = api_instance.get_candidate_gcse_statuses
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling PickListItemsApi->get_candidate_gcse_status: #{e}"
+  puts "Error when calling PickListItemsApi->get_candidate_gcse_statuses: #{e}"
 end
 ```
 
-#### Using the get_candidate_gcse_status_with_http_info variant
+#### Using the get_candidate_gcse_statuses_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<PickListItem>>, Integer, Hash)> get_candidate_gcse_status_with_http_info
+> <Array(<Array<PickListItem>>, Integer, Hash)> get_candidate_gcse_statuses_with_http_info
 
 ```ruby
 begin
-  # Retrieves the list of candidate GCSE status.
-  data, status_code, headers = api_instance.get_candidate_gcse_status_with_http_info
+  # Retrieves the list of candidate GCSE statuses.
+  data, status_code, headers = api_instance.get_candidate_gcse_statuses_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<PickListItem>>
 rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling PickListItemsApi->get_candidate_gcse_status_with_http_info: #{e}"
+  puts "Error when calling PickListItemsApi->get_candidate_gcse_statuses_with_http_info: #{e}"
 end
 ```
 
@@ -492,19 +478,19 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## get_candidate_has_qualified_teacher_statuses
 
 > <Array<PickListItem>> get_candidate_has_qualified_teacher_statuses
 
-Retrieves the list of has qualified teacher statuses (QTS) options.
+Retrieves the list of candidate has qualified teacher statuses.
 
 ### Examples
 
@@ -513,16 +499,14 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
 
 begin
-  # Retrieves the list of has qualified teacher statuses (QTS) options.
+  # Retrieves the list of candidate has qualified teacher statuses.
   result = api_instance.get_candidate_has_qualified_teacher_statuses
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
@@ -538,7 +522,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieves the list of has qualified teacher statuses (QTS) options.
+  # Retrieves the list of candidate has qualified teacher statuses.
   data, status_code, headers = api_instance.get_candidate_has_qualified_teacher_statuses_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
@@ -558,12 +542,12 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## get_candidate_initial_teacher_training_years
@@ -579,10 +563,8 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
@@ -624,12 +606,12 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## get_candidate_journey_stages
@@ -645,10 +627,8 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
@@ -690,19 +670,19 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
-## get_candidate_location
+## get_candidate_locations
 
-> <Array<PickListItem>> get_candidate_location
+> <Array<PickListItem>> get_candidate_locations
 
-Retrieves the list of location options.
+Retrieves the list of candidate locations.
 
 ### Examples
 
@@ -711,38 +691,36 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
 
 begin
-  # Retrieves the list of location options.
-  result = api_instance.get_candidate_location
+  # Retrieves the list of candidate locations.
+  result = api_instance.get_candidate_locations
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling PickListItemsApi->get_candidate_location: #{e}"
+  puts "Error when calling PickListItemsApi->get_candidate_locations: #{e}"
 end
 ```
 
-#### Using the get_candidate_location_with_http_info variant
+#### Using the get_candidate_locations_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<PickListItem>>, Integer, Hash)> get_candidate_location_with_http_info
+> <Array(<Array<PickListItem>>, Integer, Hash)> get_candidate_locations_with_http_info
 
 ```ruby
 begin
-  # Retrieves the list of location options.
-  data, status_code, headers = api_instance.get_candidate_location_with_http_info
+  # Retrieves the list of candidate locations.
+  data, status_code, headers = api_instance.get_candidate_locations_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<PickListItem>>
 rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling PickListItemsApi->get_candidate_location_with_http_info: #{e}"
+  puts "Error when calling PickListItemsApi->get_candidate_locations_with_http_info: #{e}"
 end
 ```
 
@@ -756,12 +734,12 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## get_candidate_mailing_list_subscription_channels
@@ -777,10 +755,8 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
@@ -822,12 +798,12 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## get_candidate_preferred_education_phases
@@ -843,10 +819,8 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
@@ -888,19 +862,19 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
-## get_candidate_retake_gcse_status
+## get_candidate_retake_gcse_statuses
 
-> <Array<PickListItem>> get_candidate_retake_gcse_status
+> <Array<PickListItem>> get_candidate_retake_gcse_statuses
 
-Retrieves the list of candidate retake GCSE status.
+Retrieves the list of candidate retake GCSE statuses.
 
 ### Examples
 
@@ -909,38 +883,36 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
 
 begin
-  # Retrieves the list of candidate retake GCSE status.
-  result = api_instance.get_candidate_retake_gcse_status
+  # Retrieves the list of candidate retake GCSE statuses.
+  result = api_instance.get_candidate_retake_gcse_statuses
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling PickListItemsApi->get_candidate_retake_gcse_status: #{e}"
+  puts "Error when calling PickListItemsApi->get_candidate_retake_gcse_statuses: #{e}"
 end
 ```
 
-#### Using the get_candidate_retake_gcse_status_with_http_info variant
+#### Using the get_candidate_retake_gcse_statuses_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<PickListItem>>, Integer, Hash)> get_candidate_retake_gcse_status_with_http_info
+> <Array(<Array<PickListItem>>, Integer, Hash)> get_candidate_retake_gcse_statuses_with_http_info
 
 ```ruby
 begin
-  # Retrieves the list of candidate retake GCSE status.
-  data, status_code, headers = api_instance.get_candidate_retake_gcse_status_with_http_info
+  # Retrieves the list of candidate retake GCSE statuses.
+  data, status_code, headers = api_instance.get_candidate_retake_gcse_statuses_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<PickListItem>>
 rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling PickListItemsApi->get_candidate_retake_gcse_status_with_http_info: #{e}"
+  puts "Error when calling PickListItemsApi->get_candidate_retake_gcse_statuses_with_http_info: #{e}"
 end
 ```
 
@@ -954,19 +926,19 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## get_candidate_situations
 
 > <Array<PickListItem>> get_candidate_situations
 
-Retrieves the list of situations.
+Retrieves the list of candidate situations.
 
 ### Examples
 
@@ -975,16 +947,14 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
 
 begin
-  # Retrieves the list of situations.
+  # Retrieves the list of candidate situations.
   result = api_instance.get_candidate_situations
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
@@ -1000,7 +970,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieves the list of situations.
+  # Retrieves the list of candidate situations.
   data, status_code, headers = api_instance.get_candidate_situations_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
@@ -1020,12 +990,12 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## get_candidate_teacher_training_adviser_subscription_channels
@@ -1041,10 +1011,8 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
@@ -1086,12 +1054,12 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## get_candidate_types
@@ -1107,10 +1075,8 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
@@ -1152,19 +1118,19 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
-## get_candidate_visa_status
+## get_candidate_visa_statuses
 
-> <Array<PickListItem>> get_candidate_visa_status
+> <Array<PickListItem>> get_candidate_visa_statuses
 
-Retrieves the list of visa status options.
+Retrieves the list of candidate visa statuses.
 
 ### Examples
 
@@ -1173,38 +1139,36 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
 
 begin
-  # Retrieves the list of visa status options.
-  result = api_instance.get_candidate_visa_status
+  # Retrieves the list of candidate visa statuses.
+  result = api_instance.get_candidate_visa_statuses
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling PickListItemsApi->get_candidate_visa_status: #{e}"
+  puts "Error when calling PickListItemsApi->get_candidate_visa_statuses: #{e}"
 end
 ```
 
-#### Using the get_candidate_visa_status_with_http_info variant
+#### Using the get_candidate_visa_statuses_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<PickListItem>>, Integer, Hash)> get_candidate_visa_status_with_http_info
+> <Array(<Array<PickListItem>>, Integer, Hash)> get_candidate_visa_statuses_with_http_info
 
 ```ruby
 begin
-  # Retrieves the list of visa status options.
-  data, status_code, headers = api_instance.get_candidate_visa_status_with_http_info
+  # Retrieves the list of candidate visa statuses.
+  data, status_code, headers = api_instance.get_candidate_visa_statuses_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<PickListItem>>
 rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling PickListItemsApi->get_candidate_visa_status_with_http_info: #{e}"
+  puts "Error when calling PickListItemsApi->get_candidate_visa_statuses_with_http_info: #{e}"
 end
 ```
 
@@ -1218,12 +1182,12 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## get_contact_creation_channel_activities
@@ -1239,10 +1203,8 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
@@ -1284,12 +1246,12 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## get_contact_creation_channel_services
@@ -1305,10 +1267,8 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
@@ -1350,12 +1310,12 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## get_contact_creation_channel_sources
@@ -1371,10 +1331,8 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
@@ -1416,12 +1374,12 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## get_past_teaching_position_education_phases
@@ -1437,10 +1395,8 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
@@ -1482,12 +1438,12 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## get_phone_call_channels
@@ -1503,10 +1459,8 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
@@ -1548,19 +1502,19 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
-## get_qualification_degree_status
+## get_qualification_degree_statuses
 
-> <Array<PickListItem>> get_qualification_degree_status
+> <Array<PickListItem>> get_qualification_degree_statuses
 
-Retrieves the list of qualification degree status.
+Retrieves the list of qualification degree statuses.
 
 ### Examples
 
@@ -1569,38 +1523,36 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
 
 begin
-  # Retrieves the list of qualification degree status.
-  result = api_instance.get_qualification_degree_status
+  # Retrieves the list of qualification degree statuses.
+  result = api_instance.get_qualification_degree_statuses
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling PickListItemsApi->get_qualification_degree_status: #{e}"
+  puts "Error when calling PickListItemsApi->get_qualification_degree_statuses: #{e}"
 end
 ```
 
-#### Using the get_qualification_degree_status_with_http_info variant
+#### Using the get_qualification_degree_statuses_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<PickListItem>>, Integer, Hash)> get_qualification_degree_status_with_http_info
+> <Array(<Array<PickListItem>>, Integer, Hash)> get_qualification_degree_statuses_with_http_info
 
 ```ruby
 begin
-  # Retrieves the list of qualification degree status.
-  data, status_code, headers = api_instance.get_qualification_degree_status_with_http_info
+  # Retrieves the list of qualification degree statuses.
+  data, status_code, headers = api_instance.get_qualification_degree_statuses_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<PickListItem>>
 rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling PickListItemsApi->get_qualification_degree_status_with_http_info: #{e}"
+  puts "Error when calling PickListItemsApi->get_qualification_degree_statuses_with_http_info: #{e}"
 end
 ```
 
@@ -1614,12 +1566,12 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## get_qualification_types
@@ -1635,10 +1587,8 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
@@ -1680,12 +1630,12 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## get_qualification_uk_degree_grades
@@ -1701,10 +1651,8 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
@@ -1746,12 +1694,12 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## get_subscription_types
@@ -1767,10 +1715,8 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
@@ -1812,19 +1758,19 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## get_teaching_event_accessibilty
 
 > <Array<PickListItem>> get_teaching_event_accessibilty
 
-Retrieves the list of teaching event accessibility statuses.
+Retrieves the list of teaching event accessibility items.
 
 ### Examples
 
@@ -1833,16 +1779,14 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
 
 begin
-  # Retrieves the list of teaching event accessibility statuses.
+  # Retrieves the list of teaching event accessibility items.
   result = api_instance.get_teaching_event_accessibilty
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
@@ -1858,7 +1802,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieves the list of teaching event accessibility statuses.
+  # Retrieves the list of teaching event accessibility items.
   data, status_code, headers = api_instance.get_teaching_event_accessibilty_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
@@ -1878,12 +1822,12 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## get_teaching_event_regions
@@ -1899,10 +1843,8 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
@@ -1944,12 +1886,12 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## get_teaching_event_registration_channels
@@ -1965,10 +1907,8 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
@@ -2010,19 +1950,19 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
-## get_teaching_event_status
+## get_teaching_event_statuses
 
-> <Array<PickListItem>> get_teaching_event_status
+> <Array<PickListItem>> get_teaching_event_statuses
 
-Retrieves the list of teaching event status.
+Retrieves the list of teaching event statuses.
 
 ### Examples
 
@@ -2031,38 +1971,36 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
 
 begin
-  # Retrieves the list of teaching event status.
-  result = api_instance.get_teaching_event_status
+  # Retrieves the list of teaching event statuses.
+  result = api_instance.get_teaching_event_statuses
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling PickListItemsApi->get_teaching_event_status: #{e}"
+  puts "Error when calling PickListItemsApi->get_teaching_event_statuses: #{e}"
 end
 ```
 
-#### Using the get_teaching_event_status_with_http_info variant
+#### Using the get_teaching_event_statuses_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<PickListItem>>, Integer, Hash)> get_teaching_event_status_with_http_info
+> <Array(<Array<PickListItem>>, Integer, Hash)> get_teaching_event_statuses_with_http_info
 
 ```ruby
 begin
-  # Retrieves the list of teaching event status.
-  data, status_code, headers = api_instance.get_teaching_event_status_with_http_info
+  # Retrieves the list of teaching event statuses.
+  data, status_code, headers = api_instance.get_teaching_event_statuses_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<PickListItem>>
 rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling PickListItemsApi->get_teaching_event_status_with_http_info: #{e}"
+  puts "Error when calling PickListItemsApi->get_teaching_event_statuses_with_http_info: #{e}"
 end
 ```
 
@@ -2076,12 +2014,12 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## get_teaching_event_types
@@ -2097,10 +2035,8 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::PickListItemsApi.new
@@ -2142,10 +2078,10 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 

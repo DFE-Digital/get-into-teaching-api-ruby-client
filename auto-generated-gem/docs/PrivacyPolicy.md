@@ -4,9 +4,9 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **String** |  | [optional] |
-| **text** | **String** |  | [optional] |
-| **created_at** | **Time** |  | [optional] |
+| **id** | **String** |  |  |
+| **text** | **String** |  |  |
+| **created_at** | **Time** |  |  |
 
 ## Example
 
@@ -14,9 +14,9 @@
 require 'get_into_teaching_api_client'
 
 instance = GetIntoTeachingApiClient::PrivacyPolicy.new(
-  id: null,
-  text: null,
-  created_at: null
+  id: 123e4567-e89b-12d3-a456-426614174000,
+  text: This is a demo privacy policy for testing purposes.,
+  created_at: 2026-04-30T09:36:47.357Z
 )
 ```
 

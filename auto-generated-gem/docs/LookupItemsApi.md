@@ -1,19 +1,19 @@
 # GetIntoTeachingApiClient::LookupItemsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *http://localhost:3000*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_countries**](LookupItemsApi.md#get_countries) | **GET** /api/lookup_items/countries | Retrieves the list of countries. |
+| [**get_countries**](LookupItemsApi.md#get_countries) | **GET** /api/lookup_items/countries | list countries |
 | [**get_degree_countries**](LookupItemsApi.md#get_degree_countries) | **GET** /api/lookup_items/degree_countries | Retrieves the list of degree countries. |
-| [**get_teaching_subjects**](LookupItemsApi.md#get_teaching_subjects) | **GET** /api/lookup_items/teaching_subjects | Retrieves the list of teaching subjects. |
+| [**get_teaching_subjects**](LookupItemsApi.md#get_teaching_subjects) | **GET** /api/lookup_items/teaching_subjects | list teaching subjects |
 
 
 ## get_countries
 
 > <Array<Country>> get_countries
 
-Retrieves the list of countries.
+list countries
 
 ### Examples
 
@@ -22,16 +22,14 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::LookupItemsApi.new
 
 begin
-  # Retrieves the list of countries.
+  # list countries
   result = api_instance.get_countries
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
@@ -47,7 +45,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieves the list of countries.
+  # list countries
   data, status_code, headers = api_instance.get_countries_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
@@ -67,12 +65,12 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## get_degree_countries
@@ -88,10 +86,8 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::LookupItemsApi.new
@@ -133,19 +129,19 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## get_teaching_subjects
 
 > <Array<TeachingSubject>> get_teaching_subjects
 
-Retrieves the list of teaching subjects.
+list teaching subjects
 
 ### Examples
 
@@ -154,16 +150,14 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::LookupItemsApi.new
 
 begin
-  # Retrieves the list of teaching subjects.
+  # list teaching subjects
   result = api_instance.get_teaching_subjects
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
@@ -179,7 +173,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieves the list of teaching subjects.
+  # list teaching subjects
   data, status_code, headers = api_instance.get_teaching_subjects_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
@@ -199,10 +193,10 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 

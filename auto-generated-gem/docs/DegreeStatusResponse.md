@@ -12,7 +12,7 @@
 require 'get_into_teaching_api_client'
 
 instance = GetIntoTeachingApiClient::DegreeStatusResponse.new(
-  degree_status_id: null
+  degree_status_id: 222750000
 )
 ```
 

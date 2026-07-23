@@ -2,9 +2,8 @@ require "faraday"
 require 'faraday/retry'
 require "faraday/http_cache"
 require "faraday/encoding"
-require "active_support/cache"
-require "active_support/notifications"
-require "active_support/current_attributes"
+require "active_support"
+require "active_support/core_ext/integer/time"
 require "get_into_teaching_api_client"
 require "faraday_middleware/circuit_breaker"
 

@@ -1,23 +1,21 @@
 # GetIntoTeachingApiClient::SchoolsExperienceApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *http://localhost:3000*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_school_experience**](SchoolsExperienceApi.md#add_school_experience) | **POST** /api/schools_experience/candidates/{id}/school_experience | Add a school experience to the candidate. |
-| [**exchange_access_token_for_schools_experience_sign_up**](SchoolsExperienceApi.md#exchange_access_token_for_schools_experience_sign_up) | **POST** /api/schools_experience/candidates/exchange_access_token/{accessToken} | Retrieves a pre-populated SchoolsExperienceSignUp for the candidate. |
-| [**get_schools_experience_sign_up**](SchoolsExperienceApi.md#get_schools_experience_sign_up) | **GET** /api/schools_experience/candidates/{id} | Retrieves an existing SchoolsExperienceSignUp for the candidate. |
-| [**get_schools_experience_sign_ups**](SchoolsExperienceApi.md#get_schools_experience_sign_ups) | **GET** /api/schools_experience/candidates | Retrieves existing SchoolsExperienceSignUps for the candidate &#x60;ids&#x60;. |
-| [**sign_up_schools_experience_candidate**](SchoolsExperienceApi.md#sign_up_schools_experience_candidate) | **POST** /api/schools_experience/candidates | Sign up a candidate for the Schools Experience service. |
+| [**add_school_experience**](SchoolsExperienceApi.md#add_school_experience) | **POST** /api/schools_experience/candidates/{id}/school_experience | Adds a school experience to a candidate. |
+| [**exchange_access_token_for_schools_experience_sign_up**](SchoolsExperienceApi.md#exchange_access_token_for_schools_experience_sign_up) | **POST** /api/schools_experience/candidates/exchange_access_token/{accessToken} | Exchange an access token for a full candidate sign-up. |
+| [**get_schools_experience_candidate**](SchoolsExperienceApi.md#get_schools_experience_candidate) | **GET** /api/schools_experience/candidates/{id} | Retrieves a candidate for the Schools Experience service. |
+| [**get_schools_experience_sign_ups**](SchoolsExperienceApi.md#get_schools_experience_sign_ups) | **GET** /api/schools_experience/candidates | Retrieves existing SchoolsExperienceSignUps for the candidate ids. |
+| [**sign_up_schools_experience_candidate**](SchoolsExperienceApi.md#sign_up_schools_experience_candidate) | **POST** /api/schools_experience/candidates | Creates a new candidate for the Schools Experience service. |
 
 
 ## add_school_experience
 
 > add_school_experience(id, candidate_school_experience)
 
-Add a school experience to the candidate.
-
-Adds a new school experience to the candidate record
+Adds a school experience to a candidate.
 
 ### Examples
 
@@ -26,18 +24,16 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::SchoolsExperienceApi.new
-id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | The `id` of the `Candidate`.
-candidate_school_experience = GetIntoTeachingApiClient::CandidateSchoolExperience.new # CandidateSchoolExperience | School experience.
+id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | The id of the candidate.
+candidate_school_experience = GetIntoTeachingApiClient::CandidateSchoolExperience.new({school_urn: '123456'}) # CandidateSchoolExperience | School experience details to add.
 
 begin
-  # Add a school experience to the candidate.
+  # Adds a school experience to a candidate.
   api_instance.add_school_experience(id, candidate_school_experience)
 rescue GetIntoTeachingApiClient::ApiError => e
   puts "Error when calling SchoolsExperienceApi->add_school_experience: #{e}"
@@ -52,7 +48,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # Add a school experience to the candidate.
+  # Adds a school experience to a candidate.
   data, status_code, headers = api_instance.add_school_experience_with_http_info(id, candidate_school_experience)
   p status_code # => 2xx
   p headers # => { ... }
@@ -66,8 +62,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **String** | The &#x60;id&#x60; of the &#x60;Candidate&#x60;. |  |
-| **candidate_school_experience** | [**CandidateSchoolExperience**](CandidateSchoolExperience.md) | School experience. |  |
+| **id** | **String** | The id of the candidate. |  |
+| **candidate_school_experience** | [**CandidateSchoolExperience**](CandidateSchoolExperience.md) | School experience details to add. |  |
 
 ### Return type
 
@@ -75,21 +71,21 @@ nil (empty response body)
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, text/json, application/*+json
-- **Accept**: text/plain, application/json, text/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
 ## exchange_access_token_for_schools_experience_sign_up
 
 > <SchoolsExperienceSignUp> exchange_access_token_for_schools_experience_sign_up(access_token, existing_candidate_request)
 
-Retrieves a pre-populated SchoolsExperienceSignUp for the candidate.
+Exchange an access token for a full candidate sign-up.
 
-                  Retrieves a pre-populated SchoolsExperienceSignUp for the candidate. The `accessToken` is obtained from a                   `POST /candidates/access_tokens` request (you must also ensure the `ExistingCandidateRequest` payload you                   exchanged for your token matches the request payload here).
+Exchanges an access token for a candidate's details to pre-populate a sign-up form.
 
 ### Examples
 
@@ -98,18 +94,16 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::SchoolsExperienceApi.new
-access_token = 'access_token_example' # String | Access token (PIN code).
-existing_candidate_request = GetIntoTeachingApiClient::ExistingCandidateRequest.new({email: 'email_example'}) # ExistingCandidateRequest | Candidate access token request (must match an existing candidate).
+access_token = 'access_token_example' # String | The access token to exchange.
+existing_candidate_request = GetIntoTeachingApiClient::ExistingCandidateRequest.new({email: 'johndoe@example.com'}) # ExistingCandidateRequest | Candidate details to exchange.
 
 begin
-  # Retrieves a pre-populated SchoolsExperienceSignUp for the candidate.
+  # Exchange an access token for a full candidate sign-up.
   result = api_instance.exchange_access_token_for_schools_experience_sign_up(access_token, existing_candidate_request)
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
@@ -125,7 +119,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieves a pre-populated SchoolsExperienceSignUp for the candidate.
+  # Exchange an access token for a full candidate sign-up.
   data, status_code, headers = api_instance.exchange_access_token_for_schools_experience_sign_up_with_http_info(access_token, existing_candidate_request)
   p status_code # => 2xx
   p headers # => { ... }
@@ -139,8 +133,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **access_token** | **String** | Access token (PIN code). |  |
-| **existing_candidate_request** | [**ExistingCandidateRequest**](ExistingCandidateRequest.md) | Candidate access token request (must match an existing candidate). |  |
+| **access_token** | **String** | The access token to exchange. |  |
+| **existing_candidate_request** | [**ExistingCandidateRequest**](ExistingCandidateRequest.md) | Candidate details to exchange. |  |
 
 ### Return type
 
@@ -148,19 +142,19 @@ end
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, text/json, application/*+json
-- **Accept**: text/plain, application/json, text/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
-## get_schools_experience_sign_up
+## get_schools_experience_candidate
 
-> <SchoolsExperienceSignUp> get_schools_experience_sign_up(id)
+> <SchoolsExperienceSignUp> get_schools_experience_candidate(id)
 
-Retrieves an existing SchoolsExperienceSignUp for the candidate.
+Retrieves a candidate for the Schools Experience service.
 
 ### Examples
 
@@ -169,39 +163,37 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::SchoolsExperienceApi.new
-id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | The `id` of the `Candidate`.
+id = 'id_example' # String | The id of the candidate.
 
 begin
-  # Retrieves an existing SchoolsExperienceSignUp for the candidate.
-  result = api_instance.get_schools_experience_sign_up(id)
+  # Retrieves a candidate for the Schools Experience service.
+  result = api_instance.get_schools_experience_candidate(id)
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling SchoolsExperienceApi->get_schools_experience_sign_up: #{e}"
+  puts "Error when calling SchoolsExperienceApi->get_schools_experience_candidate: #{e}"
 end
 ```
 
-#### Using the get_schools_experience_sign_up_with_http_info variant
+#### Using the get_schools_experience_candidate_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<SchoolsExperienceSignUp>, Integer, Hash)> get_schools_experience_sign_up_with_http_info(id)
+> <Array(<SchoolsExperienceSignUp>, Integer, Hash)> get_schools_experience_candidate_with_http_info(id)
 
 ```ruby
 begin
-  # Retrieves an existing SchoolsExperienceSignUp for the candidate.
-  data, status_code, headers = api_instance.get_schools_experience_sign_up_with_http_info(id)
+  # Retrieves a candidate for the Schools Experience service.
+  data, status_code, headers = api_instance.get_schools_experience_candidate_with_http_info(id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SchoolsExperienceSignUp>
 rescue GetIntoTeachingApiClient::ApiError => e
-  puts "Error when calling SchoolsExperienceApi->get_schools_experience_sign_up_with_http_info: #{e}"
+  puts "Error when calling SchoolsExperienceApi->get_schools_experience_candidate_with_http_info: #{e}"
 end
 ```
 
@@ -209,7 +201,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **String** | The &#x60;id&#x60; of the &#x60;Candidate&#x60;. |  |
+| **id** | **String** | The id of the candidate. |  |
 
 ### Return type
 
@@ -217,19 +209,19 @@ end
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## get_schools_experience_sign_ups
 
 > <Array<SchoolsExperienceSignUp>> get_schools_experience_sign_ups(ids)
 
-Retrieves existing SchoolsExperienceSignUps for the candidate `ids`.
+Retrieves existing SchoolsExperienceSignUps for the candidate ids.
 
 ### Examples
 
@@ -238,17 +230,15 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::SchoolsExperienceApi.new
-ids = ['inner_example'] # Array<String> | A collection of `Candidate` `id`s.
+ids = ['inner_example'] # Array<String> | A collection of Candidate ids.
 
 begin
-  # Retrieves existing SchoolsExperienceSignUps for the candidate `ids`.
+  # Retrieves existing SchoolsExperienceSignUps for the candidate ids.
   result = api_instance.get_schools_experience_sign_ups(ids)
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
@@ -264,7 +254,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieves existing SchoolsExperienceSignUps for the candidate `ids`.
+  # Retrieves existing SchoolsExperienceSignUps for the candidate ids.
   data, status_code, headers = api_instance.get_schools_experience_sign_ups_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
@@ -278,7 +268,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **ids** | [**Array&lt;String&gt;**](String.md) | A collection of &#x60;Candidate&#x60; &#x60;id&#x60;s. |  |
+| **ids** | [**Array&lt;String&gt;**](String.md) | A collection of Candidate ids. |  |
 
 ### Return type
 
@@ -286,21 +276,19 @@ end
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## sign_up_schools_experience_candidate
 
 > <SchoolsExperienceSignUp> sign_up_schools_experience_candidate(schools_experience_sign_up)
 
-Sign up a candidate for the Schools Experience service.
-
-                  Upsert a candidate. Returns the updated candidate information in the body of the response along                   with a Location header which specifies the location of the candidate
+Creates a new candidate for the Schools Experience service.
 
 ### Examples
 
@@ -309,17 +297,15 @@ require 'time'
 require 'get_into_teaching_api_client'
 # setup authorization
 GetIntoTeachingApiClient.configure do |config|
-  # Configure API key authorization: apiKey
-  config.api_key['apiKey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apiKey'] = 'Bearer'
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = GetIntoTeachingApiClient::SchoolsExperienceApi.new
-schools_experience_sign_up = GetIntoTeachingApiClient::SchoolsExperienceSignUp.new({preferred_teaching_subject_id: 'preferred_teaching_subject_id_example', accepted_policy_id: 'accepted_policy_id_example', email: 'email_example', first_name: 'first_name_example', last_name: 'last_name_example', address_line1: 'address_line1_example', address_city: 'address_city_example', address_state_or_province: 'address_state_or_province_example', address_postcode: 'address_postcode_example', telephone: 'telephone_example', has_dbs_certificate: false}) # SchoolsExperienceSignUp | Candidate to sign up for the Schools Experience service.
+schools_experience_sign_up = GetIntoTeachingApiClient::SchoolsExperienceSignUp.new({email: 'johndoe@example.com', first_name: 'John', last_name: 'Doe', preferred_teaching_subject_id: '6b793433-cd1f-e911-a979-000d3a20838a', address_line1: '123 Main St', address_city: 'London', address_state_or_province: 'London', address_postcode: 'SW1A 1AA', telephone: '01234567890', has_dbs_certificate: true, accepted_policy_id: '4872c8ed-0229-f111-8342-7c1e5285e3ab'}) # SchoolsExperienceSignUp | Candidate to create for the Schools Experience service.
 
 begin
-  # Sign up a candidate for the Schools Experience service.
+  # Creates a new candidate for the Schools Experience service.
   result = api_instance.sign_up_schools_experience_candidate(schools_experience_sign_up)
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
@@ -335,7 +321,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Sign up a candidate for the Schools Experience service.
+  # Creates a new candidate for the Schools Experience service.
   data, status_code, headers = api_instance.sign_up_schools_experience_candidate_with_http_info(schools_experience_sign_up)
   p status_code # => 2xx
   p headers # => { ... }
@@ -349,7 +335,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **schools_experience_sign_up** | [**SchoolsExperienceSignUp**](SchoolsExperienceSignUp.md) | Candidate to sign up for the Schools Experience service. |  |
+| **schools_experience_sign_up** | [**SchoolsExperienceSignUp**](SchoolsExperienceSignUp.md) | Candidate to create for the Schools Experience service. |  |
 
 ### Return type
 
@@ -357,10 +343,10 @@ end
 
 ### Authorization
 
-[apiKey](../README.md#apiKey)
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, text/json, application/*+json
-- **Accept**: text/plain, application/json, text/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 

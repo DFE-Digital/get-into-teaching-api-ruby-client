@@ -5,13 +5,14 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **postcode** | **String** | Postcode to center search around. | [optional] |
-| **radius** | **Integer** | Set to filter results to a radius (in miles) around the postcode. | [optional] |
-| **type_ids** | **Array&lt;Integer&gt;** | Set to filter results to a type of teaching event. Each ID must match a &#x60;typeId&#x60; of the &#x60;TeachingEvent&#x60; schema. | [optional] |
-| **online** | **Boolean** | Set to true to return only online events and false to return only in-person events. | [optional] |
-| **start_after** | **Time** | Set to filter results to those that start after a given date. | [optional] |
-| **start_before** | **Time** | Set to filter results to those that start before a given date. | [optional] |
-| **status_ids** | **Array&lt;Integer&gt;** | Set to filter results by event status. | [optional] |
-| **accessibility_options** | **Array&lt;Integer&gt;** | Set to filter results by accessibility options. | [optional] |
+| **radius** | **Integer** | Radius in miles to search around the postcode. | [optional] |
+| **type_ids** | **Array&lt;Integer&gt;** | Filter by teaching event type IDs. | [optional] |
+| **online** | **Boolean** | Set to true for online events, false for in-person events. | [optional] |
+| **start_after** | **Time** | Filter to events starting after this date. | [optional] |
+| **start_before** | **Time** | Filter to events starting before this date. | [optional] |
+| **status_ids** | **Array&lt;Integer&gt;** | Filter by event status IDs. | [optional] |
+| **accessibility_options** | **Array&lt;Integer&gt;** | Filter by accessibility option IDs. | [optional] |
+| **quantity** | **Integer** | Maximum number of results to return. | [optional] |
 
 ## Example
 
@@ -19,14 +20,15 @@
 require 'get_into_teaching_api_client'
 
 instance = GetIntoTeachingApiClient::TeachingEventSearchRequest.new(
-  postcode: null,
-  radius: null,
-  type_ids: null,
-  online: null,
-  start_after: null,
-  start_before: null,
-  status_ids: null,
-  accessibility_options: null
+  postcode: SW1A 1AA,
+  radius: 10,
+  type_ids: [222750000,222750001],
+  online: false,
+  start_after: 2026-07-01T00:00Z,
+  start_before: 2026-08-01T00:00Z,
+  status_ids: [222750001],
+  accessibility_options: [222750000],
+  quantity: 10
 )
 ```
 
