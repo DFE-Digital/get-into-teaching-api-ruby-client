@@ -229,7 +229,7 @@ module GetIntoTeachingApiClient
       return data, status_code, headers
     end
 
-    # Retrieves an event.
+    # Retrieves an event by ReadableId.
     # @param readable_id [String] The &#x60;readableId&#x60; of the &#x60;TeachingEvent&#x60;.
     # @param [Hash] opts the optional parameters
     # @return [TeachingEvent]
@@ -238,7 +238,7 @@ module GetIntoTeachingApiClient
       data
     end
 
-    # Retrieves an event.
+    # Retrieves an event by ReadableId.
     # @param readable_id [String] The &#x60;readableId&#x60; of the &#x60;TeachingEvent&#x60;.
     # @param [Hash] opts the optional parameters
     # @return [Array<(TeachingEvent, Integer, Hash)>] TeachingEvent data, response status code and response headers
@@ -286,6 +286,67 @@ module GetIntoTeachingApiClient
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TeachingEventsApi#get_teaching_event\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieves an event by ReferenceNumber.
+    # @param reference_number [String] The &#x60;referenceNumber&#x60; of the &#x60;TeachingEvent&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [TeachingEvent]
+    def get_teaching_event_by_reference_number(reference_number, opts = {})
+      data, _status_code, _headers = get_teaching_event_by_reference_number_with_http_info(reference_number, opts)
+      data
+    end
+
+    # Retrieves an event by ReferenceNumber.
+    # @param reference_number [String] The &#x60;referenceNumber&#x60; of the &#x60;TeachingEvent&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TeachingEvent, Integer, Hash)>] TeachingEvent data, response status code and response headers
+    def get_teaching_event_by_reference_number_with_http_info(reference_number, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeachingEventsApi.get_teaching_event_by_reference_number ...'
+      end
+      # verify the required parameter 'reference_number' is set
+      if @api_client.config.client_side_validation && reference_number.nil?
+        fail ArgumentError, "Missing the required parameter 'reference_number' when calling TeachingEventsApi.get_teaching_event_by_reference_number"
+      end
+      # resource path
+      local_var_path = '/api/teaching_events/reference/{referenceNumber}'.sub('{' + 'referenceNumber' + '}', CGI.escape(reference_number.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json', 'text/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TeachingEvent'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apiKey']
+
+      new_options = opts.merge(
+        :operation => :"TeachingEventsApi.get_teaching_event_by_reference_number",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeachingEventsApi#get_teaching_event_by_reference_number\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

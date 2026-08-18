@@ -70,11 +70,22 @@ describe 'TeachingEventsApi' do
   end
 
   # unit tests for get_teaching_event
-  # Retrieves an event.
+  # Retrieves an event by ReadableId.
   # @param readable_id The &#x60;readableId&#x60; of the &#x60;TeachingEvent&#x60;.
   # @param [Hash] opts the optional parameters
   # @return [TeachingEvent]
   describe 'get_teaching_event test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_teaching_event_by_reference_number
+  # Retrieves an event by ReferenceNumber.
+  # @param reference_number The &#x60;referenceNumber&#x60; of the &#x60;TeachingEvent&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @return [TeachingEvent]
+  describe 'get_teaching_event_by_reference_number test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

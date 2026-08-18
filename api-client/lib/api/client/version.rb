@@ -1,5 +1,5 @@
 module Api
   module Client
-    VERSION = "4.3.7.3"
+    VERSION = "4.3.8"
   end
 end
