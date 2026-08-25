@@ -28,6 +28,10 @@ module GetIntoTeachingApiClient
     # If set, the API will accept new attendees for this event (an external sign up should be used if this value is nil).
     attr_accessor :web_feed_id
 
+    attr_accessor :reference_number
+
+    attr_accessor :registration_email_link
+
     attr_accessor :is_online
 
     attr_accessor :name
@@ -74,6 +78,8 @@ module GetIntoTeachingApiClient
         :'region_id' => :'regionId',
         :'readable_id' => :'readableId',
         :'web_feed_id' => :'webFeedId',
+        :'reference_number' => :'referenceNumber',
+        :'registration_email_link' => :'registrationEmailLink',
         :'is_online' => :'isOnline',
         :'name' => :'name',
         :'summary' => :'summary',
@@ -109,6 +115,8 @@ module GetIntoTeachingApiClient
         :'region_id' => :'Integer',
         :'readable_id' => :'String',
         :'web_feed_id' => :'String',
+        :'reference_number' => :'String',
+        :'registration_email_link' => :'String',
         :'is_online' => :'Boolean',
         :'name' => :'String',
         :'summary' => :'String',
@@ -136,6 +144,8 @@ module GetIntoTeachingApiClient
         :'id',
         :'region_id',
         :'web_feed_id',
+        :'reference_number',
+        :'registration_email_link',
         :'summary',
         :'message',
         :'description',
@@ -187,6 +197,14 @@ module GetIntoTeachingApiClient
 
       if attributes.key?(:'web_feed_id')
         self.web_feed_id = attributes[:'web_feed_id']
+      end
+
+      if attributes.key?(:'reference_number')
+        self.reference_number = attributes[:'reference_number']
+      end
+
+      if attributes.key?(:'registration_email_link')
+        self.registration_email_link = attributes[:'registration_email_link']
       end
 
       if attributes.key?(:'is_online')
@@ -351,6 +369,8 @@ module GetIntoTeachingApiClient
           region_id == o.region_id &&
           readable_id == o.readable_id &&
           web_feed_id == o.web_feed_id &&
+          reference_number == o.reference_number &&
+          registration_email_link == o.registration_email_link &&
           is_online == o.is_online &&
           name == o.name &&
           summary == o.summary &&
@@ -380,7 +400,7 @@ module GetIntoTeachingApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, type_id, status_id, region_id, readable_id, web_feed_id, is_online, name, summary, message, description, video_url, scribble_id, provider_website_url, provider_target_audience, provider_organiser, provider_contact_email, start_at, end_at, providers_list, building, is_virtual, accessibility_options, is_in_person].hash
+      [id, type_id, status_id, region_id, readable_id, web_feed_id, reference_number, registration_email_link, is_online, name, summary, message, description, video_url, scribble_id, provider_website_url, provider_target_audience, provider_organiser, provider_contact_email, start_at, end_at, providers_list, building, is_virtual, accessibility_options, is_in_person].hash
     end
 
     # Builds the object from hash

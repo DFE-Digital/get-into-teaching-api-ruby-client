@@ -7,7 +7,8 @@ All URIs are relative to *http://localhost*
 | [**add_teaching_event_attendee**](TeachingEventsApi.md#add_teaching_event_attendee) | **POST** /api/teaching_events/attendees | Adds an attendee to a teaching event. |
 | [**exchange_access_token_for_teaching_event_add_attendee**](TeachingEventsApi.md#exchange_access_token_for_teaching_event_add_attendee) | **POST** /api/teaching_events/attendees/exchange_access_token/{accessToken} | Retrieves a pre-populated TeachingEventAddAttendee for the candidate. |
 | [**exchange_unverified_request_for_teaching_event_add_attendee**](TeachingEventsApi.md#exchange_unverified_request_for_teaching_event_add_attendee) | **POST** /api/teaching_events/attendees/exchange_unverified_request | Retrieves a pre-populated TeachingEventAddAttendee for the candidate (allowing to proceed as unverified). |
-| [**get_teaching_event**](TeachingEventsApi.md#get_teaching_event) | **GET** /api/teaching_events/{readableId} | Retrieves an event. |
+| [**get_teaching_event**](TeachingEventsApi.md#get_teaching_event) | **GET** /api/teaching_events/{readableId} | Retrieves an event by ReadableId. |
+| [**get_teaching_event_by_reference_number**](TeachingEventsApi.md#get_teaching_event_by_reference_number) | **GET** /api/teaching_events/reference/{referenceNumber} | Retrieves an event by ReferenceNumber. |
 | [**search_teaching_events**](TeachingEventsApi.md#search_teaching_events) | **GET** /api/teaching_events/search | Searches for teaching events. |
 | [**upsert_teaching_event**](TeachingEventsApi.md#upsert_teaching_event) | **POST** /api/teaching_events | Adds or updates a teaching event. |
 
@@ -230,7 +231,7 @@ end
 
 > <TeachingEvent> get_teaching_event(readable_id)
 
-Retrieves an event.
+Retrieves an event by ReadableId.
 
 ### Examples
 
@@ -249,7 +250,7 @@ api_instance = GetIntoTeachingApiClient::TeachingEventsApi.new
 readable_id = 'readable_id_example' # String | The `readableId` of the `TeachingEvent`.
 
 begin
-  # Retrieves an event.
+  # Retrieves an event by ReadableId.
   result = api_instance.get_teaching_event(readable_id)
   p result
 rescue GetIntoTeachingApiClient::ApiError => e
@@ -265,7 +266,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieves an event.
+  # Retrieves an event by ReadableId.
   data, status_code, headers = api_instance.get_teaching_event_with_http_info(readable_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -280,6 +281,75 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **readable_id** | **String** | The &#x60;readableId&#x60; of the &#x60;TeachingEvent&#x60;. |  |
+
+### Return type
+
+[**TeachingEvent**](TeachingEvent.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+
+## get_teaching_event_by_reference_number
+
+> <TeachingEvent> get_teaching_event_by_reference_number(reference_number)
+
+Retrieves an event by ReferenceNumber.
+
+### Examples
+
+```ruby
+require 'time'
+require 'get_into_teaching_api_client'
+# setup authorization
+GetIntoTeachingApiClient.configure do |config|
+  # Configure API key authorization: apiKey
+  config.api_key['apiKey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['apiKey'] = 'Bearer'
+end
+
+api_instance = GetIntoTeachingApiClient::TeachingEventsApi.new
+reference_number = 'reference_number_example' # String | The `referenceNumber` of the `TeachingEvent`.
+
+begin
+  # Retrieves an event by ReferenceNumber.
+  result = api_instance.get_teaching_event_by_reference_number(reference_number)
+  p result
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Error when calling TeachingEventsApi->get_teaching_event_by_reference_number: #{e}"
+end
+```
+
+#### Using the get_teaching_event_by_reference_number_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TeachingEvent>, Integer, Hash)> get_teaching_event_by_reference_number_with_http_info(reference_number)
+
+```ruby
+begin
+  # Retrieves an event by ReferenceNumber.
+  data, status_code, headers = api_instance.get_teaching_event_by_reference_number_with_http_info(reference_number)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TeachingEvent>
+rescue GetIntoTeachingApiClient::ApiError => e
+  puts "Error when calling TeachingEventsApi->get_teaching_event_by_reference_number_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **reference_number** | **String** | The &#x60;referenceNumber&#x60; of the &#x60;TeachingEvent&#x60;. |  |
 
 ### Return type
 
